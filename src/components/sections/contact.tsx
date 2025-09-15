@@ -237,7 +237,7 @@ export function Contact() {
                 <svg className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M10 2a8 8 0 100 16 8 8 0 000-16zM9 12a1 1 0 112 0v1a1 1 0 11-2 0v-1zm1-8a1 1 0 00-1 1v4a1 1 0 102 0V5a1 1 0 00-1-1z" />
                 </svg>
-                Your information is secure and will never be shared. We'll only use it to discuss your project.
+                Your information is secure and will never be shared. We&apos;ll only use it to discuss your project.
               </div>
 
               {/* Submit Button */}

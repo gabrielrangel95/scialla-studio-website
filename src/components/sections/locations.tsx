@@ -44,9 +44,9 @@ export function Locations() {
               </h2>
 
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 max-w-lg">
-                From Florida's vibrant cities to America's cultural capitals,
+                From Florida&apos;s vibrant cities to America&apos;s cultural capitals,
                 Scialla Studio delivers award-winning interior design services
-                tailored to each location's unique lifestyle and architectural
+                tailored to each location&apos;s unique lifestyle and architectural
                 heritage.
               </p>
             </div>

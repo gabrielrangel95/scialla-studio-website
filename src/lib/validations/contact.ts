@@ -13,8 +13,9 @@ export const contactFormSchema = z.object({
     .min(10, "Phone number must be at least 10 digits")
     .regex(/^[\+]?[1-9][\d]{0,15}$/, "Please enter a valid phone number"),
   location: z
-    .enum(["orlando", "tampa", "nyc", "los-angeles"], {
-      required_error: "Please select a project location",
+    .enum(["orlando", "tampa", "nyc", "los-angeles"])
+    .refine((val) => val !== undefined, {
+      message: "Please select a project location",
     }),
   projectType: z
     .enum([
@@ -24,8 +25,9 @@ export const contactFormSchema = z.object({
       "living-spaces",
       "commercial",
       "consultation",
-    ], {
-      required_error: "Please select a project type",
+    ])
+    .refine((val) => val !== undefined, {
+      message: "Please select a project type",
     }),
   message: z
     .string()

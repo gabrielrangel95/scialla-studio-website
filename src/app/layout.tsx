@@ -9,11 +9,11 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Interior Designer Orlando, Tampa, NYC & Los Angeles | Scialla Studio",
+  title: "Award-Winning Interior Designer | Orlando, Tampa, NYC & Los Angeles | Scialla Studio",
   description:
-    "Award-winning interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services. Free consultation. 200+ projects completed.",
+    "Premier interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial design with 15+ years European expertise. Free consultation. 200+ projects completed.",
   keywords:
-    "interior designer Orlando, interior designer Tampa, interior designer NYC, interior designer Los Angeles, luxury interior design, residential interior design, commercial interior design",
+    "interior designer Orlando, interior designer Tampa, interior designer NYC, interior designer Los Angeles, luxury interior design, residential interior design, commercial interior design, European interior design, Francesco Scialla, award winning interior designer",
   authors: [{ name: "Francesco Scialla", url: "https://sciallastudio.com" }],
   creator: "Scialla Studio",
   publisher: "Scialla Studio",
@@ -65,9 +65,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
-    yahoo: "your-yahoo-verification-code",
+    // Add actual verification codes from Google Search Console
+    // google: "your-google-verification-code",
   },
 };
 

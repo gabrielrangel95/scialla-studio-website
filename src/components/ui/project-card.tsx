@@ -17,10 +17,8 @@ export function ProjectCard({
   title,
   slug,
   location,
-  locationSlug,
   category,
   featuredImage,
-  completionDate,
 }: ProjectCardProps) {
   const imageUrl = urlForImage(featuredImage)?.width(800).height(600).url()
   const blurDataURL = urlForImage(featuredImage)?.width(20).height(15).blur(50).url()

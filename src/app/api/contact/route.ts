@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
-import { contactFormSchema, ContactFormData } from "@/lib/validations/contact";
+import { contactFormSchema } from "@/lib/validations/contact";
 import { generateClientEmailTemplate, generateAdminEmailTemplate } from "@/lib/email/templates";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 'dummy-key-for-build');
 
 export async function POST(request: NextRequest) {
   try {
@@ -38,7 +38,7 @@ export async function POST(request: NextRequest) {
     ]);
 
     // Check if emails were sent successfully
-    let emailErrors: string[] = [];
+    const emailErrors: string[] = [];
 
     if (clientEmailResult.status === "rejected") {
       console.error("Failed to send client email:", clientEmailResult.reason);

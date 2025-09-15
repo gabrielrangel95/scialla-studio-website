@@ -1,0 +1,40 @@
+# Robots.txt for Scialla Studio
+User-agent: *
+Allow: /
+
+# Allow all interior design city pages
+Allow: /interior-design-orlando
+Allow: /interior-design-tampa
+Allow: /interior-design-nyc
+Allow: /interior-design-los-angeles
+
+# Allow portfolio and services
+Allow: /portfolio
+Allow: /services
+Allow: /about
+Allow: /contact
+
+# Disallow Sanity Studio
+Disallow: /studio
+Disallow: /api/
+
+# Disallow admin areas
+Disallow: /admin
+Disallow: /_next/
+
+# Allow important assets
+Allow: /images/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.avif
+Allow: /*.svg
+Allow: /*.css
+Allow: /*.js
+
+# Sitemap location
+Sitemap: https://sciallastudioid.com/sitemap.xml
+
+# Crawl delay to be respectful
+Crawl-delay: 1
