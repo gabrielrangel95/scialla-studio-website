@@ -1,6 +1,7 @@
 import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
+import { Locations } from "@/components/sections/locations";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
+        <Locations />
 
         <section
           id="portfolio"
