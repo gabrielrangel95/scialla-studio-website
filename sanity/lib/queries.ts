@@ -79,3 +79,18 @@ export const cityQuery = groq`
     }
   }
 `
+
+// Get latest projects for homepage
+export const latestProjectsQuery = groq`
+  *[_type == "project"] | order(_createdAt desc) [0...6] {
+    _id,
+    _createdAt,
+    title,
+    slug,
+    "location": location->name,
+    "locationSlug": location->slug.current,
+    category,
+    featuredImage,
+    completionDate
+  }
+`

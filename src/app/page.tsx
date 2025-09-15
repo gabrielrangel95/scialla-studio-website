@@ -2,6 +2,7 @@ import { Header } from "@/components/sections/header";
 import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { Locations } from "@/components/sections/locations";
+import { Projects } from "@/components/sections/projects";
 
 export default function Home() {
   return (
@@ -11,16 +12,7 @@ export default function Home() {
         <Hero />
         <Services />
         <Locations />
-
-        <section
-          id="portfolio"
-          className="min-h-screen bg-white flex items-center justify-center px-4 md:px-6 lg:px-12 xl:px-16"
-        >
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Portfolio</h2>
-            <p className="text-gray-600">Portfolio section coming soon...</p>
-          </div>
-        </section>
+        <Projects />
 
         <section
           id="contact"
