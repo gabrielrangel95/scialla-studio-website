@@ -94,6 +94,13 @@ h6 {
   letter-spacing: -0.025em;
 }
 
+/* Section Title Utility Class */
+.section-title {
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
 h1 {
   font-size: clamp(2.5rem, 5vw, 4rem);
 }

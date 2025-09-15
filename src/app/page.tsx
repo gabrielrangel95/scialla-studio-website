@@ -3,6 +3,9 @@ import { Hero } from "@/components/sections/hero";
 import { Services } from "@/components/sections/services";
 import { Locations } from "@/components/sections/locations";
 import { Projects } from "@/components/sections/projects";
+import { About } from "@/components/sections/about";
+import { Contact } from "@/components/sections/contact";
+import { Footer } from "@/components/sections/footer";
 
 export default function Home() {
   return (
@@ -11,19 +14,12 @@ export default function Home() {
       <main>
         <Hero />
         <Services />
-        <Locations />
         <Projects />
-
-        <section
-          id="contact"
-          className="min-h-screen bg-gray-50 flex items-center justify-center px-4 md:px-6 lg:px-12 xl:px-16"
-        >
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Contact</h2>
-            <p className="text-gray-600">Contact section coming soon...</p>
-          </div>
-        </section>
+        <About />
+        <Locations />
+        <Contact />
       </main>
+      <Footer />
     </div>
   );
 }

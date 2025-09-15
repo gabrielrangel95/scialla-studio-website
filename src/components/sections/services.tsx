@@ -47,12 +47,12 @@ export function Services() {
   return (
     <section 
       id="services"
-      className="py-16 md:py-20 lg:py-24 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16"
+      className="py-16 md:py-24 lg:py-32 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16"
     >
       <div className="w-full">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
             Full-Service Interior Design Solutions
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">

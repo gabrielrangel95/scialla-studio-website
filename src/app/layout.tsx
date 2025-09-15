@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Noto_Serif } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const notoSerif = Noto_Serif({
@@ -235,7 +236,10 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${notoSerif.variable} antialiased`}>{children}</body>
+      <body className={`${notoSerif.variable} antialiased`}>
+        {children}
+        <Toaster position="top-right" richColors />
+      </body>
     </html>
   );
 }
