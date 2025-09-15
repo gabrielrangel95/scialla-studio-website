@@ -34,7 +34,6 @@
   --radius: 0.5rem;
 }
 
-
 .dark {
   --background: 0 0% 3.9%;
   --foreground: 0 0% 98%;
@@ -319,12 +318,12 @@ textarea:focus {
   .hero-section {
     padding-top: 4rem;
   }
-  
+
   .hero-image-container {
     height: 70vh;
     min-height: 500px;
   }
-  
+
   .hero-inner {
     padding: 0 1rem;
   }

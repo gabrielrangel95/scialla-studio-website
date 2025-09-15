@@ -21,7 +21,6 @@ export function Services() {
         "Living Room & Bedroom Design",
       ],
       image: "/scialla-studio-interior-design.jpg",
-      href: "/services/residential-interior-design",
     },
     {
       title: "Commercial Interior Design",
@@ -32,7 +31,6 @@ export function Services() {
         "Medical Office Interiors",
       ],
       image: "/scialla-studio-commercial-interior-design.jpg",
-      href: "/services/commercial-interior-design",
     },
     {
       title: "Design Consultation Services",
@@ -43,18 +41,17 @@ export function Services() {
         "Furniture & Décor Sourcing",
       ],
       image: "/scialla-studio-interior-design-consultation.jpg",
-      href: "/services/design-consultation",
     },
   ];
 
   return (
     <section 
       id="services"
-      className="py-20 md:py-24 lg:py-32 bg-white px-4 md:px-6 lg:px-12 xl:px-16"
+      className="py-16 md:py-20 lg:py-24 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16"
     >
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             Full-Service Interior Design Solutions
           </h2>
@@ -65,14 +62,13 @@ export function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
           {servicesData.map((service, index) => (
             <ServiceCard
               key={index}
               title={service.title}
               services={service.services}
               image={service.image}
-              href={service.href}
             />
           ))}
         </div>
