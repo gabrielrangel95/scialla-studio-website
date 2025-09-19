@@ -7,53 +7,53 @@ import { Header } from '@/components/sections/header';
 import { Footer } from '@/components/sections/footer';
 
 const cityData = {
-  name: 'Orlando',
-  state: 'Florida',
+  name: 'Los Angeles',
+  state: 'California',
   hero: {
-    title: 'Premier Interior Designer in Orlando, Florida',
-    subtitle: 'Transforming luxury homes across Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips with sophisticated interior design that captures Central Florida&apos;s vibrant energy.',
-    image: '/scialla-studio-interior-designer-orlando-florida.png',
-    alt: 'Luxury interior design by Scialla Studio in Orlando, Florida'
+    title: 'Leading Interior Designer in Los Angeles, California',
+    subtitle: 'Elevating luxury living across Beverly Hills, Malibu, West Hollywood, Santa Monica, and Manhattan Beach with innovative designs that reflect the California dream lifestyle.',
+    image: '/scialla-studio-interior-designer-los-angeles-california.png',
+    alt: 'Luxury interior design by Scialla Studio in Los Angeles, California'
   },
-  neighborhoods: ['Winter Park', 'Lake Nona', 'Downtown Orlando', 'Windermere', 'Dr. Phillips', 'Baldwin Park', 'Thornton Park', 'College Park'],
+  neighborhoods: ['Beverly Hills', 'Malibu', 'West Hollywood', 'Santa Monica', 'Manhattan Beach', 'Brentwood', 'Venice', 'Hollywood Hills'],
   projects: {
-    count: 45,
-    featured: ['Modern Lake Nona Residence', 'Winter Park Historic Home', 'Downtown Orlando Penthouse']
+    count: 52,
+    featured: ['Beverly Hills Modern Estate', 'Malibu Oceanfront Villa', 'West Hollywood Penthouse']
   },
   testimonials: [
     {
-      name: 'Sarah M.',
-      review: 'Francesco transformed our Winter Park home into a stunning masterpiece. His attention to detail and understanding of our style was exceptional.',
-      project: 'Winter Park Home Renovation',
+      name: 'Emma W.',
+      review: 'Francesco created the perfect blend of modern elegance and California casual in our Beverly Hills home. His vision was extraordinary.',
+      project: 'Beverly Hills Estate Renovation',
       rating: 5
     },
     {
-      name: 'Michael R.',
-      review: 'The team at Scialla Studio exceeded all expectations. Our Lake Nona home is now the envy of the neighborhood.',
-      project: 'Lake Nona Modern Design',
+      name: 'James C.',
+      review: 'The team at Scialla Studio transformed our Malibu home into a coastal paradise. Every detail was perfectly executed.',
+      project: 'Malibu Coastal Design',
       rating: 5
     }
   ],
   services: [
-    'Luxury Home Renovation Orlando',
-    'Kitchen Design Orlando',
-    'Bathroom Remodeling Orlando',
-    'Living Room Design Orlando',
-    'Bedroom Interior Design Orlando',
-    'Commercial Interior Design Orlando'
+    'Luxury Home Renovation Los Angeles',
+    'Kitchen Design Beverly Hills',
+    'Bathroom Remodeling Malibu',
+    'Living Room Design West Hollywood',
+    'Bedroom Interior Design Santa Monica',
+    'Commercial Interior Design Los Angeles'
   ],
   faq: [
     {
-      question: 'How much does interior design cost in Orlando?',
-      answer: 'Interior design costs in Orlando typically range from $75-200 per square foot for full-service design, depending on the scope and luxury level. We offer free consultations to provide accurate estimates.'
+      question: 'How much does interior design cost in Los Angeles?',
+      answer: 'Interior design costs in Los Angeles typically range from $200-500 per square foot for full-service design, reflecting the premium market and high-end finishes. We provide detailed estimates during our complimentary consultation.'
     },
     {
-      question: 'Do you work in Winter Park and Lake Nona?',
-      answer: 'Yes, we serve all of Greater Orlando including Winter Park, Lake Nona, Windermere, Dr. Phillips, and surrounding areas. We have completed numerous projects in these premium neighborhoods.'
+      question: 'Do you work in Beverly Hills and Malibu?',
+      answer: 'Yes, we serve all of Greater Los Angeles including Beverly Hills, Malibu, West Hollywood, Santa Monica, and surrounding luxury communities. We specialize in high-end residential projects throughout LA County.'
     },
     {
-      question: 'How long does an Orlando interior design project take?',
-      answer: 'Timeline varies by project scope. A full home renovation typically takes 3-6 months, while single room designs can be completed in 4-8 weeks. We provide detailed timelines during consultation.'
+      question: 'How long does a Los Angeles interior design project take?',
+      answer: 'Timeline varies by project complexity and permitting requirements. A full luxury home renovation typically takes 6-12 months, while single room designs can be completed in 8-16 weeks, accounting for California regulations and sourcing.'
     }
   ]
 };
@@ -63,12 +63,12 @@ export const metadata: Metadata = {
   description: cityData.hero.subtitle,
   keywords: `interior designer ${cityData.name}, luxury interior design ${cityData.name}, ${cityData.name} interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
   alternates: {
-    canonical: 'https://sciallastudioid.com/interior-design-orlando',
+    canonical: 'https://sciallastudioid.com/interior-design-los-angeles',
   },
   openGraph: {
     title: `${cityData.hero.title} | Scialla Studio`,
     description: cityData.hero.subtitle,
-    url: 'https://sciallastudioid.com/interior-design-orlando',
+    url: 'https://sciallastudioid.com/interior-design-los-angeles',
     siteName: 'Scialla Studio',
     images: [
       {
@@ -89,22 +89,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function OrlandoPage() {
+export default function LosAngelesPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://sciallastudioid.com/interior-design-orlando",
+    "@id": "https://sciallastudioid.com/interior-design-los-angeles",
     name: "Scialla Studio",
     alternateName: `Scialla Studio - ${cityData.name} Interior Design`,
     description: cityData.hero.subtitle,
-    url: "https://sciallastudioid.com/interior-design-orlando",
+    url: "https://sciallastudioid.com/interior-design-los-angeles",
     telephone: "+1-727-504-4138",
     email: "info@sciallastudioid.com",
     priceRange: "$$$$",
     address: {
       "@type": "PostalAddress",
       addressLocality: cityData.name,
-      addressRegion: "FL",
+      addressRegion: "CA",
       addressCountry: "US"
     },
     areaServed: {

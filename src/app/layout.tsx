@@ -9,7 +9,7 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Award-Winning Interior Designer | Orlando, Tampa, NYC & Los Angeles | Scialla Studio",
+  title: "Premier Interior Designer | Orlando, Tampa, NYC & Los Angeles | Scialla Studio",
   description:
     "Premier interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial design with 15+ years European expertise. Free consultation. 200+ projects completed.",
   keywords:
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title:
       "Interior Designer Orlando, Tampa, NYC & Los Angeles | Scialla Studio",
     description:
-      "Award-winning interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services.",
+      "Premier interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services.",
     url: "https://sciallastudio.com",
     siteName: "Scialla Studio",
     locale: "en_US",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title:
       "Interior Designer Orlando, Tampa, NYC & Los Angeles | Scialla Studio",
     description:
-      "Award-winning interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services.",
+      "Premier interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services.",
     images: ["/twitter-image.jpg"],
     creator: "@sciallastudio",
   },
@@ -82,7 +82,7 @@ export default function RootLayout({
     name: "Scialla Studio",
     alternateName: "Scialla Interior Design Studio",
     description:
-      "Award-winning interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services.",
+      "Premier interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services.",
     url: "https://sciallastudio.com",
     telephone: "+1-555-123-4567",
     email: "info@sciallastudio.com",

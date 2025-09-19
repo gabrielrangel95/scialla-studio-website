@@ -1,6 +1,7 @@
 import { MetadataRoute } from 'next'
+import { sanityService } from '@/lib/sanity-service'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://sciallastudioid.com'
   
   // Static pages
@@ -57,9 +58,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   )
 
+  // Get all projects for dynamic URLs
+  const projects = await sanityService.getAllProjects()
+  const projectPages = projects.map(project => ({
+    url: `${baseUrl}/portfolio/${project.slug.current}`,
+    lastModified: project.completionDate ? new Date(project.completionDate) : new Date(project._createdAt),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
   return [
     ...staticPages,
     ...cityPages,
     ...servicePages,
+    ...projectPages,
   ]
 }

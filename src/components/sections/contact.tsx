@@ -85,7 +85,7 @@ export function Contact() {
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
-            CONTACT
+            Contact
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ready to transform your space? Get in touch for a free consultation.
@@ -246,7 +246,7 @@ export function Contact() {
                 disabled={isSubmitting}
                 className="w-full bg-black text-white hover:bg-gray-800 py-4 px-8 text-sm font-medium uppercase tracking-wider transition-all duration-200"
               >
-                {isSubmitting ? "SENDING..." : "GET MY FREE CONSULTATION"}
+                {isSubmitting ? "Sending..." : "Get My Free Consultation"}
               </Button>
             </form>
           </Form>

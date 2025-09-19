@@ -10,7 +10,7 @@ const cityData = {
   name: 'Tampa',
   state: 'Florida',
   hero: {
-    title: 'Award-Winning Interior Designer in Tampa, Florida',
+    title: 'Expert Interior Designer in Tampa, Florida',
     subtitle: 'Creating stunning interiors throughout South Tampa, Westchase, Hyde Park, Channelside, and Harbour Island. Our designs blend coastal elegance with Tampa Bay&apos;s modern sophistication.',
     image: '/scialla-studio-interior-designer-tampa-fl.avif',
     alt: 'Luxury interior design by Scialla Studio in Tampa, Florida'

@@ -1,32 +1,11 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { sanityClient } from '@/lib/sanity'
-import { latestProjectsQuery } from '../../../sanity/lib/queries'
 import { ProjectCard } from '@/components/ui/project-card'
-import type { SanityImage } from '@/types/sanity'
+import { sanityService } from '@/lib/sanity-service'
+import type { Project } from '@/types/sanity'
 
-interface ProjectData {
-  _id: string
-  _createdAt: string
-  title: string
-  slug: {
-    current: string
-  }
-  location: string
-  locationSlug: string
-  category: string[]
-  featuredImage: SanityImage
-  completionDate?: string
-}
-
-async function getLatestProjects(): Promise<ProjectData[]> {
-  try {
-    const projects = await sanityClient.fetch(latestProjectsQuery)
-    return projects || []
-  } catch (error) {
-    console.error('Error fetching projects:', error)
-    return []
-  }
+async function getLatestProjects(): Promise<Project[]> {
+  return await sanityService.getLatestProjects(6)
 }
 
 export async function Projects() {
@@ -37,16 +16,16 @@ export async function Projects() {
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
-            DESIGNING SPACES
+            Designing Spaces
             <br />
-            <span className="block mt-2">THAT TELL YOUR STORY</span>
+            <span className="block mt-2">That Tell Your Story</span>
           </h2>
           <div className="flex justify-center">
-            <Link 
+            <Link
               href="/portfolio"
               className="inline-flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
             >
-              VIEW ALL PROJECTS
+              View All Projects
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
             </Link>
           </div>
@@ -60,8 +39,8 @@ export async function Projects() {
                 key={project._id}
                 title={project.title}
                 slug={project.slug.current}
-                location={project.location}
-                locationSlug={project.locationSlug}
+                location={project.location.name}
+                locationSlug={project.location.slug.current}
                 category={project.category}
                 featuredImage={project.featuredImage}
                 completionDate={project.completionDate}

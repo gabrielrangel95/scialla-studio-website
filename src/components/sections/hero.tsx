@@ -33,13 +33,13 @@ export function Hero() {
           <div className="hero-inner">
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl  text-white mb-6 leading-tight tracking-tight">
-              Award-Winning Interior Designer
+              Premier Interior Designer
               <span className="block mt-2">Orlando | Tampa | NYC | Los Angeles</span>
             </h1>
 
             {/* Subheading */}
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-12 leading-relaxed font-light">
-              Award-winning interior design studio transforming luxury homes and
+              Award-winning interior design studio creating exceptional homes and
               commercial spaces since 2010
             </p>
 

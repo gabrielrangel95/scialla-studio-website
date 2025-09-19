@@ -7,53 +7,53 @@ import { Header } from '@/components/sections/header';
 import { Footer } from '@/components/sections/footer';
 
 const cityData = {
-  name: 'Orlando',
-  state: 'Florida',
+  name: 'New York City',
+  state: 'New York',
   hero: {
-    title: 'Premier Interior Designer in Orlando, Florida',
-    subtitle: 'Transforming luxury homes across Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips with sophisticated interior design that captures Central Florida&apos;s vibrant energy.',
-    image: '/scialla-studio-interior-designer-orlando-florida.png',
-    alt: 'Luxury interior design by Scialla Studio in Orlando, Florida'
+    title: 'Expert Interior Designer in New York City',
+    subtitle: 'Creating sophisticated interiors across Manhattan, Brooklyn, Queens, and the Bronx with designs that reflect the dynamic energy of America&apos;s greatest city.',
+    image: '/scialla-studio-interior-designer-nyc-new-york.png',
+    alt: 'Luxury interior design by Scialla Studio in New York City'
   },
-  neighborhoods: ['Winter Park', 'Lake Nona', 'Downtown Orlando', 'Windermere', 'Dr. Phillips', 'Baldwin Park', 'Thornton Park', 'College Park'],
+  neighborhoods: ['Manhattan', 'Brooklyn', 'Queens', 'Upper East Side', 'SoHo', 'Tribeca', 'Williamsburg', 'Long Island City'],
   projects: {
-    count: 45,
-    featured: ['Modern Lake Nona Residence', 'Winter Park Historic Home', 'Downtown Orlando Penthouse']
+    count: 38,
+    featured: ['Tribeca Loft Transformation', 'Upper East Side Penthouse', 'Brooklyn Heights Townhouse']
   },
   testimonials: [
     {
-      name: 'Sarah M.',
-      review: 'Francesco transformed our Winter Park home into a stunning masterpiece. His attention to detail and understanding of our style was exceptional.',
-      project: 'Winter Park Home Renovation',
+      name: 'Alexandra K.',
+      review: 'Francesco completely reimagined our Tribeca loft. His vision for the space was extraordinary and the execution was flawless.',
+      project: 'Tribeca Loft Renovation',
       rating: 5
     },
     {
-      name: 'Michael R.',
-      review: 'The team at Scialla Studio exceeded all expectations. Our Lake Nona home is now the envy of the neighborhood.',
-      project: 'Lake Nona Modern Design',
+      name: 'David L.',
+      review: 'Working with Scialla Studio on our Upper East Side apartment was incredible. They understood our lifestyle and created something truly special.',
+      project: 'Upper East Side Modern Design',
       rating: 5
     }
   ],
   services: [
-    'Luxury Home Renovation Orlando',
-    'Kitchen Design Orlando',
-    'Bathroom Remodeling Orlando',
-    'Living Room Design Orlando',
-    'Bedroom Interior Design Orlando',
-    'Commercial Interior Design Orlando'
+    'Luxury Apartment Renovation NYC',
+    'Kitchen Design New York',
+    'Bathroom Remodeling NYC',
+    'Living Room Design Manhattan',
+    'Bedroom Interior Design NYC',
+    'Commercial Interior Design New York'
   ],
   faq: [
     {
-      question: 'How much does interior design cost in Orlando?',
-      answer: 'Interior design costs in Orlando typically range from $75-200 per square foot for full-service design, depending on the scope and luxury level. We offer free consultations to provide accurate estimates.'
+      question: 'How much does interior design cost in NYC?',
+      answer: 'Interior design costs in New York City typically range from $150-400 per square foot for full-service design, reflecting the premium market and logistical considerations. We provide detailed estimates during our free consultation.'
     },
     {
-      question: 'Do you work in Winter Park and Lake Nona?',
-      answer: 'Yes, we serve all of Greater Orlando including Winter Park, Lake Nona, Windermere, Dr. Phillips, and surrounding areas. We have completed numerous projects in these premium neighborhoods.'
+      question: 'Do you work in Manhattan and Brooklyn?',
+      answer: 'Yes, we serve all five boroughs including Manhattan, Brooklyn, Queens, and surrounding areas. We have extensive experience with NYC apartments, lofts, and townhouses.'
     },
     {
-      question: 'How long does an Orlando interior design project take?',
-      answer: 'Timeline varies by project scope. A full home renovation typically takes 3-6 months, while single room designs can be completed in 4-8 weeks. We provide detailed timelines during consultation.'
+      question: 'How long does a NYC interior design project take?',
+      answer: 'Timeline varies by project scope and building requirements. A full apartment renovation typically takes 4-8 months, while single room designs can be completed in 6-12 weeks, accounting for NYC permitting and logistics.'
     }
   ]
 };
@@ -63,12 +63,12 @@ export const metadata: Metadata = {
   description: cityData.hero.subtitle,
   keywords: `interior designer ${cityData.name}, luxury interior design ${cityData.name}, ${cityData.name} interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
   alternates: {
-    canonical: 'https://sciallastudioid.com/interior-design-orlando',
+    canonical: 'https://sciallastudioid.com/interior-design-nyc',
   },
   openGraph: {
     title: `${cityData.hero.title} | Scialla Studio`,
     description: cityData.hero.subtitle,
-    url: 'https://sciallastudioid.com/interior-design-orlando',
+    url: 'https://sciallastudioid.com/interior-design-nyc',
     siteName: 'Scialla Studio',
     images: [
       {
@@ -89,22 +89,22 @@ export const metadata: Metadata = {
   },
 };
 
-export default function OrlandoPage() {
+export default function NYCPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://sciallastudioid.com/interior-design-orlando",
+    "@id": "https://sciallastudioid.com/interior-design-nyc",
     name: "Scialla Studio",
     alternateName: `Scialla Studio - ${cityData.name} Interior Design`,
     description: cityData.hero.subtitle,
-    url: "https://sciallastudioid.com/interior-design-orlando",
+    url: "https://sciallastudioid.com/interior-design-nyc",
     telephone: "+1-727-504-4138",
     email: "info@sciallastudioid.com",
     priceRange: "$$$$",
     address: {
       "@type": "PostalAddress",
       addressLocality: cityData.name,
-      addressRegion: "FL",
+      addressRegion: "NY",
       addressCountry: "US"
     },
     areaServed: {

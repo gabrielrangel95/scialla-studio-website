@@ -23,19 +23,19 @@ export function Footer() {
 
   const socialLinks = [
     {
-      name: "FACEBOOK",
+      name: "Facebook",
       url: "https://www.facebook.com/profile.php?id=61554601536191"
     },
     {
-      name: "INSTAGRAM", 
+      name: "Instagram",
       url: "https://www.instagram.com/sciallastudio_/"
     },
     {
-      name: "HOUZZ",
+      name: "Houzz",
       url: "https://www.houzz.com/pro/francescosciallaarchitect/scialla-studio"
     },
     {
-      name: "PINTEREST",
+      name: "Pinterest",
       url: "https://www.pinterest.com/Sciallastudio_/"
     }
   ];
@@ -58,7 +58,7 @@ export function Footer() {
                 priority
               />
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Transforming Spaces, Elevating Lives
+                Creating Spaces, Elevating Lives
               </p>
             </div>
             
@@ -76,10 +76,10 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gray-400" />
                 <a 
-                  href="mailto:INFO@SCIALLASTUDIOID.COM"
+                  href="mailto:info@sciallastudioid.com"
                   className="hover:text-white transition-colors duration-200"
                 >
-                  INFO@SCIALLASTUDIOID.COM
+                  info@sciallastudioid.com
                 </a>
               </div>
             </div>

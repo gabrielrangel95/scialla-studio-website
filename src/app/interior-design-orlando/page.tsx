@@ -11,7 +11,7 @@ const cityData = {
   state: 'Florida',
   hero: {
     title: 'Premier Interior Designer in Orlando, Florida',
-    subtitle: 'Transforming luxury homes across Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips with sophisticated interior design that captures Central Florida&apos;s vibrant energy.',
+    subtitle: 'Elevating sophisticated homes across Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips with innovative interior design that captures Central Florida&apos;s vibrant energy.',
     image: '/scialla-studio-interior-designer-orlando-florida.png',
     alt: 'Luxury interior design by Scialla Studio in Orlando, Florida'
   },

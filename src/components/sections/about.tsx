@@ -7,9 +7,9 @@ export function About() {
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
-            AWARD-WINNING DESIGN TEAM
+            Expert Design Team
             <br />
-            <span className="block mt-2">WITH GLOBAL PERSPECTIVE</span>
+            <span className="block mt-2">With Global Perspective</span>
           </h2>
         </div>
 

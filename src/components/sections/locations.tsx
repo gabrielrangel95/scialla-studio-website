@@ -8,7 +8,7 @@ export function Locations() {
       city: "Orlando",
       slug: "orlando",
       description:
-        "Transforming luxury homes across Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips with sophisticated interior design that captures Central Florida's vibrant energy.",
+        "Elevating sophisticated homes across Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips with innovative interior design that captures Central Florida's vibrant energy.",
     },
     {
       city: "Tampa",
@@ -38,14 +38,14 @@ export function Locations() {
           <div className="max-w-xl space-y-8">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 leading-tight tracking-tight mb-8">
-                INTERIOR DESIGN SERVICES
+                Interior Design Services
                 <br />
-                <span className="block mt-2">ACROSS FOUR MAJOR CITIES</span>
+                <span className="block mt-2">Across Four Major Cities</span>
               </h2>
 
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 max-w-lg">
                 From Florida&apos;s vibrant cities to America&apos;s cultural capitals,
-                Scialla Studio delivers award-winning interior design services
+                Scialla Studio delivers premier interior design services
                 tailored to each location&apos;s unique lifestyle and architectural
                 heritage.
               </p>
@@ -56,7 +56,7 @@ export function Locations() {
                 href="/about"
                 className="inline-flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
               >
-                VIEW LOCATIONS
+                View Locations
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </div>
@@ -84,7 +84,7 @@ export function Locations() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <h3 className="text-lg font-normal text-gray-900 mb-5 tracking-wide">
-                      {location.city.toUpperCase()}
+                      {location.city}
                     </h3>
                     <p className="text-gray-600 leading-relaxed pr-8">
                       {location.description}
