@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  outputFileTracingRoot: '/Users/gabrielrangel/Projetos/scialla-studio',
 };
 
 export default nextConfig;

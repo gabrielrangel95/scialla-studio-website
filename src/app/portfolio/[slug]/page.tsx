@@ -24,7 +24,6 @@ import {
   extractPortableTextContent,
 } from "@/lib/sanity-service";
 import { urlForImage, resolveOpenGraphImage } from "@/lib/sanity-image";
-import type { Project } from "@/types/sanity";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -413,7 +412,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   )}
 
                   <blockquote className="text-gray-700 mb-4 italic">
-                    "{project.client.testimonial}"
+                    &ldquo;{project.client.testimonial}&rdquo;
                   </blockquote>
 
                   {project.client.name && (

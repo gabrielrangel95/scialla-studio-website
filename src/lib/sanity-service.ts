@@ -18,7 +18,7 @@ export function extractPortableTextContent(blocks: PortableTextBlock[] | undefin
     .map(block => {
       if (block && typeof block === 'object' && 'children' in block && Array.isArray(block.children)) {
         return block.children
-          .map((child: any) => {
+          .map((child: unknown) => {
             if (child && typeof child === 'object' && 'text' in child && typeof child.text === 'string') {
               return child.text
             }

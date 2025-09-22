@@ -1,6 +1,5 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Suspense } from 'react'
 import { Filter, MapPin, Calendar, Tag } from 'lucide-react'
 import { Header } from '@/components/sections/header'
 import { Footer } from '@/components/sections/footer'
@@ -8,14 +7,14 @@ import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { ProjectCard } from '@/components/ui/project-card'
 import { sanityService, extractPortableTextContent } from '@/lib/sanity-service'
 import { urlForImage } from '@/lib/sanity-image'
-import type { Project, LocationSlug } from '@/types/sanity'
+import type { LocationSlug } from '@/types/sanity'
 
 interface PortfolioPageProps {
-  searchParams?: {
+  searchParams?: Promise<{
     city?: LocationSlug
     category?: string
     page?: string
-  }
+  }>
 }
 
 async function getPortfolioData(searchParams?: PortfolioPageProps['searchParams']) {

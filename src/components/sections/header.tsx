@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import { Menu, Phone, Mail, MapPin, Instagram, ArrowRight } from "lucide-react";
+import { Menu, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 export function Header() {
   const scrollToSection = (sectionId: string) => {

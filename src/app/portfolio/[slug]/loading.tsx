@@ -1,6 +1,5 @@
 import { Header } from '@/components/sections/header'
 import { Footer } from '@/components/sections/footer'
-import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 import { ArrowLeft } from 'lucide-react'
 
 export default function ProjectLoading() {
