@@ -80,7 +80,7 @@ export function Contact() {
   }
 
   return (
-    <section className="lead-capture bg-gradient-to-b from-white to-gray-50 py-20">
+    <section id="contact" className="lead-capture bg-gradient-to-b from-white to-gray-50 py-20">
       <div className="container mx-auto px-4 max-w-3xl">
         {/* Section Header */}
         <div className="text-center mb-16 md:mb-20">

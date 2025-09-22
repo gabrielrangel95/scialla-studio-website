@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -7,16 +8,41 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { Menu, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 export function Header() {
+  useEffect(() => {
+    // Handle hash navigation when page loads
+    const handleHashNavigation = () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const sectionId = hash.substring(1);
+        const element = document.getElementById(sectionId);
+        if (element) {
+          // Small delay to ensure page has loaded
+          setTimeout(() => {
+            element.scrollIntoView({ behavior: "smooth" });
+          }, 100);
+        }
+      }
+    };
+
+    handleHashNavigation();
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    // Check if we're on the homepage
+    if (window.location.pathname === "/") {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      // Navigate to homepage then scroll to section
+      window.location.href = `/#${sectionId}`;
     }
   };
 
   const navigation = [
     { name: "Services", id: "services", href: "#services" },
-    { name: "Portfolio", id: "portfolio", href: "/portfolio" },
+    { name: "Portfolio", id: "portfolio", href: "#portfolio" },
     { name: "About", id: "about", href: "#about" },
   ];
 
