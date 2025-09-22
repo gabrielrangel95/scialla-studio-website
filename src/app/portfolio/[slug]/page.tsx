@@ -1,84 +1,102 @@
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import Image from 'next/image'
-import Link from 'next/link'
-import { PortableText } from '@portabletext/react'
-import { Calendar, MapPin, Clock, DollarSign, Square, Star, ArrowLeft, ArrowRight } from 'lucide-react'
-import { Header } from '@/components/sections/header'
-import { Footer } from '@/components/sections/footer'
-import { Breadcrumbs } from '@/components/ui/breadcrumbs'
-import { ProjectCard } from '@/components/ui/project-card'
-import { Button } from '@/components/ui/button'
-import { ImageGallery } from '@/components/ui/image-gallery'
-import { sanityService, extractPortableTextContent } from '@/lib/sanity-service'
-import { urlForImage, resolveOpenGraphImage } from '@/lib/sanity-image'
-import type { Project } from '@/types/sanity'
+import { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Image from "next/image";
+import Link from "next/link";
+import { PortableText } from "@portabletext/react";
+import {
+  Calendar,
+  MapPin,
+  Clock,
+  DollarSign,
+  Square,
+  Star,
+  ArrowLeft,
+  ArrowRight,
+} from "lucide-react";
+import { Header } from "@/components/sections/header";
+import { Footer } from "@/components/sections/footer";
+import { Breadcrumbs } from "@/components/ui/breadcrumbs";
+import { ProjectCard } from "@/components/ui/project-card";
+import { Button } from "@/components/ui/button";
+import { ImageGallery } from "@/components/ui/image-gallery";
+import {
+  sanityService,
+  extractPortableTextContent,
+} from "@/lib/sanity-service";
+import { urlForImage, resolveOpenGraphImage } from "@/lib/sanity-image";
+import type { Project } from "@/types/sanity";
 
 interface ProjectPageProps {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string }>;
 }
 
 async function getProjectData(slug: string) {
-  const project = await sanityService.getProject(slug)
+  const project = await sanityService.getProject(slug);
 
   if (!project) {
-    return null
+    return null;
   }
 
-  const relatedProjects = await sanityService.getRelatedProjects(project, 3)
+  const relatedProjects = await sanityService.getRelatedProjects(project, 3);
 
   return {
     project,
-    relatedProjects
-  }
+    relatedProjects,
+  };
 }
 
 export async function generateStaticParams() {
-  const slugs = await sanityService.getAllProjectSlugs()
+  const slugs = await sanityService.getAllProjectSlugs();
   return slugs.map((slug) => ({
     slug,
-  }))
+  }));
 }
 
-export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
-  const resolvedParams = await params
-  const data = await getProjectData(resolvedParams.slug)
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const resolvedParams = await params;
+  const data = await getProjectData(resolvedParams.slug);
 
   if (!data?.project) {
     return {
-      title: 'Project Not Found | Scialla Studio',
-      description: 'The requested project could not be found.',
-    }
+      title: "Project Not Found | Scialla Studio",
+      description: "The requested project could not be found.",
+    };
   }
 
-  const { project } = data
-  const cityName = project.location.name
+  const { project } = data;
+  const cityName = project.location.name;
   const categoryNames = project.category
-    .map(cat => cat.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()))
-    .join(', ')
+    .map((cat) =>
+      cat.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())
+    )
+    .join(", ");
 
   // Use custom SEO fields if available, otherwise generate
-  const title = project.seo?.title ||
-    `${project.title} | Interior Design ${cityName} | Scialla Studio`
+  const title =
+    project.seo?.title ||
+    `${project.title} | Interior Design ${cityName} | Scialla Studio`;
 
-  const description = project.seo?.description ||
-    `${project.title} - Professional interior design project in ${cityName}. ${categoryNames} by Scialla Studio. View our portfolio of luxury interior design.`
+  const description =
+    project.seo?.description ||
+    `${project.title} - Professional interior design project in ${cityName}. ${categoryNames} by Scialla Studio. View our portfolio of luxury interior design.`;
 
   const keywords = [
     `${project.title.toLowerCase()}`,
     `interior design ${cityName.toLowerCase()}`,
-    ...project.category.map(cat => cat.replace('-', ' ')),
-    'luxury interior design',
-    'modern home design',
-    'Scialla Studio',
-    ...(project.seo?.keywords || [])
-  ].join(', ')
+    ...project.category.map((cat) => cat.replace("-", " ")),
+    "luxury interior design",
+    "modern home design",
+    "Scialla Studio",
+    ...(project.seo?.keywords || []),
+  ].join(", ");
 
   const ogImage = resolveOpenGraphImage(
     project.seo?.ogImage || project.featuredImage,
     1200,
     630
-  )
+  );
 
   return {
     title,
@@ -91,101 +109,106 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
       title,
       description,
       url: `https://sciallastudioid.com/portfolio/${project.slug.current}`,
-      siteName: 'Scialla Studio',
+      siteName: "Scialla Studio",
       images: ogImage ? [ogImage] : [],
-      locale: 'en_US',
-      type: 'article',
+      locale: "en_US",
+      type: "article",
       publishedTime: project._createdAt,
       modifiedTime: project.completionDate || project._createdAt,
-      authors: ['Scialla Studio'],
+      authors: ["Scialla Studio"],
       tags: project.category,
     },
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title,
       description,
       images: ogImage ? [ogImage.url] : [],
     },
-  }
+  };
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
-  const resolvedParams = await params
-  const data = await getProjectData(resolvedParams.slug)
+  const resolvedParams = await params;
+  const data = await getProjectData(resolvedParams.slug);
 
   if (!data?.project) {
-    notFound()
+    notFound();
   }
 
-  const { project, relatedProjects } = data
-  const cityName = project.location.name
-  const categoryNames = project.category
-    .map(cat => cat.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()))
+  const { project, relatedProjects } = data;
+  const cityName = project.location.name;
+  const categoryNames = project.category.map((cat) =>
+    cat.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())
+  );
 
   // Structured Data
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     "@id": `https://sciallastudioid.com/portfolio/${project.slug.current}`,
-    "name": project.title,
-    "description": extractPortableTextContent(project.description) || `Interior design project in ${cityName}`,
-    "image": project.featuredImage ? urlForImage(project.featuredImage)?.url() : null,
-    "creator": {
+    name: project.title,
+    description:
+      extractPortableTextContent(project.description) ||
+      `Interior design project in ${cityName}`,
+    image: project.featuredImage
+      ? urlForImage(project.featuredImage)?.url()
+      : null,
+    creator: {
       "@type": "Organization",
-      "name": "Scialla Studio",
-      "url": "https://sciallastudioid.com",
-      "logo": "https://sciallastudioid.com/scialla-studio-logo.png"
+      name: "Scialla Studio",
+      url: "https://sciallastudioid.com",
+      logo: "https://sciallastudioid.com/scialla-studio-logo.png",
     },
-    "locationCreated": {
+    locationCreated: {
       "@type": "Place",
-      "name": cityName,
-      "address": {
+      name: cityName,
+      address: {
         "@type": "PostalAddress",
-        "addressLocality": cityName
-      }
+        addressLocality: cityName,
+      },
     },
-    "dateCreated": project._createdAt,
-    "datePublished": project._createdAt,
-    "genre": categoryNames.join(', '),
-    "keywords": project.category.join(', '),
-    "publisher": {
+    dateCreated: project._createdAt,
+    datePublished: project._createdAt,
+    genre: categoryNames.join(", "),
+    keywords: project.category.join(", "),
+    publisher: {
       "@type": "Organization",
-      "name": "Scialla Studio"
-    }
-  }
+      name: "Scialla Studio",
+    },
+  };
 
   const breadcrumbStructuredData = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://sciallastudioid.com"
+        position: 1,
+        name: "Home",
+        item: "https://sciallastudioid.com",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Portfolio",
-        "item": "https://sciallastudioid.com/portfolio"
+        position: 2,
+        name: "Portfolio",
+        item: "https://sciallastudioid.com/portfolio",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": project.title,
-        "item": `https://sciallastudioid.com/portfolio/${project.slug.current}`
-      }
-    ]
-  }
+        position: 3,
+        name: project.title,
+        item: `https://sciallastudioid.com/portfolio/${project.slug.current}`,
+      },
+    ],
+  };
 
   // Format completion date
   const completionDate = project.completionDate
-    ? new Date(project.completionDate).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long'
+    ? new Date(project.completionDate).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
       })
-    : null
+    : null;
 
   return (
     <>
@@ -195,7 +218,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
       />
 
       <div className="min-h-screen bg-white text-gray-900">
@@ -203,14 +228,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Breadcrumbs */}
         <Breadcrumbs
-          items={[
-            { label: 'Portfolio', href: '/portfolio' }
-          ]}
+          items={[{ label: "Portfolio", href: "/portfolio" }]}
           currentPage={project.title}
         />
 
         {/* Back to Portfolio */}
-        <div className="px-4 md:px-6 lg:px-12 xl:px-16 py-4">
+        <div className="px-4 md:px-6 lg:px-12 xl:px-16 py-4 pt-12">
           <Link
             href="/portfolio"
             className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
@@ -225,7 +248,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           {project.featuredImage && (
             <>
               <Image
-                src={urlForImage(project.featuredImage)?.width(1600).height(900).url() || ''}
+                src={
+                  urlForImage(project.featuredImage)
+                    ?.width(1600)
+                    .height(900)
+                    .url() || ""
+                }
                 alt={project.featuredImage.alt || project.title}
                 fill
                 className="object-cover object-center"
@@ -255,12 +283,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 )}
                 {project.category.length > 0 && (
                   <div className="flex flex-wrap gap-2">
-                    {project.category.slice(0, 3).map(cat => (
+                    {project.category.slice(0, 3).map((cat) => (
                       <span
                         key={cat}
                         className="px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-sm"
                       >
-                        {cat.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}
+                        {cat
+                          .replace("-", " ")
+                          .replace(/\b\w/g, (l) => l.toUpperCase())}
                       </span>
                     ))}
                   </div>
@@ -299,7 +329,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <div className="space-y-8">
               {/* Project Info */}
               <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-lg font-medium text-gray-900 mb-4">Project Details</h3>
+                <h3 className="text-lg font-medium text-gray-900 mb-4">
+                  Project Details
+                </h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-gray-400" />
@@ -324,7 +356,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       <Clock className="w-5 h-5 text-gray-400" />
                       <div>
                         <p className="text-sm text-gray-500">Duration</p>
-                        <p className="font-medium">{project.projectDetails.duration}</p>
+                        <p className="font-medium">
+                          {project.projectDetails.duration}
+                        </p>
                       </div>
                     </div>
                   )}
@@ -334,7 +368,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       <Square className="w-5 h-5 text-gray-400" />
                       <div>
                         <p className="text-sm text-gray-500">Square Footage</p>
-                        <p className="font-medium">{project.projectDetails.squareFootage.toLocaleString()} sq ft</p>
+                        <p className="font-medium">
+                          {project.projectDetails.squareFootage.toLocaleString()}{" "}
+                          sq ft
+                        </p>
                       </div>
                     </div>
                   )}
@@ -345,7 +382,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       <div>
                         <p className="text-sm text-gray-500">Budget Range</p>
                         <p className="font-medium">
-                          {project.projectDetails.budget.replace('-', ' - ').replace(/\b\w/g, l => l.toUpperCase())}
+                          {project.projectDetails.budget
+                            .replace("-", " - ")
+                            .replace(/\b\w/g, (l) => l.toUpperCase())}
                         </p>
                       </div>
                     </div>
@@ -356,13 +395,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               {/* Client Testimonial */}
               {project.client?.testimonial && (
                 <div className="bg-gray-50 p-6 rounded-lg">
-                  <h3 className="text-lg font-medium text-gray-900 mb-4">Client Review</h3>
+                  <h3 className="text-lg font-medium text-gray-900 mb-4">
+                    Client Review
+                  </h3>
 
                   {project.client.rating && (
                     <div className="flex items-center gap-1 mb-3">
-                      {Array.from({ length: project.client.rating }).map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      ))}
+                      {Array.from({ length: project.client.rating }).map(
+                        (_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-yellow-400 text-yellow-400"
+                          />
+                        )
+                      )}
                     </div>
                   )}
 
@@ -371,7 +417,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   </blockquote>
 
                   {project.client.name && (
-                    <p className="text-sm text-gray-500">- {project.client.name}</p>
+                    <p className="text-sm text-gray-500">
+                      - {project.client.name}
+                    </p>
                   )}
                 </div>
               )}
@@ -380,9 +428,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <div className="bg-gray-900 text-white p-6 rounded-lg">
                 <h3 className="text-lg font-medium mb-4">Start Your Project</h3>
                 <p className="text-gray-300 mb-6 text-sm">
-                  Ready to transform your space? Contact us for a free consultation.
+                  Ready to transform your space? Contact us for a free
+                  consultation.
                 </p>
-                <Button asChild className="w-full bg-white text-gray-900 hover:bg-gray-100">
+                <Button
+                  asChild
+                  className="w-full bg-white text-gray-900 hover:bg-gray-100"
+                >
                   <Link href="/contact">Get Free Consultation</Link>
                 </Button>
               </div>
@@ -434,5 +486,5 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <Footer />
       </div>
     </>
-  )
+  );
 }

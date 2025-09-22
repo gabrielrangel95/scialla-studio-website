@@ -19,8 +19,9 @@ interface PortfolioPageProps {
 }
 
 async function getPortfolioData(searchParams?: PortfolioPageProps['searchParams']) {
-  const { city, category } = searchParams || {}
-  const page = parseInt(searchParams?.page || '1')
+  const params = await searchParams
+  const { city, category } = params || {}
+  const page = parseInt(params?.page || '1')
   const projectsPerPage = 12
   const offset = (page - 1) * projectsPerPage
 
@@ -46,7 +47,8 @@ async function getPortfolioData(searchParams?: PortfolioPageProps['searchParams'
 
 export async function generateMetadata({ searchParams }: PortfolioPageProps): Promise<Metadata> {
   const stats = await sanityService.getProjectStats()
-  const { city, category } = searchParams || {}
+  const params = await searchParams
+  const { city, category } = params || {}
 
   let title = 'Interior Design Portfolio | Scialla Studio'
   let description = `Explore our ${stats.total}+ interior design projects across Orlando, Tampa, NYC, and Los Angeles. Modern homes, luxury kitchens, and commercial spaces.`
@@ -111,7 +113,8 @@ export async function generateMetadata({ searchParams }: PortfolioPageProps): Pr
 export default async function PortfolioPage({ searchParams }: PortfolioPageProps) {
   const portfolioData = await getPortfolioData(searchParams)
   const { projects, categories, stats, currentPage, hasMore } = portfolioData
-  const { city, category } = searchParams || {}
+  const params = await searchParams
+  const { city, category } = params || {}
 
   const structuredData = {
     "@context": "https://schema.org",

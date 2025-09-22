@@ -3,8 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { Menu, Phone, Mail, MapPin, Instagram, ArrowRight } from "lucide-react";
 
 export function Header() {
   const scrollToSection = (sectionId: string) => {
@@ -15,8 +15,16 @@ export function Header() {
   };
 
   const navigation = [
-    { name: "Services", id: "services" },
-    { name: "Portfolio", id: "portfolio" },
+    { name: "Services", id: "services", href: "#services" },
+    { name: "Portfolio", id: "portfolio", href: "/portfolio" },
+    { name: "About", id: "about", href: "#about" },
+  ];
+
+  const cities = [
+    { name: "Orlando", href: "/interior-design-orlando" },
+    { name: "Tampa", href: "/interior-design-tampa" },
+    { name: "New York", href: "/interior-design-nyc" },
+    { name: "Los Angeles", href: "/interior-design-los-angeles" },
   ];
 
   return (
@@ -39,13 +47,23 @@ export function Header() {
           <div className="hidden md:flex items-center ml-auto">
             <nav className="flex items-center gap-8 mr-8">
               {navigation.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => scrollToSection(item.id)}
-                  className="text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200"
-                >
-                  {item.name}
-                </button>
+                item.href.startsWith("#") ? (
+                  <button
+                    key={item.name}
+                    onClick={() => scrollToSection(item.id)}
+                    className="text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200"
+                  >
+                    {item.name}
+                  </button>
+                ) : (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200"
+                  >
+                    {item.name}
+                  </Link>
+                )
               ))}
             </nav>
 
@@ -60,41 +78,122 @@ export function Header() {
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-6 w-6" />
+              <Button variant="ghost" size="icon" className="hover:bg-gray-100 rounded-sm">
+                <Menu className="h-5 w-5" />
                 <span className="sr-only">Open menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[300px] bg-white">
-              <div className="flex flex-col space-y-6 mt-8">
-                <Link href="/" className="flex-shrink-0">
-                  <Image
-                    src="/logo_dark.png"
-                    alt="Scialla Studio"
-                    width={120}
-                    height={28}
-                    className="h-6 w-auto"
-                  />
-                </Link>
+            <SheetContent side="right" className="w-full sm:w-[400px] bg-white p-0 border-l border-gray-100">
+              <div className="flex flex-col h-full">
+                {/* Header */}
+                <div className="flex items-center justify-between p-6 border-b border-gray-100">
+                  <Link href="/" className="flex-shrink-0">
+                    <Image
+                      src="/logo_dark.png"
+                      alt="Scialla Studio"
+                      width={140}
+                      height={32}
+                      className="h-7 w-auto"
+                    />
+                  </Link>
+                </div>
 
-                <nav className="flex flex-col space-y-4">
-                  {navigation.map((item) => (
-                    <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.id)}
-                      className="text-left text-gray-900 hover:text-gray-600 transition-colors duration-200 font-medium tracking-wider uppercase text-base"
-                    >
-                      {item.name}
-                    </button>
-                  ))}
-                </nav>
+                {/* Navigation */}
+                <div className="flex-1 px-6 py-8">
+                  <nav className="space-y-8">
+                    {/* Main Navigation */}
+                    <div className="space-y-6">
+                      <p className="text-xs uppercase tracking-wider text-gray-500 font-medium">
+                        Navigation
+                      </p>
+                      {navigation.map((item) => (
+                        <SheetClose key={item.name} asChild>
+                          {item.href.startsWith("#") ? (
+                            <button
+                              onClick={() => scrollToSection(item.id)}
+                              className="flex items-center justify-between w-full text-left text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
+                            >
+                              <span className="text-lg font-light tracking-wide">
+                                {item.name}
+                              </span>
+                              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                            </button>
+                          ) : (
+                            <Link
+                              href={item.href}
+                              className="flex items-center justify-between w-full text-left text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
+                            >
+                              <span className="text-lg font-light tracking-wide">
+                                {item.name}
+                              </span>
+                              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                            </Link>
+                          )}
+                        </SheetClose>
+                      ))}
+                    </div>
 
-                <Button
-                  onClick={() => scrollToSection("contact")}
-                  className="bg-black text-white hover:bg-gray-800 w-full py-3 font-medium tracking-wider uppercase"
-                >
-                  Contact
-                </Button>
+                    {/* Cities */}
+                    <div className="space-y-6">
+                      <p className="text-xs uppercase tracking-wider text-gray-500 font-medium">
+                        Our Locations
+                      </p>
+                      {cities.map((city) => (
+                        <SheetClose key={city.name} asChild>
+                          <Link
+                            href={city.href}
+                            className="flex items-center justify-between w-full text-left text-gray-600 hover:text-gray-900 transition-colors duration-200 group"
+                          >
+                            <span className="text-base font-light tracking-wide">
+                              {city.name}
+                            </span>
+                            <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                          </Link>
+                        </SheetClose>
+                      ))}
+                    </div>
+
+                    {/* Contact CTA */}
+                    <div className="pt-8">
+                      <SheetClose asChild>
+                        <Button
+                          onClick={() => scrollToSection("contact")}
+                          className="w-full bg-gray-900 text-white hover:bg-gray-800 py-4 text-sm font-medium uppercase tracking-wider rounded-sm"
+                        >
+                          Get Free Consultation
+                        </Button>
+                      </SheetClose>
+                    </div>
+                  </nav>
+                </div>
+
+                {/* Footer */}
+                <div className="px-6 py-6 border-t border-gray-100 bg-gray-50">
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 text-sm text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <Phone className="w-4 h-4" />
+                        <a href="tel:+17275044138" className="hover:text-gray-900 transition-colors">
+                          (727) 504-4138
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4 text-sm text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <Mail className="w-4 h-4" />
+                        <a href="mailto:info@sciallastudioid.com" className="hover:text-gray-900 transition-colors">
+                          info@sciallastudioid.com
+                        </a>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4 text-sm text-gray-600">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4" />
+                        <span>Orlando, Tampa, NYC, LA</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </SheetContent>
           </Sheet>

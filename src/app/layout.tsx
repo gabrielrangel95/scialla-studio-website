@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Serif } from "next/font/google";
 import { Toaster } from "sonner";
+import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import "./globals.css";
 
 const notoSerif = Noto_Serif({
@@ -236,6 +237,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${notoSerif.variable} antialiased`}>
+        <ScrollToTop />
         {children}
         <Toaster position="top-right" richColors />
       </body>
