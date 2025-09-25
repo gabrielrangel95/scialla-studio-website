@@ -15,7 +15,7 @@ export function Hero() {
 
   return (
     <section className="hero-section px-4 md:px-6 lg:px-12 xl:px-16">
-      <div className="hero-image-container">
+      <div className="hero-image-container pt-16 md:pt-0">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -52,7 +52,7 @@ export function Hero() {
               <Button
                 onClick={() => scrollToSection("contact")}
                 size="lg"
-                className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium tracking-wide min-w-[200px] transition-all duration-300 hover:scale-105"
+                className="bg-white text-black hover:bg-gray-100 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-medium tracking-wide w-[240px] sm:w-[280px] transition-all duration-300 hover:scale-105"
               >
                 Schedule a Consultation
               </Button>
@@ -61,7 +61,7 @@ export function Hero() {
                 onClick={() => scrollToSection("portfolio")}
                 variant="outline"
                 size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium tracking-wide min-w-[200px] bg-transparent transition-all duration-300 hover:scale-105"
+                className="border-2 border-white text-white hover:bg-white hover:text-black px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-medium tracking-wide w-[240px] sm:w-[280px] bg-transparent transition-all duration-300 hover:scale-105"
               >
                 View Portfolio
               </Button>
@@ -78,11 +78,11 @@ export function Hero() {
         </div>
 
         {/* Mobile Badge - Bottom Center */}
-        <div className="flex md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex-col items-center">
+        <div className="flex md:hidden absolute bottom-4 right-4 z-20 flex-col items-center">
           <Label className="text-white text-sm text-center mb-2">
             Featured in
           </Label>
-          <ADPROBadge size="xl" variant="white" />
+          <ADPROBadge size="md" variant="white" />
         </div>
       </div>
     </section>
