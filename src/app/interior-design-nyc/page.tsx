@@ -276,6 +276,36 @@ export default function NYCPage() {
           </div>
         </section>
 
+        {/* Nationwide Service Section */}
+        <section className="py-16 md:py-24 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-6">
+              Serving Clients Nationwide
+            </h2>
+            <p className="text-lg md:text-xl leading-relaxed text-gray-700 mb-8">
+              While our NYC studio specializes in metropolitan sophistication,
+              Scialla Studio proudly serves clients across the entire United States.
+              Through our virtual consultation process and remote design services,
+              we bring the same level of expertise and attention to detail to projects
+              anywhere in the country.
+            </p>
+            <div className="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+              <div className="text-center">
+                <h3 className="text-xl font-medium text-gray-900 mb-3">Virtual Consultations</h3>
+                <p className="text-gray-600">
+                  Complete design consultations available online for clients nationwide
+                </p>
+              </div>
+              <div className="text-center">
+                <h3 className="text-xl font-medium text-gray-900 mb-3">Remote Design Services</h3>
+                <p className="text-gray-600">
+                  Full-service design planning and coordination across all 50 states
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* FAQ Section */}
         <section className="py-16 md:py-24 bg-white px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-4xl mx-auto">

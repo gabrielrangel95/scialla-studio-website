@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Phone, Mail } from "lucide-react";
+import { ADPROBadge } from "@/components/ui/adpro-badge";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -18,7 +19,8 @@ export function Footer() {
     { name: "Orlando", slug: "orlando" },
     { name: "Tampa", slug: "tampa" },
     { name: "New York City", slug: "nyc" },
-    { name: "Los Angeles", slug: "los-angeles" }
+    { name: "Los Angeles", slug: "los-angeles" },
+    { name: "Nationwide Service", slug: null }
   ];
 
   const socialLinks = [
@@ -44,8 +46,8 @@ export function Footer() {
     <footer className="bg-black text-gray-300">
       <div className="px-4 md:px-6 lg:px-12 xl:px-16 py-16 md:py-24">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-12">
-          
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-12">
+
           {/* Column 1: Brand & Contact */}
           <div className="lg:col-span-1">
             <div className="mb-8">
@@ -61,21 +63,21 @@ export function Footer() {
                 Creating Spaces, Elevating Lives
               </p>
             </div>
-            
+
             <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-gray-400" />
-                <a 
+                <a
                   href="tel:+17275044138"
                   className="hover:text-white transition-colors duration-200"
                 >
                   +1 727 504 4138
                 </a>
               </div>
-              
+
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gray-400" />
-                <a 
+                <a
                   href="mailto:info@sciallastudioid.com"
                   className="hover:text-white transition-colors duration-200"
                 >
@@ -85,7 +87,23 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Services */}
+          {/* Column 2: Recognition */}
+          <div className="lg:col-span-1">
+            <h3 className="text-white font-medium text-sm uppercase tracking-wider mb-6">
+              Recognition
+            </h3>
+            <div className="space-y-4">
+              <div className="flex flex-col items-start">
+                <p className="text-gray-400 text-xs mb-3">As Featured In</p>
+                <ADPROBadge size="sm" />
+              </div>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Nationally recognized interior design excellence
+              </p>
+            </div>
+          </div>
+
+          {/* Column 3: Services */}
           <div className="lg:col-span-1">
             <h3 className="text-white font-medium text-sm uppercase tracking-wider mb-6">
               Services
@@ -101,7 +119,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Locations */}
+          {/* Column 4: Locations */}
           <div className="lg:col-span-1">
             <h3 className="text-white font-medium text-sm uppercase tracking-wider mb-6">
               Locations
@@ -109,18 +127,27 @@ export function Footer() {
             <ul className="space-y-3">
               {locations.map((location, index) => (
                 <li key={index}>
-                  <Link 
-                    href={`/interior-design-${location.slug}`}
-                    className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
-                  >
-                    {location.name}
-                  </Link>
+                  {location.slug ? (
+                    <Link
+                      href={`/interior-design-${location.slug}`}
+                      className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
+                    >
+                      {location.name}
+                    </Link>
+                  ) : (
+                    <span className="text-gray-300 text-sm font-medium">
+                      {location.name}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
+            <p className="text-xs text-gray-400 mt-4 leading-relaxed">
+              Additional cities served with virtual consultations
+            </p>
           </div>
 
-          {/* Column 4: Connect */}
+          {/* Column 5: Connect */}
           <div className="lg:col-span-1">
             <h3 className="text-white font-medium text-sm uppercase tracking-wider mb-6">
               Connect

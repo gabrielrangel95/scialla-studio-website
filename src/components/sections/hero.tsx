@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { ADPROBadge } from "@/components/ui/adpro-badge";
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -34,13 +35,15 @@ export function Hero() {
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl  text-white mb-6 leading-tight tracking-tight">
               Premier Interior Designer
-              <span className="block mt-2">Orlando | Tampa | NYC | Los Angeles</span>
+              <span className="block mt-2">
+                Serving All 50 States | Studios in Orlando, Tampa, NYC & LA
+              </span>
             </h1>
 
             {/* Subheading */}
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-12 leading-relaxed font-light">
-              Award-winning interior design studio creating exceptional homes and
-              commercial spaces since 2010
+              Award-winning interior design studio creating exceptional homes
+              and commercial spaces nationwide since 2010
             </p>
 
             {/* CTA Buttons */}
@@ -50,7 +53,7 @@ export function Hero() {
                 size="lg"
                 className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium tracking-wide min-w-[200px] transition-all duration-300 hover:scale-105"
               >
-                Get a Consultation
+                Schedule a Consultation
               </Button>
 
               <Button
@@ -63,6 +66,16 @@ export function Hero() {
               </Button>
             </div>
           </div>
+        </div>
+
+        {/* Architectural Digest Badge - Desktop */}
+        <div className="hidden md:block absolute bottom-6 right-6 lg:bottom-8 lg:right-8 z-20">
+          <ADPROBadge size="lg" variant="white" />
+        </div>
+
+        {/* Mobile Badge - Bottom Center */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:hidden z-20">
+          <ADPROBadge size="xl" variant="white" />
         </div>
       </div>
     </section>

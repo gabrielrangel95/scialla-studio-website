@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
@@ -40,18 +39,18 @@ export function Locations() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 leading-tight tracking-tight mb-8">
                 Interior Design Services
                 <br />
-                <span className="block mt-2">Across Four Major Cities</span>
+                <span className="block mt-2">Nationwide with Studios in Four Major Cities</span>
               </h2>
 
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 max-w-lg">
-                From Florida&apos;s vibrant cities to America&apos;s cultural capitals,
-                Scialla Studio delivers premier interior design services
-                tailored to each location&apos;s unique lifestyle and architectural
-                heritage.
+                From our flagship studios in Florida and beyond, Scialla Studio
+                delivers premier interior design services nationwide. With
+                dedicated teams in four major cities and remote design
+                capabilities, we bring European elegance to homes across America.
               </p>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 space-y-4">
               <Link
                 href="/about"
                 className="inline-flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
@@ -59,19 +58,12 @@ export function Locations() {
                 View Locations
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
-            </div>
 
-            {/* Image below VIEW LOCATIONS */}
-            <div className="pt-8">
-              <div className="relative aspect-[4/3] overflow-hidden  max-w-md">
-                <Image
-                  src="/scialla-studio-interior-designer-los-angeles-ca.jpg"
-                  alt="Scialla Studio Interior Design Project in Los Angeles, California"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 400px"
-                />
-              </div>
+              <p className="text-sm text-gray-600 max-w-lg leading-relaxed">
+                While our studios are located in Orlando, Tampa, NYC, and Los
+                Angeles, we proudly serve clients throughout the United States
+                with both on-site and virtual design consultations.
+              </p>
             </div>
           </div>
         </div>

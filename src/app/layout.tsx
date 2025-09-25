@@ -10,11 +10,11 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Premier Interior Designer | Orlando, Tampa, NYC & Los Angeles | Scialla Studio",
+  title: "Premier Interior Designer Nationwide | Studios in Orlando, Tampa, NYC & LA | Scialla Studio",
   description:
-    "Premier interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial design with 15+ years European expertise. Free consultation. 200+ projects completed.",
+    "Premier interior design studio serving clients nationwide with studios in Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial design with 15+ years European expertise. Virtual consultations available across all 50 states.",
   keywords:
-    "interior designer Orlando, interior designer Tampa, interior designer NYC, interior designer Los Angeles, luxury interior design, residential interior design, commercial interior design, European interior design, Francesco Scialla, award winning interior designer",
+    "interior designer Orlando, interior designer Tampa, interior designer NYC, interior designer Los Angeles, nationwide interior design, luxury interior design, residential interior design, commercial interior design, European interior design, Francesco Scialla, award winning interior designer, virtual interior design consultations",
   authors: [{ name: "Francesco Scialla", url: "https://sciallastudio.com" }],
   creator: "Scialla Studio",
   publisher: "Scialla Studio",
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Interior Designer Orlando, Tampa, NYC & Los Angeles | Scialla Studio",
+      "Interior Designer Nationwide | Studios in Orlando, Tampa, NYC & LA | Scialla Studio",
     description:
-      "Premier interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services.",
+      "Premier interior design studio serving clients nationwide with studios in Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services with virtual consultations available.",
     url: "https://sciallastudio.com",
     siteName: "Scialla Studio",
     locale: "en_US",
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title:
-      "Interior Designer Orlando, Tampa, NYC & Los Angeles | Scialla Studio",
+      "Interior Designer Nationwide | Studios in Orlando, Tampa, NYC & LA | Scialla Studio",
     description:
-      "Premier interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services.",
+      "Premier interior design studio serving clients nationwide with studios in Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services with virtual consultations available.",
     images: ["/twitter-image.jpg"],
     creator: "@sciallastudio",
   },
