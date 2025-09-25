@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Header } from '@/components/sections/header';
 import { Footer } from '@/components/sections/footer';
+import { Contact } from '@/components/sections/contact';
 import { getCityBySlug, urlForImageWithOptions } from '@/lib/sanity-helpers';
 
 const cityData = {
@@ -326,31 +327,7 @@ export default async function NYCPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 md:py-24 bg-black text-white px-4 md:px-6 lg:px-12 xl:px-16">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-light mb-6">
-              Ready to Transform Your {cityData.name} Home?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-              Contact us today for a free consultation and see how we can bring your vision to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <div className="flex items-center gap-2">
-                <Phone className="w-5 h-5" />
-                <a href="tel:+17275044138" className="text-lg hover:underline">
-                  (727) 504-4138
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-5 h-5" />
-                <a href="mailto:info@sciallastudioid.com" className="text-lg hover:underline">
-                  info@sciallastudioid.com
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Contact />
 
         <Footer />
       </div>
