@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ADPROBadge } from "@/components/ui/adpro-badge";
+import { Label } from "../ui/label";
 
 export function Hero() {
   const scrollToSection = (sectionId: string) => {
@@ -69,12 +70,18 @@ export function Hero() {
         </div>
 
         {/* Architectural Digest Badge - Desktop */}
-        <div className="hidden md:block absolute bottom-6 right-6 lg:bottom-8 lg:right-8 z-20">
+        <div className="hidden md:flex absolute bottom-6 right-6 lg:bottom-8 lg:right-8 z-20 flex-col items-center">
+          <Label className="text-white text-sm text-center mb-2">
+            Featured in
+          </Label>
           <ADPROBadge size="lg" variant="white" />
         </div>
 
         {/* Mobile Badge - Bottom Center */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 md:hidden z-20">
+        <div className="flex md:hidden absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex-col items-center">
+          <Label className="text-white text-sm text-center mb-2">
+            Featured in
+          </Label>
           <ADPROBadge size="xl" variant="white" />
         </div>
       </div>

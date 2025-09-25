@@ -8,11 +8,11 @@ export function Footer() {
 
   const services = [
     "Residential Interior Design",
-    "Commercial Interior Design", 
+    "Commercial Interior Design",
     "Kitchen & Bathroom Design",
     "Design Consultation",
     "Space Planning",
-    "Furniture & Décor Sourcing"
+    "Furniture & Décor Sourcing",
   ];
 
   const locations = [
@@ -20,26 +20,26 @@ export function Footer() {
     { name: "Tampa", slug: "tampa" },
     { name: "New York City", slug: "nyc" },
     { name: "Los Angeles", slug: "los-angeles" },
-    { name: "Nationwide Service", slug: null }
+    { name: "Nationwide Service", slug: null },
   ];
 
   const socialLinks = [
     {
       name: "Facebook",
-      url: "https://www.facebook.com/profile.php?id=61554601536191"
+      url: "https://www.facebook.com/profile.php?id=61554601536191",
     },
     {
       name: "Instagram",
-      url: "https://www.instagram.com/sciallastudio_/"
+      url: "https://www.instagram.com/sciallastudio_/",
     },
     {
       name: "Houzz",
-      url: "https://www.houzz.com/pro/francescosciallaarchitect/scialla-studio"
+      url: "https://www.houzz.com/pro/francescosciallaarchitect/scialla-studio",
     },
     {
       name: "Pinterest",
-      url: "https://www.pinterest.com/Sciallastudio_/"
-    }
+      url: "https://www.pinterest.com/Sciallastudio_/",
+    },
   ];
 
   return (
@@ -47,7 +47,6 @@ export function Footer() {
       <div className="px-4 md:px-6 lg:px-12 xl:px-16 py-16 md:py-24">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 mb-12">
-
           {/* Column 1: Brand & Contact */}
           <div className="lg:col-span-1">
             <div className="mb-8">
@@ -95,7 +94,7 @@ export function Footer() {
             <div className="space-y-4">
               <div className="flex flex-col items-start">
                 <p className="text-gray-400 text-xs mb-3">As Featured In</p>
-                <ADPROBadge size="sm" />
+                <ADPROBadge size="sm" variant="white" />
               </div>
               <p className="text-xs text-gray-400 leading-relaxed">
                 Nationally recognized interior design excellence

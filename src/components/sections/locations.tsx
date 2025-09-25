@@ -30,7 +30,7 @@ export function Locations() {
   ];
 
   return (
-    <section id="locations" className="py-16 md:py-24 lg:py-32 bg-white">
+    <section id="locations" className="py-8 md:py-12 lg:py-16 bg-white">
       <div className="grid lg:grid-cols-2 gap-0 items-start">
         {/* Left Side - Title and Content */}
         <div className="px-4 md:px-6 lg:px-12 xl:px-16">
@@ -39,14 +39,17 @@ export function Locations() {
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 leading-tight tracking-tight mb-8">
                 Interior Design Services
                 <br />
-                <span className="block mt-2">Nationwide with Studios in Four Major Cities</span>
+                <span className="block mt-2">
+                  Nationwide with Studios in Four Major Cities
+                </span>
               </h2>
 
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 max-w-lg">
                 From our flagship studios in Florida and beyond, Scialla Studio
                 delivers premier interior design services nationwide. With
                 dedicated teams in four major cities and remote design
-                capabilities, we bring European elegance to homes across America.
+                capabilities, we bring European elegance to homes across
+                America.
               </p>
             </div>
 

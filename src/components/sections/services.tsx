@@ -45,9 +45,9 @@ export function Services() {
   ];
 
   return (
-    <section 
+    <section
       id="services"
-      className="py-16 md:py-24 lg:py-32 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16"
+      className="py-8 md:py-12 lg:py-16 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16"
     >
       <div className="w-full">
         {/* Section Header */}
@@ -56,8 +56,9 @@ export function Services() {
             Full-Service Interior Design Solutions
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From luxury residential spaces to sophisticated commercial environments, 
-            we transform your vision into exceptional interior design experiences.
+            From luxury residential spaces to sophisticated commercial
+            environments, we transform your vision into exceptional interior
+            design experiences.
           </p>
         </div>
 

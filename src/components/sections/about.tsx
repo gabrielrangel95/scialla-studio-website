@@ -6,7 +6,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="py-16 md:py-24 lg:py-32 px-4 md:px-6 lg:px-12 xl:px-16 bg-gray-50"
+      className="py-8 md:py-12 lg:py-16 px-4 md:px-6 lg:px-12 xl:px-16 bg-gray-50"
     >
       {/* Section Header */}
       <div className="text-center mb-16 md:mb-20">
@@ -17,7 +17,7 @@ export function About() {
         </h2>
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="grid lg:grid-cols-[1.2fr,1fr] gap-12 lg:gap-16 xl:gap-20 items-start">
         {/* Left: Text Content */}
         <div className="space-y-8">
           <div className="space-y-6">
@@ -25,18 +25,9 @@ export function About() {
               Founded by Francesco Scialla and Valentina Pollio, Scialla Studio
               brings together architectural precision and human-centered design
               philosophy. Francesco, an architect from Southern Italy with over
-              20 years of international experience, combines with Valentina&apos;s
-              unique background in construction engineering and spatial
-              dynamics.
-            </p>
-
-            <p className="text-lg md:text-xl leading-relaxed text-gray-700">
-              Valentina&apos;s passion for understanding the relationship between the
-              human body and environment, shaped by her sports background,
-              complements Francesco&apos;s technical expertise. Together, they create
-              spaces that marry functional aesthetics with carefully curated
-              design, drawing inspiration from Italian harmonies and global
-              expressions.
+              20 years of international experience, combines with
+              Valentina&apos;s unique background in construction engineering and
+              spatial dynamics.
             </p>
 
             <p className="text-lg md:text-xl leading-relaxed text-gray-700">
@@ -78,68 +69,60 @@ export function About() {
                   href="https://www.architecturaldigest.com/adpro/directory/profile/scialla-studio"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-gray-900 hover:underline transition-colors duration-200"
+                  className="underline hover:text-gray-900 transition-colors duration-200"
                 >
                   Featured in Architectural Digest 2025
                 </Link>
               </li>
             </ul>
 
-            {/* AD Badge below credentials */}
+            {/* AD Badge */}
             <div className="mt-6">
-              <ADPROBadge size="sm" />
+              <ADPROBadge size="md" />
             </div>
-          </div>
-
-          {/* CTA */}
-          <div className="flex justify-start pt-6">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-8 py-3 bg-gray-900 text-white font-medium hover:bg-gray-800 transition-colors duration-200"
-            >
-              Schedule Consultation
-            </Link>
           </div>
         </div>
 
         {/* Right: Image Grid */}
-        <div className="grid grid-cols-2 gap-6">
-          <div className="space-y-6">
-            <div className="relative aspect-[3/4] overflow-hidden">
-              <Image
-                src="/scialla-studio-about-us.avif"
-                alt="Francesco Scialla - Co-Founder and Lead Architect at Scialla Studio"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
+        <div className="space-y-8">
+          <div className="grid grid-cols-2 gap-6">
+            <div className="space-y-6">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/scialla-studio-about-us.avif"
+                  alt="Francesco Scialla - Co-Founder and Lead Architect at Scialla Studio"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <div className="text-center">
+                <h3 className="text-gray-900">Francesco Scialla</h3>
+                <p className="text-sm text-gray-600">Architect & Founder</p>
+              </div>
             </div>
-            <div className="text-center">
-              <h3 className="text-gray-900">Francesco Scialla</h3>
-              <p className="text-sm text-gray-600">Architect & Founder</p>
-            </div>
-          </div>
 
-          <div className="space-y-6 mt-8">
-            <div className="relative aspect-[3/4] overflow-hidden">
-              <Image
-                src="/scialla-studio-interior-designer-tampa-fl.avif"
-                alt="Valentina Pollio - Co-Founder and Creative Director at Scialla Studio"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-            </div>
-            <div className="text-center">
-              <h3 className="text-gray-900">Valentina Pollio</h3>
-              <p className="text-sm text-gray-600">Creative Director</p>
+            <div className="space-y-6 mt-8">
+              <div className="relative aspect-[3/4] overflow-hidden">
+                <Image
+                  src="/scialla-studio-interior-designer-tampa-fl.avif"
+                  alt="Valentina Pollio - Co-Founder and Creative Director at Scialla Studio"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <div className="text-center">
+                <h3 className="text-gray-900">Valentina Pollio</h3>
+                <p className="text-sm text-gray-600">Creative Director</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Trust Bar */}
-      <div className="mt-16 md:mt-20 pt-12 border-t border-gray-200">
+      <div className="mt-4 md:mt-6 pt-8 border-t border-gray-200">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
             <span className="text-3xl md:text-4xl font-light text-gray-900 block">
