@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Header } from '@/components/sections/header';
 import { Footer } from '@/components/sections/footer';
+import { getCityBySlug, urlForImageWithOptions } from '@/lib/sanity-helpers';
 
 const cityData = {
   name: 'New York City',
@@ -89,7 +90,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default function NYCPage() {
+export default async function NYCPage() {
+  // Fetch city data from Sanity
+  const cityFromSanity = await getCityBySlug('nyc');
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -186,8 +189,8 @@ export default function NYCPage() {
         <section className="relative min-h-[70vh] flex items-center justify-center">
           <div className="absolute inset-0 z-0">
             <Image
-              src={cityData.hero.image}
-              alt={cityData.hero.alt}
+              src={cityFromSanity?.heroImage ? urlForImageWithOptions(cityFromSanity.heroImage, { width: 1920, quality: 80 }) || cityData.hero.image : cityData.hero.image}
+              alt={cityFromSanity?.heroImage?.alt || cityData.hero.alt}
               fill
               className="object-cover object-center"
               priority
