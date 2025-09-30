@@ -1,7 +1,10 @@
+"use client";
+
 import Image from 'next/image'
 import Link from 'next/link'
 import { urlForImage } from '@/lib/sanity-image'
 import type { SanityImage } from '@/types/sanity'
+import { trackProjectInteraction } from '@/lib/firebase/analytics'
 
 interface ProjectCardProps {
   title: string
@@ -25,11 +28,21 @@ export function ProjectCard({
 
   // Format category for display
   const primaryCategory = category[0]?.replace('-', ' ') || 'Interior Design'
-  
+
+  const handleClick = () => {
+    trackProjectInteraction({
+      project_slug: slug,
+      interaction_type: "card_click",
+      location,
+      category: category[0],
+    });
+  };
+
   return (
-    <Link 
+    <Link
       href={`/portfolio/${slug}`}
       className="group block relative overflow-hidden bg-gray-100 aspect-[4/3] rounded-sm"
+      onClick={handleClick}
     >
       {imageUrl && (
         <Image

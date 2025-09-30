@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { Star, MapPin, Phone, Mail } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Star, MapPin } from 'lucide-react';
 import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Header } from '@/components/sections/header';
 import { Footer } from '@/components/sections/footer';
 import { Contact } from '@/components/sections/contact';
 import { getCityBySlug, urlForImageWithOptions } from '@/lib/sanity-helpers';
+import { CityPageButtons } from '@/components/city-page-buttons';
 
 const cityData = {
   name: 'Los Angeles',
@@ -207,14 +207,7 @@ export default async function LosAngelesPage() {
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed font-light max-w-4xl mx-auto">
               {cityData.hero.subtitle}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="bg-white text-black hover:bg-gray-100 px-8 py-4 text-lg font-medium">
-                Get Free Consultation
-              </Button>
-              <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium bg-transparent">
-                View {cityData.name} Portfolio
-              </Button>
-            </div>
+            <CityPageButtons city="los-angeles" />
           </div>
         </section>
 

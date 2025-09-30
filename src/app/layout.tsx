@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif } from "next/font/google";
 import { Toaster } from "sonner";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
+import { AnalyticsProvider } from "@/lib/firebase/analytics-provider";
 import "./globals.css";
 
 const notoSerif = Noto_Serif({
@@ -10,7 +11,8 @@ const notoSerif = Noto_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Premier Interior Designer Nationwide | Studios in Orlando, Tampa, NYC & LA | Scialla Studio",
+  title:
+    "Premier Interior Designer Nationwide | Studios in Orlando, Tampa, NYC & LA | Scialla Studio",
   description:
     "Premier interior design studio serving clients nationwide with studios in Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial design with 15+ years European expertise. Virtual consultations available across all 50 states.",
   keywords:
@@ -237,9 +239,11 @@ export default function RootLayout({
         />
       </head>
       <body className={`${notoSerif.variable} antialiased`}>
-        <ScrollToTop />
-        {children}
-        <Toaster position="top-right" richColors />
+        <AnalyticsProvider>
+          <ScrollToTop />
+          {children}
+          <Toaster position="top-right" richColors />
+        </AnalyticsProvider>
       </body>
     </html>
   );

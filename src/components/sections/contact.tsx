@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { trackFormSubmit } from "@/lib/firebase/analytics";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,7 +50,7 @@ export function Contact() {
 
   async function onSubmit(data: ContactFormData) {
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -64,9 +65,19 @@ export function Contact() {
       }
 
       const result = await response.json();
-      
+
       if (result.success) {
         toast.success("Thank you! We'll contact you within 24 hours.");
+
+        // Track successful form submission
+        trackFormSubmit({
+          form_name: "contact_form",
+          form_location: typeof window !== "undefined" ? window.location.pathname : "unknown",
+          success: true,
+          location: data.location,
+          project_type: data.projectType,
+        });
+
         form.reset();
       } else {
         throw new Error(result.error || "Something went wrong");
@@ -74,6 +85,14 @@ export function Contact() {
     } catch (error) {
       toast.error("Failed to send message. Please try again.");
       console.error("Contact form error:", error);
+
+      // Track form submission error
+      trackFormSubmit({
+        form_name: "contact_form",
+        form_location: typeof window !== "undefined" ? window.location.pathname : "unknown",
+        success: false,
+        error_message: error instanceof Error ? error.message : "Unknown error",
+      });
     } finally {
       setIsSubmitting(false);
     }
