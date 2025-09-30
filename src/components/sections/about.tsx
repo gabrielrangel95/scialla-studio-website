@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ADPROBadge } from "@/components/ui/adpro-badge";
+import { useTranslations } from "next-intl";
 
 export function About() {
+  const t = useTranslations("about");
   return (
     <section
       id="about"
@@ -11,9 +15,9 @@ export function About() {
       {/* Section Header */}
       <div className="text-center mb-16 md:mb-20">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
-          Expert Architecture & Design Team
+          {t("title")}
           <br />
-          <span className="block mt-2">With Global Perspective</span>
+          <span className="block mt-2">{t("titleLine2")}</span>
         </h2>
       </div>
 
@@ -22,23 +26,11 @@ export function About() {
         <div className="space-y-8">
           <div className="space-y-6">
             <p className="text-lg md:text-xl leading-relaxed text-gray-700">
-              Founded by Francesco Scialla and Valentina Pollio, Scialla Studio
-              brings together comprehensive architectural expertise and human-centered design
-              philosophy. Francesco, a licensed architect from Southern Italy with over
-              20 years of international experience and a PhD in Architecture & Industrial Design,
-              leads both new construction projects and interior renovations with equal mastery.
-              Valentina&apos;s unique background in construction engineering and
-              spatial dynamics ensures structural integrity meets aesthetic excellence.
+              {t("paragraph1")}
             </p>
 
             <p className="text-lg md:text-xl leading-relaxed text-gray-700">
-              Their collaborative approach recognizes the profound impact of
-              surroundings on human wellbeing, creating environments from the ground up—whether
-              designing a completely new structure or transforming existing spaces—that
-              transcend geographical boundaries while fostering deep connections
-              with their occupants. Based in four major cities with nationwide
-              reach, Scialla Studio serves clients across the United States
-              through both on-site and virtual consultations for architecture and interior design projects.
+              {t("paragraph2")}
             </p>
           </div>
 
@@ -47,27 +39,27 @@ export function About() {
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>
-                Licensed Architect with PhD in Architecture & Industrial Design
+                {t("credentials.phd")}
               </li>
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>
-                Full Architectural Services: New Construction to Renovations
+                {t("credentials.fullService")}
               </li>
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>
-                Construction Engineering & Spatial Design Expertise
+                {t("credentials.engineering")}
               </li>
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>
-                Published in Multiple Prestigious Journals
+                {t("credentials.published")}
               </li>
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>
-                20+ Years International Experience
+                {t("credentials.experience")}
               </li>
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>
-                Founded in Tampa, Serving 4 Major Cities
+                {t("credentials.cities")}
               </li>
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>
@@ -77,7 +69,7 @@ export function About() {
                   rel="noopener noreferrer"
                   className="underline hover:text-gray-900 transition-colors duration-200"
                 >
-                  Featured in Architectural Digest 2025
+                  {t("credentials.featured")}
                 </Link>
               </li>
             </ul>
@@ -103,8 +95,8 @@ export function About() {
                 />
               </div>
               <div className="text-center">
-                <h3 className="text-gray-900">Francesco Scialla</h3>
-                <p className="text-sm text-gray-600">Architect & Founder</p>
+                <h3 className="text-gray-900">{t("team.francesco.name")}</h3>
+                <p className="text-sm text-gray-600">{t("team.francesco.title")}</p>
               </div>
             </div>
 
@@ -119,8 +111,8 @@ export function About() {
                 />
               </div>
               <div className="text-center">
-                <h3 className="text-gray-900">Valentina Pollio</h3>
-                <p className="text-sm text-gray-600">Creative Director</p>
+                <h3 className="text-gray-900">{t("team.valentina.name")}</h3>
+                <p className="text-sm text-gray-600">{t("team.valentina.title")}</p>
               </div>
             </div>
           </div>
@@ -132,27 +124,27 @@ export function About() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
             <span className="text-3xl md:text-4xl font-light text-gray-900 block">
-              20+
+              {t("stats.yearsExperience")}
             </span>
-            <p className="text-sm text-gray-600 mt-2">Years Experience</p>
+            <p className="text-sm text-gray-600 mt-2">{t("stats.yearsExperienceLabel")}</p>
           </div>
           <div>
             <span className="text-3xl md:text-4xl font-light text-gray-900 block">
-              4
+              {t("stats.citiesServed")}
             </span>
-            <p className="text-sm text-gray-600 mt-2">Cities Served</p>
+            <p className="text-sm text-gray-600 mt-2">{t("stats.citiesServedLabel")}</p>
           </div>
           <div>
             <span className="text-3xl md:text-4xl font-light text-gray-900 block">
-              50+
+              {t("stats.projectsCompleted")}
             </span>
-            <p className="text-sm text-gray-600 mt-2">Projects Completed</p>
+            <p className="text-sm text-gray-600 mt-2">{t("stats.projectsCompletedLabel")}</p>
           </div>
           <div>
             <span className="text-3xl md:text-4xl font-light text-gray-900 block">
-              5
+              {t("stats.countriesWorked")}
             </span>
-            <p className="text-sm text-gray-600 mt-2">Countries Worked</p>
+            <p className="text-sm text-gray-600 mt-2">{t("stats.countriesWorkedLabel")}</p>
           </div>
         </div>
       </div>

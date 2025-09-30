@@ -1,0 +1,396 @@
+{
+  "header": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact",
+    "getConsultation": "Get Free Consultation"
+  },
+  "hero": {
+    "mainTitle": "Premier Interior Design & Architecture Studio",
+    "location": "Serving All 50 States | Studios in Orlando, Tampa, NYC & LA",
+    "subtitle": "Award-winning architecture and interior design studio creating exceptional homes, new construction, and commercial spaces nationwide since 2010",
+    "ctaPrimary": "Schedule a Consultation",
+    "ctaSecondary": "View Portfolio",
+    "featuredIn": "Featured in",
+    "imageAlt": "Luxury interior design by Scialla Studio"
+  },
+  "services": {
+    "title": "Full-Service Architecture & Interior Design Solutions",
+    "subtitle": "From new construction and architectural design to luxury residential interiors and sophisticated commercial environments, we transform your vision into exceptional spaces from the ground up.",
+    "cta": "Schedule Your Free Consultation",
+    "residential": {
+      "title": "Residential Interior Design",
+      "services": {
+        "renovation": "Complete Home Renovation",
+        "kitchen": "Kitchen Design & Remodeling",
+        "bathroom": "Luxury Bathroom Design",
+        "living": "Living Room & Bedroom Design"
+      }
+    },
+    "architectural": {
+      "title": "Architectural Design & New Construction",
+      "services": {
+        "newHome": "New Home Construction Design",
+        "renovations": "Architectural Renovations & Additions",
+        "sitePlanning": "Site Planning & Development",
+        "structural": "Structural Design & Engineering"
+      }
+    },
+    "commercial": {
+      "title": "Commercial Interior Design",
+      "services": {
+        "office": "Office Space Planning",
+        "restaurant": "Restaurant & Hospitality Design",
+        "retail": "Retail Store Design",
+        "medical": "Medical Office Interiors"
+      }
+    },
+    "consultation": {
+      "title": "Design Consultation Services",
+      "services": {
+        "virtual": "Virtual Design Consultations",
+        "spacePlanning": "Space Planning & Layout",
+        "materials": "Color & Material Selection",
+        "sourcing": "Furniture & Décor Sourcing"
+      }
+    }
+  },
+  "locations": {
+    "title": "Interior Design Services",
+    "titleLine2": "Nationwide with Studios in Four Major Cities",
+    "description": "From our flagship studios in Florida and beyond, Scialla Studio delivers premier interior design services nationwide. With dedicated teams in four major cities and remote design capabilities, we bring European elegance to homes across America.",
+    "viewLocations": "View Locations",
+    "servingNote": "While our studios are located in Orlando, Tampa, NYC, and Los Angeles, we proudly serve clients throughout the United States with both on-site and virtual design consultations.",
+    "cities": {
+      "orlando": {
+        "name": "Orlando",
+        "description": "Elevating sophisticated homes across Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips with innovative interior design that captures Central Florida's vibrant energy."
+      },
+      "tampa": {
+        "name": "Tampa",
+        "description": "Creating stunning interiors throughout South Tampa, Westchase, Hyde Park, Channelside, and Harbour Island. Our designs blend coastal elegance with Tampa Bay's modern sophistication."
+      },
+      "nyc": {
+        "name": "New York City",
+        "description": "Delivering exceptional interior design services in Manhattan, Brooklyn, Queens, Upper East Side, and SoHo. Bringing European refinement to NYC's most prestigious neighborhoods."
+      },
+      "losAngeles": {
+        "name": "Los Angeles",
+        "description": "Designing luxury residences in Beverly Hills, Santa Monica, West Hollywood, Malibu, and Venice. Infusing Hollywood glamour with California's relaxed coastal aesthetic."
+      }
+    }
+  },
+  "about": {
+    "title": "Expert Architecture & Design Team",
+    "titleLine2": "With Global Perspective",
+    "paragraph1": "Founded by Francesco Scialla and Valentina Pollio, Scialla Studio brings together comprehensive architectural expertise and human-centered design philosophy. Francesco, a licensed architect from Southern Italy with over 20 years of international experience and a PhD in Architecture & Industrial Design, leads both new construction projects and interior renovations with equal mastery. Valentina's unique background in construction engineering and spatial dynamics ensures structural integrity meets aesthetic excellence.",
+    "paragraph2": "Their collaborative approach recognizes the profound impact of surroundings on human wellbeing, creating environments from the ground up—whether designing a completely new structure or transforming existing spaces—that transcend geographical boundaries while fostering deep connections with their occupants. Based in four major cities with nationwide reach, Scialla Studio serves clients across the United States through both on-site and virtual consultations for architecture and interior design projects.",
+    "credentials": {
+      "phd": "Licensed Architect with PhD in Architecture & Industrial Design",
+      "fullService": "Full Architectural Services: New Construction to Renovations",
+      "engineering": "Construction Engineering & Spatial Design Expertise",
+      "published": "Published in Multiple Prestigious Journals",
+      "experience": "20+ Years International Experience",
+      "cities": "Founded in Tampa, Serving 4 Major Cities",
+      "featured": "Featured in Architectural Digest 2025"
+    },
+    "team": {
+      "francesco": {
+        "name": "Francesco Scialla",
+        "title": "Architect & Founder"
+      },
+      "valentina": {
+        "name": "Valentina Pollio",
+        "title": "Creative Director"
+      }
+    },
+    "stats": {
+      "yearsExperience": "20+",
+      "yearsExperienceLabel": "Years Experience",
+      "citiesServed": "4",
+      "citiesServedLabel": "Cities Served",
+      "projectsCompleted": "50+",
+      "projectsCompletedLabel": "Projects Completed",
+      "countriesWorked": "5",
+      "countriesWorkedLabel": "Countries Worked"
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Get answers to common questions about our interior design services across Orlando, Tampa, NYC, and Los Angeles.",
+    "questions": {
+      "q1": {
+        "question": "What areas do you serve for interior design?",
+        "answer": "We provide luxury interior design services in Orlando, Tampa, New York City, and Los Angeles. Our team works with clients throughout these metropolitan areas including surrounding neighborhoods and suburbs."
+      },
+      "q2": {
+        "question": "How much does interior design cost?",
+        "answer": "Our interior design services typically range from $75-400 per square foot depending on the project scope, location, and luxury level. We offer free consultations to provide accurate estimates based on your specific needs and vision."
+      },
+      "q3": {
+        "question": "What types of interior design projects do you handle?",
+        "answer": "We specialize in luxury residential design including complete home renovations, kitchen and bathroom remodeling, living spaces, and bedrooms. We also provide commercial interior design for offices, restaurants, and retail spaces."
+      },
+      "q4": {
+        "question": "How long does an interior design project take?",
+        "answer": "Project timelines vary based on scope and complexity. A single room design typically takes 4-8 weeks, while full home renovations can take 3-6 months. We provide detailed timelines during our initial consultation."
+      },
+      "q5": {
+        "question": "Do you offer virtual interior design consultations?",
+        "answer": "Yes, we offer both in-person and virtual consultations for clients across all our service areas. Virtual consultations are perfect for initial planning and can be followed by in-person visits as needed."
+      },
+      "q6": {
+        "question": "What makes Scialla Studio different from other interior designers?",
+        "answer": "Our founder Francesco brings over 15 years of European design expertise combined with deep understanding of American luxury markets. We focus on creating sophisticated spaces that reflect your personality while maximizing functionality and value."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Ready to transform your space? Get in touch for a free consultation.",
+    "form": {
+      "name": "Your Name",
+      "nameRequired": "Name is required",
+      "namePlaceholder": "John Smith",
+      "email": "Email Address",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Please enter a valid email",
+      "emailPlaceholder": "john@example.com",
+      "phone": "Phone Number",
+      "phoneRequired": "Phone number is required",
+      "phonePlaceholder": "(555) 123-4567",
+      "location": "Project Location",
+      "locationRequired": "Please select a location",
+      "locationPlaceholder": "Select City",
+      "projectType": "Project Type",
+      "projectTypeRequired": "Please select a project type",
+      "projectTypePlaceholder": "Select Type",
+      "message": "Tell Us About Your Project",
+      "messageOptional": "(Optional)",
+      "messagePlaceholder": "Share your vision, timeline, or any specific requirements...",
+      "privacyNotice": "Your information is secure and will never be shared. We'll only use it to discuss your project.",
+      "submit": "Get My Free Consultation",
+      "submitting": "Sending..."
+    },
+    "success": "Thank you! We'll contact you within 24 hours.",
+    "error": "Failed to send message. Please try again."
+  },
+  "footer": {
+    "tagline": "Creating Spaces, Elevating Lives",
+    "recognition": "Recognition",
+    "featuredIn": "As Featured In",
+    "recognitionDescription": "Nationally recognized interior design excellence",
+    "services": "Services",
+    "servicesList": {
+      "residential": "Residential Interior Design",
+      "commercial": "Commercial Interior Design",
+      "kitchen": "Kitchen & Bathroom Design",
+      "consultation": "Design Consultation",
+      "spacePlanning": "Space Planning",
+      "sourcing": "Furniture & Décor Sourcing"
+    },
+    "locations": "Locations",
+    "locationsList": {
+      "orlando": "Orlando",
+      "tampa": "Tampa",
+      "nyc": "New York City",
+      "losAngeles": "Los Angeles",
+      "nationwide": "Nationwide Service"
+    },
+    "locationsNote": "Additional cities served with virtual consultations",
+    "connect": "Connect",
+    "socialLinks": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "houzz": "Houzz",
+      "pinterest": "Pinterest"
+    },
+    "copyright": "Scialla Studio. All rights reserved."
+  },
+  "cityPage": {
+    "servicesTitle": "Architecture & Interior Design Services in {city}",
+    "neighborhoodsTitle": "Serving {city} & Surrounding Areas",
+    "testimonialsTitle": "What Our {city} Clients Say",
+    "faqTitle": "Frequently Asked Questions - {city} Architecture & Interior Design",
+    "nationwideTitle": "Serving Clients Nationwide",
+    "nationwideDescription": "While our {city} studio specializes in the area's unique style, Scialla Studio proudly serves clients across the entire United States. Through our virtual consultation process and remote design services, we bring the same level of expertise and attention to detail to projects anywhere in the country.",
+    "virtualConsultations": "Virtual Consultations",
+    "virtualConsultationsDesc": "Complete design consultations available online for clients nationwide",
+    "remoteDesign": "Remote Design Services",
+    "remoteDesignDesc": "Full-service design planning and coordination across all 50 states",
+    "viewPortfolio": "View {city} Portfolio",
+    "projectsCompleted": "completed projects across the {city} area",
+    "getConsultation": "Get Free Consultation",
+    "breadcrumbServices": "Architecture & Interior Design Services",
+    "breadcrumbCurrent": "{city} Architecture & Design",
+    "serviceDescription": "Professional {service} tailored to {city}'s unique style and architecture."
+  },
+  "projects": {
+    "title": "Designing Spaces",
+    "titleLine2": "That Tell Your Story",
+    "viewAll": "View All Projects",
+    "emptyState": "No projects found. Please add some projects in the Sanity Studio.",
+    "goToStudio": "Go to Studio"
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "backToHome": "Back to Home"
+  },
+  "cityPages": {
+    "orlando": {
+      "name": "Orlando",
+      "state": "Florida",
+      "hero": {
+        "title": "Premier Architecture & Interior Design in Orlando, Florida",
+        "subtitle": "Full-service architecture and interior design studio serving Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips. From new construction to luxury renovations, bringing Central Florida's vibrant energy to life.",
+        "imageAlt": "Architecture and interior design by Scialla Studio in Orlando, Florida"
+      },
+      "neighborhoods": ["Winter Park", "Lake Nona", "Downtown Orlando", "Windermere", "Dr. Phillips", "Baldwin Park", "Thornton Park", "College Park"],
+      "servicesTitle": "Our Orlando Architecture & Interior Design Services",
+      "services": [
+        "New Home Construction Design Orlando",
+        "Architectural Renovations & Additions Orlando",
+        "Luxury Home Renovation Orlando",
+        "Kitchen Design Orlando",
+        "Bathroom Remodeling Orlando",
+        "Commercial Architecture & Design Orlando"
+      ],
+      "faqTitle": "Orlando Architecture & Interior Design - Frequently Asked Questions",
+      "faq": [
+        {
+          "question": "Do you provide architectural services for new construction in Orlando?",
+          "answer": "Yes, we are a full-service architecture and design studio. Francesco Scialla is a licensed architect with over 20 years of experience designing new construction projects from the ground up, including site planning, structural design, and complete architectural services."
+        },
+        {
+          "question": "What areas of Orlando do you serve?",
+          "answer": "We serve all of Central Florida including Winter Park, Lake Nona, Downtown Orlando, Windermere, Dr. Phillips, Baldwin Park, Thornton Park, and College Park. We handle both new construction and renovation projects throughout the region."
+        },
+        {
+          "question": "How long does a typical project take in Orlando?",
+          "answer": "Project timelines vary based on scope. Architectural planning and permitting typically takes 2-4 months, interior design projects range from 4-12 weeks, and full new construction can take 8-14 months from design to completion."
+        },
+        {
+          "question": "What makes your Orlando interior design services unique?",
+          "answer": "Our unique combination of architectural expertise and interior design creates cohesive spaces from structure to finish. Francesco's PhD in Architecture & Industrial Design ensures every project balances aesthetic beauty with structural excellence and human-centered design principles."
+        }
+      ]
+    },
+    "tampa": {
+      "name": "Tampa",
+      "state": "Florida",
+      "hero": {
+        "title": "Award-Winning Architecture & Interior Design in Tampa, Florida",
+        "subtitle": "Expert architecture and interior design studio serving South Tampa, Westchase, Hyde Park, Channelside, and Harbour Island. Blending coastal elegance with Tampa Bay's modern sophistication in every project.",
+        "imageAlt": "Luxury architecture and interior design by Scialla Studio in Tampa, Florida"
+      },
+      "neighborhoods": ["South Tampa", "Westchase", "Hyde Park", "Channelside", "Harbour Island", "Palma Ceia", "Davis Islands", "Beach Park"],
+      "servicesTitle": "Our Tampa Architecture & Interior Design Services",
+      "services": [
+        "New Construction Architecture Tampa",
+        "Waterfront Home Design Tampa",
+        "Luxury Residential Renovation Tampa",
+        "Kitchen & Bath Remodeling Tampa",
+        "Coastal Interior Design Tampa",
+        "Commercial Design Tampa Bay"
+      ],
+      "faqTitle": "Tampa Architecture & Interior Design - Frequently Asked Questions",
+      "faq": [
+        {
+          "question": "Do you specialize in waterfront properties in Tampa?",
+          "answer": "Yes, we have extensive experience with waterfront properties throughout Tampa Bay. Our architectural and design expertise includes considerations for coastal environments, hurricane-resistant construction, and maximizing water views while maintaining structural integrity."
+        },
+        {
+          "question": "Which Tampa neighborhoods do you work in?",
+          "answer": "We serve all of Tampa Bay including South Tampa, Westchase, Hyde Park, Channelside, Harbour Island, Palma Ceia, Davis Islands, and Beach Park. Our services extend to St. Petersburg, Clearwater, and surrounding communities."
+        },
+        {
+          "question": "What is your design philosophy for Tampa homes?",
+          "answer": "We blend coastal elegance with modern sophistication, creating spaces that reflect Tampa's unique character. Our designs incorporate natural light, indoor-outdoor living, and materials that thrive in Florida's climate while maintaining timeless European refinement."
+        },
+        {
+          "question": "How do you handle Tampa's building codes and permits?",
+          "answer": "As a licensed architect, Francesco handles all architectural drawings, structural engineering coordination, and permitting processes. We're well-versed in Tampa's building codes, wind load requirements, and flood zone regulations."
+        }
+      ]
+    },
+    "nyc": {
+      "name": "New York City",
+      "state": "New York",
+      "hero": {
+        "title": "Elite Architecture & Interior Design in New York City",
+        "subtitle": "Distinguished architecture and interior design studio serving Manhattan, Brooklyn, Queens, Upper East Side, and SoHo. Bringing European sophistication to NYC's most prestigious addresses.",
+        "imageAlt": "Sophisticated architecture and interior design by Scialla Studio in New York City"
+      },
+      "neighborhoods": ["Manhattan", "Brooklyn", "Queens", "Upper East Side", "SoHo", "Tribeca", "Chelsea", "Upper West Side"],
+      "servicesTitle": "Our NYC Architecture & Interior Design Services",
+      "services": [
+        "NYC Apartment & Penthouse Design",
+        "Brownstone Renovation Architecture NYC",
+        "Luxury Condo Interior Design NYC",
+        "Manhattan Kitchen & Bath Design",
+        "Commercial Office Design NYC",
+        "Historic Building Renovation NYC"
+      ],
+      "faqTitle": "NYC Architecture & Interior Design - Frequently Asked Questions",
+      "faq": [
+        {
+          "question": "Do you handle NYC co-op and condo board approvals?",
+          "answer": "Yes, we're experienced with NYC building regulations, co-op and condo board approval processes. We prepare all necessary architectural drawings, alteration agreements, and work closely with building management to ensure smooth approvals."
+        },
+        {
+          "question": "Which NYC boroughs do you serve?",
+          "answer": "We serve all five boroughs with focus on Manhattan, Brooklyn, and Queens. Our portfolio includes projects in the Upper East Side, SoHo, Tribeca, Chelsea, Upper West Side, and other prestigious neighborhoods."
+        },
+        {
+          "question": "What types of NYC properties do you design?",
+          "answer": "We specialize in luxury apartments, penthouses, brownstones, lofts, and condominiums. Our architectural expertise covers new construction, gut renovations, and landmark building alterations while maintaining historic character."
+        },
+        {
+          "question": "How do you maximize space in NYC apartments?",
+          "answer": "We employ European design principles of efficiency and elegance, using custom built-ins, multi-functional furniture, strategic lighting, and spatial planning to make every square foot count while maintaining a luxurious feel."
+        }
+      ]
+    },
+    "losAngeles": {
+      "name": "Los Angeles",
+      "state": "California",
+      "hero": {
+        "title": "Luxury Architecture & Interior Design in Los Angeles",
+        "subtitle": "Premier architecture and interior design studio serving Beverly Hills, Santa Monica, West Hollywood, Malibu, and Venice. Infusing Hollywood glamour with California's relaxed coastal aesthetic.",
+        "imageAlt": "Modern architecture and interior design by Scialla Studio in Los Angeles"
+      },
+      "neighborhoods": ["Beverly Hills", "Santa Monica", "West Hollywood", "Malibu", "Venice", "Bel Air", "Pacific Palisades", "Hollywood Hills"],
+      "servicesTitle": "Our Los Angeles Architecture & Interior Design Services",
+      "services": [
+        "Modern Home Architecture Los Angeles",
+        "Beverly Hills Luxury Interior Design",
+        "Malibu Beach House Design",
+        "Mid-Century Modern Renovation LA",
+        "Celebrity Home Interior Design LA",
+        "Commercial Design West Hollywood"
+      ],
+      "faqTitle": "Los Angeles Architecture & Interior Design - Frequently Asked Questions",
+      "faq": [
+        {
+          "question": "Do you design modern California homes?",
+          "answer": "Yes, we specialize in contemporary California architecture featuring clean lines, indoor-outdoor flow, sustainable materials, and abundant natural light. Our designs honor California's modernist heritage while incorporating European refinement."
+        },
+        {
+          "question": "Which Los Angeles areas do you serve?",
+          "answer": "We serve greater Los Angeles including Beverly Hills, Santa Monica, West Hollywood, Malibu, Venice, Bel Air, Pacific Palisades, and Hollywood Hills. Our expertise spans beachfront properties to hillside estates."
+        },
+        {
+          "question": "What is your approach to LA's indoor-outdoor living?",
+          "answer": "We design with California's climate in mind, creating seamless transitions between interior and exterior spaces through sliding glass walls, covered patios, outdoor kitchens, and strategic landscaping integration that enhances the Southern California lifestyle."
+        },
+        {
+          "question": "Do you work with LA's building codes and regulations?",
+          "answer": "Absolutely. We're well-versed in California building codes, seismic requirements, coastal commission regulations, and hillside ordinances. Our architectural services ensure full compliance while achieving your design vision."
+        }
+      ]
+    }
+  }
+}

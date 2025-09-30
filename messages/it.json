@@ -1,0 +1,396 @@
+{
+  "header": {
+    "services": "Servizi",
+    "portfolio": "Portfolio",
+    "about": "Chi Siamo",
+    "contact": "Contatti",
+    "getConsultation": "Consulenza Gratuita"
+  },
+  "hero": {
+    "mainTitle": "Studio Premier di Design d'Interni e Architettura",
+    "location": "Servizio in Tutti i 50 Stati | Studi a Orlando, Tampa, NYC e LA",
+    "subtitle": "Studio premiato di architettura e design d'interni che crea case eccezionali, nuove costruzioni e spazi commerciali in tutta la nazione dal 2010",
+    "ctaPrimary": "Prenota una Consulenza",
+    "ctaSecondary": "Vedi Portfolio",
+    "featuredIn": "In primo piano su",
+    "imageAlt": "Design d'interni di lusso di Scialla Studio"
+  },
+  "services": {
+    "title": "Soluzioni Complete di Architettura e Design d'Interni",
+    "subtitle": "Dalla nuova costruzione e progettazione architettonica agli interni residenziali di lusso e ambienti commerciali sofisticati, trasformiamo la vostra visione in spazi eccezionali dalle fondamenta.",
+    "cta": "Prenota la Tua Consulenza Gratuita",
+    "residential": {
+      "title": "Design d'Interni Residenziale",
+      "services": {
+        "renovation": "Ristrutturazione Completa della Casa",
+        "kitchen": "Design e Ristrutturazione Cucine",
+        "bathroom": "Design di Bagni di Lusso",
+        "living": "Design di Soggiorni e Camere da Letto"
+      }
+    },
+    "architectural": {
+      "title": "Progettazione Architettonica e Nuove Costruzioni",
+      "services": {
+        "newHome": "Progettazione di Nuove Costruzioni Residenziali",
+        "renovations": "Ristrutturazioni e Ampliamenti Architettonici",
+        "sitePlanning": "Pianificazione e Sviluppo del Sito",
+        "structural": "Progettazione Strutturale e Ingegneria"
+      }
+    },
+    "commercial": {
+      "title": "Design d'Interni Commerciale",
+      "services": {
+        "office": "Pianificazione Spazi Ufficio",
+        "restaurant": "Design per Ristoranti e Ospitalità",
+        "retail": "Design di Negozi al Dettaglio",
+        "medical": "Interni per Studi Medici"
+      }
+    },
+    "consultation": {
+      "title": "Servizi di Consulenza di Design",
+      "services": {
+        "virtual": "Consulenze di Design Virtuali",
+        "spacePlanning": "Pianificazione e Layout degli Spazi",
+        "materials": "Selezione Colori e Materiali",
+        "sourcing": "Ricerca di Mobili e Arredamento"
+      }
+    }
+  },
+  "locations": {
+    "title": "Servizi di Design d'Interni",
+    "titleLine2": "A Livello Nazionale con Studi in Quattro Grandi Città",
+    "description": "Dai nostri studi di punta in Florida e oltre, Scialla Studio offre servizi di design d'interni di alto livello a livello nazionale. Con team dedicati in quattro grandi città e capacità di design remoto, portiamo l'eleganza europea nelle case di tutta l'America.",
+    "viewLocations": "Vedi Sedi",
+    "servingNote": "Sebbene i nostri studi si trovino a Orlando, Tampa, NYC e Los Angeles, serviamo con orgoglio clienti in tutti gli Stati Uniti con consulenze di design sia in loco che virtuali.",
+    "cities": {
+      "orlando": {
+        "name": "Orlando",
+        "description": "Elevando case sofisticate in Winter Park, Lake Nona, Downtown Orlando, Windermere e Dr. Phillips con design d'interni innovativo che cattura l'energia vibrante della Florida centrale."
+      },
+      "tampa": {
+        "name": "Tampa",
+        "description": "Creando interni straordinari in South Tampa, Westchase, Hyde Park, Channelside e Harbour Island. I nostri design combinano eleganza costiera con la sofisticazione moderna di Tampa Bay."
+      },
+      "nyc": {
+        "name": "New York",
+        "description": "Offrendo servizi eccezionali di design d'interni a Manhattan, Brooklyn, Queens, Upper East Side e SoHo. Portando raffinatezza europea nei quartieri più prestigiosi di NYC."
+      },
+      "losAngeles": {
+        "name": "Los Angeles",
+        "description": "Progettando residenze di lusso a Beverly Hills, Santa Monica, West Hollywood, Malibu e Venice. Infondendo glamour hollywoodiano con l'estetica costiera rilassata della California."
+      }
+    }
+  },
+  "about": {
+    "title": "Team Esperto di Architettura e Design",
+    "titleLine2": "Con Prospettiva Globale",
+    "paragraph1": "Fondato da Francesco Scialla e Valentina Pollio, Scialla Studio unisce competenza architettonica completa e filosofia di design incentrata sull'essere umano. Francesco, un architetto abilitato del sud Italia con oltre 20 anni di esperienza internazionale e un PhD in Architettura e Design Industriale, guida sia progetti di nuova costruzione che ristrutturazioni di interni con uguale maestria. L'esperienza unica di Valentina in ingegneria delle costruzioni e dinamiche spaziali garantisce che l'integrità strutturale incontri l'eccellenza estetica.",
+    "paragraph2": "Il loro approccio collaborativo riconosce l'impatto profondo dell'ambiente sul benessere umano, creando ambienti da zero—che si tratti di progettare una struttura completamente nuova o di trasformare spazi esistenti—che trascendono i confini geografici favorendo connessioni profonde con i loro occupanti. Con sede in quattro grandi città e portata nazionale, Scialla Studio serve clienti in tutti gli Stati Uniti attraverso consulenze in loco e virtuali per progetti di architettura e design d'interni.",
+    "credentials": {
+      "phd": "Architetto Abilitato con PhD in Architettura e Design Industriale",
+      "fullService": "Servizi Architettonici Completi: Nuove Costruzioni a Ristrutturazioni",
+      "engineering": "Competenza in Ingegneria delle Costruzioni e Design Spaziale",
+      "published": "Pubblicato in Multiple Riviste Prestigiose",
+      "experience": "Oltre 20 Anni di Esperienza Internazionale",
+      "cities": "Fondato a Tampa, Servizio in 4 Grandi Città",
+      "featured": "In Primo Piano su Architectural Digest 2025"
+    },
+    "team": {
+      "francesco": {
+        "name": "Francesco Scialla",
+        "title": "Architetto e Fondatore"
+      },
+      "valentina": {
+        "name": "Valentina Pollio",
+        "title": "Direttrice Creativa"
+      }
+    },
+    "stats": {
+      "yearsExperience": "20+",
+      "yearsExperienceLabel": "Anni di Esperienza",
+      "citiesServed": "4",
+      "citiesServedLabel": "Città Servite",
+      "projectsCompleted": "50+",
+      "projectsCompletedLabel": "Progetti Completati",
+      "countriesWorked": "5",
+      "countriesWorkedLabel": "Paesi Lavorati"
+    }
+  },
+  "faq": {
+    "title": "Domande Frequenti",
+    "subtitle": "Ottieni risposte alle domande comuni sui nostri servizi di design d'interni a Orlando, Tampa, NYC e Los Angeles.",
+    "questions": {
+      "q1": {
+        "question": "Quali aree servite per il design d'interni?",
+        "answer": "Forniamo servizi di design d'interni di lusso a Orlando, Tampa, New York e Los Angeles. Il nostro team lavora con clienti in queste aree metropolitane, inclusi quartieri e periferie circostanti."
+      },
+      "q2": {
+        "question": "Quanto costa il design d'interni?",
+        "answer": "I nostri servizi di design d'interni variano tipicamente da $75-400 per piede quadrato a seconda della portata del progetto, della posizione e del livello di lusso. Offriamo consulenze gratuite per fornire stime accurate basate sulle vostre esigenze e visione specifiche."
+      },
+      "q3": {
+        "question": "Che tipi di progetti di design d'interni gestite?",
+        "answer": "Siamo specializzati in design residenziale di lusso incluse ristrutturazioni complete di case, ristrutturazione di cucine e bagni, spazi abitativi e camere da letto. Forniamo anche design d'interni commerciali per uffici, ristoranti e spazi al dettaglio."
+      },
+      "q4": {
+        "question": "Quanto tempo richiede un progetto di design d'interni?",
+        "answer": "I tempi dei progetti variano in base alla portata e alla complessità. Il design di una singola stanza richiede tipicamente 4-8 settimane, mentre le ristrutturazioni complete della casa possono richiedere 3-6 mesi. Forniamo tempistiche dettagliate durante la nostra consulenza iniziale."
+      },
+      "q5": {
+        "question": "Offrite consulenze virtuali di design d'interni?",
+        "answer": "Sì, offriamo consulenze sia in persona che virtuali per clienti in tutte le nostre aree di servizio. Le consulenze virtuali sono perfette per la pianificazione iniziale e possono essere seguite da visite in persona secondo necessità."
+      },
+      "q6": {
+        "question": "Cosa rende Scialla Studio diverso da altri designer d'interni?",
+        "answer": "Il nostro fondatore Francesco porta oltre 15 anni di esperienza nel design europeo combinata con una profonda comprensione dei mercati di lusso americani. Ci concentriamo sulla creazione di spazi sofisticati che riflettono la vostra personalità massimizzando funzionalità e valore."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contatto",
+    "subtitle": "Pronto a trasformare il tuo spazio? Contattaci per una consulenza gratuita.",
+    "form": {
+      "name": "Il Tuo Nome",
+      "nameRequired": "Il nome è obbligatorio",
+      "namePlaceholder": "Mario Rossi",
+      "email": "Indirizzo Email",
+      "emailRequired": "L'email è obbligatoria",
+      "emailInvalid": "Per favore inserisci un'email valida",
+      "emailPlaceholder": "mario@esempio.com",
+      "phone": "Numero di Telefono",
+      "phoneRequired": "Il numero di telefono è obbligatorio",
+      "phonePlaceholder": "(555) 123-4567",
+      "location": "Posizione del Progetto",
+      "locationRequired": "Per favore seleziona una posizione",
+      "locationPlaceholder": "Seleziona Città",
+      "projectType": "Tipo di Progetto",
+      "projectTypeRequired": "Per favore seleziona un tipo di progetto",
+      "projectTypePlaceholder": "Seleziona Tipo",
+      "message": "Raccontaci del Tuo Progetto",
+      "messageOptional": "(Facoltativo)",
+      "messagePlaceholder": "Condividi la tua visione, tempistiche o requisiti specifici...",
+      "privacyNotice": "Le tue informazioni sono sicure e non saranno mai condivise. Le useremo solo per discutere del tuo progetto.",
+      "submit": "Ottieni la Mia Consulenza Gratuita",
+      "submitting": "Invio in corso..."
+    },
+    "success": "Grazie! Ti contatteremo entro 24 ore.",
+    "error": "Invio del messaggio non riuscito. Per favore riprova."
+  },
+  "footer": {
+    "tagline": "Creando Spazi, Elevando Vite",
+    "recognition": "Riconoscimento",
+    "featuredIn": "In Primo Piano Su",
+    "recognitionDescription": "Eccellenza nel design d'interni riconosciuta a livello nazionale",
+    "services": "Servizi",
+    "servicesList": {
+      "residential": "Design d'Interni Residenziale",
+      "commercial": "Design d'Interni Commerciale",
+      "kitchen": "Design di Cucine e Bagni",
+      "consultation": "Consulenza di Design",
+      "spacePlanning": "Pianificazione degli Spazi",
+      "sourcing": "Ricerca di Mobili e Arredamento"
+    },
+    "locations": "Sedi",
+    "locationsList": {
+      "orlando": "Orlando",
+      "tampa": "Tampa",
+      "nyc": "New York",
+      "losAngeles": "Los Angeles",
+      "nationwide": "Servizio Nazionale"
+    },
+    "locationsNote": "Città aggiuntive servite con consulenze virtuali",
+    "connect": "Connettiti",
+    "socialLinks": {
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "houzz": "Houzz",
+      "pinterest": "Pinterest"
+    },
+    "copyright": "Scialla Studio. Tutti i diritti riservati."
+  },
+  "cityPage": {
+    "servicesTitle": "Servizi di Architettura e Design d'Interni a {city}",
+    "neighborhoodsTitle": "Servizio a {city} e Aree Circostanti",
+    "testimonialsTitle": "Cosa Dicono i Nostri Clienti di {city}",
+    "faqTitle": "Domande Frequenti - Architettura e Design d'Interni a {city}",
+    "nationwideTitle": "Servizio Clienti in Tutto il Paese",
+    "nationwideDescription": "Mentre il nostro studio di {city} è specializzato nello stile unico dell'area, Scialla Studio serve con orgoglio clienti in tutti gli Stati Uniti. Attraverso il nostro processo di consulenza virtuale e servizi di design remoto, portiamo lo stesso livello di competenza e attenzione ai dettagli nei progetti in tutto il paese.",
+    "virtualConsultations": "Consulenze Virtuali",
+    "virtualConsultationsDesc": "Consulenze di design complete disponibili online per clienti in tutto il paese",
+    "remoteDesign": "Servizi di Design Remoto",
+    "remoteDesignDesc": "Pianificazione e coordinamento di design a servizio completo in tutti i 50 stati",
+    "viewPortfolio": "Vedi Portfolio di {city}",
+    "projectsCompleted": "progetti completati nell'area di {city}",
+    "getConsultation": "Ottieni Consulenza Gratuita",
+    "breadcrumbServices": "Servizi di Architettura e Design d'Interni",
+    "breadcrumbCurrent": "Architettura e Design di {city}",
+    "serviceDescription": "{service} professionali adattati allo stile e all'architettura unici di {city}."
+  },
+  "projects": {
+    "title": "Progettando Spazi",
+    "titleLine2": "Che Raccontano la Tua Storia",
+    "viewAll": "Vedi Tutti i Progetti",
+    "emptyState": "Nessun progetto trovato. Per favore aggiungi alcuni progetti in Sanity Studio.",
+    "goToStudio": "Vai allo Studio"
+  },
+  "common": {
+    "readMore": "Leggi di Più",
+    "learnMore": "Scopri di Più",
+    "viewAll": "Vedi Tutto",
+    "backToHome": "Torna alla Home"
+  },
+  "cityPages": {
+    "orlando": {
+      "name": "Orlando",
+      "state": "Florida",
+      "hero": {
+        "title": "Architettura e Design d'Interni Premier a Orlando, Florida",
+        "subtitle": "Studio di architettura e design d'interni a servizio completo che serve Winter Park, Lake Nona, Downtown Orlando, Windermere e Dr. Phillips. Dalla nuova costruzione alle ristrutturazioni di lusso, dando vita all'energia vibrante della Florida centrale.",
+        "imageAlt": "Architettura e design d'interni di Scialla Studio a Orlando, Florida"
+      },
+      "neighborhoods": ["Winter Park", "Lake Nona", "Downtown Orlando", "Windermere", "Dr. Phillips", "Baldwin Park", "Thornton Park", "College Park"],
+      "servicesTitle": "I Nostri Servizi di Architettura e Design d'Interni a Orlando",
+      "services": [
+        "Progettazione Nuova Costruzione Case Orlando",
+        "Ristrutturazioni e Ampliamenti Architettonici Orlando",
+        "Ristrutturazione Casa di Lusso Orlando",
+        "Progettazione Cucine Orlando",
+        "Ristrutturazione Bagni Orlando",
+        "Architettura e Design Commerciale Orlando"
+      ],
+      "faqTitle": "Architettura e Design d'Interni a Orlando - Domande Frequenti",
+      "faq": [
+        {
+          "question": "Fornite servizi architettonici per nuove costruzioni a Orlando?",
+          "answer": "Sì, siamo uno studio di architettura e design a servizio completo. Francesco Scialla è un architetto abilitato con oltre 20 anni di esperienza nella progettazione di progetti di nuova costruzione da zero, inclusa la pianificazione del sito, la progettazione strutturale e i servizi architettonici completi."
+        },
+        {
+          "question": "Quali aree di Orlando servite?",
+          "answer": "Serviamo tutta la Florida centrale incluso Winter Park, Lake Nona, Downtown Orlando, Windermere, Dr. Phillips, Baldwin Park, Thornton Park e College Park. Gestiamo progetti di nuova costruzione e ristrutturazione in tutta la regione."
+        },
+        {
+          "question": "Quanto tempo richiede un progetto tipico a Orlando?",
+          "answer": "I tempi dei progetti variano in base all'ambito. La pianificazione architettonica e i permessi richiedono tipicamente 2-4 mesi, i progetti di design d'interni vanno da 4-12 settimane, e la nuova costruzione completa può richiedere 8-14 mesi dal design al completamento."
+        },
+        {
+          "question": "Cosa rende unici i vostri servizi di design d'interni a Orlando?",
+          "answer": "La nostra combinazione unica di competenza architettonica e design d'interni crea spazi coesi dalla struttura alla finitura. Il PhD di Francesco in Architettura e Design Industriale assicura che ogni progetto bilanci bellezza estetica con eccellenza strutturale e principi di design centrati sull'uomo."
+        }
+      ]
+    },
+    "tampa": {
+      "name": "Tampa",
+      "state": "Florida",
+      "hero": {
+        "title": "Architettura e Design d'Interni Pluripremiato a Tampa, Florida",
+        "subtitle": "Studio esperto di architettura e design d'interni che serve South Tampa, Westchase, Hyde Park, Channelside e Harbour Island. Fondendo eleganza costiera con la sofisticazione moderna di Tampa Bay in ogni progetto.",
+        "imageAlt": "Architettura e design d'interni di lusso di Scialla Studio a Tampa, Florida"
+      },
+      "neighborhoods": ["South Tampa", "Westchase", "Hyde Park", "Channelside", "Harbour Island", "Palma Ceia", "Davis Islands", "Beach Park"],
+      "servicesTitle": "I Nostri Servizi di Architettura e Design d'Interni a Tampa",
+      "services": [
+        "Architettura Nuova Costruzione Tampa",
+        "Progettazione Case Fronte Mare Tampa",
+        "Ristrutturazione Residenziale di Lusso Tampa",
+        "Ristrutturazione Cucine e Bagni Tampa",
+        "Design d'Interni Costiero Tampa",
+        "Design Commerciale Tampa Bay"
+      ],
+      "faqTitle": "Architettura e Design d'Interni a Tampa - Domande Frequenti",
+      "faq": [
+        {
+          "question": "Vi specializzate in proprietà fronte mare a Tampa?",
+          "answer": "Sì, abbiamo una vasta esperienza con proprietà fronte mare in tutta Tampa Bay. La nostra competenza architettonica e di design include considerazioni per ambienti costieri, costruzione resistente agli uragani e massimizzazione delle viste sull'acqua mantenendo l'integrità strutturale."
+        },
+        {
+          "question": "In quali quartieri di Tampa lavorate?",
+          "answer": "Serviamo tutta Tampa Bay incluso South Tampa, Westchase, Hyde Park, Channelside, Harbour Island, Palma Ceia, Davis Islands e Beach Park. I nostri servizi si estendono a St. Petersburg, Clearwater e comunità circostanti."
+        },
+        {
+          "question": "Qual è la vostra filosofia di design per le case di Tampa?",
+          "answer": "Fondiamo eleganza costiera con sofisticazione moderna, creando spazi che riflettono il carattere unico di Tampa. I nostri design incorporano luce naturale, vita interno-esterno e materiali che prosperano nel clima della Florida mantenendo la raffinatezza europea senza tempo."
+        },
+        {
+          "question": "Come gestite i codici edilizi e i permessi di Tampa?",
+          "answer": "Come architetto abilitato, Francesco gestisce tutti i disegni architettonici, il coordinamento dell'ingegneria strutturale e i processi di permessi. Conosciamo bene i codici edilizi di Tampa, i requisiti di carico del vento e le normative sulle zone di alluvione."
+        }
+      ]
+    },
+    "nyc": {
+      "name": "New York",
+      "state": "New York",
+      "hero": {
+        "title": "Architettura e Design d'Interni d'Élite a New York",
+        "subtitle": "Studio distinto di architettura e design d'interni che serve Manhattan, Brooklyn, Queens, Upper East Side e SoHo. Portando sofisticazione europea agli indirizzi più prestigiosi di NYC.",
+        "imageAlt": "Architettura e design d'interni sofisticato di Scialla Studio a New York"
+      },
+      "neighborhoods": ["Manhattan", "Brooklyn", "Queens", "Upper East Side", "SoHo", "Tribeca", "Chelsea", "Upper West Side"],
+      "servicesTitle": "I Nostri Servizi di Architettura e Design d'Interni a NYC",
+      "services": [
+        "Progettazione Appartamenti e Attici NYC",
+        "Architettura Ristrutturazione Brownstone NYC",
+        "Design d'Interni Condomini di Lusso NYC",
+        "Progettazione Cucine e Bagni Manhattan",
+        "Design Uffici Commerciali NYC",
+        "Ristrutturazione Edifici Storici NYC"
+      ],
+      "faqTitle": "Architettura e Design d'Interni a NYC - Domande Frequenti",
+      "faq": [
+        {
+          "question": "Gestite le approvazioni dei consigli di co-op e condomini a NYC?",
+          "answer": "Sì, abbiamo esperienza con le normative edilizie di NYC e i processi di approvazione dei consigli di co-op e condomini. Prepariamo tutti i disegni architettonici necessari, accordi di modifica e lavoriamo a stretto contatto con la gestione dell'edificio per assicurare approvazioni senza intoppi."
+        },
+        {
+          "question": "Quali distretti di NYC servite?",
+          "answer": "Serviamo tutti e cinque i distretti con focus su Manhattan, Brooklyn e Queens. Il nostro portfolio include progetti nell'Upper East Side, SoHo, Tribeca, Chelsea, Upper West Side e altri quartieri prestigiosi."
+        },
+        {
+          "question": "Quali tipi di proprietà di NYC progettate?",
+          "answer": "Ci specializziamo in appartamenti di lusso, attici, brownstone, loft e condomini. La nostra competenza architettonica copre nuove costruzioni, ristrutturazioni complete e modifiche di edifici storici mantenendo il carattere storico."
+        },
+        {
+          "question": "Come massimizzate lo spazio negli appartamenti di NYC?",
+          "answer": "Impieghiamo principi di design europei di efficienza ed eleganza, usando mobili su misura integrati, mobili multifunzionali, illuminazione strategica e pianificazione spaziale per far contare ogni metro quadrato mantenendo una sensazione lussuosa."
+        }
+      ]
+    },
+    "losAngeles": {
+      "name": "Los Angeles",
+      "state": "California",
+      "hero": {
+        "title": "Architettura e Design d'Interni di Lusso a Los Angeles",
+        "subtitle": "Studio premier di architettura e design d'interni che serve Beverly Hills, Santa Monica, West Hollywood, Malibu e Venice. Infondendo glamour hollywoodiano con l'estetica costiera rilassata della California.",
+        "imageAlt": "Architettura e design d'interni moderno di Scialla Studio a Los Angeles"
+      },
+      "neighborhoods": ["Beverly Hills", "Santa Monica", "West Hollywood", "Malibu", "Venice", "Bel Air", "Pacific Palisades", "Hollywood Hills"],
+      "servicesTitle": "I Nostri Servizi di Architettura e Design d'Interni a Los Angeles",
+      "services": [
+        "Architettura Case Moderne Los Angeles",
+        "Design d'Interni di Lusso Beverly Hills",
+        "Progettazione Case Sulla Spiaggia Malibu",
+        "Ristrutturazione Moderna Mid-Century LA",
+        "Design d'Interni Case di Celebrità LA",
+        "Design Commerciale West Hollywood"
+      ],
+      "faqTitle": "Architettura e Design d'Interni a Los Angeles - Domande Frequenti",
+      "faq": [
+        {
+          "question": "Progettate case moderne californiane?",
+          "answer": "Sì, ci specializziamo in architettura californiana contemporanea con linee pulite, flusso interno-esterno, materiali sostenibili e luce naturale abbondante. I nostri design onorano il patrimonio modernista della California incorporando raffinatezza europea."
+        },
+        {
+          "question": "Quali aree di Los Angeles servite?",
+          "answer": "Serviamo la grande Los Angeles incluso Beverly Hills, Santa Monica, West Hollywood, Malibu, Venice, Bel Air, Pacific Palisades e Hollywood Hills. La nostra competenza spazia dalle proprietà sulla spiaggia alle tenute sulle colline."
+        },
+        {
+          "question": "Qual è il vostro approccio alla vita interno-esterno di LA?",
+          "answer": "Progettiamo tenendo presente il clima della California, creando transizioni perfette tra spazi interni ed esterni attraverso pareti di vetro scorrevoli, patii coperti, cucine all'aperto e integrazione strategica del paesaggio che migliora lo stile di vita della California del Sud."
+        },
+        {
+          "question": "Lavorate con i codici edilizi e le normative di LA?",
+          "answer": "Assolutamente. Conosciamo bene i codici edilizi della California, i requisiti sismici, le normative della commissione costiera e le ordinanze sulle colline. I nostri servizi architettonici assicurano la piena conformità raggiungendo la vostra visione di design."
+        }
+      ]
+    }
+  }
+}

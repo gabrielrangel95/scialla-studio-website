@@ -2,12 +2,16 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
+import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { Menu, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 export function Header() {
+  const t = useTranslations('header');
+
   useEffect(() => {
     // Handle hash navigation when page loads
     const handleHashNavigation = () => {
@@ -28,22 +32,16 @@ export function Header() {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    // Check if we're on the homepage
-    if (window.location.pathname === "/") {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    } else {
-      // Navigate to homepage then scroll to section
-      window.location.href = `/#${sectionId}`;
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const navigation = [
-    { name: "Services", id: "services", href: "#services" },
-    { name: "Portfolio", id: "portfolio", href: "#portfolio" },
-    { name: "About", id: "about", href: "#about" },
+    { name: t('services'), id: "services", href: "#services" },
+    { name: t('portfolio'), id: "portfolio", href: "#portfolio" },
+    { name: t('about'), id: "about", href: "#about" },
   ];
 
   const cities = [
@@ -70,8 +68,8 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation & CTA - All on the right */}
-          <div className="hidden md:flex items-center ml-auto">
-            <nav className="flex items-center gap-8 mr-8">
+          <div className="hidden md:flex items-center ml-auto gap-4">
+            <nav className="flex items-center gap-8">
               {navigation.map((item) => (
                 item.href.startsWith("#") ? (
                   <button
@@ -93,11 +91,13 @@ export function Header() {
               ))}
             </nav>
 
+            <LanguageSwitcher />
+
             <Button
               onClick={() => scrollToSection("contact")}
               className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-sm font-medium uppercase tracking-wider"
             >
-              Contact
+              {t('contact')}
             </Button>
           </div>
 
@@ -179,6 +179,14 @@ export function Header() {
                       ))}
                     </div>
 
+                    {/* Language Switcher */}
+                    <div className="pt-4">
+                      <p className="text-xs uppercase tracking-wider text-gray-500 font-medium mb-4">
+                        Language
+                      </p>
+                      <LanguageSwitcher />
+                    </div>
+
                     {/* Contact CTA */}
                     <div className="pt-8">
                       <SheetClose asChild>
@@ -186,7 +194,7 @@ export function Header() {
                           onClick={() => scrollToSection("contact")}
                           className="w-full bg-gray-900 text-white hover:bg-gray-800 py-4 text-sm font-medium uppercase tracking-wider rounded-sm"
                         >
-                          Get Free Consultation
+                          {t('getConsultation')}
                         </Button>
                       </SheetClose>
                     </div>

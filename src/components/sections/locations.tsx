@@ -1,31 +1,28 @@
-import Link from "next/link";
+"use client";
+
+import { Link } from "@/i18n/routing";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function Locations() {
+  const t = useTranslations("locations");
+
   const locationsData = [
     {
-      city: "Orlando",
+      key: "orlando",
       slug: "orlando",
-      description:
-        "Elevating sophisticated homes across Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips with innovative interior design that captures Central Florida's vibrant energy.",
     },
     {
-      city: "Tampa",
+      key: "tampa",
       slug: "tampa",
-      description:
-        "Creating stunning interiors throughout South Tampa, Westchase, Hyde Park, Channelside, and Harbour Island. Our designs blend coastal elegance with Tampa Bay's modern sophistication.",
     },
     {
-      city: "New York City",
+      key: "nyc",
       slug: "nyc",
-      description:
-        "Delivering exceptional interior design services in Manhattan, Brooklyn, Queens, Upper East Side, and SoHo. Bringing European refinement to NYC's most prestigious neighborhoods.",
     },
     {
-      city: "Los Angeles",
+      key: "losAngeles",
       slug: "los-angeles",
-      description:
-        "Designing luxury residences in Beverly Hills, Santa Monica, West Hollywood, Malibu, and Venice. Infusing Hollywood glamour with California's relaxed coastal aesthetic.",
     },
   ];
 
@@ -37,19 +34,15 @@ export function Locations() {
           <div className="max-w-xl space-y-8">
             <div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 leading-tight tracking-tight mb-8">
-                Interior Design Services
+                {t("title")}
                 <br />
                 <span className="block mt-2">
-                  Nationwide with Studios in Four Major Cities
+                  {t("titleLine2")}
                 </span>
               </h2>
 
               <p className="text-lg md:text-xl leading-relaxed text-gray-700 max-w-lg">
-                From our flagship studios in Florida and beyond, Scialla Studio
-                delivers premier interior design services nationwide. With
-                dedicated teams in four major cities and remote design
-                capabilities, we bring European elegance to homes across
-                America.
+                {t("description")}
               </p>
             </div>
 
@@ -58,14 +51,12 @@ export function Locations() {
                 href="/about"
                 className="inline-flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
               >
-                View Locations
+                {t("viewLocations")}
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
 
               <p className="text-sm text-gray-600 max-w-lg leading-relaxed">
-                While our studios are located in Orlando, Tampa, NYC, and Los
-                Angeles, we proudly serve clients throughout the United States
-                with both on-site and virtual design consultations.
+                {t("servingNote")}
               </p>
             </div>
           </div>
@@ -79,10 +70,10 @@ export function Locations() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <h3 className="text-lg font-normal text-gray-900 mb-5 tracking-wide">
-                      {location.city}
+                      {t(`cities.${location.key}.name`)}
                     </h3>
                     <p className="text-gray-600 leading-relaxed pr-8">
-                      {location.description}
+                      {t(`cities.${location.key}.description`)}
                     </p>
                   </div>
                   <Link

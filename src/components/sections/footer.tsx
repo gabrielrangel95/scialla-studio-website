@@ -1,46 +1,33 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { Phone, Mail } from "lucide-react";
 import { ADPROBadge } from "@/components/ui/adpro-badge";
+import { useTranslations } from "next-intl";
 
 export function Footer() {
+  const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
-  const services = [
-    "Residential Interior Design",
-    "Commercial Interior Design",
-    "Kitchen & Bathroom Design",
-    "Design Consultation",
-    "Space Planning",
-    "Furniture & Décor Sourcing",
-  ];
+  const serviceKeys = ["residential", "commercial", "kitchen", "consultation", "spacePlanning", "sourcing"];
 
-  const locations = [
-    { name: "Orlando", slug: "orlando" },
-    { name: "Tampa", slug: "tampa" },
-    { name: "New York City", slug: "nyc" },
-    { name: "Los Angeles", slug: "los-angeles" },
-    { name: "Nationwide Service", slug: null },
-  ];
+  const locationKeys = ["orlando", "tampa", "nyc", "losAngeles", "nationwide"];
+  const locationSlugs: Record<string, string | null> = {
+    orlando: "orlando",
+    tampa: "tampa",
+    nyc: "nyc",
+    losAngeles: "los-angeles",
+    nationwide: null,
+  };
 
-  const socialLinks = [
-    {
-      name: "Facebook",
-      url: "https://www.facebook.com/profile.php?id=61554601536191",
-    },
-    {
-      name: "Instagram",
-      url: "https://www.instagram.com/sciallastudio_/",
-    },
-    {
-      name: "Houzz",
-      url: "https://www.houzz.com/pro/francescosciallaarchitect/scialla-studio",
-    },
-    {
-      name: "Pinterest",
-      url: "https://www.pinterest.com/Sciallastudio_/",
-    },
-  ];
+  const socialKeys = ["facebook", "instagram", "houzz", "pinterest"];
+  const socialUrls: Record<string, string> = {
+    facebook: "https://www.facebook.com/profile.php?id=61554601536191",
+    instagram: "https://www.instagram.com/sciallastudio_/",
+    houzz: "https://www.houzz.com/pro/francescosciallaarchitect/scialla-studio",
+    pinterest: "https://www.pinterest.com/Sciallastudio_/",
+  };
 
   return (
     <footer className="bg-black text-gray-300">
@@ -59,7 +46,7 @@ export function Footer() {
                 priority
               />
               <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                Creating Spaces, Elevating Lives
+                {t("tagline")}
               </p>
             </div>
 
@@ -89,15 +76,15 @@ export function Footer() {
           {/* Column 2: Recognition */}
           <div className="lg:col-span-1">
             <h3 className="text-white font-medium text-sm uppercase tracking-wider mb-6">
-              Recognition
+              {t("recognition")}
             </h3>
             <div className="space-y-4">
               <div className="flex flex-col items-start">
-                <p className="text-gray-400 text-xs mb-3">As Featured In</p>
+                <p className="text-gray-400 text-xs mb-3">{t("featuredIn")}</p>
                 <ADPROBadge size="sm" variant="white" />
               </div>
               <p className="text-xs text-gray-400 leading-relaxed">
-                Nationally recognized interior design excellence
+                {t("recognitionDescription")}
               </p>
             </div>
           </div>
@@ -105,13 +92,13 @@ export function Footer() {
           {/* Column 3: Services */}
           <div className="lg:col-span-1">
             <h3 className="text-white font-medium text-sm uppercase tracking-wider mb-6">
-              Services
+              {t("services")}
             </h3>
             <ul className="space-y-3">
-              {services.map((service, index) => (
+              {serviceKeys.map((key, index) => (
                 <li key={index}>
                   <span className="text-gray-300 text-sm hover:text-white transition-colors duration-200 cursor-pointer">
-                    {service}
+                    {t(`servicesList.${key}`)}
                   </span>
                 </li>
               ))}
@@ -121,46 +108,46 @@ export function Footer() {
           {/* Column 4: Locations */}
           <div className="lg:col-span-1">
             <h3 className="text-white font-medium text-sm uppercase tracking-wider mb-6">
-              Locations
+              {t("locations")}
             </h3>
             <ul className="space-y-3">
-              {locations.map((location, index) => (
+              {locationKeys.map((key, index) => (
                 <li key={index}>
-                  {location.slug ? (
+                  {locationSlugs[key] ? (
                     <Link
-                      href={`/interior-design-${location.slug}`}
+                      href={`/interior-design-${locationSlugs[key]}`}
                       className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
                     >
-                      {location.name}
+                      {t(`locationsList.${key}`)}
                     </Link>
                   ) : (
                     <span className="text-gray-300 text-sm font-medium">
-                      {location.name}
+                      {t(`locationsList.${key}`)}
                     </span>
                   )}
                 </li>
               ))}
             </ul>
             <p className="text-xs text-gray-400 mt-4 leading-relaxed">
-              Additional cities served with virtual consultations
+              {t("locationsNote")}
             </p>
           </div>
 
           {/* Column 5: Connect */}
           <div className="lg:col-span-1">
             <h3 className="text-white font-medium text-sm uppercase tracking-wider mb-6">
-              Connect
+              {t("connect")}
             </h3>
             <div className="space-y-3">
-              {socialLinks.map((social, index) => (
+              {socialKeys.map((key, index) => (
                 <a
                   key={index}
-                  href={social.url}
+                  href={socialUrls[key]}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-300 text-sm hover:text-white transition-colors duration-200 block"
                 >
-                  {social.name}
+                  {t(`socialLinks.${key}`)}
                 </a>
               ))}
             </div>
@@ -171,7 +158,7 @@ export function Footer() {
         <div className="border-t border-gray-800 pt-8">
           <div className="text-center">
             <div className="text-sm text-gray-400">
-              © {currentYear} Scialla Studio. All rights reserved.
+              © {currentYear} {t("copyright")}
             </div>
           </div>
         </div>

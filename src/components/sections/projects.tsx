@@ -1,14 +1,16 @@
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { ArrowRight } from "lucide-react";
 import { ProjectCard } from "@/components/ui/project-card";
 import { sanityService } from "@/lib/sanity-service";
 import type { Project } from "@/types/sanity";
+import { getTranslations } from "next-intl/server";
 
 async function getLatestProjects(): Promise<Project[]> {
   return await sanityService.getLatestProjects(6);
 }
 
 export async function Projects() {
+  const t = await getTranslations("projects");
   const projects = await getLatestProjects();
 
   return (
@@ -19,16 +21,16 @@ export async function Projects() {
       {/* Section Header */}
       <div className="text-center mb-16 md:mb-20">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
-          Designing Spaces
+          {t("title")}
           <br />
-          <span className="block mt-2">That Tell Your Story</span>
+          <span className="block mt-2">{t("titleLine2")}</span>
         </h2>
         <div className="flex justify-center">
           <Link
             href="/portfolio"
             className="inline-flex items-center gap-2 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
           >
-            View All Projects
+            {t("viewAll")}
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
           </Link>
         </div>
@@ -53,13 +55,13 @@ export async function Projects() {
       ) : (
         <div className="text-center py-20">
           <p className="text-gray-500 text-lg">
-            No projects found. Please add some projects in the Sanity Studio.
+            {t("emptyState")}
           </p>
           <Link
             href="/studio"
             className="inline-flex items-center gap-2 mt-4 text-sm font-medium text-gray-900 hover:text-gray-600 transition-colors duration-200"
           >
-            Go to Studio
+            {t("goToStudio")}
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

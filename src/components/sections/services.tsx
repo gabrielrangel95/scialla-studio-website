@@ -1,9 +1,12 @@
 "use client";
 
+import { useTranslations } from 'next-intl';
 import { Button } from "@/components/ui/button";
 import { ServiceCard } from "@/components/ui/service-card";
 
 export function Services() {
+  const t = useTranslations('services');
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -13,42 +16,42 @@ export function Services() {
 
   const servicesData = [
     {
-      title: "Residential Interior Design",
+      title: t('residential.title'),
       services: [
-        "Complete Home Renovation",
-        "Kitchen Design & Remodeling",
-        "Luxury Bathroom Design",
-        "Living Room & Bedroom Design",
+        t('residential.services.renovation'),
+        t('residential.services.kitchen'),
+        t('residential.services.bathroom'),
+        t('residential.services.living'),
       ],
       image: "/scialla-studio-interior-design.jpg",
     },
     {
-      title: "Architectural Design & New Construction",
+      title: t('architectural.title'),
       services: [
-        "New Home Construction Design",
-        "Architectural Renovations & Additions",
-        "Site Planning & Development",
-        "Structural Design & Engineering",
+        t('architectural.services.newHome'),
+        t('architectural.services.renovations'),
+        t('architectural.services.sitePlanning'),
+        t('architectural.services.structural'),
       ],
       image: "/scialla-studio-architectural-services.jpg",
     },
     {
-      title: "Commercial Interior Design",
+      title: t('commercial.title'),
       services: [
-        "Office Space Planning",
-        "Restaurant & Hospitality Design",
-        "Retail Store Design",
-        "Medical Office Interiors",
+        t('commercial.services.office'),
+        t('commercial.services.restaurant'),
+        t('commercial.services.retail'),
+        t('commercial.services.medical'),
       ],
       image: "/scialla-studio-commercial-interior-design.jpg",
     },
     {
-      title: "Design Consultation Services",
+      title: t('consultation.title'),
       services: [
-        "Virtual Design Consultations",
-        "Space Planning & Layout",
-        "Color & Material Selection",
-        "Furniture & Décor Sourcing",
+        t('consultation.services.virtual'),
+        t('consultation.services.spacePlanning'),
+        t('consultation.services.materials'),
+        t('consultation.services.sourcing'),
       ],
       image: "/scialla-studio-interior-design-consultation.jpg",
     },
@@ -63,12 +66,10 @@ export function Services() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
-            Full-Service Architecture & Interior Design Solutions
+            {t('title')}
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From new construction and architectural design to luxury residential
-            interiors and sophisticated commercial environments, we transform
-            your vision into exceptional spaces from the ground up.
+            {t('subtitle')}
           </p>
         </div>
 
@@ -91,7 +92,7 @@ export function Services() {
             size="lg"
             className="bg-black text-white hover:bg-gray-800 px-12 py-4 text-lg font-medium tracking-wide transition-all duration-300 hover:scale-105"
           >
-            Schedule Your Free Consultation
+            {t('cta')}
           </Button>
         </div>
       </div>

@@ -1,11 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { useTranslations } from 'next-intl';
 import { Button } from "@/components/ui/button";
 import { ADPROBadge } from "@/components/ui/adpro-badge";
 import { Label } from "../ui/label";
 
 export function Hero() {
+  const t = useTranslations('hero');
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -20,7 +23,7 @@ export function Hero() {
         <div className="absolute inset-0 z-0">
           <Image
             src="/scialla-home-background.avif"
-            alt="Luxury interior design by Scialla Studio"
+            alt={t('imageAlt')}
             fill
             className="object-cover object-center"
             priority
@@ -35,16 +38,15 @@ export function Hero() {
           <div className="hero-inner">
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl  text-white mb-6 leading-tight tracking-tight">
-              Premier Interior Design & Architecture Studio
+              {t('mainTitle')}
               <span className="block mt-2">
-                Serving All 50 States | Studios in Orlando, Tampa, NYC & LA
+                {t('location')}
               </span>
             </h1>
 
             {/* Subheading */}
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-12 leading-relaxed font-light">
-              Award-winning architecture and interior design studio creating exceptional homes,
-              new construction, and commercial spaces nationwide since 2010
+              {t('subtitle')}
             </p>
 
             {/* CTA Buttons */}
@@ -54,7 +56,7 @@ export function Hero() {
                 size="lg"
                 className="bg-white text-black hover:bg-gray-100 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-medium tracking-wide w-[240px] sm:w-[280px] transition-all duration-300 hover:scale-105"
               >
-                Schedule a Consultation
+                {t('ctaPrimary')}
               </Button>
 
               <Button
@@ -63,7 +65,7 @@ export function Hero() {
                 size="lg"
                 className="border-2 border-white text-white hover:bg-white hover:text-black px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-medium tracking-wide w-[240px] sm:w-[280px] bg-transparent transition-all duration-300 hover:scale-105"
               >
-                View Portfolio
+                {t('ctaSecondary')}
               </Button>
             </div>
           </div>
@@ -72,7 +74,7 @@ export function Hero() {
         {/* Architectural Digest Badge - Desktop */}
         <div className="hidden md:flex absolute bottom-6 right-6 lg:bottom-8 lg:right-8 z-20 flex-col items-center">
           <Label className="text-white text-sm text-center mb-2">
-            Featured in
+            {t('featuredIn')}
           </Label>
           <ADPROBadge size="lg" variant="white" />
         </div>
@@ -80,7 +82,7 @@ export function Hero() {
         {/* Mobile Badge - Bottom Center */}
         <div className="flex md:hidden absolute bottom-4 right-4 z-20 flex-col items-center">
           <Label className="text-white text-sm text-center mb-2">
-            Featured in
+            {t('featuredIn')}
           </Label>
           <ADPROBadge size="md" variant="white" />
         </div>
