@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Noto_Serif } from "next/font/google";
 import { Toaster } from "sonner";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
@@ -269,11 +270,13 @@ export default function RootLayout({
         />
       </head>
       <body className={`${notoSerif.variable} antialiased`}>
-        <AnalyticsProvider>
-          <ScrollToTop />
-          {children}
-          <Toaster position="top-right" richColors />
-        </AnalyticsProvider>
+        <Suspense fallback={null}>
+          <AnalyticsProvider>
+            <ScrollToTop />
+            {children}
+            <Toaster position="top-right" richColors />
+          </AnalyticsProvider>
+        </Suspense>
       </body>
     </html>
   );
