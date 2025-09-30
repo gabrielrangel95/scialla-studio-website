@@ -12,11 +12,11 @@ const notoSerif = Noto_Serif({
 
 export const metadata: Metadata = {
   title:
-    "Premier Interior Designer Nationwide | Studios in Orlando, Tampa, NYC & LA | Scialla Studio",
+    "Premier Architecture & Interior Design Studio | Orlando, Tampa, NYC & LA | Scialla Studio",
   description:
-    "Premier interior design studio serving clients nationwide with studios in Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial design with 15+ years European expertise. Virtual consultations available across all 50 states.",
+    "Full-service architecture and interior design studio serving clients nationwide. New construction, architectural renovations, luxury residential & commercial design. Studios in Orlando, Tampa, NYC & Los Angeles. Licensed architect with 20+ years expertise.",
   keywords:
-    "interior designer Orlando, interior designer Tampa, interior designer NYC, interior designer Los Angeles, nationwide interior design, luxury interior design, residential interior design, commercial interior design, European interior design, Francesco Scialla, award winning interior designer, virtual interior design consultations",
+    "architect Orlando, architect Tampa, architect NYC, architect Los Angeles, interior designer Orlando, interior designer Tampa, interior designer NYC, interior designer Los Angeles, new construction design, architectural design, architectural renovations, nationwide interior design, luxury interior design, residential interior design, commercial interior design, Francesco Scialla architect, licensed architect, award winning architect, virtual architecture consultations",
   authors: [{ name: "Francesco Scialla", url: "https://sciallastudio.com" }],
   creator: "Scialla Studio",
   publisher: "Scialla Studio",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title:
-      "Interior Designer Nationwide | Studios in Orlando, Tampa, NYC & LA | Scialla Studio",
+      "Architecture & Interior Design Studio | Orlando, Tampa, NYC & LA | Scialla Studio",
     description:
-      "Premier interior design studio serving clients nationwide with studios in Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services with virtual consultations available.",
+      "Full-service architecture and interior design studio serving clients nationwide. New construction, architectural renovations, luxury residential & commercial design. Licensed architect with 20+ years expertise.",
     url: "https://sciallastudio.com",
     siteName: "Scialla Studio",
     locale: "en_US",
@@ -43,16 +43,16 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Scialla Studio - Luxury Interior Design",
+        alt: "Scialla Studio - Architecture & Interior Design",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Interior Designer Nationwide | Studios in Orlando, Tampa, NYC & LA | Scialla Studio",
+      "Architecture & Interior Design Studio | Orlando, Tampa, NYC & LA | Scialla Studio",
     description:
-      "Premier interior design studio serving clients nationwide with studios in Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services with virtual consultations available.",
+      "Full-service architecture and interior design studio serving clients nationwide. New construction, architectural renovations, luxury residential & commercial design.",
     images: ["/twitter-image.jpg"],
     creator: "@sciallastudio",
   },
@@ -83,9 +83,9 @@ export default function RootLayout({
     "@type": "LocalBusiness",
     "@id": "https://sciallastudio.com",
     name: "Scialla Studio",
-    alternateName: "Scialla Interior Design Studio",
+    alternateName: "Scialla Architecture & Interior Design Studio",
     description:
-      "Premier interior design studio serving Orlando, Tampa, NYC & Los Angeles. Luxury residential & commercial interior design services.",
+      "Full-service architecture and interior design studio serving Orlando, Tampa, NYC & Los Angeles. New construction, architectural renovations, luxury residential & commercial design services.",
     url: "https://sciallastudio.com",
     telephone: "+1-555-123-4567",
     email: "info@sciallastudio.com",
@@ -97,9 +97,9 @@ export default function RootLayout({
     founder: {
       "@type": "Person",
       name: "Francesco Scialla",
-      jobTitle: "Interior Designer",
+      jobTitle: "Architect & Interior Designer",
       description:
-        "Francesco Scialla is an architect originally from Southern Italy with over 15 years of specialized experience in site plan development, schematic design, key business coordination, interior design, and digital modeling focused on residential and commercial architecture projects.",
+        "Francesco Scialla is a licensed architect originally from Southern Italy with over 20 years of specialized experience in architectural design, new construction, site plan development, schematic design, interior design, and digital modeling focused on residential and commercial architecture projects.",
     },
     address: [
       {
@@ -153,7 +153,7 @@ export default function RootLayout({
         },
       },
     ],
-    serviceType: "Interior Design",
+    serviceType: ["Architecture", "Interior Design", "New Construction", "Architectural Design"],
     priceRange: "$$$$",
     paymentAccepted: ["Cash", "Credit Card", "Check"],
     currenciesAccepted: "USD",
@@ -182,8 +182,38 @@ export default function RootLayout({
     ],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: "Interior Design Services",
+      name: "Architecture & Interior Design Services",
       itemListElement: [
+        {
+          "@type": "OfferCatalog",
+          name: "Architectural Design Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "New Home Construction Design",
+                description: "Complete architectural design for new construction projects",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Architectural Renovations & Additions",
+                description: "Professional architectural design for renovations and additions",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Site Planning & Development",
+                description: "Comprehensive site planning and development services",
+              },
+            },
+          ],
+        },
         {
           "@type": "OfferCatalog",
           name: "Residential Interior Design",

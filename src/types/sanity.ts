@@ -39,6 +39,7 @@ export interface Project {
       current: string
     }
   }
+  serviceType: 'interior-design' | 'architecture' | 'both'
   category: string[]
   featuredImage: SanityImage
   gallery?: SanityImage[]

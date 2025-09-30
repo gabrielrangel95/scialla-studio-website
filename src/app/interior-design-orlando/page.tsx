@@ -12,10 +12,10 @@ const cityData = {
   name: 'Orlando',
   state: 'Florida',
   hero: {
-    title: 'Premier Interior Designer in Orlando, Florida',
-    subtitle: 'Elevating sophisticated homes across Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips with innovative interior design that captures Central Florida&apos;s vibrant energy.',
+    title: 'Premier Architecture & Interior Design in Orlando, Florida',
+    subtitle: 'Full-service architecture and interior design studio serving Winter Park, Lake Nona, Downtown Orlando, Windermere, and Dr. Phillips. From new construction to luxury renovations, bringing Central Florida&apos;s vibrant energy to life.',
     image: '/scialla-studio-interior-designer-orlando-florida.png',
-    alt: 'Luxury interior design by Scialla Studio in Orlando, Florida'
+    alt: 'Architecture and interior design by Scialla Studio in Orlando, Florida'
   },
   neighborhoods: ['Winter Park', 'Lake Nona', 'Downtown Orlando', 'Windermere', 'Dr. Phillips', 'Baldwin Park', 'Thornton Park', 'College Park'],
   projects: {
@@ -37,25 +37,29 @@ const cityData = {
     }
   ],
   services: [
+    'New Home Construction Design Orlando',
+    'Architectural Renovations & Additions Orlando',
     'Luxury Home Renovation Orlando',
     'Kitchen Design Orlando',
     'Bathroom Remodeling Orlando',
-    'Living Room Design Orlando',
-    'Bedroom Interior Design Orlando',
-    'Commercial Interior Design Orlando'
+    'Commercial Architecture & Design Orlando'
   ],
   faq: [
     {
-      question: 'How much does interior design cost in Orlando?',
-      answer: 'Interior design costs in Orlando typically range from $75-200 per square foot for full-service design, depending on the scope and luxury level. We offer free consultations to provide accurate estimates.'
+      question: 'Do you provide architectural services for new construction in Orlando?',
+      answer: 'Yes, we are a full-service architecture and design studio. Francesco Scialla is a licensed architect with over 20 years of experience designing new construction projects from the ground up, including site planning, structural design, and complete architectural services.'
+    },
+    {
+      question: 'How much does architecture and interior design cost in Orlando?',
+      answer: 'Architectural design for new construction typically ranges from 8-15% of construction costs. Interior design ranges from $75-200 per square foot for full-service design. We offer free consultations to provide accurate estimates for both services.'
     },
     {
       question: 'Do you work in Winter Park and Lake Nona?',
-      answer: 'Yes, we serve all of Greater Orlando including Winter Park, Lake Nona, Windermere, Dr. Phillips, and surrounding areas. We have completed numerous projects in these premium neighborhoods.'
+      answer: 'Yes, we serve all of Greater Orlando including Winter Park, Lake Nona, Windermere, Dr. Phillips, and surrounding areas. We have completed numerous architecture and interior design projects in these premium neighborhoods.'
     },
     {
-      question: 'How long does an Orlando interior design project take?',
-      answer: 'Timeline varies by project scope. A full home renovation typically takes 3-6 months, while single room designs can be completed in 4-8 weeks. We provide detailed timelines during consultation.'
+      question: 'How long does an Orlando architecture or design project take?',
+      answer: 'Timeline varies by project scope. New construction design typically takes 3-6 months for plans, with construction taking 8-18 months. Renovation and interior design projects typically take 3-6 months for full homes, while single rooms can be completed in 4-8 weeks.'
     }
   ]
 };
@@ -63,7 +67,7 @@ const cityData = {
 export const metadata: Metadata = {
   title: `${cityData.hero.title} | Scialla Studio`,
   description: cityData.hero.subtitle,
-  keywords: `interior designer ${cityData.name}, luxury interior design ${cityData.name}, ${cityData.name} interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
+  keywords: `architect ${cityData.name}, architecture ${cityData.name}, new construction ${cityData.name}, interior designer ${cityData.name}, luxury interior design ${cityData.name}, ${cityData.name} architect, ${cityData.name} interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} architecture, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
   alternates: {
     canonical: 'https://sciallastudioid.com/interior-design-orlando',
   },
@@ -119,7 +123,7 @@ export default async function OrlandoPage() {
         name: cityData.state
       }
     },
-    serviceType: "Interior Design",
+    serviceType: ["Architecture", "Interior Design", "New Construction", "Architectural Design"],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
@@ -141,7 +145,7 @@ export default async function OrlandoPage() {
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: `Interior Design Services in ${cityData.name}`,
+      name: `Architecture & Interior Design Services in ${cityData.name}`,
       itemListElement: cityData.services.map(service => ({
         "@type": "Offer",
         itemOffered: {
@@ -181,9 +185,9 @@ export default async function OrlandoPage() {
         <Header />
         
         {/* Breadcrumbs */}
-        <Breadcrumbs 
-          items={[{ label: 'Interior Design Services' }]} 
-          currentPage={`${cityData.name} Interior Designer`}
+        <Breadcrumbs
+          items={[{ label: 'Architecture & Interior Design Services' }]}
+          currentPage={`${cityData.name} Architecture & Design`}
         />
         
         {/* Hero Section */}
@@ -222,7 +226,7 @@ export default async function OrlandoPage() {
         <section className="py-16 md:py-24 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-8 text-center">
-              Interior Design Services in {cityData.name}
+              Architecture & Interior Design Services in {cityData.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {cityData.services.map((service, index) => (
@@ -314,7 +318,7 @@ export default async function OrlandoPage() {
         <section className="py-16 md:py-24 bg-white px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center">
-              Frequently Asked Questions - {cityData.name} Interior Design
+              Frequently Asked Questions - {cityData.name} Architecture & Interior Design
             </h2>
             <div className="space-y-8">
               {cityData.faq.map((item, index) => (

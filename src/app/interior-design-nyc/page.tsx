@@ -12,10 +12,10 @@ const cityData = {
   name: 'New York City',
   state: 'New York',
   hero: {
-    title: 'Expert Interior Designer in New York City',
-    subtitle: 'Creating sophisticated interiors across Manhattan, Brooklyn, Queens, and the Bronx with designs that reflect the dynamic energy of America&apos;s greatest city.',
+    title: 'Expert Architecture & Interior Design in New York City',
+    subtitle: 'Full-service architecture and interior design across Manhattan, Brooklyn, Queens, and the Bronx. From new construction to luxury renovations, designs that reflect the dynamic energy of America&apos;s greatest city.',
     image: '/scialla-studio-interior-designer-nyc-new-york.png',
-    alt: 'Luxury interior design by Scialla Studio in New York City'
+    alt: 'Architecture and interior design by Scialla Studio in New York City'
   },
   neighborhoods: ['Manhattan', 'Brooklyn', 'Queens', 'Upper East Side', 'SoHo', 'Tribeca', 'Williamsburg', 'Long Island City'],
   projects: {
@@ -37,25 +37,29 @@ const cityData = {
     }
   ],
   services: [
+    'New Construction Design NYC',
+    'Architectural Renovations & Additions NYC',
     'Luxury Apartment Renovation NYC',
     'Kitchen Design New York',
     'Bathroom Remodeling NYC',
-    'Living Room Design Manhattan',
-    'Bedroom Interior Design NYC',
-    'Commercial Interior Design New York'
+    'Commercial Architecture & Design NYC'
   ],
   faq: [
     {
-      question: 'How much does interior design cost in NYC?',
-      answer: 'Interior design costs in New York City typically range from $150-400 per square foot for full-service design, reflecting the premium market and logistical considerations. We provide detailed estimates during our free consultation.'
+      question: 'Do you provide architectural services for new construction in NYC?',
+      answer: 'Yes, we are a full-service architecture and design studio. Francesco Scialla is a licensed architect with over 20 years of experience designing new construction projects, renovations, and additions in New York City, navigating complex zoning and building requirements.'
+    },
+    {
+      question: 'How much does architecture and interior design cost in NYC?',
+      answer: 'Architectural design for new construction typically ranges from 8-15% of construction costs. Interior design costs in New York City typically range from $150-400 per square foot for full-service design, reflecting the premium market and NYC logistics.'
     },
     {
       question: 'Do you work in Manhattan and Brooklyn?',
-      answer: 'Yes, we serve all five boroughs including Manhattan, Brooklyn, Queens, and surrounding areas. We have extensive experience with NYC apartments, lofts, and townhouses.'
+      answer: 'Yes, we serve all five boroughs including Manhattan, Brooklyn, Queens, and surrounding areas. We have extensive experience with NYC apartments, lofts, townhouses, and new construction projects.'
     },
     {
-      question: 'How long does a NYC interior design project take?',
-      answer: 'Timeline varies by project scope and building requirements. A full apartment renovation typically takes 4-8 months, while single room designs can be completed in 6-12 weeks, accounting for NYC permitting and logistics.'
+      question: 'How long does a NYC architecture or design project take?',
+      answer: 'Timeline varies by project scope and building requirements. New construction design typically takes 4-8 months for plans. Apartment renovations typically take 4-8 months, while single rooms can be completed in 6-12 weeks, accounting for NYC permitting.'
     }
   ]
 };
@@ -63,7 +67,7 @@ const cityData = {
 export const metadata: Metadata = {
   title: `${cityData.hero.title} | Scialla Studio`,
   description: cityData.hero.subtitle,
-  keywords: `interior designer ${cityData.name}, luxury interior design ${cityData.name}, ${cityData.name} interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
+  keywords: `architect ${cityData.name}, architecture NYC, new construction NYC, interior designer ${cityData.name}, luxury interior design ${cityData.name}, NYC architect, NYC interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} architecture, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
   alternates: {
     canonical: 'https://sciallastudioid.com/interior-design-nyc',
   },
@@ -119,7 +123,7 @@ export default async function NYCPage() {
         name: cityData.state
       }
     },
-    serviceType: "Interior Design",
+    serviceType: ["Architecture", "Interior Design", "New Construction", "Architectural Design"],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
@@ -141,7 +145,7 @@ export default async function NYCPage() {
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: `Interior Design Services in ${cityData.name}`,
+      name: `Architecture & Interior Design Services in ${cityData.name}`,
       itemListElement: cityData.services.map(service => ({
         "@type": "Offer",
         itemOffered: {
@@ -182,8 +186,8 @@ export default async function NYCPage() {
         
         {/* Breadcrumbs */}
         <Breadcrumbs 
-          items={[{ label: 'Interior Design Services' }]} 
-          currentPage={`${cityData.name} Interior Designer`}
+          items={[{ label: 'Architecture & Interior Design Services' }]}
+          currentPage={`${cityData.name} Architecture & Design`}
         />
         
         {/* Hero Section */}
@@ -222,7 +226,7 @@ export default async function NYCPage() {
         <section className="py-16 md:py-24 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-8 text-center">
-              Interior Design Services in {cityData.name}
+              Architecture & Interior Design Services in {cityData.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {cityData.services.map((service, index) => (
@@ -314,7 +318,7 @@ export default async function NYCPage() {
         <section className="py-16 md:py-24 bg-white px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center">
-              Frequently Asked Questions - {cityData.name} Interior Design
+              Frequently Asked Questions - {cityData.name} Architecture & Interior Design
             </h2>
             <div className="space-y-8">
               {cityData.faq.map((item, index) => (

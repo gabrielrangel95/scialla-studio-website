@@ -11,7 +11,7 @@ export function About() {
       {/* Section Header */}
       <div className="text-center mb-16 md:mb-20">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
-          Expert Design Team
+          Expert Architecture & Design Team
           <br />
           <span className="block mt-2">With Global Perspective</span>
         </h2>
@@ -23,20 +23,22 @@ export function About() {
           <div className="space-y-6">
             <p className="text-lg md:text-xl leading-relaxed text-gray-700">
               Founded by Francesco Scialla and Valentina Pollio, Scialla Studio
-              brings together architectural precision and human-centered design
-              philosophy. Francesco, an architect from Southern Italy with over
-              20 years of international experience, combines with
+              brings together comprehensive architectural expertise and human-centered design
+              philosophy. Francesco, a licensed architect from Southern Italy with over
+              20 years of international experience and a PhD in Architecture & Industrial Design,
+              leads both new construction projects and interior renovations with equal mastery.
               Valentina&apos;s unique background in construction engineering and
-              spatial dynamics.
+              spatial dynamics ensures structural integrity meets aesthetic excellence.
             </p>
 
             <p className="text-lg md:text-xl leading-relaxed text-gray-700">
               Their collaborative approach recognizes the profound impact of
-              surroundings on human wellbeing, creating environments that
+              surroundings on human wellbeing, creating environments from the ground up—whether
+              designing a completely new structure or transforming existing spaces—that
               transcend geographical boundaries while fostering deep connections
               with their occupants. Based in four major cities with nationwide
               reach, Scialla Studio serves clients across the United States
-              through both on-site and virtual design consultations.
+              through both on-site and virtual consultations for architecture and interior design projects.
             </p>
           </div>
 
@@ -45,11 +47,15 @@ export function About() {
             <ul className="space-y-3 text-gray-700">
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>
-                PhD in Architecture & Industrial Design (Francesco)
+                Licensed Architect with PhD in Architecture & Industrial Design
               </li>
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>
-                Construction Engineering & Spatial Design (Valentina)
+                Full Architectural Services: New Construction to Renovations
+              </li>
+              <li className="flex items-center">
+                <span className="text-gray-900 mr-3">✓</span>
+                Construction Engineering & Spatial Design Expertise
               </li>
               <li className="flex items-center">
                 <span className="text-gray-900 mr-3">✓</span>

@@ -23,6 +23,16 @@ export function Services() {
       image: "/scialla-studio-interior-design.jpg",
     },
     {
+      title: "Architectural Design & New Construction",
+      services: [
+        "New Home Construction Design",
+        "Architectural Renovations & Additions",
+        "Site Planning & Development",
+        "Structural Design & Engineering",
+      ],
+      image: "/scialla-studio-architectural-services.jpg",
+    },
+    {
       title: "Commercial Interior Design",
       services: [
         "Office Space Planning",
@@ -53,17 +63,17 @@ export function Services() {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
-            Full-Service Interior Design Solutions
+            Full-Service Architecture & Interior Design Solutions
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            From luxury residential spaces to sophisticated commercial
-            environments, we transform your vision into exceptional interior
-            design experiences.
+            From new construction and architectural design to luxury residential
+            interiors and sophisticated commercial environments, we transform
+            your vision into exceptional spaces from the ground up.
           </p>
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-12">
           {servicesData.map((service, index) => (
             <ServiceCard
               key={index}

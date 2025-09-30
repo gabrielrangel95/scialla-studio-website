@@ -8,6 +8,7 @@ export const projectsQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
+    serviceType,
     category,
     featuredImage,
     description,
@@ -24,6 +25,7 @@ export const projectQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
+    serviceType,
     category,
     featuredImage,
     gallery,
@@ -41,6 +43,7 @@ export const projectsByCityQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
+    serviceType,
     category,
     featuredImage,
     description,
@@ -73,6 +76,7 @@ export const cityQuery = groq`
       _id,
       title,
       slug,
+      serviceType,
       featuredImage,
       category
     }
@@ -87,6 +91,7 @@ export const latestProjectsQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
+    serviceType,
     category,
     featuredImage,
     completionDate

@@ -33,12 +33,31 @@ export default defineType({
       validation: Rule => Rule.required(),
     }),
     defineField({
+      name: 'serviceType',
+      title: 'Service Type',
+      type: 'string',
+      description: 'What type of service does this project represent?',
+      options: {
+        list: [
+          { title: 'Interior Design', value: 'interior-design' },
+          { title: 'Architecture (New Construction)', value: 'architecture' },
+          { title: 'Both (Architecture + Interior Design)', value: 'both' },
+        ],
+        layout: 'radio',
+      },
+      validation: Rule => Rule.required(),
+      initialValue: 'interior-design',
+    }),
+    defineField({
       name: 'category',
       title: 'Categories',
       type: 'array',
       of: [{ type: 'string' }],
       options: {
         list: [
+          { title: 'New Construction', value: 'new-construction' },
+          { title: 'Architectural Renovation', value: 'architectural-renovation' },
+          { title: 'Additions & Extensions', value: 'additions-extensions' },
           { title: 'Kitchen Design', value: 'kitchen-design' },
           { title: 'Bathroom Design', value: 'bathroom-design' },
           { title: 'Living Room', value: 'living-room' },

@@ -35,7 +35,7 @@ export function Hero() {
           <div className="hero-inner">
             {/* Main Heading */}
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl  text-white mb-6 leading-tight tracking-tight">
-              Premier Interior Designer
+              Premier Interior Design & Architecture Studio
               <span className="block mt-2">
                 Serving All 50 States | Studios in Orlando, Tampa, NYC & LA
               </span>
@@ -43,8 +43,8 @@ export function Hero() {
 
             {/* Subheading */}
             <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-12 leading-relaxed font-light">
-              Award-winning interior design studio creating exceptional homes
-              and commercial spaces nationwide since 2010
+              Award-winning architecture and interior design studio creating exceptional homes,
+              new construction, and commercial spaces nationwide since 2010
             </p>
 
             {/* CTA Buttons */}

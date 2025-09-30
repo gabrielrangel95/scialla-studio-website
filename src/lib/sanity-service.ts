@@ -56,6 +56,7 @@ export class SanityService {
     offset?: number
     category?: string
     city?: LocationSlug
+    serviceType?: string
   }): Promise<Project[]> {
     try {
       let query = projectsQuery
@@ -73,6 +74,13 @@ export class SanityService {
       })
 
       let filteredProjects = projects || []
+
+      // Filter by service type if specified
+      if (options?.serviceType) {
+        filteredProjects = filteredProjects.filter((project: Project) =>
+          project.serviceType === options.serviceType
+        )
+      }
 
       // Filter by category if specified
       if (options?.category) {

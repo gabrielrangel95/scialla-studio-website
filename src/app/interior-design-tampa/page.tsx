@@ -12,10 +12,10 @@ const cityData = {
   name: 'Tampa',
   state: 'Florida',
   hero: {
-    title: 'Expert Interior Designer in Tampa, Florida',
-    subtitle: 'Creating stunning interiors throughout South Tampa, Westchase, Hyde Park, Channelside, and Harbour Island. Our designs blend coastal elegance with Tampa Bay&apos;s modern sophistication.',
+    title: 'Expert Architecture & Interior Design in Tampa, Florida',
+    subtitle: 'Full-service architecture and interior design throughout South Tampa, Westchase, Hyde Park, Channelside, and Harbour Island. From new construction to luxury renovations, blending coastal elegance with Tampa Bay&apos;s modern sophistication.',
     image: '/scialla-studio-interior-designer-tampa-fl.avif',
-    alt: 'Luxury interior design by Scialla Studio in Tampa, Florida'
+    alt: 'Architecture and interior design by Scialla Studio in Tampa, Florida'
   },
   neighborhoods: ['South Tampa', 'Westchase', 'Hyde Park', 'Channelside', 'Harbour Island', 'Davis Islands', 'Bayshore', 'Seminole Heights'],
   projects: {
@@ -37,25 +37,29 @@ const cityData = {
     }
   ],
   services: [
+    'New Home Construction Design Tampa',
+    'Architectural Renovations & Additions Tampa',
     'Luxury Home Design Tampa',
     'Coastal Interior Design Tampa',
     'Kitchen Remodeling Tampa',
-    'Bathroom Design Tampa',
-    'Condo Interior Design Tampa',
-    'Commercial Design Tampa'
+    'Commercial Architecture & Design Tampa'
   ],
   faq: [
     {
-      question: 'What is the cost of interior design in Tampa?',
-      answer: 'Tampa interior design services range from $80-250 per square foot for luxury projects. Coastal properties and high-end condos may require specialized materials that affect pricing.'
+      question: 'Do you provide architectural services for new construction in Tampa?',
+      answer: 'Yes, we are a full-service architecture and design studio. Francesco Scialla is a licensed architect with over 20 years of experience designing new construction projects from the ground up, including waterfront properties and coastal homes.'
     },
     {
-      question: 'Do you specialize in coastal design in Tampa?',
-      answer: 'Absolutely! Our Tampa portfolio includes numerous waterfront properties. We excel at combining coastal elegance with sophisticated modern design elements.'
+      question: 'What is the cost of architecture and interior design in Tampa?',
+      answer: 'Architectural design for new construction typically ranges from 8-15% of construction costs. Interior design services range from $80-250 per square foot for luxury projects. Coastal properties may require specialized design considerations.'
+    },
+    {
+      question: 'Do you specialize in coastal architecture and design in Tampa?',
+      answer: 'Absolutely! Our Tampa portfolio includes numerous waterfront properties and new coastal construction. We excel at combining coastal elegance with sophisticated modern architectural and interior design elements.'
     },
     {
       question: 'Can you help with Tampa Bay area condominiums?',
-      answer: 'Yes, we have extensive experience with Tampa high-rise condos, especially in Hyde Park, Channelside, and Harbour Island. We understand the unique challenges of condo design.'
+      answer: 'Yes, we have extensive experience with Tampa high-rise condos, especially in Hyde Park, Channelside, and Harbour Island. We provide both architectural consultation and full interior design services.'
     }
   ]
 };
@@ -63,7 +67,7 @@ const cityData = {
 export const metadata: Metadata = {
   title: `${cityData.hero.title} | Scialla Studio`,
   description: cityData.hero.subtitle,
-  keywords: `interior designer ${cityData.name}, luxury interior design ${cityData.name}, ${cityData.name} interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
+  keywords: `architect ${cityData.name}, architecture ${cityData.name}, new construction ${cityData.name}, interior designer ${cityData.name}, luxury interior design ${cityData.name}, ${cityData.name} architect, ${cityData.name} interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} architecture, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
   alternates: {
     canonical: 'https://sciallastudioid.com/interior-design-tampa',
   },
@@ -119,7 +123,7 @@ export default async function TampaPage() {
         name: cityData.state
       }
     },
-    serviceType: "Interior Design",
+    serviceType: ["Architecture", "Interior Design", "New Construction", "Architectural Design"],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
@@ -141,7 +145,7 @@ export default async function TampaPage() {
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: `Interior Design Services in ${cityData.name}`,
+      name: `Architecture & Interior Design Services in ${cityData.name}`,
       itemListElement: cityData.services.map(service => ({
         "@type": "Offer",
         itemOffered: {
@@ -182,8 +186,8 @@ export default async function TampaPage() {
         
         {/* Breadcrumbs */}
         <Breadcrumbs 
-          items={[{ label: 'Interior Design Services' }]} 
-          currentPage={`${cityData.name} Interior Designer`}
+          items={[{ label: 'Architecture & Interior Design Services' }]}
+          currentPage={`${cityData.name} Architecture & Design`}
         />
         
         {/* Hero Section */}
@@ -222,7 +226,7 @@ export default async function TampaPage() {
         <section className="py-16 md:py-24 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-8 text-center">
-              Interior Design Services in {cityData.name}
+              Architecture & Interior Design Services in {cityData.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {cityData.services.map((service, index) => (
@@ -314,7 +318,7 @@ export default async function TampaPage() {
         <section className="py-16 md:py-24 bg-white px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center">
-              Frequently Asked Questions - {cityData.name} Interior Design
+              Frequently Asked Questions - {cityData.name} Architecture & Interior Design
             </h2>
             <div className="space-y-8">
               {cityData.faq.map((item, index) => (

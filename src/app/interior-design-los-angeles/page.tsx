@@ -12,10 +12,10 @@ const cityData = {
   name: 'Los Angeles',
   state: 'California',
   hero: {
-    title: 'Leading Interior Designer in Los Angeles, California',
-    subtitle: 'Elevating luxury living across Beverly Hills, Malibu, West Hollywood, Santa Monica, and Manhattan Beach with innovative designs that reflect the California dream lifestyle.',
+    title: 'Leading Architecture & Interior Design in Los Angeles, California',
+    subtitle: 'Full-service architecture and interior design across Beverly Hills, Malibu, West Hollywood, Santa Monica, and Manhattan Beach. From new construction to luxury renovations, designs that reflect the California dream lifestyle.',
     image: '/scialla-studio-interior-designer-los-angeles-california.png',
-    alt: 'Luxury interior design by Scialla Studio in Los Angeles, California'
+    alt: 'Architecture and interior design by Scialla Studio in Los Angeles, California'
   },
   neighborhoods: ['Beverly Hills', 'Malibu', 'West Hollywood', 'Santa Monica', 'Manhattan Beach', 'Brentwood', 'Venice', 'Hollywood Hills'],
   projects: {
@@ -37,25 +37,29 @@ const cityData = {
     }
   ],
   services: [
+    'New Home Construction Design Los Angeles',
+    'Architectural Renovations & Additions LA',
     'Luxury Home Renovation Los Angeles',
     'Kitchen Design Beverly Hills',
     'Bathroom Remodeling Malibu',
-    'Living Room Design West Hollywood',
-    'Bedroom Interior Design Santa Monica',
-    'Commercial Interior Design Los Angeles'
+    'Commercial Architecture & Design LA'
   ],
   faq: [
     {
-      question: 'How much does interior design cost in Los Angeles?',
-      answer: 'Interior design costs in Los Angeles typically range from $200-500 per square foot for full-service design, reflecting the premium market and high-end finishes. We provide detailed estimates during our complimentary consultation.'
+      question: 'Do you provide architectural services for new construction in Los Angeles?',
+      answer: 'Yes, we are a full-service architecture and design studio. Francesco Scialla is a licensed architect with over 20 years of experience designing new construction projects from the ground up, including luxury estates, coastal homes, and modern residential architecture throughout Los Angeles and California.'
+    },
+    {
+      question: 'How much does architecture and interior design cost in Los Angeles?',
+      answer: 'Architectural design for new construction typically ranges from 8-15% of construction costs. Interior design costs in Los Angeles typically range from $200-500 per square foot for full-service luxury design, reflecting the premium market and high-end finishes.'
     },
     {
       question: 'Do you work in Beverly Hills and Malibu?',
-      answer: 'Yes, we serve all of Greater Los Angeles including Beverly Hills, Malibu, West Hollywood, Santa Monica, and surrounding luxury communities. We specialize in high-end residential projects throughout LA County.'
+      answer: 'Yes, we serve all of Greater Los Angeles including Beverly Hills, Malibu, West Hollywood, Santa Monica, and surrounding luxury communities. We specialize in both new construction and high-end residential renovation projects throughout LA County.'
     },
     {
-      question: 'How long does a Los Angeles interior design project take?',
-      answer: 'Timeline varies by project complexity and permitting requirements. A full luxury home renovation typically takes 6-12 months, while single room designs can be completed in 8-16 weeks, accounting for California regulations and sourcing.'
+      question: 'How long does a Los Angeles architecture or design project take?',
+      answer: 'Timeline varies by project complexity and California permitting requirements. New construction design typically takes 4-8 months for plans. Full luxury home renovations typically take 6-12 months, while single rooms can be completed in 8-16 weeks.'
     }
   ]
 };
@@ -63,7 +67,7 @@ const cityData = {
 export const metadata: Metadata = {
   title: `${cityData.hero.title} | Scialla Studio`,
   description: cityData.hero.subtitle,
-  keywords: `interior designer ${cityData.name}, luxury interior design ${cityData.name}, ${cityData.name} interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
+  keywords: `architect ${cityData.name}, architecture Los Angeles, new construction Los Angeles, interior designer ${cityData.name}, luxury interior design ${cityData.name}, Los Angeles architect, LA interior designer, ${cityData.neighborhoods.slice(0, 3).join(', ')} architecture, ${cityData.neighborhoods.slice(0, 3).join(', ')} interior design`,
   alternates: {
     canonical: 'https://sciallastudioid.com/interior-design-los-angeles',
   },
@@ -119,7 +123,7 @@ export default async function LosAngelesPage() {
         name: cityData.state
       }
     },
-    serviceType: "Interior Design",
+    serviceType: ["Architecture", "Interior Design", "New Construction", "Architectural Design"],
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5",
@@ -141,7 +145,7 @@ export default async function LosAngelesPage() {
     })),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: `Interior Design Services in ${cityData.name}`,
+      name: `Architecture & Interior Design Services in ${cityData.name}`,
       itemListElement: cityData.services.map(service => ({
         "@type": "Offer",
         itemOffered: {
@@ -182,8 +186,8 @@ export default async function LosAngelesPage() {
         
         {/* Breadcrumbs */}
         <Breadcrumbs 
-          items={[{ label: 'Interior Design Services' }]} 
-          currentPage={`${cityData.name} Interior Designer`}
+          items={[{ label: 'Architecture & Interior Design Services' }]}
+          currentPage={`${cityData.name} Architecture & Design`}
         />
         
         {/* Hero Section */}
@@ -215,7 +219,7 @@ export default async function LosAngelesPage() {
         <section className="py-16 md:py-24 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-8 text-center">
-              Interior Design Services in {cityData.name}
+              Architecture & Interior Design Services in {cityData.name}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {cityData.services.map((service, index) => (
@@ -307,7 +311,7 @@ export default async function LosAngelesPage() {
         <section className="py-16 md:py-24 bg-white px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-12 text-center">
-              Frequently Asked Questions - {cityData.name} Interior Design
+              Frequently Asked Questions - {cityData.name} Architecture & Interior Design
             </h2>
             <div className="space-y-8">
               {cityData.faq.map((item, index) => (

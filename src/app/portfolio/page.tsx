@@ -13,13 +13,14 @@ interface PortfolioPageProps {
   searchParams?: Promise<{
     city?: LocationSlug
     category?: string
+    serviceType?: string
     page?: string
   }>
 }
 
 async function getPortfolioData(searchParams?: PortfolioPageProps['searchParams']) {
   const params = await searchParams
-  const { city, category } = params || {}
+  const { city, category, serviceType } = params || {}
   const page = parseInt(params?.page || '1')
   const projectsPerPage = 12
   const offset = (page - 1) * projectsPerPage
@@ -28,6 +29,7 @@ async function getPortfolioData(searchParams?: PortfolioPageProps['searchParams'
     sanityService.getAllProjects({
       city,
       category,
+      serviceType,
       limit: projectsPerPage,
       offset
     }),
@@ -47,34 +49,47 @@ async function getPortfolioData(searchParams?: PortfolioPageProps['searchParams'
 export async function generateMetadata({ searchParams }: PortfolioPageProps): Promise<Metadata> {
   const stats = await sanityService.getProjectStats()
   const params = await searchParams
-  const { city, category } = params || {}
+  const { city, category, serviceType } = params || {}
 
-  let title = 'Interior Design Portfolio | Scialla Studio'
-  let description = `Explore our ${stats.total}+ interior design projects across Orlando, Tampa, NYC, and Los Angeles. Modern homes, luxury kitchens, and commercial spaces.`
+  let title = 'Architecture & Interior Design Portfolio | Scialla Studio'
+  let description = `Explore our ${stats.total}+ architecture and interior design projects across Orlando, Tampa, NYC, and Los Angeles. New construction, modern homes, luxury renovations, and commercial spaces.`
+
+  if (serviceType === 'architecture') {
+    title = 'Architecture Portfolio | Scialla Studio'
+    description = 'Browse our architectural design projects including new construction, additions, and renovations across the United States.'
+  } else if (serviceType === 'interior-design') {
+    title = 'Interior Design Portfolio | Scialla Studio'
+    description = `Explore our ${stats.total}+ interior design projects across Orlando, Tampa, NYC, and Los Angeles. Modern homes, luxury kitchens, and commercial spaces.`
+  }
 
   if (city) {
     const cityName = city === 'nyc' ? 'New York City' :
                     city === 'los-angeles' ? 'Los Angeles' :
                     city.charAt(0).toUpperCase() + city.slice(1)
-    title = `${cityName} Interior Design Portfolio | Scialla Studio`
-    description = `${stats.byCity[cityName] || 0} completed interior design projects in ${cityName}. Browse our portfolio of modern homes, luxury renovations, and commercial spaces.`
+    const serviceLabel = serviceType === 'architecture' ? 'Architecture' : serviceType === 'interior-design' ? 'Interior Design' : 'Architecture & Design'
+    title = `${cityName} ${serviceLabel} Portfolio | Scialla Studio`
+    description = `${stats.byCity[cityName] || 0} completed ${serviceLabel.toLowerCase()} projects in ${cityName}. Browse our portfolio of modern homes, luxury renovations, and commercial spaces.`
   }
 
   if (category) {
     const categoryName = category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())
     title = `${categoryName} Portfolio | Scialla Studio`
-    description = `${stats.byCategory[category] || 0} ${categoryName.toLowerCase()} projects by Scialla Studio. Professional interior design services with stunning results.`
+    description = `${stats.byCategory[category] || 0} ${categoryName.toLowerCase()} projects by Scialla Studio. Professional architecture and interior design services with stunning results.`
   }
 
   const keywords = [
+    'architecture portfolio',
     'interior design portfolio',
     'luxury interior design',
+    'new construction',
+    'architectural design',
     'modern home design',
     'kitchen renovation',
     'bathroom remodel',
     'commercial interior design',
-    ...(city ? [`${city} interior design`] : []),
-    ...(category ? [category.replace('-', ' ')] : [])
+    ...(city ? [`${city} architecture`, `${city} interior design`] : []),
+    ...(category ? [category.replace('-', ' ')] : []),
+    ...(serviceType ? [serviceType.replace('-', ' ')] : [])
   ]
 
   return {
@@ -113,7 +128,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
   const portfolioData = await getPortfolioData(searchParams)
   const { projects, categories, stats, currentPage, hasMore } = portfolioData
   const params = await searchParams
-  const { city, category } = params || {}
+  const { city, category, serviceType } = params || {}
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -229,6 +244,34 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
               </div>
 
               <div className="flex flex-wrap gap-4">
+                {/* Service Type Filter */}
+                <div className="flex gap-2">
+                  <Link
+                    href="/portfolio"
+                    className={`px-3 py-2 text-sm rounded-full transition-colors ${
+                      !serviceType ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    All Services
+                  </Link>
+                  <Link
+                    href={`/portfolio?serviceType=interior-design${city ? `&city=${city}` : ''}${category ? `&category=${category}` : ''}`}
+                    className={`px-3 py-2 text-sm rounded-full transition-colors ${
+                      serviceType === 'interior-design' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    Interior Design
+                  </Link>
+                  <Link
+                    href={`/portfolio?serviceType=architecture${city ? `&city=${city}` : ''}${category ? `&category=${category}` : ''}`}
+                    className={`px-3 py-2 text-sm rounded-full transition-colors ${
+                      serviceType === 'architecture' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    Architecture
+                  </Link>
+                </div>
+
                 {/* City Filter */}
                 <div className="flex gap-2">
                   <Link
@@ -243,7 +286,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                     const displayName = citySlug === 'nyc' ? 'NYC' :
                                        citySlug === 'los-angeles' ? 'LA' :
                                        citySlug.charAt(0).toUpperCase() + citySlug.slice(1)
-                    const href = `/portfolio?city=${citySlug}${category ? `&category=${category}` : ''}`
+                    const href = `/portfolio?city=${citySlug}${serviceType ? `&serviceType=${serviceType}` : ''}${category ? `&category=${category}` : ''}`
 
                     return (
                       <Link
@@ -262,7 +305,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                 {/* Category Filter */}
                 <div className="flex gap-2 flex-wrap">
                   <Link
-                    href={`/portfolio${city ? `?city=${city}` : ''}`}
+                    href={`/portfolio${city ? `?city=${city}` : ''}${serviceType && !city ? `?serviceType=${serviceType}` : ''}${serviceType && city ? `&serviceType=${serviceType}` : ''}`}
                     className={`px-3 py-2 text-sm rounded-full transition-colors ${
                       !category ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
@@ -271,7 +314,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                   </Link>
                   {categories.slice(0, 5).map(cat => {
                     const displayName = cat.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())
-                    const href = `/portfolio?${city ? `city=${city}&` : ''}category=${cat}`
+                    const href = `/portfolio?${city ? `city=${city}&` : ''}${serviceType ? `serviceType=${serviceType}&` : ''}category=${cat}`
 
                     return (
                       <Link
@@ -315,7 +358,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                 {hasMore && (
                   <div className="mt-12 text-center">
                     <Link
-                      href={`/portfolio?${city ? `city=${city}&` : ''}${category ? `category=${category}&` : ''}page=${currentPage + 1}`}
+                      href={`/portfolio?${city ? `city=${city}&` : ''}${serviceType ? `serviceType=${serviceType}&` : ''}${category ? `category=${category}&` : ''}page=${currentPage + 1}`}
                       className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
                     >
                       Load More Projects
