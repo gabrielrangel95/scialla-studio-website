@@ -12,13 +12,19 @@ import {
   Text,
 } from "@react-email/components";
 import * as React from "react";
-import { ContactFormData, locationLabels, projectTypeLabels } from "@/lib/validations/contact";
+import {
+  ContactFormData,
+  locationLabels,
+  projectTypeLabels,
+} from "@/lib/validations/contact";
 
 interface AdminNotificationEmailProps {
   data: ContactFormData;
 }
 
-export const AdminNotificationEmail = ({ data }: AdminNotificationEmailProps) => {
+export const AdminNotificationEmail = ({
+  data,
+}: AdminNotificationEmailProps) => {
   const submissionDate = new Date().toLocaleString("en-US", {
     dateStyle: "long",
     timeStyle: "short",
@@ -27,13 +33,16 @@ export const AdminNotificationEmail = ({ data }: AdminNotificationEmailProps) =>
   return (
     <Html>
       <Head />
-      <Preview>New Contact Form Submission - {data.name} ({locationLabels[data.location]})</Preview>
+      <Preview>
+        New Contact Form Submission - {data.name} (
+        {locationLabels[data.location]})
+      </Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Logo Section */}
           <Section style={logoSection}>
             <Img
-              src="https://scialla-studio-website-git-main-scialla-studio.vercel.app/_next/image?url=%2Flogo_dark.png&w=384&q=75"
+              src="https://scialla-studio-website.vercel.app/logo_dark.png"
               width="100"
               height="auto"
               alt="Scialla Studio"
@@ -52,7 +61,8 @@ export const AdminNotificationEmail = ({ data }: AdminNotificationEmailProps) =>
             {/* Action Required */}
             <Section style={urgentBox}>
               <Text style={urgentText}>
-                <strong>⏰ Action Required:</strong> Follow up within 24 hours for best conversion rates
+                <strong>⏰ Action Required:</strong> Follow up within 24 hours
+                for best conversion rates
               </Text>
             </Section>
 
@@ -90,7 +100,9 @@ export const AdminNotificationEmail = ({ data }: AdminNotificationEmailProps) =>
 
               <Section style={fieldBox}>
                 <Text style={fieldLabel}>Project Type</Text>
-                <Text style={fieldValue}>{projectTypeLabels[data.projectType]}</Text>
+                <Text style={fieldValue}>
+                  {projectTypeLabels[data.projectType]}
+                </Text>
               </Section>
 
               {data.message && (
@@ -124,7 +136,8 @@ export const AdminNotificationEmail = ({ data }: AdminNotificationEmailProps) =>
 // Minimalist Black & White Styles
 const main = {
   backgroundColor: "#ffffff",
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
 };
 
 const container = {

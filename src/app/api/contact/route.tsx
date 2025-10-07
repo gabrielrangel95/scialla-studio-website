@@ -10,7 +10,10 @@ const resend = new Resend(process.env.RESEND_API_KEY || "dummy-key-for-build");
 export async function POST(request: NextRequest) {
   try {
     // Validate environment variables
-    if (!process.env.RESEND_API_KEY || process.env.RESEND_API_KEY === "dummy-key-for-build") {
+    if (
+      !process.env.RESEND_API_KEY ||
+      process.env.RESEND_API_KEY === "dummy-key-for-build"
+    ) {
       console.error("RESEND_API_KEY is not configured");
       return NextResponse.json(
         {
@@ -49,7 +52,7 @@ export async function POST(request: NextRequest) {
       resend.emails.send({
         from: "Scialla Studio <contact@sciallastudioid.com>",
         to: [validatedData.email],
-        cc: ["gabriel@sevenapps.tech"],
+        cc: ["gabriel@sevenapps.tech", "info@sciallastudioid.com"],
         subject:
           "Thank you for contacting Scialla Studio - We'll be in touch within 24 hours",
         html: clientEmailHtml,
@@ -58,7 +61,7 @@ export async function POST(request: NextRequest) {
       // Send notification email to admin
       resend.emails.send({
         from: "Website Contact Form <contact@sciallastudioid.com>",
-        to: ["gabriel@sevenapps.tech"],
+        to: ["gabriel@sevenapps.tech", "info@sciallastudioid.com"],
         subject: `New Contact Form Submission - ${validatedData.name} (${validatedData.location})`,
         html: adminEmailHtml,
       }),
@@ -87,7 +90,8 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         {
           success: false,
-          error: "Failed to send emails. Please try again or contact us directly.",
+          error:
+            "Failed to send emails. Please try again or contact us directly.",
           details: emailErrors,
         },
         { status: 500 }
@@ -109,7 +113,10 @@ export async function POST(request: NextRequest) {
       console.log("Contact saved to Resend:", contactResult);
     } catch (contactError) {
       // Log but don't fail the request - emails were sent successfully
-      console.warn("Failed to save contact to Resend (non-critical):", contactError);
+      console.warn(
+        "Failed to save contact to Resend (non-critical):",
+        contactError
+      );
     }
 
     return NextResponse.json({

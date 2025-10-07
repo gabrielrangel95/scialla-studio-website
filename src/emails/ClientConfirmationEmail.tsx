@@ -12,23 +12,32 @@ import {
   Text,
 } from "@react-email/components";
 import * as React from "react";
-import { ContactFormData, locationLabels, projectTypeLabels } from "@/lib/validations/contact";
+import {
+  ContactFormData,
+  locationLabels,
+  projectTypeLabels,
+} from "@/lib/validations/contact";
 
 interface ClientConfirmationEmailProps {
   data: ContactFormData;
 }
 
-export const ClientConfirmationEmail = ({ data }: ClientConfirmationEmailProps) => {
+export const ClientConfirmationEmail = ({
+  data,
+}: ClientConfirmationEmailProps) => {
   return (
     <Html>
       <Head />
-      <Preview>Thank you for contacting Scialla Studio - We&apos;ll be in touch within 24 hours</Preview>
+      <Preview>
+        Thank you for contacting Scialla Studio - We&apos;ll be in touch within
+        24 hours
+      </Preview>
       <Body style={main}>
         <Container style={container}>
           {/* Logo Section */}
           <Section style={logoSection}>
             <Img
-              src="https://scialla-studio-website-git-main-scialla-studio.vercel.app/_next/image?url=%2Flogo_dark.png&w=384&q=75"
+              src="https://scialla-studio-website.vercel.app/logo_dark.png"
               width="120"
               height="auto"
               alt="Scialla Studio"
@@ -43,21 +52,25 @@ export const ClientConfirmationEmail = ({ data }: ClientConfirmationEmailProps) 
             <Text style={text}>Dear {data.name},</Text>
 
             <Text style={text}>
-              Thank you for reaching out to Scialla Studio. We&apos;re excited about the opportunity
-              to transform your space in {locationLabels[data.location]}.
+              Thank you for reaching out to Scialla Studio. We&apos;re excited
+              about the opportunity to transform your space in{" "}
+              {locationLabels[data.location]}.
             </Text>
 
             {/* What's Next Section */}
             <Section style={infoBox}>
               <Heading style={h2}>What Happens Next?</Heading>
               <Text style={listText}>
-                <strong>Within 24 hours:</strong> One of our design experts will contact you
+                <strong>Within 24 hours:</strong> One of our design experts will
+                contact you
               </Text>
               <Text style={listText}>
-                <strong>Free consultation:</strong> We&apos;ll discuss your vision and project requirements
+                <strong>Free consultation:</strong> We&apos;ll discuss your
+                vision and project requirements
               </Text>
               <Text style={listText}>
-                <strong>Custom proposal:</strong> Receive a tailored design solution
+                <strong>Custom proposal:</strong> Receive a tailored design
+                solution
               </Text>
             </Section>
 
@@ -65,7 +78,8 @@ export const ClientConfirmationEmail = ({ data }: ClientConfirmationEmailProps) 
             <Section style={detailsSection}>
               <Heading style={h2}>Your Project Details</Heading>
               <Text style={detailText}>
-                <strong>Project Type:</strong> {projectTypeLabels[data.projectType]}
+                <strong>Project Type:</strong>{" "}
+                {projectTypeLabels[data.projectType]}
               </Text>
               <Text style={detailText}>
                 <strong>Location:</strong> {locationLabels[data.location]}
@@ -105,7 +119,8 @@ export const ClientConfirmationEmail = ({ data }: ClientConfirmationEmailProps) 
 // Minimalist Black & White Styles
 const main = {
   backgroundColor: "#ffffff",
-  fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+  fontFamily:
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
 };
 
 const container = {
