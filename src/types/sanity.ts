@@ -1,8 +1,21 @@
-import type { Image, PortableTextBlock } from 'sanity'
+import type { Image, PortableTextBlock, FileAsset } from 'sanity'
 
 export interface SanityImage extends Image {
   alt?: string
   caption?: string
+}
+
+export interface SanityFile {
+  _type?: 'file'
+  asset: {
+    _id: string
+    url: string
+    mimeType: string
+    size: number
+    originalFilename: string
+  }
+  caption?: string
+  thumbnail?: SanityImage
 }
 
 export interface City {
@@ -39,6 +52,8 @@ export interface Project {
       current: string
     }
   }
+  sublocation?: string
+  promoVideo?: SanityFile
   serviceType: 'interior-design' | 'architecture' | 'both'
   category: string[]
   featuredImage: SanityImage

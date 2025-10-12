@@ -33,6 +33,38 @@ export default defineType({
       validation: Rule => Rule.required(),
     }),
     defineField({
+      name: 'sublocation',
+      title: 'Sublocation',
+      type: 'string',
+      description: 'Neighborhood or district (e.g., "Winter Park", "SoHo", "Downtown")',
+    }),
+    defineField({
+      name: 'promoVideo',
+      title: 'Promo Video',
+      type: 'file',
+      description: 'Optional promotional video file (MP4, MOV, WebM recommended)',
+      options: {
+        accept: 'video/*',
+      },
+      fields: [
+        {
+          name: 'caption',
+          type: 'string',
+          title: 'Video Caption',
+          description: 'Optional caption for the video',
+        },
+        {
+          name: 'thumbnail',
+          type: 'image',
+          title: 'Video Thumbnail',
+          description: 'Custom thumbnail/poster image for the video',
+          options: {
+            hotspot: true,
+          },
+        },
+      ],
+    }),
+    defineField({
       name: 'serviceType',
       title: 'Service Type',
       type: 'string',

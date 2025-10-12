@@ -8,6 +8,27 @@ export const projectsQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
+    sublocation,
+    promoVideo {
+      asset->{
+        _id,
+        url,
+        mimeType,
+        size,
+        originalFilename
+      },
+      caption,
+      thumbnail {
+        asset->{
+          _id,
+          url,
+          metadata
+        },
+        alt,
+        hotspot,
+        crop
+      }
+    },
     serviceType,
     category,
     featuredImage,
@@ -25,12 +46,35 @@ export const projectQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
+    sublocation,
+    promoVideo {
+      asset->{
+        _id,
+        url,
+        mimeType,
+        size,
+        originalFilename
+      },
+      caption,
+      thumbnail {
+        asset->{
+          _id,
+          url,
+          metadata
+        },
+        alt,
+        hotspot,
+        crop
+      }
+    },
     serviceType,
     category,
     featuredImage,
     gallery,
     description,
     completionDate,
+    client,
+    projectDetails,
     seo
   }
 `
@@ -43,6 +87,27 @@ export const projectsByCityQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
+    sublocation,
+    promoVideo {
+      asset->{
+        _id,
+        url,
+        mimeType,
+        size,
+        originalFilename
+      },
+      caption,
+      thumbnail {
+        asset->{
+          _id,
+          url,
+          metadata
+        },
+        alt,
+        hotspot,
+        crop
+      }
+    },
     serviceType,
     category,
     featuredImage,
@@ -91,6 +156,7 @@ export const latestProjectsQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
+    sublocation,
     serviceType,
     category,
     featuredImage,

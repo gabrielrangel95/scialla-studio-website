@@ -12,6 +12,7 @@ import {
   Star,
   ArrowLeft,
   ArrowRight,
+  Video,
 } from "lucide-react";
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
@@ -24,6 +25,7 @@ import {
   extractPortableTextContent,
 } from "@/lib/sanity-service";
 import { urlForImage, resolveOpenGraphImage } from "@/lib/sanity-image";
+import { getVideoUrl, getVideoThumbnail } from "@/lib/sanity-video";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -31,6 +33,8 @@ interface ProjectPageProps {
 
 async function getProjectData(slug: string) {
   const project = await sanityService.getProject(slug);
+
+  console.log({ project });
 
   if (!project) {
     return null;
@@ -136,6 +140,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   const { project, relatedProjects } = data;
   const cityName = project.location.name;
+  const fullLocation = project.sublocation
+    ? `${cityName}, ${project.sublocation}`
+    : cityName;
   const categoryNames = project.category.map((cat) =>
     cat.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())
   );
@@ -272,7 +279,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               <div className="flex flex-wrap gap-6 text-white/90 mb-8">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-5 h-5" />
-                  <span>{cityName}</span>
+                  <span>{fullLocation}</span>
                 </div>
                 {completionDate && (
                   <div className="flex items-center gap-2">
@@ -310,6 +317,39 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </div>
               )}
 
+              {/* Promo Video */}
+              {project.promoVideo && getVideoUrl(project.promoVideo) && (
+                <div className="mb-12">
+                  <div className="flex items-center gap-2 mb-6">
+                    <Video className="w-6 h-6 text-gray-900" />
+                    <h2 className="text-2xl md:text-3xl font-light text-gray-900">
+                      Project Video
+                    </h2>
+                  </div>
+                  <div className="relative w-full overflow-hidden rounded-lg bg-gray-100">
+                    <video
+                      controls
+                      className="w-full h-auto"
+                      poster={
+                        getVideoThumbnail(project.promoVideo) || undefined
+                      }
+                      preload="metadata"
+                    >
+                      <source
+                        src={getVideoUrl(project.promoVideo) || ""}
+                        type={project.promoVideo.asset?.mimeType || "video/mp4"}
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                    {project.promoVideo.caption && (
+                      <p className="mt-3 text-sm text-gray-600 italic text-center">
+                        {project.promoVideo.caption}
+                      </p>
+                    )}
+                  </div>
+                </div>
+              )}
+
               {/* Project Gallery */}
               {project.gallery && project.gallery.length > 0 && (
                 <div className="mb-12">
@@ -336,7 +376,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     <MapPin className="w-5 h-5 text-gray-400" />
                     <div>
                       <p className="text-sm text-gray-500">Location</p>
-                      <p className="font-medium">{cityName}</p>
+                      <p className="font-medium">{fullLocation}</p>
                     </div>
                   </div>
 
