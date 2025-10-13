@@ -34,8 +34,6 @@ interface ProjectPageProps {
 async function getProjectData(slug: string) {
   const project = await sanityService.getProject(slug);
 
-  console.log({ project });
-
   if (!project) {
     return null;
   }
@@ -329,7 +327,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   <div className="relative w-full overflow-hidden rounded-lg bg-gray-100">
                     <video
                       controls
-                      className="w-full h-auto"
+                      className="w-full h-auto max-h-[500px] md:max-h-[600px] lg:max-h-[700px] object-contain"
                       poster={
                         getVideoThumbnail(project.promoVideo) || undefined
                       }
