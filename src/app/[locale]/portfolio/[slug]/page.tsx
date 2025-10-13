@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { PortableText } from "@portabletext/react";
 import {
   Calendar,
@@ -472,7 +472,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   asChild
                   className="w-full bg-white text-gray-900 hover:bg-gray-100"
                 >
-                  <Link href="/contact">Get Free Consultation</Link>
+                  <Link href="/#contact">Get Free Consultation</Link>
                 </Button>
               </div>
             </div>

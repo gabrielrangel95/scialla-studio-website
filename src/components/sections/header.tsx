@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
@@ -11,6 +12,10 @@ import { Menu, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 export function Header() {
   const t = useTranslations('header');
+  const pathname = usePathname();
+
+  // Check if we're on the homepage (root or just locale, e.g., '/' or '/en')
+  const isHomePage = pathname === '/' || /^\/[a-z]{2}(-[A-Z]{2})?$/.test(pathname);
 
   useEffect(() => {
     // Handle hash navigation when page loads
@@ -72,13 +77,23 @@ export function Header() {
             <nav className="flex items-center gap-8">
               {navigation.map((item) => (
                 item.href.startsWith("#") ? (
-                  <button
-                    key={item.name}
-                    onClick={() => scrollToSection(item.id)}
-                    className="text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200"
-                  >
-                    {item.name}
-                  </button>
+                  isHomePage ? (
+                    <button
+                      key={item.name}
+                      onClick={() => scrollToSection(item.id)}
+                      className="text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200"
+                    >
+                      {item.name}
+                    </button>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={`/${item.href}`}
+                      className="text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200"
+                    >
+                      {item.name}
+                    </Link>
+                  )
                 ) : (
                   <Link
                     key={item.name}
@@ -93,12 +108,21 @@ export function Header() {
 
             <LanguageSwitcher />
 
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-sm font-medium uppercase tracking-wider"
-            >
-              {t('contact')}
-            </Button>
+            {isHomePage ? (
+              <Button
+                onClick={() => scrollToSection("contact")}
+                className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-sm font-medium uppercase tracking-wider"
+              >
+                {t('contact')}
+              </Button>
+            ) : (
+              <Button
+                asChild
+                className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-sm font-medium uppercase tracking-wider"
+              >
+                <Link href="/#contact">{t('contact')}</Link>
+              </Button>
+            )}
           </div>
 
           {/* Mobile Menu */}
@@ -135,15 +159,27 @@ export function Header() {
                       {navigation.map((item) => (
                         <SheetClose key={item.name} asChild>
                           {item.href.startsWith("#") ? (
-                            <button
-                              onClick={() => scrollToSection(item.id)}
-                              className="flex items-center justify-between w-full text-left text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
-                            >
-                              <span className="text-lg font-light tracking-wide">
-                                {item.name}
-                              </span>
-                              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                            </button>
+                            isHomePage ? (
+                              <button
+                                onClick={() => scrollToSection(item.id)}
+                                className="flex items-center justify-between w-full text-left text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
+                              >
+                                <span className="text-lg font-light tracking-wide">
+                                  {item.name}
+                                </span>
+                                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                              </button>
+                            ) : (
+                              <Link
+                                href={`/${item.href}`}
+                                className="flex items-center justify-between w-full text-left text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
+                              >
+                                <span className="text-lg font-light tracking-wide">
+                                  {item.name}
+                                </span>
+                                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+                              </Link>
+                            )
                           ) : (
                             <Link
                               href={item.href}
@@ -190,12 +226,21 @@ export function Header() {
                     {/* Contact CTA */}
                     <div className="pt-8">
                       <SheetClose asChild>
-                        <Button
-                          onClick={() => scrollToSection("contact")}
-                          className="w-full bg-gray-900 text-white hover:bg-gray-800 py-4 text-sm font-medium uppercase tracking-wider rounded-sm"
-                        >
-                          {t('getConsultation')}
-                        </Button>
+                        {isHomePage ? (
+                          <Button
+                            onClick={() => scrollToSection("contact")}
+                            className="w-full bg-gray-900 text-white hover:bg-gray-800 py-4 text-sm font-medium uppercase tracking-wider rounded-sm"
+                          >
+                            {t('getConsultation')}
+                          </Button>
+                        ) : (
+                          <Button
+                            asChild
+                            className="w-full bg-gray-900 text-white hover:bg-gray-800 py-4 text-sm font-medium uppercase tracking-wider rounded-sm"
+                          >
+                            <Link href="/#contact">{t('getConsultation')}</Link>
+                          </Button>
+                        )}
                       </SheetClose>
                     </div>
                   </nav>

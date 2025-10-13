@@ -1,4 +1,4 @@
-import type { Image, PortableTextBlock, FileAsset } from 'sanity'
+import type { Image, PortableTextBlock } from 'sanity'
 
 export interface SanityImage extends Image {
   alt?: string

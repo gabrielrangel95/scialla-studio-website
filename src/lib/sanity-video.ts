@@ -1,7 +1,5 @@
 import type { SanityFile } from '@/types/sanity'
-
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET!
+import { urlForImage } from './sanity-image'
 
 /**
  * Get video URL from Sanity file asset
@@ -19,8 +17,6 @@ export function getVideoUrl(video: SanityFile | null | undefined): string | null
 export function getVideoThumbnail(video: SanityFile | null | undefined): string | null {
   if (!video?.thumbnail) return null
 
-  // Import urlForImage dynamically to avoid circular dependencies
-  const { urlForImage } = require('./sanity-image')
   return urlForImage(video.thumbnail)?.width(1200).height(675).url() || null
 }
 
