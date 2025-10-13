@@ -65,7 +65,7 @@ export default async function CityPage({ params }: Props) {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "InteriorDesigner",
     "@id": "https://sciallastudioid.com/interior-design-los-angeles",
     name: "Scialla Studio",
     alternateName: `Scialla Studio - ${t('name')} Interior Design`,
@@ -73,11 +73,11 @@ export default async function CityPage({ params }: Props) {
     url: "https://sciallastudioid.com/interior-design-los-angeles",
     telephone: "+1-727-504-4138",
     email: "info@sciallastudioid.com",
-    priceRange: "3552135521",
+    priceRange: "$$$$",
     address: {
       "@type": "PostalAddress",
       addressLocality: t('name'),
-      addressRegion: "FL",
+      addressRegion: "CA",
       addressCountry: "US"
     },
     areaServed: {

@@ -68,7 +68,7 @@ export default async function OrlandoPage({ params }: Props) {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "InteriorDesigner",
     "@id": "https://sciallastudioid.com/interior-design-orlando",
     name: "Scialla Studio",
     alternateName: `Scialla Studio - ${t('name')} Interior Design`,
