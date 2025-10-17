@@ -500,6 +500,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                     slug={relatedProject.slug.current}
                     location={relatedProject.location.name}
                     locationSlug={relatedProject.location.slug.current}
+                    serviceType={relatedProject.serviceType}
                     category={relatedProject.category}
                     featuredImage={relatedProject.featuredImage}
                     completionDate={relatedProject.completionDate}

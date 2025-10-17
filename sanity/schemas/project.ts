@@ -25,6 +25,13 @@ export default defineType({
       validation: Rule => Rule.required(),
     }),
     defineField({
+      name: 'order',
+      title: 'Display Order',
+      type: 'number',
+      description: 'Order in which this project appears (lower numbers appear first). Leave empty to sort by creation date.',
+      validation: Rule => Rule.integer().min(0),
+    }),
+    defineField({
       name: 'location',
       title: 'Location',
       type: 'reference',

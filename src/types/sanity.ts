@@ -42,6 +42,7 @@ export interface City {
 export interface Project {
   _id: string
   _createdAt: string
+  order?: number
   title: string
   slug: {
     current: string

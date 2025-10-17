@@ -2,9 +2,10 @@ import { groq } from 'next-sanity'
 
 // Get all projects with basic info
 export const projectsQuery = groq`
-  *[_type == "project"] | order(_createdAt desc) {
+  *[_type == "project"] | order(coalesce(order, 9999) asc, _createdAt desc) {
     _id,
     _createdAt,
+    order,
     title,
     slug,
     "location": location->{name, slug},
@@ -43,6 +44,7 @@ export const projectQuery = groq`
   *[_type == "project" && slug.current == $slug][0] {
     _id,
     _createdAt,
+    order,
     title,
     slug,
     "location": location->{name, slug},
@@ -81,9 +83,10 @@ export const projectQuery = groq`
 
 // Get projects by city
 export const projectsByCityQuery = groq`
-  *[_type == "project" && location->slug.current == $city] | order(_createdAt desc) {
+  *[_type == "project" && location->slug.current == $city] | order(coalesce(order, 9999) asc, _createdAt desc) {
     _id,
     _createdAt,
+    order,
     title,
     slug,
     "location": location->{name, slug},
@@ -137,8 +140,9 @@ export const cityQuery = groq`
     heroImage,
     description,
     testimonials,
-    "projects": *[_type == "project" && location._ref == ^._id] | order(_createdAt desc) [0...6] {
+    "projects": *[_type == "project" && location._ref == ^._id] | order(coalesce(order, 9999) asc, _createdAt desc) [0...6] {
       _id,
+      order,
       title,
       slug,
       serviceType,
@@ -150,9 +154,10 @@ export const cityQuery = groq`
 
 // Get latest projects for homepage
 export const latestProjectsQuery = groq`
-  *[_type == "project"] | order(_createdAt desc) [0...6] {
+  *[_type == "project"] | order(coalesce(order, 9999) asc, _createdAt desc) [0...6] {
     _id,
     _createdAt,
+    order,
     title,
     slug,
     "location": location->{name, slug},

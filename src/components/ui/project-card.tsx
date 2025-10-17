@@ -11,30 +11,46 @@ interface ProjectCardProps {
   slug: string
   location: string
   locationSlug: string
+  serviceType: 'interior-design' | 'architecture' | 'both'
   category: string[]
   featuredImage: SanityImage
   completionDate?: string
+}
+
+// Helper function to format service type for display
+const formatServiceType = (serviceType: ProjectCardProps['serviceType']): string => {
+  switch (serviceType) {
+    case 'interior-design':
+      return 'Interior Design'
+    case 'architecture':
+      return 'Architecture'
+    case 'both':
+      return 'Architecture + Interior Design'
+    default:
+      return 'Interior Design'
+  }
 }
 
 export function ProjectCard({
   title,
   slug,
   location,
+  serviceType,
   category,
   featuredImage,
 }: ProjectCardProps) {
   const imageUrl = urlForImage(featuredImage)?.width(800).height(600).url()
   const blurDataURL = urlForImage(featuredImage)?.width(20).height(15).blur(50).url()
 
-  // Format category for display
-  const primaryCategory = category[0]?.replace('-', ' ') || 'Interior Design'
+  // Format service type for display
+  const displayServiceType = formatServiceType(serviceType)
 
   const handleClick = () => {
     trackProjectInteraction({
       project_slug: slug,
       interaction_type: "card_click",
       location,
-      category: category[0],
+      category: serviceType,
     });
   };
 
@@ -61,10 +77,10 @@ export function ProjectCard({
       
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6">
-        {/* Category Badge */}
+        {/* Service Type Badge */}
         <div className="mb-3">
           <span className="inline-block px-3 py-1 text-xs font-medium text-white bg-black/20 backdrop-blur-sm rounded-full border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-75">
-            {primaryCategory}
+            {displayServiceType}
           </span>
         </div>
         
@@ -84,7 +100,7 @@ export function ProjectCard({
         <div className="flex items-end justify-between">
           <div>
             <p className="text-xs font-medium text-white/90 uppercase tracking-wide">
-              {primaryCategory}
+              {displayServiceType}
             </p>
             <p className="text-xs text-white/70 mt-1">
               {location}

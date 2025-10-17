@@ -46,6 +46,7 @@ export async function Projects() {
               slug={project.slug.current}
               location={project.location.name}
               locationSlug={project.location.slug.current}
+              serviceType={project.serviceType}
               category={project.category}
               featuredImage={project.featuredImage}
               completionDate={project.completionDate}
