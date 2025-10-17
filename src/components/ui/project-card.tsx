@@ -1,49 +1,54 @@
 "use client";
 
-import Image from 'next/image'
-import Link from 'next/link'
-import { urlForImage } from '@/lib/sanity-image'
-import type { SanityImage } from '@/types/sanity'
-import { trackProjectInteraction } from '@/lib/firebase/analytics'
+import Image from "next/image";
+import Link from "next/link";
+import { urlForImage } from "@/lib/sanity-image";
+import type { SanityImage } from "@/types/sanity";
+import { trackProjectInteraction } from "@/lib/firebase/analytics";
 
 interface ProjectCardProps {
-  title: string
-  slug: string
-  location: string
-  locationSlug: string
-  serviceType: 'interior-design' | 'architecture' | 'both'
-  category: string[]
-  featuredImage: SanityImage
-  completionDate?: string
+  title: string;
+  slug: string;
+  location: string;
+  locationSlug: string;
+  serviceType: "interior-design" | "architecture" | "both";
+  category: string[];
+  featuredImage: SanityImage;
+  completionDate?: string;
 }
 
 // Helper function to format service type for display
-const formatServiceType = (serviceType: ProjectCardProps['serviceType']): string => {
+const formatServiceType = (
+  serviceType: ProjectCardProps["serviceType"]
+): string => {
   switch (serviceType) {
-    case 'interior-design':
-      return 'Interior Design'
-    case 'architecture':
-      return 'Architecture'
-    case 'both':
-      return 'Architecture + Interior Design'
+    case "interior-design":
+      return "Interior Design";
+    case "architecture":
+      return "Architecture";
+    case "both":
+      return "Architecture + Interior Design";
     default:
-      return 'Interior Design'
+      return "Interior Design";
   }
-}
+};
 
 export function ProjectCard({
   title,
   slug,
   location,
   serviceType,
-  category,
   featuredImage,
 }: ProjectCardProps) {
-  const imageUrl = urlForImage(featuredImage)?.width(800).height(600).url()
-  const blurDataURL = urlForImage(featuredImage)?.width(20).height(15).blur(50).url()
+  const imageUrl = urlForImage(featuredImage)?.width(800).height(600).url();
+  const blurDataURL = urlForImage(featuredImage)
+    ?.width(20)
+    .height(15)
+    .blur(50)
+    .url();
 
   // Format service type for display
-  const displayServiceType = formatServiceType(serviceType)
+  const displayServiceType = formatServiceType(serviceType);
 
   const handleClick = () => {
     trackProjectInteraction({
@@ -66,15 +71,15 @@ export function ProjectCard({
           alt={featuredImage.alt || title}
           fill
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-          placeholder={blurDataURL ? 'blur' : 'empty'}
+          placeholder={blurDataURL ? "blur" : "empty"}
           blurDataURL={blurDataURL}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       )}
-      
+
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      
+
       {/* Content */}
       <div className="absolute inset-0 flex flex-col justify-end p-6">
         {/* Service Type Badge */}
@@ -83,7 +88,7 @@ export function ProjectCard({
             {displayServiceType}
           </span>
         </div>
-        
+
         {/* Project Info */}
         <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-100">
           <h3 className="text-lg font-semibold text-white mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-150">
@@ -94,7 +99,7 @@ export function ProjectCard({
           </p>
         </div>
       </div>
-      
+
       {/* Static overlay with minimal info (always visible) */}
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/40 to-transparent group-hover:opacity-0 transition-opacity duration-300">
         <div className="flex items-end justify-between">
@@ -102,12 +107,10 @@ export function ProjectCard({
             <p className="text-xs font-medium text-white/90 uppercase tracking-wide">
               {displayServiceType}
             </p>
-            <p className="text-xs text-white/70 mt-1">
-              {location}
-            </p>
+            <p className="text-xs text-white/70 mt-1">{location}</p>
           </div>
         </div>
       </div>
     </Link>
-  )
+  );
 }
