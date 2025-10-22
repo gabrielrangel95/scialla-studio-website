@@ -317,7 +317,7 @@ export default async function LocaleLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className={`${notoSerif.variable} antialiased`}>
+      <body className={`${notoSerif.variable} antialiased`} suppressHydrationWarning>
         <NextIntlClientProvider messages={messages}>
           <Suspense fallback={null}>
             <AnalyticsProvider>
