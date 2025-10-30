@@ -116,7 +116,10 @@ export function trackPortfolioView(params: {
  * @param eventName - The name of the conversion event
  * @param params - Optional event parameters
  */
-export function trackCustomEvent(eventName: string, params?: Record<string, any>) {
+export function trackCustomEvent(
+  eventName: string,
+  params?: Record<string, string | number | boolean | undefined>
+) {
   if (typeof window === "undefined" || !window.gtag) {
     return;
   }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Noto_Serif } from "next/font/google";
+import Script from "next/script";
 import { Toaster } from "sonner";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { AnalyticsProvider } from "@/lib/firebase/analytics-provider";
@@ -316,23 +317,21 @@ export default async function LocaleLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-        {/* Google tag (gtag.js) for GA4 and Google Ads Conversion Tracking */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-W9E7CRVYQ2"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-W9E7CRVYQ2');
-            `,
-          }}
-        />
       </head>
       <body className={`${notoSerif.variable} antialiased`} suppressHydrationWarning>
+        {/* Google tag (gtag.js) for GA4 and Google Ads Conversion Tracking */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-W9E7CRVYQ2"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-W9E7CRVYQ2');
+          `}
+        </Script>
         <NextIntlClientProvider messages={messages}>
           <Suspense fallback={null}>
             <AnalyticsProvider>
