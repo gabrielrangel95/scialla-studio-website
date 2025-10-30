@@ -20,6 +20,7 @@ import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { ProjectCard } from "@/components/ui/project-card";
 import { Button } from "@/components/ui/button";
 import { ImageGallery } from "@/components/ui/image-gallery";
+import { PortfolioViewTracker } from "@/components/portfolio-view-tracker";
 import {
   sanityService,
   extractPortableTextContent,
@@ -216,6 +217,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      {/* Google Ads Portfolio View Tracking */}
+      <PortfolioViewTracker
+        projectSlug={project.slug.current}
+        projectTitle={project.title}
+        category={project.category}
+        location={cityName}
+      />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

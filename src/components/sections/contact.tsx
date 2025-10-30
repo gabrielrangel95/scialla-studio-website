@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { trackFormSubmit } from "@/lib/firebase/analytics";
+import { trackFormSubmitSuccess } from "@/lib/google-ads/gtag-events";
 import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
@@ -78,6 +79,12 @@ export function Contact() {
           success: true,
           location: data.location,
           project_type: data.projectType,
+        });
+
+        // Track Google Ads conversion
+        trackFormSubmitSuccess({
+          location: data.location,
+          projectType: data.projectType,
         });
 
         form.reset();

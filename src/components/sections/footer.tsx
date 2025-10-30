@@ -5,6 +5,7 @@ import { Link } from "@/i18n/routing";
 import { Phone, Mail } from "lucide-react";
 import { ADPROBadge } from "@/components/ui/adpro-badge";
 import { useTranslations } from "next-intl";
+import { trackPhoneClick, trackEmailClick } from "@/lib/google-ads/gtag-events";
 
 export function Footer() {
   const t = useTranslations("footer");
@@ -56,6 +57,7 @@ export function Footer() {
                 <a
                   href="tel:+17275044138"
                   className="hover:text-white transition-colors duration-200"
+                  onClick={() => trackPhoneClick("footer")}
                 >
                   +1 727 504 4138
                 </a>
@@ -66,6 +68,7 @@ export function Footer() {
                 <a
                   href="mailto:info@sciallastudioid.com"
                   className="hover:text-white transition-colors duration-200"
+                  onClick={() => trackEmailClick("footer")}
                 >
                   info@sciallastudioid.com
                 </a>

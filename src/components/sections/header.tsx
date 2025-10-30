@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { Menu, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
+import { trackPhoneClick, trackEmailClick } from "@/lib/google-ads/gtag-events";
 
 export function Header() {
   const t = useTranslations('header');
@@ -252,7 +253,11 @@ export function Header() {
                     <div className="flex items-center gap-4 text-sm text-gray-600">
                       <div className="flex items-center gap-2">
                         <Phone className="w-4 h-4" />
-                        <a href="tel:+17275044138" className="hover:text-gray-900 transition-colors">
+                        <a
+                          href="tel:+17275044138"
+                          className="hover:text-gray-900 transition-colors"
+                          onClick={() => trackPhoneClick("mobile_menu")}
+                        >
                           (727) 504-4138
                         </a>
                       </div>
@@ -260,7 +265,11 @@ export function Header() {
                     <div className="flex items-center gap-4 text-sm text-gray-600">
                       <div className="flex items-center gap-2">
                         <Mail className="w-4 h-4" />
-                        <a href="mailto:info@sciallastudioid.com" className="hover:text-gray-900 transition-colors">
+                        <a
+                          href="mailto:info@sciallastudioid.com"
+                          className="hover:text-gray-900 transition-colors"
+                          onClick={() => trackEmailClick("mobile_menu")}
+                        >
                           info@sciallastudioid.com
                         </a>
                       </div>
