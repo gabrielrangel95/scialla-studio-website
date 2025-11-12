@@ -152,7 +152,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
       "@type": "CreativeWork",
       "@id": `https://sciallastudioid.com/portfolio/${project.slug.current}`,
       "name": project.title,
-      "description": extractPortableTextContent(project.description) || `Interior design project in ${project.location.name}`,
+      "description": extractPortableTextContent(project.description) || `Interior design project${project.location ? ` in ${project.location.name}` : ''}`,
       "image": project.featuredImage ? urlForImage(project.featuredImage)?.url() : null,
       "creator": {
         "@type": "Organization",
