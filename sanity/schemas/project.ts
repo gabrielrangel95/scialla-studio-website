@@ -36,14 +36,13 @@ export default defineType({
       title: 'Location',
       type: 'reference',
       to: { type: 'city' },
-      description: 'Which city is this project located in?',
-      validation: Rule => Rule.required(),
+      description: 'Which city is this project located in? Optional - you can use Custom Location for projects outside the main cities.',
     }),
     defineField({
-      name: 'sublocation',
-      title: 'Sublocation',
+      name: 'customLocation',
+      title: 'Custom Location',
       type: 'string',
-      description: 'Neighborhood or district (e.g., "Winter Park", "SoHo", "Downtown")',
+      description: 'Specific location name (e.g., "Miami Beach", "Winter Park", "SoHo"). This will be displayed as the primary location, with the city as context.',
     }),
     defineField({
       name: 'promoVideo',

@@ -159,8 +159,9 @@ export class SanityService {
       const related = allProjects
         .filter(project => project._id !== currentProject._id)
         .filter(project =>
-          // Same city or overlapping categories
-          project.location.slug.current === currentProject.location.slug.current ||
+          // Same city (if both have cities) or overlapping categories
+          (currentProject.location && project.location &&
+           project.location.slug.current === currentProject.location.slug.current) ||
           project.category.some(cat => currentProject.category.includes(cat))
         )
         .slice(0, limit)
@@ -226,9 +227,11 @@ export class SanityService {
       }
 
       projects.forEach(project => {
-        // Count by city
-        const cityName = project.location.name
-        stats.byCity[cityName] = (stats.byCity[cityName] || 0) + 1
+        // Count by city (only if city exists)
+        if (project.location?.name) {
+          const cityName = project.location.name
+          stats.byCity[cityName] = (stats.byCity[cityName] || 0) + 1
+        }
 
         // Count by category
         project.category.forEach(cat => {
@@ -240,6 +243,27 @@ export class SanityService {
     } catch (error) {
       console.error('Error fetching project stats:', error)
       return { total: 0, byCity: {}, byCategory: {} }
+    }
+  }
+
+  /**
+   * Get unique custom locations for a specific city
+   */
+  async getCustomLocationsByCity(citySlug: LocationSlug): Promise<string[]> {
+    try {
+      const projects = await this.getAllProjects({ city: citySlug })
+
+      const customLocations = new Set<string>()
+      projects.forEach(project => {
+        if (project.customLocation) {
+          customLocations.add(project.customLocation)
+        }
+      })
+
+      return Array.from(customLocations).sort()
+    } catch (error) {
+      console.error('Error fetching custom locations:', error)
+      return []
     }
   }
 }

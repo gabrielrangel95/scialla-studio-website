@@ -14,8 +14,9 @@ import {
 import * as React from "react";
 import {
   ContactFormData,
-  locationLabels,
   projectTypeLabels,
+  budgetLabels,
+  timelineLabels,
 } from "@/lib/validations/contact";
 
 interface AdminNotificationEmailProps {
@@ -34,8 +35,7 @@ export const AdminNotificationEmail = ({
     <Html>
       <Head />
       <Preview>
-        New Contact Form Submission - {data.name} (
-        {locationLabels[data.location]})
+        New Contact Form Submission - {data.name} ({data.location})
       </Preview>
       <Body style={main}>
         <Container style={container}>
@@ -95,7 +95,7 @@ export const AdminNotificationEmail = ({
 
               <Section style={fieldBox}>
                 <Text style={fieldLabel}>Location</Text>
-                <Text style={fieldValue}>{locationLabels[data.location]}</Text>
+                <Text style={fieldValue}>{data.location}</Text>
               </Section>
 
               <Section style={fieldBox}>
@@ -103,6 +103,16 @@ export const AdminNotificationEmail = ({
                 <Text style={fieldValue}>
                   {projectTypeLabels[data.projectType]}
                 </Text>
+              </Section>
+
+              <Section style={fieldBox}>
+                <Text style={fieldLabel}>Budget</Text>
+                <Text style={fieldValue}>{budgetLabels[data.budget]}</Text>
+              </Section>
+
+              <Section style={fieldBox}>
+                <Text style={fieldLabel}>Timeline</Text>
+                <Text style={fieldValue}>{timelineLabels[data.timeline]}</Text>
               </Section>
 
               {data.message && (

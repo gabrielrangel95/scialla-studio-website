@@ -1,4 +1,4 @@
-import { ContactFormData, locationLabels, projectTypeLabels } from "@/lib/validations/contact";
+import { ContactFormData, projectTypeLabels, budgetLabels, timelineLabels } from "@/lib/validations/contact";
 
 export function generateClientEmailTemplate(data: ContactFormData) {
   return {
@@ -28,9 +28,9 @@ export function generateClientEmailTemplate(data: ContactFormData) {
             
             <div class="content">
               <p>Dear ${data.name},</p>
-              
-              <p>Thank you for reaching out to Scialla Studio! We're excited about the opportunity to transform your space in ${locationLabels[data.location]}.</p>
-              
+
+              <p>Thank you for reaching out to Scialla Studio! We're excited about the opportunity to transform your space in ${data.location}.</p>
+
               <div class="highlight">
                 <h3>What happens next?</h3>
                 <ul>
@@ -39,11 +39,13 @@ export function generateClientEmailTemplate(data: ContactFormData) {
                   <li><strong>Custom proposal:</strong> Receive a tailored design solution</li>
                 </ul>
               </div>
-              
+
               <h3>Your Project Details:</h3>
               <ul>
                 <li><strong>Project Type:</strong> ${projectTypeLabels[data.projectType]}</li>
-                <li><strong>Location:</strong> ${locationLabels[data.location]}</li>
+                <li><strong>Location:</strong> ${data.location}</li>
+                <li><strong>Budget:</strong> ${budgetLabels[data.budget]}</li>
+                <li><strong>Timeline:</strong> ${timelineLabels[data.timeline]}</li>
                 ${data.message ? `<li><strong>Additional Details:</strong> ${data.message}</li>` : ''}
               </ul>
               
@@ -61,16 +63,18 @@ export function generateClientEmailTemplate(data: ContactFormData) {
     text: `
       Dear ${data.name},
 
-      Thank you for contacting Scialla Studio! We're excited about the opportunity to transform your space in ${locationLabels[data.location]}.
+      Thank you for contacting Scialla Studio! We're excited about the opportunity to transform your space in ${data.location}.
 
       What happens next?
       • Within 24 hours: One of our design experts will contact you
-      • Free consultation: We'll discuss your vision and project requirements  
+      • Free consultation: We'll discuss your vision and project requirements
       • Custom proposal: Receive a tailored design solution
 
       Your Project Details:
       • Project Type: ${projectTypeLabels[data.projectType]}
-      • Location: ${locationLabels[data.location]}
+      • Location: ${data.location}
+      • Budget: ${budgetLabels[data.budget]}
+      • Timeline: ${timelineLabels[data.timeline]}
       ${data.message ? `• Additional Details: ${data.message}` : ''}
 
       Best regards,
@@ -82,7 +86,7 @@ export function generateClientEmailTemplate(data: ContactFormData) {
 
 export function generateAdminEmailTemplate(data: ContactFormData) {
   return {
-    subject: `New Contact Form Submission - ${data.name} (${locationLabels[data.location]})`,
+    subject: `New Contact Form Submission - ${data.name} (${data.location})`,
     html: `
       <!DOCTYPE html>
       <html>
@@ -124,13 +128,21 @@ export function generateAdminEmailTemplate(data: ContactFormData) {
               </div>
               
               <div class="field">
-                <strong>Location:</strong> ${locationLabels[data.location]}
+                <strong>Location:</strong> ${data.location}
               </div>
-              
+
               <div class="field">
                 <strong>Project Type:</strong> ${projectTypeLabels[data.projectType]}
               </div>
-              
+
+              <div class="field">
+                <strong>Budget:</strong> ${budgetLabels[data.budget]}
+              </div>
+
+              <div class="field">
+                <strong>Timeline:</strong> ${timelineLabels[data.timeline]}
+              </div>
+
               ${data.message ? `
                 <div class="field">
                   <strong>Message:</strong><br>
@@ -148,17 +160,19 @@ export function generateAdminEmailTemplate(data: ContactFormData) {
     `,
     text: `
       🚨 NEW LEAD ALERT 🚨
-      
+
       Action Required: Follow up within 24 hours
-      
+
       Contact Details:
       Name: ${data.name}
       Email: ${data.email}
       Phone: ${data.phone}
-      Location: ${locationLabels[data.location]}
+      Location: ${data.location}
       Project Type: ${projectTypeLabels[data.projectType]}
+      Budget: ${budgetLabels[data.budget]}
+      Timeline: ${timelineLabels[data.timeline]}
       ${data.message ? `Message: ${data.message}` : ''}
-      
+
       Submitted: ${new Date().toLocaleString()}
     `
   };

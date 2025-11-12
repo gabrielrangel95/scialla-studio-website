@@ -39,19 +39,27 @@ export async function Projects() {
       {/* Projects Grid */}
       {projects.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {projects.map((project) => (
-            <ProjectCard
-              key={project._id}
-              title={project.title}
-              slug={project.slug.current}
-              location={project.location.name}
-              locationSlug={project.location.slug.current}
-              serviceType={project.serviceType}
-              category={project.category}
-              featuredImage={project.featuredImage}
-              completionDate={project.completionDate}
-            />
-          ))}
+          {projects.map((project) => {
+            const displayLocation = project.customLocation
+              ? project.location
+                ? `${project.customLocation}, ${project.location.name}`
+                : project.customLocation
+              : project.location?.name || 'Location TBD'
+
+            return (
+              <ProjectCard
+                key={project._id}
+                title={project.title}
+                slug={project.slug.current}
+                location={displayLocation}
+                locationSlug={project.location?.slug.current || ''}
+                serviceType={project.serviceType}
+                category={project.category}
+                featuredImage={project.featuredImage}
+                completionDate={project.completionDate}
+              />
+            )
+          })}
         </div>
       ) : (
         <div className="text-center py-20">

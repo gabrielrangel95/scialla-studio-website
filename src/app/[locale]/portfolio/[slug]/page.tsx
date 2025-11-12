@@ -68,7 +68,8 @@ export async function generateMetadata({
   }
 
   const { project } = data;
-  const cityName = project.location.name;
+  const cityName = project.location?.name;
+  const locationName = project.customLocation || cityName || 'Custom Location';
   const categoryNames = project.category
     .map((cat) =>
       cat.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())
@@ -78,15 +79,18 @@ export async function generateMetadata({
   // Use custom SEO fields if available, otherwise generate
   const title =
     project.seo?.title ||
-    `${project.title} | Interior Design ${cityName} | Scialla Studio`;
+    (cityName
+      ? `${project.title} | Interior Design ${cityName} | Scialla Studio`
+      : `${project.title} | Interior Design | Scialla Studio`);
 
   const description =
     project.seo?.description ||
-    `${project.title} - Professional interior design project in ${cityName}. ${categoryNames} by Scialla Studio. View our portfolio of luxury interior design.`;
+    `${project.title} - Professional interior design project${locationName ? ` in ${locationName}` : ''}. ${categoryNames} by Scialla Studio. View our portfolio of luxury interior design.`;
 
   const keywords = [
     `${project.title.toLowerCase()}`,
-    `interior design ${cityName.toLowerCase()}`,
+    ...(cityName ? [`interior design ${cityName.toLowerCase()}`] : []),
+    ...(project.customLocation ? [project.customLocation.toLowerCase()] : []),
     ...project.category.map((cat) => cat.replace("-", " ")),
     "luxury interior design",
     "modern home design",
@@ -138,10 +142,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   const { project, relatedProjects } = data;
-  const cityName = project.location.name;
-  const fullLocation = project.sublocation
-    ? `${cityName}, ${project.sublocation}`
-    : cityName;
+  const cityName = project.location?.name;
+  const fullLocation = project.customLocation
+    ? cityName
+      ? `${project.customLocation}, ${cityName}`
+      : project.customLocation
+    : cityName || 'Location not specified';
   const categoryNames = project.category.map((cat) =>
     cat.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())
   );
@@ -154,7 +160,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     name: project.title,
     description:
       extractPortableTextContent(project.description) ||
-      `Interior design project in ${cityName}`,
+      `Interior design project${fullLocation ? ` in ${fullLocation}` : ''}`,
     image: project.featuredImage
       ? urlForImage(project.featuredImage)?.url()
       : null,
@@ -164,14 +170,16 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       url: "https://sciallastudioid.com",
       logo: "https://sciallastudioid.com/scialla-studio-logo.png",
     },
-    locationCreated: {
-      "@type": "Place",
-      name: cityName,
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: cityName,
+    ...(fullLocation && {
+      locationCreated: {
+        "@type": "Place",
+        name: fullLocation,
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: cityName || project.customLocation,
+        },
       },
-    },
+    }),
     dateCreated: project._createdAt,
     datePublished: project._createdAt,
     genre: categoryNames.join(", "),
@@ -222,7 +230,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         projectSlug={project.slug.current}
         projectTitle={project.title}
         category={project.category}
-        location={cityName}
+        location={fullLocation}
       />
 
       <script
@@ -497,24 +505,32 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   Related Projects
                 </h2>
                 <p className="text-gray-600">
-                  Explore more of our work in {cityName} and similar projects
+                  Explore more of our work{cityName ? ` in ${cityName}` : ''} and similar projects
                 </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {relatedProjects.map((relatedProject) => (
-                  <ProjectCard
-                    key={relatedProject._id}
-                    title={relatedProject.title}
-                    slug={relatedProject.slug.current}
-                    location={relatedProject.location.name}
-                    locationSlug={relatedProject.location.slug.current}
-                    serviceType={relatedProject.serviceType}
-                    category={relatedProject.category}
-                    featuredImage={relatedProject.featuredImage}
-                    completionDate={relatedProject.completionDate}
-                  />
-                ))}
+                {relatedProjects.map((relatedProject) => {
+                  const displayLocation = relatedProject.customLocation
+                    ? relatedProject.location
+                      ? `${relatedProject.customLocation}, ${relatedProject.location.name}`
+                      : relatedProject.customLocation
+                    : relatedProject.location?.name || 'Location TBD'
+
+                  return (
+                    <ProjectCard
+                      key={relatedProject._id}
+                      title={relatedProject.title}
+                      slug={relatedProject.slug.current}
+                      location={displayLocation}
+                      locationSlug={relatedProject.location?.slug.current || ''}
+                      serviceType={relatedProject.serviceType}
+                      category={relatedProject.category}
+                      featuredImage={relatedProject.featuredImage}
+                      completionDate={relatedProject.completionDate}
+                    />
+                  )
+                })}
               </div>
 
               <div className="text-center mt-12">

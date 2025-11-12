@@ -132,15 +132,14 @@ export function ImageGallery({ images, projectTitle }: ImageGalleryProps) {
           )}
 
           {/* Main image */}
-          <div className="relative w-full h-full max-w-7xl max-h-full flex items-center justify-center">
+          <div className="relative w-full h-full max-w-7xl max-h-full flex items-center justify-center p-12">
             {images[selectedIndex] && (
-              <div className="relative max-w-full max-h-full">
+              <div className="relative w-full h-full">
                 <Image
-                  src={urlForImage(images[selectedIndex])?.width(1600).height(1200).url() || ''}
+                  src={urlForImage(images[selectedIndex])?.width(2400).url() || ''}
                   alt={images[selectedIndex].alt || `${projectTitle} - Image ${selectedIndex + 1}`}
-                  width={1600}
-                  height={1200}
-                  className="max-w-full max-h-full object-contain"
+                  fill
+                  className="object-contain"
                   sizes="100vw"
                   priority
                 />

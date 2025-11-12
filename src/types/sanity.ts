@@ -47,13 +47,13 @@ export interface Project {
   slug: {
     current: string
   }
-  location: {
+  location?: {
     name: string
     slug: {
       current: string
     }
   }
-  sublocation?: string
+  customLocation?: string
   promoVideo?: SanityFile
   serviceType: 'interior-design' | 'architecture' | 'both'
   category: string[]

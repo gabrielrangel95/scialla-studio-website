@@ -9,7 +9,7 @@ export const projectsQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
-    sublocation,
+    customLocation,
     promoVideo {
       asset->{
         _id,
@@ -48,7 +48,7 @@ export const projectQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
-    sublocation,
+    customLocation,
     promoVideo {
       asset->{
         _id,
@@ -90,7 +90,7 @@ export const projectsByCityQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
-    sublocation,
+    customLocation,
     promoVideo {
       asset->{
         _id,
@@ -161,7 +161,7 @@ export const latestProjectsQuery = groq`
     title,
     slug,
     "location": location->{name, slug},
-    sublocation,
+    customLocation,
     serviceType,
     category,
     featuredImage,

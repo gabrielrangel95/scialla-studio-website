@@ -14,8 +14,9 @@ import {
 import * as React from "react";
 import {
   ContactFormData,
-  locationLabels,
   projectTypeLabels,
+  budgetLabels,
+  timelineLabels,
 } from "@/lib/validations/contact";
 
 interface ClientConfirmationEmailProps {
@@ -53,8 +54,7 @@ export const ClientConfirmationEmail = ({
 
             <Text style={text}>
               Thank you for reaching out to Scialla Studio. We&apos;re excited
-              about the opportunity to transform your space in{" "}
-              {locationLabels[data.location]}.
+              about the opportunity to transform your space in {data.location}.
             </Text>
 
             {/* What's Next Section */}
@@ -82,7 +82,13 @@ export const ClientConfirmationEmail = ({
                 {projectTypeLabels[data.projectType]}
               </Text>
               <Text style={detailText}>
-                <strong>Location:</strong> {locationLabels[data.location]}
+                <strong>Location:</strong> {data.location}
+              </Text>
+              <Text style={detailText}>
+                <strong>Budget:</strong> {budgetLabels[data.budget]}
+              </Text>
+              <Text style={detailText}>
+                <strong>Timeline:</strong> {timelineLabels[data.timeline]}
               </Text>
               {data.message && (
                 <Text style={detailText}>

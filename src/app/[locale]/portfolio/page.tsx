@@ -12,6 +12,7 @@ import type { LocationSlug } from '@/types/sanity'
 interface PortfolioPageProps {
   searchParams?: Promise<{
     city?: LocationSlug
+    customLocation?: string
     category?: string
     serviceType?: string
     page?: string
@@ -20,29 +21,39 @@ interface PortfolioPageProps {
 
 async function getPortfolioData(searchParams?: PortfolioPageProps['searchParams']) {
   const params = await searchParams
-  const { city, category, serviceType } = params || {}
+  const { city, customLocation, category, serviceType } = params || {}
   const page = parseInt(params?.page || '1')
   const projectsPerPage = 12
   const offset = (page - 1) * projectsPerPage
 
-  const [projects, categories, stats] = await Promise.all([
+  const [allProjects, categories, stats, customLocations] = await Promise.all([
     sanityService.getAllProjects({
       city,
       category,
       serviceType,
-      limit: projectsPerPage,
-      offset
+      limit: 1000 // Get all for custom location filtering
     }),
     sanityService.getProjectCategories(),
-    sanityService.getProjectStats()
+    sanityService.getProjectStats(),
+    city ? sanityService.getCustomLocationsByCity(city) : Promise.resolve([])
   ])
 
+  // Filter by custom location if specified
+  let projects = allProjects
+  if (customLocation) {
+    projects = projects.filter(p => p.customLocation === customLocation)
+  }
+
+  // Apply pagination
+  const paginatedProjects = projects.slice(offset, offset + projectsPerPage)
+
   return {
-    projects,
+    projects: paginatedProjects,
     categories,
     stats,
+    customLocations,
     currentPage: page,
-    hasMore: projects.length === projectsPerPage
+    hasMore: projects.length > offset + projectsPerPage
   }
 }
 
@@ -126,9 +137,9 @@ export async function generateMetadata({ searchParams }: PortfolioPageProps): Pr
 
 export default async function PortfolioPage({ searchParams }: PortfolioPageProps) {
   const portfolioData = await getPortfolioData(searchParams)
-  const { projects, categories, stats, currentPage, hasMore } = portfolioData
+  const { projects, categories, stats, customLocations, currentPage, hasMore } = portfolioData
   const params = await searchParams
-  const { city, category, serviceType } = params || {}
+  const { city, customLocation, category, serviceType } = params || {}
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -302,6 +313,31 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                   })}
                 </div>
 
+                {/* Custom Location Filter (shown when city is selected) */}
+                {city && customLocations.length > 0 && (
+                  <div className="flex gap-2 flex-wrap">
+                    <Link
+                      href={`/portfolio?city=${city}${serviceType ? `&serviceType=${serviceType}` : ''}${category ? `&category=${category}` : ''}`}
+                      className={`px-3 py-2 text-sm rounded-full transition-colors ${
+                        !customLocation ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
+                    >
+                      All Locations
+                    </Link>
+                    {customLocations.map(loc => (
+                      <Link
+                        key={loc}
+                        href={`/portfolio?city=${city}&customLocation=${encodeURIComponent(loc)}${serviceType ? `&serviceType=${serviceType}` : ''}${category ? `&category=${category}` : ''}`}
+                        className={`px-3 py-2 text-sm rounded-full transition-colors ${
+                          customLocation === loc ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        }`}
+                      >
+                        {loc}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+
                 {/* Category Filter */}
                 <div className="flex gap-2 flex-wrap">
                   <Link
@@ -340,26 +376,34 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
             {projects.length > 0 ? (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                  {projects.map((project) => (
-                    <ProjectCard
-                      key={project._id}
-                      title={project.title}
-                      slug={project.slug.current}
-                      location={project.location.name}
-                      locationSlug={project.location.slug.current}
-                      serviceType={project.serviceType}
-                      category={project.category}
-                      featuredImage={project.featuredImage}
-                      completionDate={project.completionDate}
-                    />
-                  ))}
+                  {projects.map((project) => {
+                    const displayLocation = project.customLocation
+                      ? project.location
+                        ? `${project.customLocation}, ${project.location.name}`
+                        : project.customLocation
+                      : project.location?.name || 'Location TBD'
+
+                    return (
+                      <ProjectCard
+                        key={project._id}
+                        title={project.title}
+                        slug={project.slug.current}
+                        location={displayLocation}
+                        locationSlug={project.location?.slug.current || ''}
+                        serviceType={project.serviceType}
+                        category={project.category}
+                        featuredImage={project.featuredImage}
+                        completionDate={project.completionDate}
+                      />
+                    )
+                  })}
                 </div>
 
                 {/* Pagination */}
                 {hasMore && (
                   <div className="mt-12 text-center">
                     <Link
-                      href={`/portfolio?${city ? `city=${city}&` : ''}${serviceType ? `serviceType=${serviceType}&` : ''}${category ? `category=${category}&` : ''}page=${currentPage + 1}`}
+                      href={`/portfolio?${city ? `city=${city}&` : ''}${customLocation ? `customLocation=${encodeURIComponent(customLocation)}&` : ''}${serviceType ? `serviceType=${serviceType}&` : ''}${category ? `category=${category}&` : ''}page=${currentPage + 1}`}
                       className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
                     >
                       Load More Projects

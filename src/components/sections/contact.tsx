@@ -31,7 +31,8 @@ import {
   ContactFormData,
   contactFormSchema,
   projectTypeLabels,
-  locationLabels,
+  budgetLabels,
+  timelineLabels,
 } from "@/lib/validations/contact";
 
 
@@ -45,8 +46,10 @@ export function Contact() {
       name: "",
       email: "",
       phone: "",
-      location: undefined,
+      location: "",
       projectType: undefined,
+      budget: undefined,
+      timeline: undefined,
       message: "",
     },
   });
@@ -79,6 +82,8 @@ export function Contact() {
           success: true,
           location: data.location,
           project_type: data.projectType,
+          budget: data.budget,
+          timeline: data.timeline,
         });
 
         // Track Google Ads conversion
@@ -192,20 +197,13 @@ export function Contact() {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>{t("form.location")} *</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
-                        <FormControl>
-                          <SelectTrigger className="w-full px-4 py-3 !rounded-none !border-solid !border !border-gray-400 !bg-white !shadow-none !outline-none focus:!border-gray-600 focus:!outline-none">
-                            <SelectValue placeholder={t("form.locationPlaceholder")} />
-                          </SelectTrigger>
-                        </FormControl>
-                        <SelectContent>
-                          {Object.entries(locationLabels).map(([value, label]) => (
-                            <SelectItem key={value} value={value}>
-                              {label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
+                      <FormControl>
+                        <Input
+                          placeholder={t("form.locationPlaceholder")}
+                          {...field}
+                          className="w-full px-4 py-3 !rounded-none !border-solid !border !border-gray-400 !bg-white !shadow-none !outline-none focus:!border-gray-600 focus:!outline-none"
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -225,6 +223,59 @@ export function Contact() {
                         </FormControl>
                         <SelectContent>
                           {Object.entries(projectTypeLabels).map(([value, label]) => (
+                            <SelectItem key={value} value={value}>
+                              {label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
+
+              {/* Budget and Timeline - Two Column Layout */}
+              <div className="grid md:grid-cols-2 gap-6">
+                <FormField
+                  control={form.control}
+                  name="budget"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t("form.budget")} *</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="w-full px-4 py-3 !rounded-none !border-solid !border !border-gray-400 !bg-white !shadow-none !outline-none focus:!border-gray-600 focus:!outline-none">
+                            <SelectValue placeholder={t("form.budgetPlaceholder")} />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {Object.entries(budgetLabels).map(([value, label]) => (
+                            <SelectItem key={value} value={value}>
+                              {label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="timeline"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>{t("form.timeline")} *</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="w-full px-4 py-3 !rounded-none !border-solid !border !border-gray-400 !bg-white !shadow-none !outline-none focus:!border-gray-600 focus:!outline-none">
+                            <SelectValue placeholder={t("form.timelinePlaceholder")} />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {Object.entries(timelineLabels).map(([value, label]) => (
                             <SelectItem key={value} value={value}>
                               {label}
                             </SelectItem>
