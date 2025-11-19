@@ -54,6 +54,9 @@ export const contactFormSchema = z.object({
     .string()
     .max(1000, "Message must be less than 1000 characters")
     .optional(),
+  // Bot protection fields
+  turnstileToken: z.string().optional(),
+  submissionTime: z.number().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

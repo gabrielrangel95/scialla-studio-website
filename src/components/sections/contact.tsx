@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
+import { Turnstile } from "@marsidev/react-turnstile";
 import { trackFormSubmit } from "@/lib/firebase/analytics";
 import { trackFormSubmitSuccess } from "@/lib/google-ads/gtag-events";
 import { useTranslations } from "next-intl";
@@ -39,6 +40,13 @@ import {
 export function Contact() {
   const t = useTranslations("contact");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const pageLoadTime = useRef<number>(0);
+
+  // Track page load time for bot detection
+  useEffect(() => {
+    pageLoadTime.current = Date.now();
+  }, []);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -57,13 +65,24 @@ export function Contact() {
   async function onSubmit(data: ContactFormData) {
     setIsSubmitting(true);
 
+    // Validate Turnstile token before submission
+    if (!turnstileToken) {
+      toast.error("Please complete the security verification.");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          turnstileToken,
+          submissionTime: pageLoadTime.current,
+        }),
       });
 
       if (!response.ok) {
@@ -93,6 +112,7 @@ export function Contact() {
         });
 
         form.reset();
+        setTurnstileToken(null); // Reset turnstile token
       } else {
         throw new Error(result.error || "Something went wrong");
       }
@@ -319,11 +339,24 @@ export function Contact() {
                 {t("form.privacyNotice")}
               </div>
 
+              {/* Cloudflare Turnstile - Bot Protection */}
+              <div className="flex justify-center">
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || ""}
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onError={() => {
+                    setTurnstileToken(null);
+                    toast.error("Security verification failed. Please refresh the page.");
+                  }}
+                  onExpire={() => setTurnstileToken(null)}
+                />
+              </div>
+
               {/* Submit Button */}
               <Button
                 type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-black text-white hover:bg-gray-800 py-4 px-8 text-sm font-medium uppercase tracking-wider transition-all duration-200"
+                disabled={isSubmitting || !turnstileToken}
+                className="w-full bg-black text-white hover:bg-gray-800 py-4 px-8 text-sm font-medium uppercase tracking-wider transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? t("form.submitting") : t("form.submit")}
               </Button>
