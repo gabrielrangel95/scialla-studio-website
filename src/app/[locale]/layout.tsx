@@ -329,7 +329,12 @@ export default async function LocaleLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
+
+            // Initialize Google Analytics 4
             gtag('config', 'G-W9E7CRVYQ2');
+
+            // Initialize Google Ads if configured
+            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && process.env.NEXT_PUBLIC_GOOGLE_ADS_ID !== 'AW-XXXXXXXXXX' ? `gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}');` : '// Google Ads ID not configured'}
           `}
         </Script>
         <NextIntlClientProvider messages={messages}>

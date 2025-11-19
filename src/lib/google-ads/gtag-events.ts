@@ -5,7 +5,7 @@
 
 /**
  * Track contact form submission (Primary Conversion Event)
- * This event is configured in Google Ads as "Submit lead form"
+ * This sends a conversion event to Google Ads for lead generation tracking
  *
  * @param location - Optional location identifier (e.g., "orlando", "tampa")
  * @param projectType - Optional project type (e.g., "kitchen", "bathroom")
@@ -18,16 +18,36 @@ export function trackFormSubmitSuccess(params?: {
     return;
   }
 
+  const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
+  const conversionLabel = process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL;
+
   try {
-    window.gtag("event", "form_submit_success", {
-      // Include location and project type if available
+    // Send Google Ads conversion event if configured
+    if (googleAdsId && conversionLabel && googleAdsId !== 'AW-XXXXXXXXXX' && conversionLabel !== 'your-label-here') {
+      const sendTo = `${googleAdsId}/${conversionLabel}`;
+
+      window.gtag("event", "conversion", {
+        send_to: sendTo,
+        // Include location and project type as conversion data
+        ...(params?.location && { location: params.location }),
+        ...(params?.projectType && { project_type: params.projectType }),
+      });
+
+      console.log("✅ Google Ads: Conversion event sent", { sendTo, params });
+    } else {
+      console.warn("⚠️ Google Ads conversion not configured. Add NEXT_PUBLIC_GOOGLE_ADS_ID and NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL to .env.local");
+    }
+
+    // Also send custom event for Google Analytics tracking
+    window.gtag("event", "generate_lead", {
+      event_category: "engagement",
       ...(params?.location && { location: params.location }),
       ...(params?.projectType && { project_type: params.projectType }),
     });
 
-    console.log("✅ Google Ads: form_submit_success event tracked", params);
+    console.log("✅ Google Analytics: generate_lead event tracked", params);
   } catch (error) {
-    console.error("❌ Failed to track form_submit_success:", error);
+    console.error("❌ Failed to track conversion:", error);
   }
 }
 
