@@ -180,6 +180,25 @@
     "success": "Grazie! Ti contatteremo entro 24 ore.",
     "error": "Invio del messaggio non riuscito. Per favore riprova."
   },
+  "thankYou": {
+    "title": "Grazie per Averci Contattato",
+    "subtitle": "Siamo entusiasti dell'opportunità di trasformare il tuo spazio.",
+    "whatNext": {
+      "title": "Cosa Succede Dopo?",
+      "step1": "Uno dei nostri esperti di design ti contatterà entro 24 ore",
+      "step2": "Discuteremo la tua visione e i requisiti del progetto",
+      "step3": "Ricevi una soluzione di design su misura"
+    },
+    "projectDetails": {
+      "title": "Dettagli del Tuo Progetto",
+      "projectType": "Tipo di Progetto",
+      "location": "Posizione",
+      "budget": "Budget",
+      "timeline": "Tempistica",
+      "message": "Dettagli Aggiuntivi"
+    },
+    "backToHome": "Torna alla Home"
+  },
   "footer": {
     "tagline": "Creando Spazi, Elevando Vite",
     "recognition": "Riconoscimento",

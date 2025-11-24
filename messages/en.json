@@ -180,6 +180,25 @@
     "success": "Thank you! We'll contact you within 24 hours.",
     "error": "Failed to send message. Please try again."
   },
+  "thankYou": {
+    "title": "Thank You for Contacting Us",
+    "subtitle": "We're excited about the opportunity to transform your space.",
+    "whatNext": {
+      "title": "What Happens Next?",
+      "step1": "One of our design experts will contact you within 24 hours",
+      "step2": "We'll discuss your vision and project requirements",
+      "step3": "Receive a tailored design solution"
+    },
+    "projectDetails": {
+      "title": "Your Project Details",
+      "projectType": "Project Type",
+      "location": "Location",
+      "budget": "Budget",
+      "timeline": "Timeline",
+      "message": "Additional Details"
+    },
+    "backToHome": "Back to Home"
+  },
   "footer": {
     "tagline": "Creating Spaces, Elevating Lives",
     "recognition": "Recognition",

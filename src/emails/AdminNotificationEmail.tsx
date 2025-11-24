@@ -29,6 +29,7 @@ export const AdminNotificationEmail = ({
   const submissionDate = new Date().toLocaleString("en-US", {
     dateStyle: "long",
     timeStyle: "short",
+    timeZone: "America/New_York",
   });
 
   return (

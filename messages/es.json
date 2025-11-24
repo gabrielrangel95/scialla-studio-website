@@ -180,6 +180,25 @@
     "success": "¡Gracias! Nos pondremos en contacto dentro de 24 horas.",
     "error": "Error al enviar el mensaje. Por favor, inténtelo de nuevo."
   },
+  "thankYou": {
+    "title": "Gracias por Contactarnos",
+    "subtitle": "Estamos emocionados por la oportunidad de transformar su espacio.",
+    "whatNext": {
+      "title": "¿Qué Sucede Después?",
+      "step1": "Uno de nuestros expertos en diseño lo contactará dentro de 24 horas",
+      "step2": "Discutiremos su visión y requisitos del proyecto",
+      "step3": "Reciba una solución de diseño a medida"
+    },
+    "projectDetails": {
+      "title": "Detalles de Su Proyecto",
+      "projectType": "Tipo de Proyecto",
+      "location": "Ubicación",
+      "budget": "Presupuesto",
+      "timeline": "Cronograma",
+      "message": "Detalles Adicionales"
+    },
+    "backToHome": "Volver al Inicio"
+  },
   "footer": {
     "tagline": "Creando Espacios, Elevando Vidas",
     "recognition": "Reconocimiento",

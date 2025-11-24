@@ -7,7 +7,8 @@ import { toast } from "sonner";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { trackFormSubmit } from "@/lib/firebase/analytics";
 import { trackFormSubmitSuccess } from "@/lib/google-ads/gtag-events";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,6 +40,8 @@ import {
 
 export function Contact() {
   const t = useTranslations("contact");
+  const locale = useLocale();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const pageLoadTime = useRef<number>(0);
@@ -113,6 +116,21 @@ export function Contact() {
 
         form.reset();
         setTurnstileToken(null); // Reset turnstile token
+
+        // Redirect to Thank You page with query params
+        const params = new URLSearchParams({
+          name: data.name,
+          location: data.location,
+          projectType: data.projectType,
+          budget: data.budget,
+          timeline: data.timeline,
+        });
+
+        if (data.message) {
+          params.append("message", data.message);
+        }
+
+        router.push(`/${locale}/thank-you?${params.toString()}`);
       } else {
         throw new Error(result.error || "Something went wrong");
       }
