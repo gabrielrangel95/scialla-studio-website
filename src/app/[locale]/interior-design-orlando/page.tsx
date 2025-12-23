@@ -6,6 +6,7 @@ import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Header } from '@/components/sections/header';
 import { Footer } from '@/components/sections/footer';
 import { Contact } from '@/components/sections/contact';
+import { About } from '@/components/sections/about';
 import { getCityBySlug, urlForImageWithOptions } from '@/lib/sanity-helpers';
 import { getTranslations } from 'next-intl/server';
 
@@ -20,7 +21,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${t('hero.title')} | Scialla Studio`,
     description: t('hero.subtitle'),
-    keywords: `architect Orlando, architecture Orlando, new construction Orlando, interior designer Orlando, luxury interior design Orlando, Orlando architect, Orlando interior designer, Winter Park architecture, Lake Nona interior design`,
+    keywords: [
+      "architect Orlando",
+      "architecture Orlando",
+      "new construction Orlando",
+      "interior designer Orlando",
+      "luxury interior design Orlando",
+      "Orlando architect",
+      "Orlando interior designer",
+      "Winter Park architecture",
+      "Lake Nona interior design",
+      "interior architecture firm Orlando",
+      "luxury home architects Orlando",
+      "modern interior design firm Orlando",
+      "licensed architect Orlando"
+    ].join(", "),
     alternates: {
       canonical: locale === 'en' ? '/interior-design-orlando' : `/${locale}/interior-design-orlando`,
       languages: {
@@ -170,6 +185,8 @@ export default async function OrlandoPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        <About />
 
         {/* Services Section */}
         <section className="py-16 md:py-24 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16">

@@ -6,6 +6,7 @@ import { Breadcrumbs } from '@/components/ui/breadcrumbs';
 import { Header } from '@/components/sections/header';
 import { Footer } from '@/components/sections/footer';
 import { Contact } from '@/components/sections/contact';
+import { About } from '@/components/sections/about';
 import { getCityBySlug, urlForImageWithOptions } from '@/lib/sanity-helpers';
 import { getTranslations } from 'next-intl/server';
 
@@ -20,6 +21,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${t('hero.title')} | Scialla Studio`,
     description: t('hero.subtitle'),
+    keywords: [
+      "architect Tampa",
+      "interior design Tampa",
+      "interior architecture firm Tampa",
+      "luxury home architects Tampa",
+      "modern interior design firm Tampa",
+      "residential architecture firm",
+      "luxury interior design Tampa",
+      "South Tampa architects",
+      "Hyde Park interior design",
+      "licensed architect Tampa",
+      "Italian architect Tampa"
+    ].join(", "),
     alternates: {
       canonical: locale === 'en' ? '/interior-design-tampa' : `/${locale}/interior-design-tampa`,
       languages: {
@@ -157,6 +171,8 @@ export default async function CityPage({ params }: Props) {
             </div>
           </div>
         </section>
+
+        <About />
 
         <section className="py-16 md:py-24 bg-gray-50 px-4 md:px-6 lg:px-12 xl:px-16">
           <div className="max-w-7xl mx-auto">
