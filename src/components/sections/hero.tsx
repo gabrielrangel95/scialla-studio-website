@@ -36,16 +36,33 @@ export function Hero() {
         {/* Content - Absolutely centered */}
         <div className="hero-content">
           <div className="hero-inner">
+            {/* Architectural Digest Badge - Above Headline */}
+            <div className="flex justify-center mb-6">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
+                <Label className="text-white text-sm">
+                  {t('featuredIn')}
+                </Label>
+                <ADPROBadge size="sm" variant="white" />
+              </div>
+            </div>
+
             {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl  text-white mb-6 leading-tight tracking-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 leading-tight tracking-tight">
               {t('mainTitle')}
-              <span className="block mt-2">
-                {t('location')}
-              </span>
             </h1>
 
+            {/* Location Line */}
+            <p className="text-lg md:text-xl text-white/80 mb-4 tracking-wide">
+              {t('location')}
+            </p>
+
+            {/* Luxury Qualifier */}
+            <p className="text-base md:text-lg text-white/70 mb-6 italic">
+              {t('luxuryQualifier')}
+            </p>
+
             {/* Subheading */}
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-12 leading-relaxed font-light">
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-10 leading-relaxed font-light max-w-3xl mx-auto">
               {t('subtitle')}
             </p>
 
@@ -71,20 +88,11 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Architectural Digest Badge - Desktop */}
-        <div className="hidden md:flex absolute bottom-6 right-6 lg:bottom-8 lg:right-8 z-20 flex-col items-center">
-          <Label className="text-white text-sm text-center mb-2">
-            {t('featuredIn')}
-          </Label>
-          <ADPROBadge size="lg" variant="white" />
-        </div>
-
-        {/* Mobile Badge - Bottom Center */}
-        <div className="flex md:hidden absolute bottom-4 right-4 z-20 flex-col items-center">
-          <Label className="text-white text-sm text-center mb-2">
-            {t('featuredIn')}
-          </Label>
-          <ADPROBadge size="md" variant="white" />
+        {/* Trust Indicator - Bottom */}
+        <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
+          <p className="text-white/60 text-sm tracking-wider">
+            {t('trustIndicator')}
+          </p>
         </div>
       </div>
     </section>

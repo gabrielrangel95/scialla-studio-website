@@ -13,6 +13,8 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { ADPROBadge } from "@/components/ui/adpro-badge";
+import { Shield, Clock, CheckCircle } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -152,19 +154,35 @@ export function Contact() {
 
   return (
     <section id="contact" className="lead-capture bg-gradient-to-b from-white to-gray-50 py-20">
-      <div className="container mx-auto px-4 max-w-3xl">
+      <div className="container mx-auto px-4 max-w-4xl">
         {/* Section Header */}
-        <div className="text-center mb-16 md:mb-20">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-6 leading-tight tracking-tight">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-light text-gray-900 mb-4 leading-tight tracking-tight">
             {t("title")}
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed mb-6">
             {t("subtitle")}
           </p>
+
+          {/* Trust Signals */}
+          <div className="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500">
+            <div className="flex items-center gap-2">
+              <Shield className="w-4 h-4" />
+              <span>{t("trust.confidential")}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-4 h-4" />
+              <span>{t("trust.response")}</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="w-4 h-4" />
+              <span>{t("trust.noObligation")}</span>
+            </div>
+          </div>
         </div>
 
         {/* Form Container */}
-        <div className="bg-white p-8 md:p-10">
+        <div className="bg-white p-8 md:p-10 shadow-sm border border-gray-100">
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               {/* Two Column Layout for Desktop */}
@@ -382,6 +400,11 @@ export function Contact() {
           </Form>
         </div>
 
+        {/* Bottom Trust Badge */}
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <p className="text-sm text-gray-500">{t("trust.featuredIn")}</p>
+          <ADPROBadge size="md" />
+        </div>
       </div>
     </section>
   );

@@ -7,12 +7,14 @@
     "getConsultation": "Get Free Consultation"
   },
   "hero": {
-    "mainTitle": "Premier Interior Design & Architecture Studio",
-    "location": "Serving All 50 States | Studios in Orlando, Tampa, NYC & LA",
-    "subtitle": "Award-winning architecture and interior design studio creating exceptional homes, new construction, and commercial spaces nationwide since 2010",
+    "mainTitle": "Bespoke Architecture & Interior Design for Discerning Clients",
+    "location": "Studios in Tampa, Orlando, NYC & Los Angeles",
+    "luxuryQualifier": "For homeowners seeking exceptional, curated design",
+    "subtitle": "Award-winning architecture and interior design studio crafting sophisticated homes, new construction, and elevated commercial spaces since 2010",
     "ctaPrimary": "Schedule a Consultation",
     "ctaSecondary": "View Portfolio",
     "featuredIn": "Featured in",
+    "trustIndicator": "Trusted by clients across Florida and nationwide",
     "imageAlt": "Luxury interior design by Scialla Studio"
   },
   "services": {
@@ -147,8 +149,14 @@
     }
   },
   "contact": {
-    "title": "Contact",
-    "subtitle": "Ready to transform your space? Get in touch for a free consultation.",
+    "title": "Start Your Design Journey",
+    "subtitle": "Share your vision with us. Every exceptional space begins with a conversation.",
+    "trust": {
+      "confidential": "100% Confidential",
+      "response": "Response within 24hrs",
+      "noObligation": "No Obligation",
+      "featuredIn": "As featured in Architectural Digest"
+    },
     "form": {
       "name": "Your Name",
       "nameRequired": "Name is required",
@@ -252,15 +260,97 @@
   "projects": {
     "title": "Designing Spaces",
     "titleLine2": "That Tell Your Story",
+    "subtitle": "Explore our portfolio of luxury residential, commercial, and architectural projects across the United States.",
     "viewAll": "View All Projects",
     "emptyState": "No projects found. Please add some projects in the Sanity Studio.",
-    "goToStudio": "Go to Studio"
+    "goToStudio": "Go to Studio",
+    "noProjectsInCategory": "No projects found in this category.",
+    "viewAllProjects": "View all projects",
+    "filters": {
+      "all": "All Projects",
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "kitchen": "Kitchen & Bath"
+    }
   },
   "common": {
     "readMore": "Read More",
     "learnMore": "Learn More",
     "viewAll": "View All",
     "backToHome": "Back to Home"
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Hear from homeowners who transformed their spaces with Scialla Studio",
+    "trustText": "Join 50+ satisfied clients across the United States",
+    "items": {
+      "1": {
+        "quote": "Working with Francesco and Valentina was truly an exceptional experience. From start to finish, the process was seamless — their communication, creativity, attention to detail, and design vision were absolutely outstanding. Their unique Italian touch brings a sense of refined elegance and warmth that sets them apart.",
+        "author": "Claudia Tang",
+        "location": "St. Petersburg, FL",
+        "projectType": "Interior Design"
+      },
+      "2": {
+        "quote": "Their team combines incredible creativity with a deep understanding of functionality and detail. They took the time to truly listen to our needs and turned our ideas into a design that exceeded every expectation. Our space not only looks beautiful but feels perfectly tailored to us.",
+        "author": "Amedeo Isoldi",
+        "location": "Tampa, FL",
+        "projectType": "Full Home Design"
+      },
+      "3": {
+        "quote": "Scialla Studios completely transformed our house. We scoured the local architect and designer scene within the greater Tampa Bay Area and no one even came close. Their combination of elevated design, deep knowledge of design principles, and fundamental understanding of how to treat clients well is unmatched.",
+        "author": "Alan Atlas",
+        "location": "Tampa Bay, FL",
+        "projectType": "Home Transformation"
+      }
+    }
+  },
+  "socialProof": {
+    "featuredIn": "Featured in",
+    "tagline": "Elevating homes since 2010",
+    "stats": {
+      "projects": {
+        "value": "50+",
+        "label": "Projects"
+      },
+      "years": {
+        "value": "15+",
+        "label": "Years"
+      },
+      "cities": {
+        "value": "4",
+        "label": "Studios"
+      },
+      "satisfaction": {
+        "value": "100%",
+        "label": "Satisfaction"
+      }
+    }
+  },
+  "process": {
+    "title": "Your Design Journey",
+    "subtitle": "A collaborative approach from vision to reality",
+    "cta": "Every great space starts with a conversation",
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "We begin with a conversation about your vision, lifestyle, and aspirations. Understanding your needs is the foundation of exceptional design."
+      },
+      "design": {
+        "title": "Design",
+        "description": "Custom concepts, 3D visualizations, and curated material selections bring your vision to life before construction begins."
+      },
+      "execution": {
+        "title": "Execution",
+        "description": "Full project management from permits to punch list. We coordinate every detail so you can focus on the excitement of transformation."
+      },
+      "reveal": {
+        "title": "Reveal",
+        "description": "Your transformed space, exactly as imagined. We ensure every element exceeds expectations, ready for you to enjoy."
+      }
+    }
+  },
+  "stickyCta": {
+    "buttonText": "Schedule Your Consultation"
   },
   "cityPages": {
     "orlando": {

@@ -114,7 +114,7 @@ export function ThankYou() {
                     <dt className="text-sm font-medium text-gray-500 mb-1">
                       {t("projectDetails.message")}
                     </dt>
-                    <dd className="text-gray-900 italic">"{message}"</dd>
+                    <dd className="text-gray-900 italic">&ldquo;{message}&rdquo;</dd>
                   </div>
                 )}
               </dl>
