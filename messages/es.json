@@ -7,12 +7,14 @@
     "getConsultation": "Consulta Gratuita"
   },
   "hero": {
-    "mainTitle": "Estudio Premier de Diseño Interior y Arquitectura",
-    "location": "Servicio en los 50 Estados | Estudios en Orlando, Tampa, NYC y LA",
-    "subtitle": "Estudio galardonado de arquitectura y diseño interior creando hogares excepcionales, nueva construcción y espacios comerciales en todo el país desde 2010",
+    "mainTitle": "Arquitectura y Diseño Interior a Medida para Clientes Exigentes",
+    "location": "Estudios en Tampa, Orlando, NYC y Los Ángeles",
+    "luxuryQualifier": "Para propietarios que buscan diseño excepcional y curado",
+    "subtitle": "Estudio galardonado de arquitectura y diseño interior creando hogares sofisticados, nueva construcción y espacios comerciales elevados desde 2010",
     "ctaPrimary": "Agendar una Consulta",
     "ctaSecondary": "Ver Portafolio",
     "featuredIn": "Destacado en",
+    "trustIndicator": "Confiado por clientes en toda Florida y a nivel nacional",
     "imageAlt": "Diseño interior de lujo por Scialla Studio"
   },
   "services": {
@@ -147,8 +149,14 @@
     }
   },
   "contact": {
-    "title": "Contacto",
-    "subtitle": "¿Listo para transformar su espacio? Contáctenos para una consulta gratuita.",
+    "title": "Comience Su Viaje de Diseño",
+    "subtitle": "Comparta su visión con nosotros. Cada espacio excepcional comienza con una conversación.",
+    "trust": {
+      "confidential": "100% Confidencial",
+      "response": "Respuesta en 24 horas",
+      "noObligation": "Sin Compromiso",
+      "featuredIn": "Destacado en Architectural Digest"
+    },
     "form": {
       "name": "Su Nombre",
       "nameRequired": "El nombre es requerido",
@@ -252,15 +260,97 @@
   "projects": {
     "title": "Diseñando Espacios",
     "titleLine2": "Que Cuentan Tu Historia",
+    "subtitle": "Explore nuestro portafolio de proyectos residenciales de lujo, comerciales y arquitectónicos en todo Estados Unidos.",
     "viewAll": "Ver Todos los Proyectos",
     "emptyState": "No se encontraron proyectos. Por favor agregue algunos proyectos en Sanity Studio.",
-    "goToStudio": "Ir al Estudio"
+    "goToStudio": "Ir al Estudio",
+    "noProjectsInCategory": "No se encontraron proyectos en esta categoría.",
+    "viewAllProjects": "Ver todos los proyectos",
+    "filters": {
+      "all": "Todos los Proyectos",
+      "residential": "Residencial",
+      "commercial": "Comercial",
+      "kitchen": "Cocina y Baño"
+    }
   },
   "common": {
     "readMore": "Leer Más",
     "learnMore": "Conocer Más",
     "viewAll": "Ver Todo",
     "backToHome": "Volver al Inicio"
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "subtitle": "Escuche a propietarios que transformaron sus espacios con Scialla Studio",
+    "trustText": "Únase a más de 50 clientes satisfechos en todo Estados Unidos",
+    "items": {
+      "1": {
+        "quote": "Trabajar con Francesco y Valentina fue una experiencia verdaderamente excepcional. De principio a fin, el proceso fue impecable: su comunicación, creatividad, atención al detalle y visión de diseño fueron absolutamente sobresalientes. Su toque italiano único aporta una sensación de elegancia refinada y calidez que los distingue.",
+        "author": "Claudia Tang",
+        "location": "St. Petersburg, FL",
+        "projectType": "Diseño Interior"
+      },
+      "2": {
+        "quote": "Su equipo combina una creatividad increíble con una profunda comprensión de la funcionalidad y el detalle. Se tomaron el tiempo para escuchar verdaderamente nuestras necesidades y convirtieron nuestras ideas en un diseño que superó todas las expectativas. Nuestro espacio no solo se ve hermoso, sino que se siente perfectamente adaptado a nosotros.",
+        "author": "Amedeo Isoldi",
+        "location": "Tampa, FL",
+        "projectType": "Diseño Completo del Hogar"
+      },
+      "3": {
+        "quote": "Scialla Studios transformó completamente nuestra casa. Exploramos la escena local de arquitectos y diseñadores en el área de Tampa Bay y nadie se acercó. Su combinación de diseño elevado, profundo conocimiento de los principios del diseño y comprensión fundamental de cómo tratar bien a los clientes es inigualable.",
+        "author": "Alan Atlas",
+        "location": "Tampa Bay, FL",
+        "projectType": "Transformación del Hogar"
+      }
+    }
+  },
+  "socialProof": {
+    "featuredIn": "Destacado en",
+    "tagline": "Elevando hogares desde 2010",
+    "stats": {
+      "projects": {
+        "value": "50+",
+        "label": "Proyectos"
+      },
+      "years": {
+        "value": "15+",
+        "label": "Años"
+      },
+      "cities": {
+        "value": "4",
+        "label": "Estudios"
+      },
+      "satisfaction": {
+        "value": "100%",
+        "label": "Satisfacción"
+      }
+    }
+  },
+  "process": {
+    "title": "Tu Viaje de Diseño",
+    "subtitle": "Un enfoque colaborativo desde la visión hasta la realidad",
+    "cta": "Cada gran espacio comienza con una conversación",
+    "steps": {
+      "discovery": {
+        "title": "Descubrimiento",
+        "description": "Comenzamos con una conversación sobre su visión, estilo de vida y aspiraciones. Comprender sus necesidades es la base de un diseño excepcional."
+      },
+      "design": {
+        "title": "Diseño",
+        "description": "Conceptos personalizados, visualizaciones 3D y selecciones de materiales curados dan vida a su visión antes de que comience la construcción."
+      },
+      "execution": {
+        "title": "Ejecución",
+        "description": "Gestión completa del proyecto desde permisos hasta la lista final. Coordinamos cada detalle para que pueda enfocarse en la emoción de la transformación."
+      },
+      "reveal": {
+        "title": "Revelación",
+        "description": "Su espacio transformado, exactamente como lo imaginó. Nos aseguramos de que cada elemento supere las expectativas, listo para que lo disfrute."
+      }
+    }
+  },
+  "stickyCta": {
+    "buttonText": "Agende Su Consulta"
   },
   "cityPages": {
     "orlando": {
