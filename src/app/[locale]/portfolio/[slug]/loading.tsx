@@ -99,7 +99,7 @@ export default function ProjectLoading() {
             </div>
 
             {/* CTA Skeleton */}
-            <div className="bg-gray-900 text-white p-6 rounded-lg">
+            <div className="bg-black text-white p-6 rounded-lg">
               <div className="h-6 w-32 bg-gray-700 rounded mb-4 animate-pulse" />
               <div className="space-y-2 mb-6">
                 <div className="h-4 bg-gray-700 rounded animate-pulse" />

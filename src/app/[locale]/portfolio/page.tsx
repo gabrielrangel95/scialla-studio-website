@@ -260,7 +260,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                   <Link
                     href="/portfolio"
                     className={`px-3 py-2 text-sm rounded-full transition-colors ${
-                      !serviceType ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      !serviceType ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
                     All Services
@@ -268,7 +268,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                   <Link
                     href={`/portfolio?serviceType=interior-design${city ? `&city=${city}` : ''}${category ? `&category=${category}` : ''}`}
                     className={`px-3 py-2 text-sm rounded-full transition-colors ${
-                      serviceType === 'interior-design' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      serviceType === 'interior-design' ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
                     Interior Design
@@ -276,7 +276,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                   <Link
                     href={`/portfolio?serviceType=architecture${city ? `&city=${city}` : ''}${category ? `&category=${category}` : ''}`}
                     className={`px-3 py-2 text-sm rounded-full transition-colors ${
-                      serviceType === 'architecture' ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      serviceType === 'architecture' ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
                     Architecture
@@ -288,7 +288,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                   <Link
                     href="/portfolio"
                     className={`px-3 py-2 text-sm rounded-full transition-colors ${
-                      !city ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      !city ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
                     All Cities
@@ -304,7 +304,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                         key={citySlug}
                         href={href}
                         className={`px-3 py-2 text-sm rounded-full transition-colors ${
-                          city === citySlug ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          city === citySlug ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                       >
                         {displayName}
@@ -319,7 +319,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                     <Link
                       href={`/portfolio?city=${city}${serviceType ? `&serviceType=${serviceType}` : ''}${category ? `&category=${category}` : ''}`}
                       className={`px-3 py-2 text-sm rounded-full transition-colors ${
-                        !customLocation ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        !customLocation ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                       }`}
                     >
                       All Locations
@@ -329,7 +329,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                         key={loc}
                         href={`/portfolio?city=${city}&customLocation=${encodeURIComponent(loc)}${serviceType ? `&serviceType=${serviceType}` : ''}${category ? `&category=${category}` : ''}`}
                         className={`px-3 py-2 text-sm rounded-full transition-colors ${
-                          customLocation === loc ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          customLocation === loc ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                       >
                         {loc}
@@ -343,7 +343,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                   <Link
                     href={`/portfolio${city ? `?city=${city}` : ''}${serviceType && !city ? `?serviceType=${serviceType}` : ''}${serviceType && city ? `&serviceType=${serviceType}` : ''}`}
                     className={`px-3 py-2 text-sm rounded-full transition-colors ${
-                      !category ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      !category ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
                     All Categories
@@ -357,7 +357,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                         key={cat}
                         href={href}
                         className={`px-3 py-2 text-sm rounded-full transition-colors ${
-                          category === cat ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                          category === cat ? 'bg-black text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                         }`}
                       >
                         {displayName}
@@ -422,7 +422,7 @@ export default async function PortfolioPage({ searchParams }: PortfolioPageProps
                 </p>
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-lg transition-colors"
+                  className="inline-flex items-center px-6 py-3 text-sm font-medium text-white bg-black hover:bg-gray-800 rounded-lg transition-colors"
                 >
                   View All Projects
                 </Link>

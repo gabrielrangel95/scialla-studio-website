@@ -51,10 +51,10 @@ export function ADPROBadge({
       >
         <Image
           src={variant === "white"
-            ? "/scialla-ADPRO_Directory_MemberBadge2025_White.png"
-            : "/scialla-studio-ADPRO_Directory_MemberBadge2025_Black.png"
+            ? "/scialla-studio-architect-interior-designer-tampa-ADPD-award-white-2026.png"
+            : "/scialla-studio-architect-interior-designer-tampa-ADPD-award-2026.png"
           }
-          alt="Architectural Digest Professional Directory Member 2025"
+          alt="Architectural Digest Professional Directory Member 2026"
           fill
           className="object-contain"
           sizes={size === "sm" ? "64px" : size === "md" ? "80px" : size === "lg" ? "112px" : "144px"}

@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ADPROBadge } from "@/components/ui/adpro-badge";
 import { useTranslations } from "next-intl";
 
 export function About() {
@@ -74,9 +73,64 @@ export function About() {
               </li>
             </ul>
 
-            {/* AD Badge */}
-            <div className="mt-6">
-              <ADPROBadge size="md" />
+            {/* Award Badges */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <Link
+                href="https://www.architecturaldigest.com/adpro/directory/profile/scialla-studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-14 h-14 transition-transform duration-200 hover:scale-105"
+              >
+                <Image
+                  src="/scialla-studio-architect-interior-designer-tampa-ADPD-award-2024.png"
+                  alt="Architectural Digest Professional Directory 2024"
+                  width={56}
+                  height={56}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </Link>
+              <Link
+                href="https://www.architecturaldigest.com/adpro/directory/profile/scialla-studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-14 h-14 transition-transform duration-200 hover:scale-105"
+              >
+                <Image
+                  src="/scialla-studio-ADPRO_Directory_MemberBadge2025_Black.png"
+                  alt="Architectural Digest Professional Directory 2025"
+                  width={56}
+                  height={56}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </Link>
+              <Link
+                href="https://www.architecturaldigest.com/adpro/directory/profile/scialla-studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-14 h-14 transition-transform duration-200 hover:scale-105"
+              >
+                <Image
+                  src="/scialla-studio-architect-interior-designer-tampa-ADPD-award-2026.png"
+                  alt="Architectural Digest Professional Directory 2026"
+                  width={56}
+                  height={56}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </Link>
+              <Link
+                href="https://www.houzz.com/pro/francescosciallaarchitect/scialla-studio"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center w-14 h-14 transition-transform duration-200 hover:scale-105"
+              >
+                <Image
+                  src="/scialla-studio-architect-interior-designer-tampa-houzz-award-2023.png"
+                  alt="Houzz Award 2023"
+                  width={56}
+                  height={56}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </Link>
             </div>
           </div>
         </div>

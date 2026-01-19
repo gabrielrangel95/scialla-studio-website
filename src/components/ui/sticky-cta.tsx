@@ -54,7 +54,7 @@ export function StickyCTA() {
         <Button
           onClick={scrollToContact}
           size="lg"
-          className="w-full bg-gray-900 text-white hover:bg-gray-800 py-4 text-base font-medium tracking-wide transition-all duration-300"
+          className="w-full bg-black text-white hover:bg-gray-800 py-4 text-base font-medium tracking-wide transition-all duration-300"
         >
           {t("buttonText")}
         </Button>

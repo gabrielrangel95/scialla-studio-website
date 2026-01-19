@@ -89,7 +89,7 @@ export function ProjectsWithFilters({ projects }: ProjectsWithFiltersProps) {
               className={`
                 px-4 py-2 md:px-6 md:py-2.5 rounded-full text-sm font-medium transition-all duration-300
                 ${activeFilter === filter.key
-                  ? "bg-gray-900 text-white shadow-md"
+                  ? "bg-black text-white shadow-md"
                   : "text-gray-600 hover:text-gray-900 hover:bg-gray-200"
                 }
               `}
@@ -131,7 +131,7 @@ export function ProjectsWithFilters({ projects }: ProjectsWithFiltersProps) {
           <div className="flex justify-center mt-10 md:mt-12">
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-300 group"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-300 group"
             >
               {t("viewAll")}
               <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />

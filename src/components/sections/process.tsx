@@ -43,7 +43,7 @@ export function Process() {
   return (
     <section
       id="process"
-      className="py-16 md:py-20 lg:py-24 px-4 md:px-6 lg:px-12 xl:px-16 bg-gray-900"
+      className="py-16 md:py-20 lg:py-24 px-4 md:px-6 lg:px-12 xl:px-16 bg-black"
     >
       {/* Section Header */}
       <div className="text-center mb-12 md:mb-16">
@@ -65,7 +65,7 @@ export function Process() {
                 <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-gray-700 -translate-y-1/2 z-0" />
               )}
 
-              <div className="relative z-10 bg-gray-900">
+              <div className="relative z-10 bg-black">
                 {/* Step Number */}
                 <div className="text-5xl font-light text-gray-700 mb-4 tracking-tighter">
                   {step.number}

@@ -479,7 +479,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
               )}
 
               {/* CTA */}
-              <div className="bg-gray-900 text-white p-6 rounded-lg">
+              <div className="bg-black text-white p-6 rounded-lg">
                 <h3 className="text-lg font-medium mb-4">Start Your Project</h3>
                 <p className="text-gray-300 mb-6 text-sm">
                   Ready to transform your space? Contact us for a free

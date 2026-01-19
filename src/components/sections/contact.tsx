@@ -13,7 +13,6 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { ADPROBadge } from "@/components/ui/adpro-badge";
 import { Shield, Clock, CheckCircle } from "lucide-react";
 import {
   Select,
@@ -400,11 +399,6 @@ export function Contact() {
           </Form>
         </div>
 
-        {/* Bottom Trust Badge */}
-        <div className="mt-8 flex flex-col items-center gap-3">
-          <p className="text-sm text-gray-500">{t("trust.featuredIn")}</p>
-          <ADPROBadge size="md" />
-        </div>
       </div>
     </section>
   );

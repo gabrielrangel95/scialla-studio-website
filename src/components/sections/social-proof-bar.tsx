@@ -14,7 +14,7 @@ export function SocialProofBar() {
   ];
 
   return (
-    <section className="bg-gray-900 py-6 md:py-8 px-4 md:px-6 lg:px-12 xl:px-16">
+    <section className="bg-black py-6 md:py-8 px-4 md:px-6 lg:px-12 xl:px-16">
       <div className="max-w-7xl mx-auto">
         {/* Desktop Layout */}
         <div className="hidden md:flex items-center justify-between gap-8">
