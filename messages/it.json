@@ -349,6 +349,10 @@
       }
     }
   },
+  "awards": {
+    "title": "Riconoscimenti e Premi",
+    "subtitle": "Onorati per l'eccellenza sostenuta nel design dai leader del settore"
+  },
   "stickyCta": {
     "buttonText": "Prenota la Tua Consulenza"
   },

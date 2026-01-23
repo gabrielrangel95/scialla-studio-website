@@ -349,6 +349,10 @@
       }
     }
   },
+  "awards": {
+    "title": "Recognition & Awards",
+    "subtitle": "Honored for sustained design excellence by industry leaders"
+  },
   "stickyCta": {
     "buttonText": "Schedule Your Consultation"
   },

@@ -349,6 +349,10 @@
       }
     }
   },
+  "awards": {
+    "title": "Reconocimiento y Premios",
+    "subtitle": "Honrados por excelencia sostenida en diseño por líderes de la industria"
+  },
   "stickyCta": {
     "buttonText": "Agende Su Consulta"
   },
