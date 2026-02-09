@@ -133,8 +133,36 @@ export function Footer() {
                     className="flex items-center justify-center w-11 h-11 transition-transform duration-200 hover:scale-105"
                   >
                     <Image
-                      src="/scialla-studio-architect-interior-designer-tampa-houzz-award-2023.png"
-                      alt="Houzz Award 2023"
+                      src="/scialla-studio-architect-interior-designer-tampa-best-of-houzz-2023.png"
+                      alt="Best of Houzz 2023"
+                      width={44}
+                      height={44}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </a>
+                  <a
+                    href="https://www.houzz.com/pro/francescosciallaarchitect/scialla-studio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-11 h-11 transition-transform duration-200 hover:scale-105"
+                  >
+                    <Image
+                      src="/scialla-studio-architect-interior-designer-tampa-best-of-houzz-2024.png"
+                      alt="Best of Houzz 2024"
+                      width={44}
+                      height={44}
+                      className="max-w-full max-h-full object-contain"
+                    />
+                  </a>
+                  <a
+                    href="https://www.houzz.com/pro/francescosciallaarchitect/scialla-studio"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-11 h-11 transition-transform duration-200 hover:scale-105"
+                  >
+                    <Image
+                      src="/scialla-studio-architect-interior-designer-tampa-best-of-houzz-2025.png"
+                      alt="Best of Houzz 2025"
                       width={44}
                       height={44}
                       className="max-w-full max-h-full object-contain"
