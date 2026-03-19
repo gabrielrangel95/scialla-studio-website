@@ -1,13 +1,20 @@
 "use client";
 
-import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { useTranslations } from 'next-intl';
 import { Button } from "@/components/ui/button";
-import { ADPROBadge } from "@/components/ui/adpro-badge";
-import { Label } from "../ui/label";
 
 export function Hero() {
   const t = useTranslations('hero');
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Respect reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    if (mediaQuery.matches && videoRef.current) {
+      videoRef.current.pause();
+    }
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -17,82 +24,55 @@ export function Hero() {
   };
 
   return (
-    <section className="hero-section px-4 md:px-6 lg:px-12 xl:px-16">
-      <div className="hero-image-container pt-16 md:pt-0">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/scialla-home-background.avif"
-            alt={t('imageAlt')}
-            fill
-            className="object-cover object-center"
-            priority
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 85vw"
-          />
-          {/* Overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/30" />
-        </div>
+    <section className="hero-section">
+      {/* Background Video */}
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        poster="/scialla-home-background.avif"
+        className="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/scialla-studio-home-page-background-video.mp4" type="video/mp4" />
+      </video>
 
-        {/* Content - Absolutely centered */}
-        <div className="hero-content">
-          <div className="hero-inner">
-            {/* Architectural Digest Badge - Above Headline */}
-            <div className="flex justify-center mb-6">
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20">
-                <Label className="text-white text-sm">
-                  {t('featuredIn')}
-                </Label>
-                <ADPROBadge size="sm" variant="white" />
-              </div>
-            </div>
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-black/10" />
 
-            {/* Main Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 leading-tight tracking-tight">
-              {t('mainTitle')}
-            </h1>
+      {/* Content */}
+      <div className="hero-content">
+        <div className="hero-inner">
+          {/* Main Heading */}
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-white mb-4 leading-tight tracking-tight">
+            {t('mainTitle')}
+          </h1>
 
-            {/* Location Line */}
-            <p className="text-lg md:text-xl text-white/80 mb-4 tracking-wide">
-              {t('location')}
-            </p>
-
-            {/* Luxury Qualifier */}
-            <p className="text-base md:text-lg text-white/70 mb-6 italic">
-              {t('luxuryQualifier')}
-            </p>
-
-            {/* Subheading */}
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-10 leading-relaxed font-light max-w-3xl mx-auto">
-              {t('subtitle')}
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                onClick={() => scrollToSection("contact")}
-                size="lg"
-                className="bg-white text-black hover:bg-gray-100 px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-medium tracking-wide w-[240px] sm:w-[280px] transition-all duration-300 hover:scale-105"
-              >
-                {t('ctaPrimary')}
-              </Button>
-
-              <Button
-                onClick={() => scrollToSection("portfolio")}
-                variant="outline"
-                size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-black px-6 py-3 sm:px-8 sm:py-4 text-base sm:text-lg font-medium tracking-wide w-[240px] sm:w-[280px] bg-transparent transition-all duration-300 hover:scale-105"
-              >
-                {t('ctaSecondary')}
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        {/* Trust Indicator - Bottom */}
-        <div className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2 z-20">
-          <p className="text-white/60 text-sm tracking-wider">
-            {t('trustIndicator')}
+          {/* Brief descriptor */}
+          <p className="text-base md:text-lg text-white/70 mb-10 font-light tracking-wide max-w-2xl mx-auto">
+            {t('heroDescription')}
           </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <Button
+              onClick={() => scrollToSection("contact")}
+              size="lg"
+              className="bg-white text-black hover:bg-white/90 px-8 py-3 text-sm font-medium tracking-widest uppercase transition-all duration-300"
+            >
+              {t('ctaPrimary')}
+            </Button>
+
+            <Button
+              onClick={() => scrollToSection("portfolio")}
+              variant="outline"
+              size="lg"
+              className="border border-white text-white hover:bg-white/10 px-8 py-3 text-sm font-medium tracking-widest uppercase bg-transparent transition-all duration-300"
+            >
+              {t('ctaSecondary')}
+            </Button>
+          </div>
         </div>
       </div>
     </section>

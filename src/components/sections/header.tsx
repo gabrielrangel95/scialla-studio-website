@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
@@ -14,9 +14,21 @@ import { trackPhoneClick, trackEmailClick } from "@/lib/google-ads/gtag-events";
 export function Header() {
   const t = useTranslations('header');
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Check if we're on the homepage (root or just locale, e.g., '/' or '/en')
   const isHomePage = pathname === '/' || /^\/[a-z]{2}(-[A-Z]{2})?$/.test(pathname);
+
+  const isTransparent = isHomePage && !isScrolled;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 80);
+    };
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     // Handle hash navigation when page loads
@@ -48,6 +60,7 @@ export function Header() {
     { name: t('services'), id: "services", href: "#services" },
     { name: t('portfolio'), id: "portfolio", href: "#portfolio" },
     { name: t('about'), id: "about", href: "#about" },
+    { name: t('process'), id: "process", href: "/process" },
   ];
 
   const cities = [
@@ -58,7 +71,13 @@ export function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isTransparent
+          ? "bg-transparent border-b border-transparent"
+          : "bg-white/95 backdrop-blur-sm border-b border-gray-200"
+      }`}
+    >
       <div className="px-4 md:px-6 lg:px-12 xl:px-16">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -68,7 +87,9 @@ export function Header() {
               alt="Scialla Studio - Interior Design"
               width={140}
               height={32}
-              className="h-6 md:h-8 w-auto"
+              className={`h-6 md:h-8 w-auto transition-all duration-500 ${
+                isTransparent ? "brightness-0 invert" : ""
+              }`}
               priority
             />
           </Link>
@@ -76,13 +97,16 @@ export function Header() {
           {/* Desktop Navigation & CTA - All on the right */}
           <div className="hidden md:flex items-center ml-auto gap-4">
             <nav className="flex items-center gap-8">
-              {navigation.map((item) => (
-                item.href.startsWith("#") ? (
+              {navigation.map((item) => {
+                const navClass = isTransparent
+                  ? "text-white text-sm font-medium uppercase tracking-wider hover:text-white/70 transition-colors duration-200"
+                  : "text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200";
+                return item.href.startsWith("#") ? (
                   isHomePage ? (
                     <button
                       key={item.name}
                       onClick={() => scrollToSection(item.id)}
-                      className="text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200"
+                      className={navClass}
                     >
                       {item.name}
                     </button>
@@ -90,7 +114,7 @@ export function Header() {
                     <Link
                       key={item.name}
                       href={`/${item.href}`}
-                      className="text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200"
+                      className={navClass}
                     >
                       {item.name}
                     </Link>
@@ -99,20 +123,24 @@ export function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-gray-900 text-sm font-medium uppercase tracking-wider hover:text-gray-600 transition-colors duration-200"
+                    className={navClass}
                   >
                     {item.name}
                   </Link>
-                )
-              ))}
+                );
+              })}
             </nav>
 
-            <LanguageSwitcher />
+            <LanguageSwitcher variant={isTransparent ? "light" : "dark"} />
 
             {isHomePage ? (
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-sm font-medium uppercase tracking-wider"
+                className={`px-8 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-500 ${
+                  isTransparent
+                    ? "border border-white text-white bg-transparent hover:bg-white/10"
+                    : "bg-black text-white hover:bg-gray-800"
+                }`}
               >
                 {t('contact')}
               </Button>
@@ -129,7 +157,13 @@ export function Header() {
           {/* Mobile Menu */}
           <Sheet>
             <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon" className="hover:bg-gray-100 rounded-sm">
+              <Button
+                variant="ghost"
+                size="icon"
+                className={`rounded-sm transition-colors duration-500 ${
+                  isTransparent ? "text-white hover:bg-white/10" : "hover:bg-gray-100"
+                }`}
+              >
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Open menu</span>
               </Button>

@@ -3,11 +3,13 @@
     "services": "Servizi",
     "portfolio": "Portfolio",
     "about": "Chi Siamo",
+    "process": "Processo",
     "contact": "Contatti",
     "getConsultation": "Consulenza Gratuita"
   },
   "hero": {
-    "mainTitle": "Architettura e Design d'Interni Su Misura per Clienti Esigenti",
+    "mainTitle": "Architettura, Interni & Design Su Misura",
+    "heroDescription": "Studio premiato che crea spazi raffinati in Florida, New York e Los Angeles",
     "location": "Studi a Tampa, Orlando, NYC e Los Angeles",
     "luxuryQualifier": "Per proprietari che cercano un design eccezionale e curato",
     "subtitle": "Studio premiato di architettura e design d'interni che crea case sofisticate, nuove costruzioni e spazi commerciali elevati dal 2010",
@@ -330,6 +332,7 @@
     "title": "Il Tuo Percorso di Design",
     "subtitle": "Un approccio collaborativo dalla visione alla realtà",
     "cta": "Ogni grande spazio inizia con una conversazione",
+    "viewFullProcess": "Scopri il Nostro Processo Completo",
     "steps": {
       "discovery": {
         "title": "Scoperta",
@@ -347,6 +350,70 @@
         "title": "Rivelazione",
         "description": "Il tuo spazio trasformato, esattamente come immaginato. Ci assicuriamo che ogni elemento superi le aspettative, pronto per essere goduto."
       }
+    }
+  },
+  "processPage": {
+    "seo": {
+      "title": "Il Nostro Processo di Design | Scialla Studio",
+      "description": "Scopri come Scialla Studio trasforma la tua visione in realtà attraverso il nostro processo collaborativo di design in quattro fasi: Scoperta, Design, Esecuzione e Rivelazione."
+    },
+    "hero": {
+      "title": "Il Processo",
+      "subtitle": "Ogni spazio eccezionale inizia con la comprensione. Attraverso una collaborazione attenta e cura dei dettagli, scopriamo la visione che plasma il tuo ambiente. L'esperienza, per noi, è sempre la prima priorità — ed è importante che i nostri clienti si sentano ascoltati, compresi e rispettati mentre creiamo qualcosa di veramente su misura.",
+      "imageAlt": "Processo collaborativo di design d'interni di Scialla Studio"
+    },
+    "quickNav": {
+      "discovery": "Scoperta",
+      "design": "Design",
+      "execution": "Esecuzione",
+      "reveal": "Rivelazione"
+    },
+    "steps": {
+      "discovery": {
+        "title": "Scoperta",
+        "description": "Iniziamo ogni progetto con un ascolto profondo. Durante la nostra consulenza iniziale, esploriamo il tuo stile di vita, le preferenze estetiche, le esigenze funzionali e le aspirazioni per lo spazio. Visitiamo il sito, studiamo l'architettura, comprendiamo la luce e assorbiamo il carattere dell'ambiente. Questa fase stabilisce le fondamenta su cui poggerà ogni decisione di design.",
+        "imageAlt": "Consulenza di scoperta del design presso Scialla Studio"
+      },
+      "design": {
+        "title": "Design",
+        "description": "Con una comprensione approfondita della tua visione, il nostro team sviluppa concetti di design personalizzati che includono mood board, planimetrie, rendering 3D e palette di materiali curati. Presentiamo più direzioni e raffiniamo in modo collaborativo fino a che ogni dettaglio si allinea con le tue aspettative. Questo processo iterativo assicura che il design finale sia autenticamente tuo prima che inizi qualsiasi costruzione.",
+        "imageAlt": "Concetti di design d'interni personalizzati e visualizzazione 3D"
+      },
+      "execution": {
+        "title": "Esecuzione",
+        "description": "Il nostro team gestisce ogni aspetto della realizzazione — dai permessi e il coordinamento dei contractor all'approvvigionamento dei materiali e il controllo qualità. Manteniamo una comunicazione trasparente durante tutta la costruzione, fornendo aggiornamenti regolari e risolvendo le sfide in modo proattivo. Il tuo unico ruolo è anticipare la trasformazione che prende forma.",
+        "imageAlt": "Esecuzione del progetto e gestione della costruzione"
+      },
+      "reveal": {
+        "title": "Rivelazione",
+        "description": "Il momento in cui il tuo spazio reimaginato prende vita. Ci occupiamo dello styling finale, del posizionamento degli accessori e di ogni tocco finale prima di presentare il progetto completato. Ogni elemento è stato considerato, ogni dettaglio raffinato — risultando in un ambiente che supera le tue aspettative e si sente inconfondibilmente come casa tua.",
+        "imageAlt": "Rivelazione del design d'interni completato da Scialla Studio"
+      }
+    },
+    "services": {
+      "title": "Su Misura per il Tuo Progetto",
+      "subtitle": "Il nostro processo si adatta a ogni tipo di progetto, garantendo attenzione specializzata sia per il residenziale, l'architettonico, il commerciale o la consulenza.",
+      "residential": {
+        "title": "Design d'Interni Residenziale",
+        "description": "Trasformazioni complete della casa da singole stanze a ristrutturazioni complete, creando spazi che riflettono il tuo stile di vita."
+      },
+      "architectural": {
+        "title": "Progettazione Architettonica",
+        "description": "Nuove costruzioni e ristrutturazioni strutturali guidate da oltre 20 anni di competenza architettonica abilitata."
+      },
+      "commercial": {
+        "title": "Design Commerciale",
+        "description": "Uffici, ristoranti, negozi e spazi di ospitalità progettati per impatto estetico ed efficienza operativa."
+      },
+      "consultation": {
+        "title": "Consulenza di Design",
+        "description": "Consulenze virtuali e in persona per pianificazione degli spazi, selezione dei colori e ricerca di mobili."
+      }
+    },
+    "cta": {
+      "title": "Pronto a Iniziare il Tuo Percorso?",
+      "description": "Ogni grande spazio inizia con una conversazione. Prenota una consulenza gratuita e lasciaci dare vita alla tua visione.",
+      "button": "Prenota una Consulenza"
     }
   },
   "awards": {

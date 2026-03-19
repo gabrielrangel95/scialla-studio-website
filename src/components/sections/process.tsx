@@ -1,10 +1,9 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { MessageSquare, Palette, Hammer, Sparkles } from "lucide-react";
-
+import { Link } from "@/i18n/routing";
+import { ArrowRight } from "lucide-react";
 interface ProcessStep {
-  icon: React.ReactNode;
   number: string;
   title: string;
   description: string;
@@ -15,25 +14,21 @@ export function Process() {
 
   const steps: ProcessStep[] = [
     {
-      icon: <MessageSquare className="w-6 h-6" />,
       number: "01",
       title: t("steps.discovery.title"),
       description: t("steps.discovery.description"),
     },
     {
-      icon: <Palette className="w-6 h-6" />,
       number: "02",
       title: t("steps.design.title"),
       description: t("steps.design.description"),
     },
     {
-      icon: <Hammer className="w-6 h-6" />,
       number: "03",
       title: t("steps.execution.title"),
       description: t("steps.execution.description"),
     },
     {
-      icon: <Sparkles className="w-6 h-6" />,
       number: "04",
       title: t("steps.reveal.title"),
       description: t("steps.reveal.description"),
@@ -67,13 +62,8 @@ export function Process() {
 
               <div className="relative z-10 bg-black">
                 {/* Step Number */}
-                <div className="text-5xl font-light text-gray-700 mb-4 tracking-tighter">
+                <div className="text-5xl font-light text-white mb-4 tracking-tighter">
                   {step.number}
-                </div>
-
-                {/* Icon */}
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center mb-4 text-white group-hover:bg-white group-hover:text-gray-900 transition-all duration-300">
-                  {step.icon}
                 </div>
 
                 {/* Content */}
@@ -91,9 +81,16 @@ export function Process() {
 
       {/* Bottom CTA */}
       <div className="text-center mt-12 md:mt-16">
-        <p className="text-gray-400 text-lg italic">
+        <p className="text-gray-400 text-lg italic mb-6">
           {t("cta")}
         </p>
+        <Link
+          href="/process"
+          className="inline-flex items-center gap-2 border border-white text-white px-8 py-3 text-sm font-medium uppercase tracking-wider hover:bg-white hover:text-black transition-all duration-300 cursor-pointer"
+        >
+          {t("viewFullProcess")}
+          <ArrowRight className="w-4 h-4" />
+        </Link>
       </div>
     </section>
   );

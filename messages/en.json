@@ -3,11 +3,13 @@
     "services": "Services",
     "portfolio": "Portfolio",
     "about": "About",
+    "process": "Process",
     "contact": "Contact",
     "getConsultation": "Get Free Consultation"
   },
   "hero": {
-    "mainTitle": "Bespoke Architecture & Interior Design for Discerning Clients",
+    "mainTitle": "Architecture, Interiors & Bespoke Design",
+    "heroDescription": "Award-winning studio crafting refined spaces across Florida, New York & Los Angeles",
     "location": "Studios in Tampa, Orlando, NYC & Los Angeles",
     "luxuryQualifier": "For homeowners seeking exceptional, curated design",
     "subtitle": "Award-winning architecture and interior design studio crafting sophisticated homes, new construction, and elevated commercial spaces since 2010",
@@ -330,6 +332,7 @@
     "title": "Your Design Journey",
     "subtitle": "A collaborative approach from vision to reality",
     "cta": "Every great space starts with a conversation",
+    "viewFullProcess": "Explore Our Full Process",
     "steps": {
       "discovery": {
         "title": "Discovery",
@@ -347,6 +350,70 @@
         "title": "Reveal",
         "description": "Your transformed space, exactly as imagined. We ensure every element exceeds expectations, ready for you to enjoy."
       }
+    }
+  },
+  "processPage": {
+    "seo": {
+      "title": "Our Design Process | Scialla Studio",
+      "description": "Discover how Scialla Studio transforms your vision into reality through our collaborative four-step design process: Discovery, Design, Execution, and Reveal."
+    },
+    "hero": {
+      "title": "The Process",
+      "subtitle": "Every exceptional space begins with understanding. Through thoughtful collaboration and careful attention to detail, we uncover the vision that shapes your environment. The experience, for us, is always the first priority — and it's important for our clients to feel heard, understood, and respected as we shape something truly bespoke.",
+      "imageAlt": "Scialla Studio collaborative interior design process"
+    },
+    "quickNav": {
+      "discovery": "Discovery",
+      "design": "Design",
+      "execution": "Execution",
+      "reveal": "Reveal"
+    },
+    "steps": {
+      "discovery": {
+        "title": "Discovery",
+        "description": "We begin every project with deep listening. During our initial consultation, we explore your lifestyle, aesthetic preferences, functional needs, and aspirations for the space. We visit the site, study the architecture, understand the light, and absorb the character of the environment. This phase establishes the foundation upon which every design decision will rest.",
+        "imageAlt": "Design discovery consultation at Scialla Studio"
+      },
+      "design": {
+        "title": "Design",
+        "description": "With a thorough understanding of your vision, our team develops custom design concepts including mood boards, space plans, 3D renderings, and curated material palettes. We present multiple directions and refine collaboratively until every detail aligns with your expectations. This iterative process ensures the final design is authentically yours before any construction begins.",
+        "imageAlt": "Custom interior design concepts and 3D visualization"
+      },
+      "execution": {
+        "title": "Execution",
+        "description": "Our team manages every aspect of the build-out — from permitting and contractor coordination to material procurement and quality control. We maintain transparent communication throughout construction, providing regular updates and resolving challenges proactively. Your only role is to anticipate the transformation taking shape.",
+        "imageAlt": "Project execution and construction management"
+      },
+      "reveal": {
+        "title": "Reveal",
+        "description": "The moment your reimagined space comes to life. We handle the final styling, accessory placement, and every finishing touch before presenting the completed project. Every element has been considered, every detail refined — resulting in an environment that exceeds your expectations and feels unmistakably like home.",
+        "imageAlt": "Completed interior design reveal by Scialla Studio"
+      }
+    },
+    "services": {
+      "title": "Tailored to Your Project",
+      "subtitle": "Our process adapts to each project type, ensuring specialized attention whether residential, architectural, commercial, or consultative.",
+      "residential": {
+        "title": "Residential Interior Design",
+        "description": "Complete home transformations from single rooms to full renovations, creating spaces that reflect your lifestyle."
+      },
+      "architectural": {
+        "title": "Architectural Design",
+        "description": "New construction and structural renovations guided by 20+ years of licensed architectural expertise."
+      },
+      "commercial": {
+        "title": "Commercial Design",
+        "description": "Office, restaurant, retail, and hospitality spaces designed for both aesthetic impact and operational efficiency."
+      },
+      "consultation": {
+        "title": "Design Consultation",
+        "description": "Virtual and in-person consultations for space planning, color selection, and furniture sourcing."
+      }
+    },
+    "cta": {
+      "title": "Ready to Begin Your Journey?",
+      "description": "Every great space starts with a conversation. Schedule a complimentary consultation and let us bring your vision to life.",
+      "button": "Schedule a Consultation"
     }
   },
   "awards": {

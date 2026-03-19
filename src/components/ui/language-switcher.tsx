@@ -17,7 +17,7 @@ const languages = [
   { code: "it", name: "Italiano", flag: "🇮🇹" },
 ];
 
-export function LanguageSwitcher() {
+export function LanguageSwitcher({ variant = "dark" }: { variant?: "light" | "dark" }) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -34,7 +34,7 @@ export function LanguageSwitcher() {
         <Button
           variant="ghost"
           size="sm"
-          className="gap-2 text-gray-900 hover:text-gray-600 hover:bg-gray-100"
+          className={`gap-2 ${variant === "light" ? "text-white hover:text-white/80 hover:bg-white/10" : "text-gray-900 hover:text-gray-600 hover:bg-gray-100"}`}
         >
           <Globe className="h-4 w-4" />
           <span className="hidden md:inline">{currentLanguage?.flag}</span>

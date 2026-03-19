@@ -36,6 +36,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Portfolio page
   sitemap.push(...createLocalizedUrl('/portfolio'))
 
+  // Process page
+  sitemap.push(...createLocalizedUrl('/process'))
+
   // Get all projects for dynamic URLs
   try {
     const projects = await sanityService.getAllProjects()
