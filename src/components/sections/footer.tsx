@@ -10,7 +10,16 @@ export function Footer() {
   const t = useTranslations("footer");
   const currentYear = new Date().getFullYear();
 
-  const serviceKeys = ["residential", "commercial", "kitchen", "consultation", "spacePlanning", "sourcing"];
+  const serviceKeys = ["residential", "architecture", "commercial", "kitchen", "consultation", "spacePlanning", "sourcing"];
+  const serviceHrefs: Record<string, string | null> = {
+    residential: "/interior-design",
+    architecture: "/architecture",
+    commercial: null,
+    kitchen: null,
+    consultation: null,
+    spacePlanning: null,
+    sourcing: null,
+  };
 
   const locationKeys = ["orlando", "tampa", "nyc", "losAngeles", "nationwide"];
   const locationSlugs: Record<string, string | null> = {
@@ -184,9 +193,18 @@ export function Footer() {
             <ul className="space-y-3">
               {serviceKeys.map((key, index) => (
                 <li key={index}>
-                  <span className="text-gray-300 text-sm hover:text-white transition-colors duration-200 cursor-pointer">
-                    {t(`servicesList.${key}`)}
-                  </span>
+                  {serviceHrefs[key] ? (
+                    <Link
+                      href={serviceHrefs[key]}
+                      className="text-gray-300 text-sm hover:text-white transition-colors duration-200"
+                    >
+                      {t(`servicesList.${key}`)}
+                    </Link>
+                  ) : (
+                    <span className="text-gray-300 text-sm">
+                      {t(`servicesList.${key}`)}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>

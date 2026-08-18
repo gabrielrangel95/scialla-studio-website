@@ -16,6 +16,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Homepage
   sitemap.push(createUrl(''))
 
+  // Service landing pages — /interior-design is the hub for the city pages below
+  sitemap.push(createUrl('/architecture'))
+  sitemap.push(createUrl('/interior-design'))
+
   // City pages (critical for SEO)
   const cities = ['orlando', 'tampa', 'nyc', 'los-angeles']
   cities.forEach(city => {

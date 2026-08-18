@@ -6,6 +6,7 @@ import { ServiceCard } from "@/components/ui/service-card";
 
 export function Services() {
   const t = useTranslations("services");
+  const tCommon = useTranslations("common");
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -14,7 +15,13 @@ export function Services() {
     }
   };
 
-  const servicesData = [
+  // `href` is only set for the two services that have a dedicated landing page.
+  const servicesData: Array<{
+    title: string;
+    services: string[];
+    image: string;
+    href?: string;
+  }> = [
     {
       title: t("residential.title"),
       services: [
@@ -24,6 +31,7 @@ export function Services() {
         t("residential.services.living"),
       ],
       image: "/scialla-studio-interior-design.png",
+      href: "/interior-design",
     },
     {
       title: t("architectural.title"),
@@ -34,6 +42,7 @@ export function Services() {
         t("architectural.services.structural"),
       ],
       image: "/scialla-studio-architectural-services.png",
+      href: "/architecture",
     },
     {
       title: t("commercial.title"),
@@ -81,6 +90,8 @@ export function Services() {
               title={service.title}
               services={service.services}
               image={service.image}
+              href={service.href}
+              linkLabel={tCommon("learnMore")}
             />
           ))}
         </div>

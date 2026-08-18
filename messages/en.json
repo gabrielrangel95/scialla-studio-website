@@ -5,7 +5,10 @@
     "about": "About",
     "process": "Process",
     "contact": "Contact",
-    "getConsultation": "Get Free Consultation"
+    "getConsultation": "Get Free Consultation",
+    "architecture": "Architecture",
+    "interiorDesign": "Interior Design",
+    "allServices": "All Services"
   },
   "hero": {
     "mainTitle": "Architecture, Interiors & Bespoke Design",
@@ -217,6 +220,7 @@
     "services": "Services",
     "servicesList": {
       "residential": "Residential Interior Design",
+      "architecture": "Residential Architecture",
       "commercial": "Commercial Interior Design",
       "kitchen": "Kitchen & Bathroom Design",
       "consultation": "Design Consultation",
@@ -421,6 +425,139 @@
   },
   "stickyCta": {
     "buttonText": "Schedule Your Consultation"
+  },
+  "architecturePage": {
+    "seo": {
+      "title": "Custom Residential Architecture | Scialla Studio",
+      "description": "Custom residential architecture for new homes, renovations and additions. Licensed architect Francesco Scialla designs homes defined by proportion, materiality and light — Orlando, Tampa, New York, Los Angeles and nationwide."
+    },
+    "hero": {
+      "title": "Custom Residential Architecture",
+      "subtitle": "Thoughtful architecture, designed around the way you live.",
+      "cta": "Start Your Project",
+      "imageAlt": "Contemporary custom residence designed by Scialla Studio"
+    },
+    "intro": {
+      "eyebrow": "Architecture That Defines Living",
+      "paragraph1": "Scialla Studio provides custom residential architecture for new homes, renovations and additions across Tampa Bay, Central Florida, New York and Los Angeles.",
+      "paragraph2": "From initial concept through construction documentation, we create homes defined by proportion, materiality and a seamless relationship between architecture and interiors.",
+      "cta": "Learn More About Our Approach",
+      "imageAlt": "Open-plan living space framed by full-height architectural glazing"
+    },
+    "projects": {
+      "title": "Selected Architecture Projects",
+      "viewProject": "View Project"
+    },
+    "services": {
+      "title": "Architecture Services",
+      "customHomes": {
+        "title": "Custom Homes",
+        "description": "Ground-up residential architecture designed to reflect your lifestyle, site and vision. From concept to completion."
+      },
+      "renovations": {
+        "title": "Renovations & Additions",
+        "description": "Transforming existing homes with thoughtful architecture that enhances function, flow and value."
+      },
+      "integrated": {
+        "title": "Architecture + Interiors",
+        "description": "A fully integrated approach where architecture and interiors are developed together from the very beginning."
+      }
+    },
+    "process": {
+      "title": "Our Architectural Process",
+      "cta": "Explore Our Process",
+      "steps": {
+        "discovery": {
+          "title": "Discovery",
+          "description": "We listen, learn and define your goals, lifestyle and project vision."
+        },
+        "concept": {
+          "title": "Concept",
+          "description": "Exploring ideas, massing studies and early design directions."
+        },
+        "development": {
+          "title": "Design Development",
+          "description": "Refining the design with materials, details and technical solutions."
+        },
+        "documentation": {
+          "title": "Documentation",
+          "description": "Creating comprehensive drawings for permits and construction."
+        },
+        "construction": {
+          "title": "Construction",
+          "description": "Supporting you and your builder throughout the construction process."
+        }
+      }
+    },
+    "cta": {
+      "title": "Planning a custom home or major renovation?",
+      "description": "Tell us about your project.",
+      "button": "Start Your Project",
+      "imageAlt": "Illuminated modern residence exterior at twilight"
+    }
+  },
+  "interiorDesignPage": {
+    "seo": {
+      "title": "Luxury Interior Design | Scialla Studio",
+      "description": "Full-service luxury interior design for homes in Orlando, Tampa, New York and Los Angeles. Refined, functional spaces that reflect your lifestyle and stand the test of time."
+    },
+    "hero": {
+      "eyebrow": "Orlando · Tampa · New York · Los Angeles",
+      "title": "Elevated Interiors. Timeless Living.",
+      "subtitle": "Full-service interior design for luxury homes across Florida, New York and Los Angeles. We create refined, functional spaces that reflect your lifestyle and stand the test of time.",
+      "ctaPrimary": "Start Your Project",
+      "ctaSecondary": "View Our Work",
+      "imageAlt": "Luxury open-plan living and kitchen interior by Scialla Studio"
+    },
+    "intro": {
+      "eyebrow": "Interior Design That Feels Like Home",
+      "heading": "Beautiful spaces begin with intention.",
+      "paragraph1": "At Scialla Studio, we believe exceptional design is more than aesthetics — it's about how a space lives, feels, and supports the way you live.",
+      "paragraph2": "From concept to completion, we guide you through a collaborative process that blends architecture, interiors, and curated details into a cohesive whole.",
+      "cta": "Learn More About Us",
+      "imageAlt": "Curated dining room with custom millwork and layered lighting"
+    },
+    "capabilities": {
+      "eyebrow": "Full-Service Interior Design",
+      "heading": "Designed Around You",
+      "spacePlanning": {
+        "title": "Space Planning",
+        "description": "Thoughtful layouts that maximize flow, function, and livability."
+      },
+      "materialSelection": {
+        "title": "Material Selection",
+        "description": "Curated finishes, textures, and palettes that create harmony and depth."
+      },
+      "customInteriors": {
+        "title": "Custom Interiors",
+        "description": "Bespoke millwork, built-ins, and details tailored to your home and lifestyle."
+      },
+      "furnitureStyling": {
+        "title": "Furniture & Styling",
+        "description": "Sourced pieces and styling that elevate your space with comfort and character."
+      },
+      "projectManagement": {
+        "title": "Project Management",
+        "description": "Seamless coordination from concept to completion — so you can enjoy the process."
+      }
+    },
+    "projects": {
+      "eyebrow": "Featured Projects",
+      "heading": "Timeless Spaces. Tailored for Life.",
+      "viewProject": "View Project",
+      "cta": "View Full Portfolio"
+    },
+    "locations": {
+      "eyebrow": "Where We Work",
+      "heading": "Interior design, city by city.",
+      "description": "Explore how we work in each of our markets — and the projects we have delivered there.",
+      "linkLabel": "Interior Design in {city}"
+    },
+    "cta": {
+      "title": "Let's Create Something Extraordinary.",
+      "description": "Ready to transform your home with a thoughtful, luxurious interior? We'd love to hear about your project.",
+      "button": "Schedule a Consultation"
+    }
   },
   "cityPages": {
     "orlando": {
