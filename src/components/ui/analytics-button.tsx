@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Button } from "@/components/ui/button";
-import { trackButtonClick } from "@/lib/firebase/analytics";
+import { trackButtonClick } from "@/lib/analytics/analytics";
 import { VariantProps } from "class-variance-authority";
 
 type ButtonVariants = VariantProps<typeof Button>;

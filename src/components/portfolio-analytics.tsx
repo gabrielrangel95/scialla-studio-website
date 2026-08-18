@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { trackFilterChange, trackPortfolioBrowsing } from "@/lib/firebase/analytics";
+import { trackFilterChange, trackPortfolioBrowsing } from "@/lib/analytics/analytics";
 
 interface PortfolioAnalyticsProps {
   city?: string;

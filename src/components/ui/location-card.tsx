@@ -48,7 +48,7 @@ export function LocationCard({
             href={`/interior-design-${slug}`}
             className="inline-flex items-center text-black font-medium text-sm hover:text-gray-700 transition-colors group-hover:translate-x-1 transform duration-200"
           >
-            Explore {city} Portfolio
+            Explore {city} Projects
             <svg 
               className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" 
               fill="none" 

@@ -21,17 +21,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${t('hero.title')} | Scialla Studio`,
     description: t('hero.subtitle'),
     alternates: {
-      canonical: locale === 'en' ? '/interior-design-los-angeles' : `/${locale}/interior-design-los-angeles`,
-      languages: {
-        'en': '/interior-design-los-angeles',
-        'es': '/es/interior-design-los-angeles',
-        'it': '/it/interior-design-los-angeles',
-      },
+      canonical: '/interior-design-los-angeles',
     },
     openGraph: {
       title: `${t('hero.title')} | Scialla Studio`,
       description: t('hero.subtitle'),
-      url: locale === 'en' ? 'https://sciallastudioid.com/interior-design-los-angeles' : `https://sciallastudioid.com/${locale}/interior-design-los-angeles`,
+      url: 'https://sciallastudioid.com/interior-design-los-angeles',
       siteName: 'Scialla Studio',
       images: [
         {
@@ -41,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: t('hero.imageAlt'),
         },
       ],
-      locale: locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : 'it_IT',
+      locale: 'en_US',
       type: 'website',
     },
     twitter: {

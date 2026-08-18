@@ -1,7 +1,7 @@
 {
   "header": {
     "services": "Services",
-    "portfolio": "Portfolio",
+    "portfolio": "Projects",
     "about": "About",
     "process": "Process",
     "contact": "Contact",
@@ -14,7 +14,7 @@
     "luxuryQualifier": "For homeowners seeking exceptional, curated design",
     "subtitle": "Award-winning architecture and interior design studio crafting sophisticated homes, new construction, and elevated commercial spaces since 2010",
     "ctaPrimary": "Schedule a Consultation",
-    "ctaSecondary": "View Portfolio",
+    "ctaSecondary": "View Projects",
     "featuredIn": "Featured in",
     "trustIndicator": "Trusted by clients across Florida and nationwide",
     "imageAlt": "Luxury interior design by Scialla Studio"
@@ -252,7 +252,7 @@
     "virtualConsultationsDesc": "Complete design consultations available online for clients nationwide",
     "remoteDesign": "Remote Design Services",
     "remoteDesignDesc": "Full-service design planning and coordination across all 50 states",
-    "viewPortfolio": "View {city} Portfolio",
+    "viewPortfolio": "View {city} Projects",
     "projectsCompleted": "completed projects across the {city} area",
     "getConsultation": "Get Free Consultation",
     "breadcrumbServices": "Architecture & Interior Design Services",
@@ -262,7 +262,7 @@
   "projects": {
     "title": "Designing Spaces",
     "titleLine2": "That Tell Your Story",
-    "subtitle": "Explore our portfolio of luxury residential, commercial, and architectural projects across the United States.",
+    "subtitle": "Explore our projects across luxury residential, commercial, and architectural work in the United States.",
     "viewAll": "View All Projects",
     "emptyState": "No projects found. Please add some projects in the Sanity Studio.",
     "goToStudio": "Go to Studio",
@@ -270,9 +270,8 @@
     "viewAllProjects": "View all projects",
     "filters": {
       "all": "All Projects",
-      "residential": "Residential",
-      "commercial": "Commercial",
-      "kitchen": "Kitchen & Bath"
+      "architecture": "Architecture",
+      "interior": "Interior"
     }
   },
   "common": {
@@ -315,7 +314,7 @@
         "label": "Projects"
       },
       "years": {
-        "value": "15+",
+        "value": "20+",
         "label": "Years"
       },
       "cities": {

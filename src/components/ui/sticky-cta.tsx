@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
-import { trackCTAClick } from "@/lib/firebase/analytics";
+import { trackCTAClick } from "@/lib/analytics/analytics";
 
 export function StickyCTA() {
   const t = useTranslations("stickyCta");

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { trackSectionView } from "@/lib/firebase/analytics";
+import { trackSectionView } from "@/lib/analytics/analytics";
 
 interface SectionViewTrackerProps {
   sectionName: string;

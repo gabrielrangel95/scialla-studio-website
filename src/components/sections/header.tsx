@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import { LanguageSwitcher } from "@/components/ui/language-switcher";
 import { Menu, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { trackPhoneClick, trackEmailClick } from "@/lib/google-ads/gtag-events";
 
@@ -58,7 +57,7 @@ export function Header() {
 
   const navigation = [
     { name: t('services'), id: "services", href: "#services" },
-    { name: t('portfolio'), id: "portfolio", href: "#portfolio" },
+    { name: t('portfolio'), id: "projects", href: "#projects" },
     { name: t('about'), id: "about", href: "#about" },
     { name: t('process'), id: "process", href: "/process" },
   ];
@@ -130,8 +129,6 @@ export function Header() {
                 );
               })}
             </nav>
-
-            <LanguageSwitcher variant={isTransparent ? "light" : "dark"} />
 
             {isHomePage ? (
               <Button
@@ -248,14 +245,6 @@ export function Header() {
                           </Link>
                         </SheetClose>
                       ))}
-                    </div>
-
-                    {/* Language Switcher */}
-                    <div className="pt-4">
-                      <p className="text-xs uppercase tracking-wider text-gray-500 font-medium mb-4">
-                        Language
-                      </p>
-                      <LanguageSwitcher />
                     </div>
 
                     {/* Contact CTA */}

@@ -23,19 +23,12 @@ export async function generateMetadata({
     title: t("seo.title"),
     description: t("seo.description"),
     alternates: {
-      canonical:
-        locale === "en" ? `${baseUrl}${path}` : `${baseUrl}/${locale}${path}`,
-      languages: {
-        en: `${baseUrl}${path}`,
-        es: `${baseUrl}/es${path}`,
-        it: `${baseUrl}/it${path}`,
-      },
+      canonical: `${baseUrl}${path}`,
     },
     openGraph: {
       title: t("seo.title"),
       description: t("seo.description"),
-      url:
-        locale === "en" ? `${baseUrl}${path}` : `${baseUrl}/${locale}${path}`,
+      url: `${baseUrl}${path}`,
       type: "website",
     },
   };

@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { urlForImage } from "@/lib/sanity-image";
 import type { SanityImage } from "@/types/sanity";
-import { trackProjectInteraction } from "@/lib/firebase/analytics";
+import { trackProjectInteraction } from "@/lib/analytics/analytics";
 
 interface ProjectCardProps {
   title: string;
@@ -61,7 +61,7 @@ export function ProjectCard({
 
   return (
     <Link
-      href={`/portfolio/${slug}`}
+      href={`/projects/${slug}`}
       className="group block relative overflow-hidden bg-gray-100 aspect-[4/3] rounded-sm"
       onClick={handleClick}
     >

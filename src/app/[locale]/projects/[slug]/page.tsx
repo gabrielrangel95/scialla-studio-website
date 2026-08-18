@@ -85,7 +85,7 @@ export async function generateMetadata({
 
   const description =
     project.seo?.description ||
-    `${project.title} - Professional interior design project${locationName ? ` in ${locationName}` : ''}. ${categoryNames} by Scialla Studio. View our portfolio of luxury interior design.`;
+    `${project.title} - Professional interior design project${locationName ? ` in ${locationName}` : ''}. ${categoryNames} by Scialla Studio. View our projects in luxury interior design.`;
 
   const keywords = [
     `${project.title.toLowerCase()}`,
@@ -109,12 +109,12 @@ export async function generateMetadata({
     description,
     keywords,
     alternates: {
-      canonical: `https://sciallastudioid.com/portfolio/${project.slug.current}`,
+      canonical: `https://sciallastudioid.com/projects/${project.slug.current}`,
     },
     openGraph: {
       title,
       description,
-      url: `https://sciallastudioid.com/portfolio/${project.slug.current}`,
+      url: `https://sciallastudioid.com/projects/${project.slug.current}`,
       siteName: "Scialla Studio",
       images: ogImage ? [ogImage] : [],
       locale: "en_US",
@@ -156,7 +156,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "@id": `https://sciallastudioid.com/portfolio/${project.slug.current}`,
+    "@id": `https://sciallastudioid.com/projects/${project.slug.current}`,
     name: project.title,
     description:
       extractPortableTextContent(project.description) ||
@@ -203,14 +203,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Portfolio",
-        item: "https://sciallastudioid.com/portfolio",
+        name: "Projects",
+        item: "https://sciallastudioid.com/projects",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: project.title,
-        item: `https://sciallastudioid.com/portfolio/${project.slug.current}`,
+        item: `https://sciallastudioid.com/projects/${project.slug.current}`,
       },
     ],
   };
@@ -249,18 +249,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Breadcrumbs */}
         <Breadcrumbs
-          items={[{ label: "Portfolio", href: "/portfolio" }]}
+          items={[{ label: "Projects", href: "/projects" }]}
           currentPage={project.title}
         />
 
-        {/* Back to Portfolio */}
+        {/* Back to Projects */}
         <div className="px-4 md:px-6 lg:px-12 xl:px-16 py-4 pt-12">
           <Link
-            href="/portfolio"
+            href="/projects"
             className="inline-flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Portfolio
+            Back to Projects
           </Link>
         </div>
 
@@ -535,7 +535,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
               <div className="text-center mt-12">
                 <Link
-                  href="/portfolio"
+                  href="/projects"
                   className="inline-flex items-center gap-2 text-gray-900 hover:text-gray-700 transition-colors"
                 >
                   View All Projects

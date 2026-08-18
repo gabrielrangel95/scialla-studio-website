@@ -16,6 +16,22 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // The portfolio section was renamed to "projects" — preserve SEO equity
+      // and any existing inbound links with permanent redirects.
+      {
+        source: '/portfolio',
+        destination: '/projects',
+        permanent: true,
+      },
+      {
+        source: '/portfolio/:slug',
+        destination: '/projects/:slug',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);

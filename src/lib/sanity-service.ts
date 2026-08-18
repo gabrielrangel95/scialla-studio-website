@@ -59,26 +59,24 @@ export class SanityService {
     serviceType?: string
   }): Promise<Project[]> {
     try {
-      let query = projectsQuery
-
-      // Add filtering if city is specified
-      if (options?.city) {
-        query = projectsByCityQuery
-        return await sanityClient.fetch(query, { city: options.city }, {
-          next: { revalidate: 3600 } // ISR with 1 hour revalidation
-        })
-      }
-
-      const projects = await sanityClient.fetch(query, {}, {
-        next: { revalidate: 3600 }
-      })
+      // Fetch by city when specified, otherwise everything — either way the
+      // remaining filters below still apply.
+      const projects = options?.city
+        ? await sanityClient.fetch(projectsByCityQuery, { city: options.city }, {
+            next: { revalidate: 3600 } // ISR with 1 hour revalidation
+          })
+        : await sanityClient.fetch(projectsQuery, {}, {
+            next: { revalidate: 3600 }
+          })
 
       let filteredProjects = projects || []
 
-      // Filter by service type if specified
+      // Filter by service type if specified. Projects marked as 'both' are
+      // architecture *and* interior design, so they belong to either filter.
       if (options?.serviceType) {
         filteredProjects = filteredProjects.filter((project: Project) =>
-          project.serviceType === options.serviceType
+          project.serviceType === options.serviceType ||
+          project.serviceType === 'both'
         )
       }
 

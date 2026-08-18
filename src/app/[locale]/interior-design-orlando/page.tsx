@@ -37,17 +37,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "licensed architect Orlando"
     ].join(", "),
     alternates: {
-      canonical: locale === 'en' ? '/interior-design-orlando' : `/${locale}/interior-design-orlando`,
-      languages: {
-        'en': '/interior-design-orlando',
-        'es': '/es/interior-design-orlando',
-        'it': '/it/interior-design-orlando',
-      },
+      canonical: '/interior-design-orlando',
     },
     openGraph: {
       title: `${t('hero.title')} | Scialla Studio`,
       description: t('hero.subtitle'),
-      url: locale === 'en' ? 'https://sciallastudioid.com/interior-design-orlando' : `https://sciallastudioid.com/${locale}/interior-design-orlando`,
+      url: 'https://sciallastudioid.com/interior-design-orlando',
       siteName: 'Scialla Studio',
       images: [
         {
@@ -57,7 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: t('hero.imageAlt'),
         },
       ],
-      locale: locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : 'it_IT',
+      locale: 'en_US',
       type: 'website',
     },
     twitter: {

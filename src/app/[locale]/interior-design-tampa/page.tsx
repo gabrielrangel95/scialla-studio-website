@@ -35,17 +35,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "Italian architect Tampa"
     ].join(", "),
     alternates: {
-      canonical: locale === 'en' ? '/interior-design-tampa' : `/${locale}/interior-design-tampa`,
-      languages: {
-        'en': '/interior-design-tampa',
-        'es': '/es/interior-design-tampa',
-        'it': '/it/interior-design-tampa',
-      },
+      canonical: '/interior-design-tampa',
     },
     openGraph: {
       title: `${t('hero.title')} | Scialla Studio`,
       description: t('hero.subtitle'),
-      url: locale === 'en' ? 'https://sciallastudioid.com/interior-design-tampa' : `https://sciallastudioid.com/${locale}/interior-design-tampa`,
+      url: 'https://sciallastudioid.com/interior-design-tampa',
       siteName: 'Scialla Studio',
       images: [
         {
@@ -55,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: t('hero.imageAlt'),
         },
       ],
-      locale: locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : 'it_IT',
+      locale: 'en_US',
       type: 'website',
     },
     twitter: {

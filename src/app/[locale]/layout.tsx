@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Noto_Serif } from "next/font/google";
-import Script from "next/script";
 import { Toaster } from "sonner";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
-import { AnalyticsProvider } from "@/lib/firebase/analytics-provider";
+import { AnalyticsProvider } from "@/lib/analytics/analytics-provider";
+import {
+  GoogleTagBootstrap,
+  GoogleTagScript,
+} from "@/components/analytics/google-tag";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -25,21 +28,13 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { locale } = await params;
+export async function generateMetadata(): Promise<Metadata> {
+  const baseUrl = "https://www.sciallastudioid.com";
+  const title =
+    "Premier Architecture & Interior Design Studio | Orlando, Tampa, NYC & LA | Scialla Studio";
 
-  const baseUrl = "https://sciallastudio.com";
-  const title = locale === 'en'
-    ? "Premier Architecture & Interior Design Studio | Orlando, Tampa, NYC & LA | Scialla Studio"
-    : locale === 'es'
-      ? "Estudio Premier de Arquitectura y Diseño Interior | Orlando, Tampa, NYC y LA | Scialla Studio"
-      : "Studio Premier di Architettura e Design d'Interni | Orlando, Tampa, NYC e LA | Scialla Studio";
-
-  const description = locale === 'en'
-    ? "Full-service architecture and interior design studio serving clients nationwide. New construction, architectural renovations, luxury residential & commercial design. Studios in Orlando, Tampa, NYC & Los Angeles. Licensed architect with 20+ years expertise."
-    : locale === 'es'
-      ? "Estudio de arquitectura y diseño interior de servicio completo que atiende clientes en todo el país. Nueva construcción, renovaciones arquitectónicas, diseño residencial y comercial de lujo. Estudios en Orlando, Tampa, NYC y Los Ángeles. Arquitecto licenciado con más de 20 años de experiencia."
-      : "Studio di architettura e design d'interni a servizio completo che serve clienti in tutto il paese. Nuove costruzioni, ristrutturazioni architettoniche, design residenziale e commerciale di lusso. Studi a Orlando, Tampa, NYC e Los Angeles. Architetto abilitato con oltre 20 anni di esperienza.";
+  const description =
+    "Full-service architecture and interior design studio serving clients nationwide. New construction, architectural renovations, luxury residential & commercial design. Studios in Orlando, Tampa, NYC & Los Angeles. Licensed architect with 20+ years expertise.";
 
   return {
     title,
@@ -56,19 +51,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     metadataBase: new URL(baseUrl),
     alternates: {
-      canonical: locale === 'en' ? '/' : `/${locale}`,
-      languages: {
-        'en': '/',
-        'es': '/es',
-        'it': '/it',
-      },
+      canonical: '/',
     },
     openGraph: {
       title,
       description,
-      url: locale === 'en' ? baseUrl : `${baseUrl}/${locale}`,
+      url: baseUrl,
       siteName: "Scialla Studio",
-      locale: locale === 'en' ? 'en_US' : locale === 'es' ? 'es_ES' : 'it_IT',
+      locale: 'en_US',
       type: "website",
       images: [
         {
@@ -107,7 +97,7 @@ export default async function LocaleLayout({
   const { locale } = await params;
 
   // Ensure that the incoming `locale` is valid
-  if (!routing.locales.includes(locale as 'en' | 'es' | 'it')) {
+  if (!routing.locales.includes(locale as 'en')) {
     notFound();
   }
 
@@ -118,33 +108,25 @@ export default async function LocaleLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": "https://sciallastudio.com",
+    "@id": "https://www.sciallastudioid.com",
     name: "Scialla Studio",
     alternateName: "Scialla Architecture & Interior Design Studio",
     description:
-      locale === 'en'
-        ? "Full-service architecture and interior design studio serving Orlando, Tampa, NYC & Los Angeles. New construction, architectural renovations, luxury residential & commercial design services."
-        : locale === 'es'
-          ? "Estudio de arquitectura y diseño interior de servicio completo que atiende Orlando, Tampa, NYC y Los Ángeles. Servicios de nueva construcción, renovaciones arquitectónicas, diseño residencial y comercial de lujo."
-          : "Studio di architettura e design d'interni a servizio completo che serve Orlando, Tampa, NYC e Los Angeles. Servizi di nuove costruzioni, ristrutturazioni architettoniche, design residenziale e commerciale di lusso.",
-    url: "https://sciallastudio.com",
-    telephone: "+1-555-123-4567",
-    email: "info@sciallastudio.com",
+      "Full-service architecture and interior design studio serving Orlando, Tampa, NYC & Los Angeles. New construction, architectural renovations, luxury residential & commercial design services.",
+    url: "https://www.sciallastudioid.com",
+    telephone: "+1-727-504-4138",
+    email: "info@sciallastudioid.com",
     image: [
-      "https://sciallastudio.com/logo.jpg",
-      "https://sciallastudio.com/studio-photo.jpg",
+      "https://www.sciallastudioid.com/logo.jpg",
+      "https://www.sciallastudioid.com/studio-photo.jpg",
     ],
-    logo: "https://sciallastudio.com/logo.jpg",
+    logo: "https://www.sciallastudioid.com/logo.jpg",
     founder: {
       "@type": "Person",
       name: "Francesco Scialla",
-      jobTitle: locale === 'en' ? "Architect & Interior Designer" : locale === 'es' ? "Arquitecto y Diseñador de Interiores" : "Architetto e Designer d'Interni",
+      jobTitle: "Architect & Interior Designer",
       description:
-        locale === 'en'
-          ? "Francesco Scialla is a licensed architect originally from Southern Italy with over 20 years of specialized experience in architectural design, new construction, site plan development, schematic design, interior design, and digital modeling focused on residential and commercial architecture projects."
-          : locale === 'es'
-            ? "Francesco Scialla es un arquitecto licenciado originario del sur de Italia con más de 20 años de experiencia especializada en diseño arquitectónico, nueva construcción, desarrollo de planes de sitio, diseño esquemático, diseño interior y modelado digital enfocado en proyectos de arquitectura residencial y comercial."
-            : "Francesco Scialla è un architetto abilitato originario del sud Italia con oltre 20 anni di esperienza specializzata in design architettonico, nuove costruzioni, sviluppo di piani del sito, design schematico, design d'interni e modellazione digitale incentrata su progetti di architettura residenziale e commerciale.",
+        "Francesco Scialla is a licensed architect originally from Southern Italy with over 20 years of specialized experience in architectural design, new construction, site plan development, schematic design, interior design, and digital modeling focused on residential and commercial architecture projects.",
     },
     address: [
       {
@@ -200,8 +182,6 @@ export default async function LocaleLayout({
     ],
     inLanguage: [
       { "@type": "Language", name: "English", alternateName: "en" },
-      { "@type": "Language", name: "Spanish", alternateName: "es" },
-      { "@type": "Language", name: "Italian", alternateName: "it" },
     ],
     serviceType: ["Architecture", "Interior Design", "New Construction", "Architectural Design"],
     priceRange: "$$$$",
@@ -313,30 +293,15 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
+        {/* Google tag (gtag.js) for GA4 and Google Ads Conversion Tracking */}
+        <GoogleTagBootstrap />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
       <body className={`${notoSerif.variable} antialiased`} suppressHydrationWarning>
-        {/* Google tag (gtag.js) for GA4 and Google Ads Conversion Tracking */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-W9E7CRVYQ2"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            // Initialize Google Analytics 4
-            gtag('config', 'G-W9E7CRVYQ2');
-
-            // Initialize Google Ads if configured
-            ${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID && process.env.NEXT_PUBLIC_GOOGLE_ADS_ID !== 'AW-XXXXXXXXXX' ? `gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ADS_ID}');` : '// Google Ads ID not configured'}
-          `}
-        </Script>
+        <GoogleTagScript />
         <NextIntlClientProvider messages={messages}>
           <Suspense fallback={null}>
             <AnalyticsProvider>

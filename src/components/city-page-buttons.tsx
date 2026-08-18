@@ -33,9 +33,9 @@ export function CityPageButtons({ city }: CityPageButtonsProps) {
         className="border-2 border-white text-white hover:bg-white hover:text-black px-8 py-4 text-lg font-medium bg-transparent"
         buttonName="view_portfolio"
         buttonLocation={`city_page_${city}`}
-        destination="/portfolio"
+        destination="/projects"
       >
-        View {city} Portfolio
+        View {city} Projects
       </AnalyticsButton>
     </div>
   );

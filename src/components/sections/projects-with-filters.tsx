@@ -6,13 +6,13 @@ import { ArrowRight } from "lucide-react";
 import { ProjectCard } from "@/components/ui/project-card";
 import type { Project } from "@/types/sanity";
 import { useTranslations } from "next-intl";
-import { trackFilterChange } from "@/lib/firebase/analytics";
+import { trackFilterChange } from "@/lib/analytics/analytics";
 
 interface ProjectsWithFiltersProps {
   projects: Project[];
 }
 
-type FilterType = "all" | "residential" | "commercial" | "kitchen";
+type FilterType = "all" | "architecture" | "interior";
 
 export function ProjectsWithFilters({ projects }: ProjectsWithFiltersProps) {
   const t = useTranslations("projects");
@@ -20,36 +20,19 @@ export function ProjectsWithFilters({ projects }: ProjectsWithFiltersProps) {
 
   const filters: { key: FilterType; label: string }[] = [
     { key: "all", label: t("filters.all") },
-    { key: "residential", label: t("filters.residential") },
-    { key: "commercial", label: t("filters.commercial") },
-    { key: "kitchen", label: t("filters.kitchen") },
+    { key: "architecture", label: t("filters.architecture") },
+    { key: "interior", label: t("filters.interior") },
   ];
 
   const filteredProjects = projects.filter((project) => {
     if (activeFilter === "all") return true;
 
-    // Filter based on serviceType or category
-    if (activeFilter === "residential") {
-      return project.serviceType === "interior-design" ||
-             project.category?.some(cat =>
-               cat.toLowerCase().includes("residential") ||
-               cat.toLowerCase().includes("home")
-             );
+    // Projects marked as "both" belong to Architecture and Interior alike
+    if (activeFilter === "architecture") {
+      return project.serviceType === "architecture" || project.serviceType === "both";
     }
-    if (activeFilter === "commercial") {
-      return project.category?.some(cat =>
-        cat.toLowerCase().includes("commercial") ||
-        cat.toLowerCase().includes("office") ||
-        cat.toLowerCase().includes("restaurant") ||
-        cat.toLowerCase().includes("retail")
-      );
-    }
-    if (activeFilter === "kitchen") {
-      return project.category?.some(cat =>
-        cat.toLowerCase().includes("kitchen") ||
-        cat.toLowerCase().includes("bathroom") ||
-        cat.toLowerCase().includes("bath")
-      );
+    if (activeFilter === "interior") {
+      return project.serviceType === "interior-design" || project.serviceType === "both";
     }
     return true;
   });
@@ -65,7 +48,7 @@ export function ProjectsWithFilters({ projects }: ProjectsWithFiltersProps) {
 
   return (
     <section
-      id="portfolio"
+      id="projects"
       className="py-12 md:py-16 lg:py-20 px-4 md:px-6 lg:px-12 xl:px-16 bg-white"
     >
       {/* Section Header */}
@@ -130,7 +113,7 @@ export function ProjectsWithFilters({ projects }: ProjectsWithFiltersProps) {
           {/* View All Link */}
           <div className="flex justify-center mt-10 md:mt-12">
             <Link
-              href="/portfolio"
+              href="/projects"
               className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition-colors duration-300 group"
             >
               {t("viewAll")}

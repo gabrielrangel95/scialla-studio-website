@@ -1,11 +1,11 @@
 "use client";
 
-import { trackButtonClick, trackCityPageInteraction } from "@/lib/firebase/analytics";
+import { trackButtonClick, trackCityPageInteraction } from "@/lib/analytics/analytics";
 
 export function useCityPageAnalytics(city: string) {
   const trackCTAClick = (ctaType: "consultation" | "portfolio", destination?: string) => {
     trackButtonClick({
-      button_name: ctaType === "consultation" ? "Get Free Consultation" : "View Portfolio",
+      button_name: ctaType === "consultation" ? "Get Free Consultation" : "View Projects",
       button_location: `city_page_${city}`,
       destination: destination || "#contact",
     });

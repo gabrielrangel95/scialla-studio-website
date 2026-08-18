@@ -2,7 +2,7 @@ import { Header } from '@/components/sections/header'
 import { Footer } from '@/components/sections/footer'
 import { Breadcrumbs } from '@/components/ui/breadcrumbs'
 
-export default function PortfolioLoading() {
+export default function ProjectsLoading() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       <Header />
@@ -10,7 +10,7 @@ export default function PortfolioLoading() {
       {/* Breadcrumbs */}
       <Breadcrumbs
         items={[]}
-        currentPage="Portfolio"
+        currentPage="Projects"
       />
 
       {/* Hero Section Skeleton */}

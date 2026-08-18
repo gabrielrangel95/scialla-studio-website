@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { Turnstile } from "@marsidev/react-turnstile";
-import { trackFormSubmit } from "@/lib/firebase/analytics";
+import { trackFormSubmit } from "@/lib/analytics/analytics";
 import { trackFormSubmitSuccess } from "@/lib/google-ads/gtag-events";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";

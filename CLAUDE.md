@@ -24,7 +24,7 @@ Interior design portfolio website with strong SEO focus for Scialla Studio, targ
 /(marketing)
 /page.tsx # Homepage
 /interior-design-[city]/page.tsx # Dynamic city pages (orlando, tampa, nyc, los-angeles)
-/portfolio/
+/projects/
 /page.tsx # All projects
 /[slug]/page.tsx # Individual project
 /services/
@@ -79,7 +79,7 @@ const MAX_PROJECTS_PER_PAGE = 12
 - Images: Use next/image with blur placeholders
 - Implement lazy loading for below-fold content
 - Static generation for all marketing pages
-- ISR for portfolio pages (revalidate: 3600)
+- ISR for project pages (revalidate: 3600)
 
 ## SEO Critical Requirements
 
@@ -120,7 +120,7 @@ Always include LocalBusiness schema on city pages:
 ### URL Structure
 
 - City pages: `/interior-design-orlando` (NOT `/orlando`)
-- Portfolio: `/portfolio/modern-orlando-kitchen-renovation`
+- Projects: `/projects/modern-orlando-kitchen-renovation`
 - Services: `/services/kitchen-design-orlando`
 
 ## Design System
