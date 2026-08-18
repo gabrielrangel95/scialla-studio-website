@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 :root {
+  /* Body copy. Previously this variable was referenced but never defined, which
+     made the whole `body` font-family declaration invalid and silently dropped
+     it — the site fell back to Tailwind preflight's stack on <html>. That is
+     the stack spelled out here, so the rendered result is unchanged. */
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+
   --background: 0 0% 100%;
   --foreground: 0 0% 3.9%;
 
@@ -77,11 +85,13 @@ html {
 }
 
 body {
-  font-family:
-    var(--font-sans),
-    system-ui,
-    -apple-system,
-    sans-serif;
+  /* Headings. Declared here, not on :root, because next/font puts `--font-serif`
+     on <body> — a var() inside a custom property is substituted using the values
+     of the element the declaration lands on, so at :root it would resolve
+     against nothing and take the whole stack down with it. */
+  --font-heading: var(--font-serif), Georgia, Cambria, "Times New Roman", serif;
+
+  font-family: var(--font-sans);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -93,6 +103,7 @@ h3,
 h4,
 h5,
 h6 {
+  font-family: var(--font-heading);
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: -0.025em;
@@ -100,6 +111,7 @@ h6 {
 
 /* Section Title Utility Class */
 .section-title {
+  font-family: var(--font-heading);
   font-weight: 300;
   line-height: 1.1;
   letter-spacing: -0.025em;
