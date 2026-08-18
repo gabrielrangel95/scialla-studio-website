@@ -38,8 +38,16 @@ export function Breadcrumbs({ items, currentPage }: BreadcrumbsProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbStructuredData) }}
       />
       
-      <nav aria-label="Breadcrumb" className="py-4 px-4 md:px-6 lg:px-12 xl:px-16">
-        <ol className="flex items-center space-x-2 text-sm text-gray-600">
+      {/* The site header is `fixed`, so it sits outside the flow and would
+          otherwise cover this row entirely. Every usage renders breadcrumbs as
+          the first element after <Header />, so the offset lives here rather
+          than being repeated on all eight pages. Matches the header's own
+          h-16 md:h-20. */}
+      <nav
+        aria-label="Breadcrumb"
+        className="pt-16 md:pt-20 px-4 md:px-6 lg:px-12 xl:px-16"
+      >
+        <ol className="flex items-center space-x-2 text-sm text-gray-600 py-4">
           {allItems.map((item, index) => (
             <li key={index} className="flex items-center">
               {index > 0 && <ChevronRight className="w-4 h-4 mx-2 text-gray-400" />}
