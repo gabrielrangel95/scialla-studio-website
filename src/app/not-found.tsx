@@ -8,7 +8,7 @@ import {
 import "./globals.css";
 
 const notoSerif = Noto_Serif({
-  variable: "--font-noto-sans",
+  variable: "--font-serif",
   subsets: ["latin"],
 });
 

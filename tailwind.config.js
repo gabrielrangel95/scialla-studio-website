@@ -17,6 +17,13 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        // `font-sans` / `font-serif` resolve to the same stacks globals.css
+        // applies to body and headings, so opting a heading back to body type
+        // (or vice versa) stays consistent.
+        sans: ["var(--font-sans)"],
+        serif: ["var(--font-heading)"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
