@@ -4,6 +4,7 @@ import { Noto_Serif } from "next/font/google";
 import { Toaster } from "sonner";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { AnalyticsProvider } from "@/lib/analytics/analytics-provider";
+import { LeadSubmissionProvider } from "@/lib/analytics/lead-submission";
 import {
   GoogleTagBootstrap,
   GoogleTagScript,
@@ -305,9 +306,11 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <Suspense fallback={null}>
             <AnalyticsProvider>
-              <ScrollToTop />
-              {children}
-              <Toaster position="top-right" richColors />
+              <LeadSubmissionProvider>
+                <ScrollToTop />
+                {children}
+                <Toaster position="top-right" richColors />
+              </LeadSubmissionProvider>
             </AnalyticsProvider>
           </Suspense>
         </NextIntlClientProvider>

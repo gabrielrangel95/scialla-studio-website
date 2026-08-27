@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
+import { Contact } from "@/components/sections/contact";
 import { LandingHero } from "@/components/sections/service-landing/landing-hero";
 import { IntroSplit } from "@/components/sections/service-landing/intro-split";
 import { ProjectShowcase } from "@/components/sections/service-landing/project-showcase";
@@ -167,7 +168,7 @@ export default async function ArchitecturePage({ params }: Props) {
             imageAlt={t("hero.imageAlt")}
             title={t("hero.title")}
             subtitle={t("hero.subtitle")}
-            ctas={[{ label: t("hero.cta"), href: "/#contact" }]}
+            ctas={[{ label: t("hero.cta"), href: "#contact" }]}
             uppercaseTitle
             objectPosition="center 38%"
           />
@@ -211,12 +212,13 @@ export default async function ArchitecturePage({ params }: Props) {
           <CtaBand
             title={t("cta.title")}
             description={t("cta.description")}
-            cta={{ label: t("cta.button"), href: "/#contact" }}
+            cta={{ label: t("cta.button"), href: "#contact" }}
             backgroundImage={HERO_IMAGE}
             backgroundAlt={t("cta.imageAlt")}
             objectPosition="center 30%"
             layout="stacked"
           />
+          <Contact />
         </main>
 
         <Footer />

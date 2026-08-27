@@ -1,26 +1,26 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
-import { Menu, Phone, Mail, MapPin, ArrowRight, ChevronDown } from "lucide-react";
+import { Menu, Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 import { trackPhoneClick, trackEmailClick } from "@/lib/google-ads/gtag-events";
 
 export function Header() {
   const t = useTranslations('header');
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const servicesRef = useRef<HTMLDivElement>(null);
 
   // Check if we're on the homepage (root or just locale, e.g., '/' or '/en')
   const isHomePage = pathname === '/' || /^\/[a-z]{2}(-[A-Z]{2})?$/.test(pathname);
 
   const isTransparent = isHomePage && !isScrolled;
+
+  const [hasContactSection, setHasContactSection] = useState(isHomePage);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,30 +50,12 @@ export function Header() {
     handleHashNavigation();
   }, []);
 
-  // Dismiss the services dropdown on Escape or an outside click.
   useEffect(() => {
-    if (!isServicesOpen) return;
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsServicesOpen(false);
-    };
-    const handlePointerDown = (event: MouseEvent) => {
-      if (!servicesRef.current?.contains(event.target as Node)) {
-        setIsServicesOpen(false);
-      }
-    };
-
-    document.addEventListener("keydown", handleKeyDown);
-    document.addEventListener("mousedown", handlePointerDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-      document.removeEventListener("mousedown", handlePointerDown);
-    };
-  }, [isServicesOpen]);
-
-  // Close it again after navigating.
-  useEffect(() => {
-    setIsServicesOpen(false);
+    // The city pages and the service landing pages render <Contact /> as well,
+    // so sending their visitors to the homepage would drop them out of the page
+    // they arrived on — and, for ad traffic, out of the page being measured.
+    // Detecting the section keeps this correct without a route list to maintain.
+    setHasContactSection(Boolean(document.getElementById("contact")));
   }, [pathname]);
 
   const scrollToSection = (sectionId: string) => {
@@ -83,18 +65,21 @@ export function Header() {
     }
   };
 
+  // The two service pages sit directly in the nav rather than behind a
+  // dropdown, so both are one click away.
   const navigation = [
+    { name: t('architecture'), id: "architecture", href: "/architecture" },
+    { name: t('interiorDesign'), id: "interior-design", href: "/interior-design" },
     { name: t('portfolio'), id: "projects", href: "#projects" },
     { name: t('about'), id: "about", href: "#about" },
     { name: t('process'), id: "process", href: "/process" },
   ];
 
-  // The two service landing pages sit under a "Services" dropdown so the nav
-  // keeps the same number of top-level items it had before.
-  const serviceLinks = [
-    { name: t('architecture'), href: "/architecture" },
-    { name: t('interiorDesign'), href: "/interior-design" },
-  ];
+  const contactButtonClass = `px-8 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-500 ${
+    isTransparent
+      ? "border border-white text-white bg-transparent hover:bg-white/10"
+      : "bg-black text-white hover:bg-gray-800"
+  }`;
 
   const navLinkClass = isTransparent
     ? "text-white text-sm font-medium uppercase tracking-wider hover:text-white/70 transition-colors duration-200"
@@ -132,81 +117,8 @@ export function Header() {
           </Link>
 
           {/* Desktop Navigation & CTA - All on the right */}
-          <div className="hidden md:flex items-center ml-auto gap-4">
-            <nav className="flex items-center gap-8">
-              {/* Services dropdown */}
-              <div
-                ref={servicesRef}
-                className="relative"
-                onMouseEnter={() => setIsServicesOpen(true)}
-                onMouseLeave={() => setIsServicesOpen(false)}
-                onFocus={() => setIsServicesOpen(true)}
-                onBlur={(event) => {
-                  // Close once focus leaves the trigger *and* the panel.
-                  if (!event.currentTarget.contains(event.relatedTarget as Node)) {
-                    setIsServicesOpen(false);
-                  }
-                }}
-              >
-                <button
-                  type="button"
-                  aria-expanded={isServicesOpen}
-                  aria-haspopup="true"
-                  // Opens rather than toggles: a tap fires mouseenter *and*
-                  // click, and a toggle would immediately close it again.
-                  onClick={() => setIsServicesOpen(true)}
-                  className={`inline-flex items-center gap-1.5 ${navLinkClass}`}
-                >
-                  {t('services')}
-                  <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                      isServicesOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-
-                {isServicesOpen && (
-                  // The padded wrapper bridges the gap to the panel so the
-                  // pointer never leaves the hover target on the way down.
-                  <div className="absolute left-0 top-full pt-4">
-                    <div className="min-w-[240px] bg-white border border-gray-200 shadow-lg py-2">
-                      {serviceLinks.map((link) => (
-                        <Link
-                          key={link.href}
-                          href={link.href}
-                          onClick={() => setIsServicesOpen(false)}
-                          className="block px-5 py-3 text-sm text-gray-900 tracking-wide hover:bg-gray-50 transition-colors duration-200"
-                        >
-                          {link.name}
-                        </Link>
-                      ))}
-
-                      <div className="border-t border-gray-100 mt-2 pt-2">
-                        {isHomePage ? (
-                          <button
-                            onClick={() => {
-                              setIsServicesOpen(false);
-                              scrollToSection("services");
-                            }}
-                            className="block w-full text-left px-5 py-3 text-sm text-gray-500 tracking-wide hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
-                          >
-                            {t('allServices')}
-                          </button>
-                        ) : (
-                          <Link
-                            href="/#services"
-                            onClick={() => setIsServicesOpen(false)}
-                            className="block px-5 py-3 text-sm text-gray-500 tracking-wide hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
-                          >
-                            {t('allServices')}
-                          </Link>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                )}
-              </div>
-
+          <div className="hidden lg:flex items-center ml-auto gap-4">
+            <nav className="flex items-center gap-6 xl:gap-8">
               {navigation.map((item) => {
                 return item.href.startsWith("#") ? (
                   isHomePage ? (
@@ -238,22 +150,15 @@ export function Header() {
               })}
             </nav>
 
-            {isHomePage ? (
+            {hasContactSection ? (
               <Button
                 onClick={() => scrollToSection("contact")}
-                className={`px-8 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-500 ${
-                  isTransparent
-                    ? "border border-white text-white bg-transparent hover:bg-white/10"
-                    : "bg-black text-white hover:bg-gray-800"
-                }`}
+                className={contactButtonClass}
               >
                 {t('contact')}
               </Button>
             ) : (
-              <Button
-                asChild
-                className="bg-black text-white hover:bg-gray-800 px-8 py-3 text-sm font-medium uppercase tracking-wider"
-              >
+              <Button asChild className={contactButtonClass}>
                 <Link href="/#contact">{t('contact')}</Link>
               </Button>
             )}
@@ -261,7 +166,7 @@ export function Header() {
 
           {/* Mobile Menu */}
           <Sheet>
-            <SheetTrigger asChild className="md:hidden">
+            <SheetTrigger asChild className="lg:hidden">
               <Button
                 variant="ghost"
                 size="icon"
@@ -291,26 +196,6 @@ export function Header() {
                 {/* Navigation */}
                 <div className="flex-1 px-6 py-8">
                   <nav className="space-y-8">
-                    {/* Services */}
-                    <div className="space-y-6">
-                      <p className="text-xs uppercase tracking-wider text-gray-500 font-medium">
-                        {t('services')}
-                      </p>
-                      {serviceLinks.map((link) => (
-                        <SheetClose key={link.href} asChild>
-                          <Link
-                            href={link.href}
-                            className="flex items-center justify-between w-full text-left text-gray-900 hover:text-gray-600 transition-colors duration-200 group"
-                          >
-                            <span className="text-lg font-light tracking-wide">
-                              {link.name}
-                            </span>
-                            <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
-                          </Link>
-                        </SheetClose>
-                      ))}
-                    </div>
-
                     {/* Main Navigation */}
                     <div className="space-y-6">
                       <p className="text-xs uppercase tracking-wider text-gray-500 font-medium">
@@ -378,7 +263,7 @@ export function Header() {
                     {/* Contact CTA */}
                     <div className="pt-8">
                       <SheetClose asChild>
-                        {isHomePage ? (
+                        {hasContactSection ? (
                           <Button
                             onClick={() => scrollToSection("contact")}
                             className="w-full bg-black text-white hover:bg-gray-800 py-4 text-sm font-medium uppercase tracking-wider rounded-sm"
