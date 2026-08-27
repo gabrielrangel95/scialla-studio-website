@@ -34,7 +34,11 @@ export function GoogleTagBootstrap({
           "function gtag(){dataLayer.push(arguments);}",
           "gtag('js', new Date());",
           `gtag('config', '${GA_MEASUREMENT_ID}', { send_page_view: false });`,
-          HAS_GOOGLE_ADS ? `gtag('config', '${GOOGLE_ADS_ID}');` : "",
+          // allow_enhanced_conversions lets the tag accept the hashed
+          // identifiers trackFormSubmitSuccess sets before a conversion.
+          HAS_GOOGLE_ADS
+            ? `gtag('config', '${GOOGLE_ADS_ID}', { allow_enhanced_conversions: true });`
+            : "",
           sendPageView
             ? `gtag('event', 'page_view', { send_to: '${GA_MEASUREMENT_ID}', page_path: location.pathname, page_location: location.href });`
             : "",

@@ -1,6 +1,5 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
@@ -9,17 +8,22 @@ import {
   budgetLabels,
   timelineLabels,
 } from "@/lib/validations/contact";
+import { useLeadSubmission } from "@/lib/analytics/lead-submission";
 
 export function ThankYou() {
   const t = useTranslations("thankYou");
-  const searchParams = useSearchParams();
 
-  const name = searchParams.get("name");
-  const location = searchParams.get("location");
-  const projectType = searchParams.get("projectType");
-  const budget = searchParams.get("budget");
-  const timeline = searchParams.get("timeline");
-  const message = searchParams.get("message");
+  // Carried over from the form in context rather than the query string, so no
+  // personal data reaches the URL. A direct visit or refresh has no submission
+  // to show and falls back to the generic confirmation.
+  const { submission } = useLeadSubmission();
+
+  const name = submission?.name;
+  const location = submission?.location;
+  const projectType = submission?.projectType;
+  const budget = submission?.budget;
+  const timeline = submission?.timeline;
+  const message = submission?.message;
 
   return (
     <section className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-20 md:py-32">
@@ -77,7 +81,7 @@ export function ThankYou() {
                       {t("projectDetails.projectType")}
                     </dt>
                     <dd className="text-gray-900">
-                      {projectTypeLabels[projectType as keyof typeof projectTypeLabels] || projectType}
+                      {projectTypeLabels[projectType]}
                     </dd>
                   </div>
                 )}
@@ -95,7 +99,7 @@ export function ThankYou() {
                       {t("projectDetails.budget")}
                     </dt>
                     <dd className="text-gray-900">
-                      {budgetLabels[budget as keyof typeof budgetLabels] || budget}
+                      {budgetLabels[budget]}
                     </dd>
                   </div>
                 )}
@@ -105,7 +109,7 @@ export function ThankYou() {
                       {t("projectDetails.timeline")}
                     </dt>
                     <dd className="text-gray-900">
-                      {timelineLabels[timeline as keyof typeof timelineLabels] || timeline}
+                      {timelineLabels[timeline]}
                     </dd>
                   </div>
                 )}

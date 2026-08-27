@@ -4,15 +4,70 @@
  */
 
 /**
+ * Normalises a phone number to the E.164 form Google requires for enhanced
+ * conversions. Anything it cannot confidently convert is dropped rather than
+ * sent in a shape that would never match.
+ */
+function toE164(phone: string): string | undefined {
+  const trimmed = phone.trim();
+
+  if (trimmed.startsWith("+")) {
+    const digits = trimmed.slice(1).replace(/\D/g, "");
+    return digits.length >= 8 ? `+${digits}` : undefined;
+  }
+
+  const digits = trimmed.replace(/\D/g, "");
+
+  // The form is US/CA-facing, so a bare 10-digit number means +1.
+  if (digits.length === 10) return `+1${digits}`;
+  if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
+
+  return undefined;
+}
+
+/**
+ * Splits the single name field into the first/last pair Google matches on.
+ * A one-word name is sent as a first name only.
+ */
+function splitName(name: string) {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+
+  if (parts.length === 0) return undefined;
+
+  return {
+    first_name: parts[0],
+    ...(parts.length > 1 && { last_name: parts.slice(1).join(" ") }),
+  };
+}
+
+/**
  * Track contact form submission (Primary Conversion Event)
- * This sends a conversion event to Google Ads for lead generation tracking
+ *
+ * Sends the Google Ads conversion only; the matching GA4 generate_lead event is
+ * sent by trackFormSubmit() so each submission is counted exactly once per tag.
+ *
+ * Identifiers from the form are attached as enhanced conversion data first.
+ * gtag normalises and SHA-256 hashes `user_data` in the browser before it
+ * leaves the page, so no raw identifier is transmitted; it recovers the
+ * attribution that cookie restrictions (Safari/ITP in particular) otherwise
+ * drop. This still has to be switched on for the conversion action under
+ * Google Ads → Goals → Conversions → Settings before it takes effect.
  *
  * @param location - Optional location identifier (e.g., "orlando", "tampa")
  * @param projectType - Optional project type (e.g., "kitchen", "bathroom")
+ * @param transactionId - Unique per submission; lets Ads discard a conversion
+ *   it has already recorded rather than counting a repeat send twice
+ * @param userData - Identifiers for enhanced conversions
  */
 export function trackFormSubmitSuccess(params?: {
   location?: string;
   projectType?: string;
+  transactionId?: string;
+  userData?: {
+    name?: string;
+    email?: string;
+    phone?: string;
+  };
 }) {
   if (typeof window === "undefined" || !window.gtag) {
     return;
@@ -26,26 +81,46 @@ export function trackFormSubmitSuccess(params?: {
     if (googleAdsId && conversionLabel && googleAdsId !== 'AW-XXXXXXXXXX' && conversionLabel !== 'your-label-here') {
       const sendTo = `${googleAdsId}/${conversionLabel}`;
 
+      // Enhanced conversion identifiers must be set *before* the conversion
+      // event, so gtag picks them up when it builds the request.
+      const email = params?.userData?.email?.trim().toLowerCase();
+      const phoneNumber = params?.userData?.phone
+        ? toE164(params.userData.phone)
+        : undefined;
+      const address = params?.userData?.name
+        ? splitName(params.userData.name)
+        : undefined;
+
+      if (email || phoneNumber || address) {
+        window.gtag("set", "user_data", {
+          ...(email && { email }),
+          ...(phoneNumber && { phone_number: phoneNumber }),
+          ...(address && { address }),
+        });
+      }
+
       window.gtag("event", "conversion", {
         send_to: sendTo,
+        ...(params?.transactionId && { transaction_id: params.transactionId }),
         // Include location and project type as conversion data
         ...(params?.location && { location: params.location }),
         ...(params?.projectType && { project_type: params.projectType }),
       });
 
-      console.log("✅ Google Ads: Conversion event sent", { sendTo, params });
+      // Deliberately not logging params: it carries the raw identifiers.
+      console.log("✅ Google Ads: Conversion event sent", {
+        sendTo,
+        transactionId: params?.transactionId,
+        enhanced: Boolean(email || phoneNumber || address),
+      });
     } else {
       console.warn("⚠️ Google Ads conversion not configured. Add NEXT_PUBLIC_GOOGLE_ADS_ID and NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_LABEL to .env.local");
     }
 
-    // Also send custom event for Google Analytics tracking
-    window.gtag("event", "generate_lead", {
-      event_category: "engagement",
-      ...(params?.location && { location: params.location }),
-      ...(params?.projectType && { project_type: params.projectType }),
-    });
-
-    console.log("✅ Google Analytics: generate_lead event tracked", params);
+    // GA4's generate_lead is owned by trackFormSubmit() in lib/analytics.
+    // Firing it here too sent the event twice per submission — once to GA4 and,
+    // because it carried no send_to, a second time to the Ads tag, which would
+    // double-count the lead wherever generate_lead is also a conversion action.
   } catch (error) {
     console.error("❌ Failed to track conversion:", error);
   }

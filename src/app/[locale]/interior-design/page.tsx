@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
+import { Contact } from "@/components/sections/contact";
 import { LandingHero } from "@/components/sections/service-landing/landing-hero";
 import { IntroSplit } from "@/components/sections/service-landing/intro-split";
 import { CapabilityGrid } from "@/components/sections/service-landing/capability-grid";
@@ -180,7 +181,7 @@ export default async function InteriorDesignPage({ params }: Props) {
             title={t("hero.title")}
             subtitle={t("hero.subtitle")}
             ctas={[
-              { label: t("hero.ctaPrimary"), href: "/#contact" },
+              { label: t("hero.ctaPrimary"), href: "#contact" },
               {
                 label: t("hero.ctaSecondary"),
                 href: "/projects",
@@ -235,9 +236,10 @@ export default async function InteriorDesignPage({ params }: Props) {
           <CtaBand
             title={t("cta.title")}
             description={t("cta.description")}
-            cta={{ label: t("cta.button"), href: "/#contact" }}
+            cta={{ label: t("cta.button"), href: "#contact" }}
             layout="split"
           />
+          <Contact />
         </main>
 
         <Footer />

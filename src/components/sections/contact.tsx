@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { Turnstile } from "@marsidev/react-turnstile";
 import { trackFormSubmit } from "@/lib/analytics/analytics";
 import { trackFormSubmitSuccess } from "@/lib/google-ads/gtag-events";
+import { useLeadSubmission } from "@/lib/analytics/lead-submission";
 import { useTranslations, useLocale } from "next-intl";
 import { useRouter } from "next/navigation";
 
@@ -43,6 +44,7 @@ export function Contact() {
   const t = useTranslations("contact");
   const locale = useLocale();
   const router = useRouter();
+  const { setSubmission } = useLeadSubmission();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const pageLoadTime = useRef<number>(0);
@@ -98,6 +100,10 @@ export function Contact() {
       if (result.success) {
         toast.success(t("success"));
 
+        // One id per successful submission, so Google Ads can discard a repeat
+        // send of the same conversion instead of counting it twice.
+        const transactionId = crypto.randomUUID();
+
         // Track successful form submission
         trackFormSubmit({
           form_name: "contact_form",
@@ -109,29 +115,34 @@ export function Contact() {
           timeline: data.timeline,
         });
 
-        // Track Google Ads conversion
+        // Track Google Ads conversion. The identifiers are for enhanced
+        // conversions — gtag hashes them in the browser before they are sent.
         trackFormSubmitSuccess({
           location: data.location,
           projectType: data.projectType,
+          transactionId,
+          userData: {
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+          },
         });
 
-        form.reset();
-        setTurnstileToken(null); // Reset turnstile token
-
-        // Redirect to Thank You page with query params
-        const params = new URLSearchParams({
+        setSubmission({
           name: data.name,
           location: data.location,
           projectType: data.projectType,
           budget: data.budget,
           timeline: data.timeline,
+          message: data.message,
         });
 
-        if (data.message) {
-          params.append("message", data.message);
-        }
+        form.reset();
+        setTurnstileToken(null); // Reset turnstile token
 
-        router.push(`/${locale}/thank-you?${params.toString()}`);
+        // No query string: the details ride along in context so no personal
+        // data ends up in the URL, and therefore in GA4's page_location.
+        router.push(`/${locale}/thank-you`);
       } else {
         throw new Error(result.error || "Something went wrong");
       }
