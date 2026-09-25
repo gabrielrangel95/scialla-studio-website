@@ -206,8 +206,6 @@ export default async function InteriorDesignPage({ params }: Props) {
             eyebrow={t("projects.eyebrow")}
             heading={t("projects.heading")}
             projects={projects}
-            captionPlacement="overlay"
-            viewProjectLabel={t("projects.viewProject")}
             cta={{ label: t("projects.cta"), href: "/projects" }}
           />
 
