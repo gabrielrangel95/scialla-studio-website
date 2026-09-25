@@ -413,6 +413,11 @@
   "stickyCta": {
     "buttonText": "Schedule Your Consultation"
   },
+  "featuredProjects": {
+    "eyebrow": "Featured Projects",
+    "heading": "Timeless Spaces. Tailored for Life.",
+    "cta": "View Full Portfolio"
+  },
   "architecturePage": {
     "seo": {
       "title": "Custom Residential Architecture | Scialla Studio",
@@ -430,11 +435,6 @@
       "paragraph2": "From initial concept through construction documentation, we create homes defined by proportion, materiality and a seamless relationship between architecture and interiors.",
       "cta": "Learn More About Our Approach",
       "imageAlt": "Open-plan living space framed by full-height architectural glazing"
-    },
-    "projects": {
-      "eyebrow": "Featured Projects",
-      "heading": "Selected Architecture Projects",
-      "cta": "View Architecture Portfolio"
     },
     "services": {
       "title": "Architecture Services",
@@ -506,11 +506,6 @@
         "title": "Project Management",
         "description": "Seamless coordination from concept to completion — so you can enjoy the process."
       }
-    },
-    "projects": {
-      "eyebrow": "Featured Projects",
-      "heading": "Timeless Spaces. Tailored for Life.",
-      "cta": "View Full Portfolio"
     },
     "locations": {
       "eyebrow": "Where We Work",

@@ -109,6 +109,7 @@ export default async function InteriorDesignPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "interiorDesignPage" });
   const tLocations = await getTranslations({ locale, namespace: "locations" });
   const tSteps = await getTranslations({ locale, namespace: "processSteps" });
+  const tFeatured = await getTranslations({ locale, namespace: "featuredProjects" });
 
   // Projects flagged `interior-design` or `both` in Sanity.
   const projects = await sanityService.getAllProjects({
@@ -203,10 +204,10 @@ export default async function InteriorDesignPage({ params }: Props) {
           />
 
           <ProjectShowcase
-            eyebrow={t("projects.eyebrow")}
-            heading={t("projects.heading")}
+            eyebrow={tFeatured("eyebrow")}
+            heading={tFeatured("heading")}
             projects={projects}
-            cta={{ label: t("projects.cta"), href: "/projects" }}
+            cta={{ label: tFeatured("cta"), href: "/projects" }}
           />
 
           <CapabilityGrid

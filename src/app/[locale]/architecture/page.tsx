@@ -89,6 +89,7 @@ export default async function ArchitecturePage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "architecturePage" });
   const tSteps = await getTranslations({ locale, namespace: "processSteps" });
+  const tFeatured = await getTranslations({ locale, namespace: "featuredProjects" });
 
   // Projects flagged `architecture` or `both` in Sanity.
   const showcaseProjects = await sanityService.getAllProjects({
@@ -176,13 +177,10 @@ export default async function ArchitecturePage({ params }: Props) {
           />
 
           <ProjectShowcase
-            eyebrow={t("projects.eyebrow")}
-            heading={t("projects.heading")}
+            eyebrow={tFeatured("eyebrow")}
+            heading={tFeatured("heading")}
             projects={showcaseProjects}
-            cta={{
-              label: t("projects.cta"),
-              href: "/projects?serviceType=architecture",
-            }}
+            cta={{ label: tFeatured("cta"), href: "/projects" }}
           />
 
           <CapabilityGrid
