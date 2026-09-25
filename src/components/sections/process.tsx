@@ -3,37 +3,11 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { ArrowRight } from "lucide-react";
-interface ProcessStep {
-  number: string;
-  title: string;
-  description: string;
-}
+import { PROCESS_STEPS, processStepNumber } from "@/lib/process-steps";
 
 export function Process() {
   const t = useTranslations("process");
-
-  const steps: ProcessStep[] = [
-    {
-      number: "01",
-      title: t("steps.discovery.title"),
-      description: t("steps.discovery.description"),
-    },
-    {
-      number: "02",
-      title: t("steps.design.title"),
-      description: t("steps.design.description"),
-    },
-    {
-      number: "03",
-      title: t("steps.execution.title"),
-      description: t("steps.execution.description"),
-    },
-    {
-      number: "04",
-      title: t("steps.reveal.title"),
-      description: t("steps.reveal.description"),
-    },
-  ];
+  const tSteps = useTranslations("processSteps");
 
   return (
     <section
@@ -52,28 +26,21 @@ export function Process() {
 
       {/* Process Steps */}
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-          {steps.map((step, index) => (
-            <div key={index} className="relative group">
-              {/* Connector Line - Desktop Only */}
-              {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-full w-full h-px bg-gray-700 -translate-y-1/2 z-0" />
-              )}
-
-              <div className="relative z-10 bg-black">
-                {/* Step Number */}
-                <div className="text-5xl font-light text-white mb-4 tracking-tighter">
-                  {step.number}
-                </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-medium text-white mb-3">
-                  {step.title}
-                </h3>
-                <p className="text-gray-400 leading-relaxed text-sm">
-                  {step.description}
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-6">
+          {PROCESS_STEPS.map((step, index) => (
+            <div key={step.key}>
+              {/* Step Number */}
+              <div className="text-5xl font-light text-white mb-4 tracking-tighter">
+                {processStepNumber(index)}
               </div>
+
+              {/* Content */}
+              <h3 className="text-xl font-medium text-white mb-3">
+                {tSteps(`${step.key}.title`)}
+              </h3>
+              <p className="text-gray-400 leading-relaxed text-sm">
+                {tSteps(`${step.key}.short`)}
+              </p>
             </div>
           ))}
         </div>

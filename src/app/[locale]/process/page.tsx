@@ -5,6 +5,7 @@ import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { Header } from "@/components/sections/header";
 import { Footer } from "@/components/sections/footer";
 import { Link } from "@/i18n/routing";
+import { PROCESS_STEPS, processStepNumber } from "@/lib/process-steps";
 
 interface ProcessPageProps {
   params: Promise<{ locale: string }>;
@@ -34,29 +35,6 @@ export async function generateMetadata({
   };
 }
 
-const steps = [
-  {
-    key: "discovery" as const,
-    number: "01",
-    image: "/scialla-studio-interior-design-consultation.png",
-  },
-  {
-    key: "design" as const,
-    number: "02",
-    image: "/scialla-studio-interior-design.png",
-  },
-  {
-    key: "execution" as const,
-    number: "03",
-    image: "/scialla-studio-architectural-services.png",
-  },
-  {
-    key: "reveal" as const,
-    number: "04",
-    image: "/scialla-studio-commercial-interior-design.jpg",
-  },
-];
-
 const services = [
   "residential" as const,
   "architectural" as const,
@@ -67,6 +45,7 @@ const services = [
 export default async function ProcessPage({ params }: ProcessPageProps) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "processPage" });
+  const tSteps = await getTranslations({ locale, namespace: "processSteps" });
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -126,14 +105,14 @@ export default async function ProcessPage({ params }: ProcessPageProps) {
         {/* Quick Nav */}
         <section className="px-4 md:px-6 lg:px-12 xl:px-16 pb-16">
           <div className="max-w-3xl mx-auto">
-            {steps.map((step) => (
+            {PROCESS_STEPS.map((step) => (
               <a
                 key={step.key}
                 href={`#step-${step.key}`}
                 className="flex items-center justify-between py-4 border-b border-gray-200 text-gray-700 hover:text-gray-900 transition-colors duration-200 group"
               >
                 <span className="text-base font-light tracking-wide">
-                  {t(`quickNav.${step.key}`)}
+                  {tSteps(`${step.key}.title`)}
                 </span>
                 <ArrowUpRight className="w-4 h-4 opacity-40 group-hover:opacity-100 transition-opacity duration-200" />
               </a>
@@ -142,7 +121,7 @@ export default async function ProcessPage({ params }: ProcessPageProps) {
         </section>
 
         {/* Process Steps - Zigzag */}
-        {steps.map((step, index) => {
+        {PROCESS_STEPS.map((step, index) => {
           const reversed = index % 2 !== 0;
 
           return (
@@ -158,7 +137,7 @@ export default async function ProcessPage({ params }: ProcessPageProps) {
                 >
                   <Image
                     src={step.image}
-                    alt={t(`steps.${step.key}.imageAlt`)}
+                    alt={tSteps(`${step.key}.imageAlt`)}
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 100vw, 50vw"
@@ -170,13 +149,13 @@ export default async function ProcessPage({ params }: ProcessPageProps) {
                   className={`flex flex-col justify-center ${reversed ? "lg:order-1" : ""}`}
                 >
                   <span className="text-8xl font-light text-gray-200 leading-none mb-4">
-                    {step.number}
+                    {processStepNumber(index)}
                   </span>
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-light uppercase tracking-wider mb-6">
-                    {t(`steps.${step.key}.title`)}
+                    {tSteps(`${step.key}.title`)}
                   </h2>
                   <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
-                    {t(`steps.${step.key}.description`)}
+                    {tSteps(`${step.key}.long`)}
                   </p>
                 </div>
               </div>

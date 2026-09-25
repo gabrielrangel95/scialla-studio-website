@@ -16,6 +16,7 @@ import {
   IntegratedDesignIcon,
 } from "@/components/ui/line-icons";
 import { sanityService } from "@/lib/sanity-service";
+import { PROCESS_STEPS, processStepNumber } from "@/lib/process-steps";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -33,14 +34,6 @@ const SERVICE_ICONS = {
   renovations: RenovationsIcon,
   integrated: IntegratedDesignIcon,
 } as const;
-
-const PROCESS_KEYS = [
-  "discovery",
-  "concept",
-  "development",
-  "documentation",
-  "construction",
-] as const;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
@@ -95,6 +88,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ArchitecturePage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "architecturePage" });
+  const tSteps = await getTranslations({ locale, namespace: "processSteps" });
 
   // Projects flagged `architecture` or `both` in Sanity.
   const showcaseProjects = await sanityService.getAllProjects({
@@ -201,10 +195,10 @@ export default async function ArchitecturePage({ params }: Props) {
 
           <ProcessStrip
             heading={t("process.title")}
-            steps={PROCESS_KEYS.map((key, index) => ({
-              number: String(index + 1).padStart(2, "0"),
-              title: t(`process.steps.${key}.title`),
-              description: t(`process.steps.${key}.description`),
+            steps={PROCESS_STEPS.map((step, index) => ({
+              number: processStepNumber(index),
+              title: tSteps(`${step.key}.title`),
+              description: tSteps(`${step.key}.short`),
             }))}
             cta={{ label: t("process.cta"), href: "/process" }}
           />
