@@ -8,6 +8,7 @@ import { LandingHero } from "@/components/sections/service-landing/landing-hero"
 import { IntroSplit } from "@/components/sections/service-landing/intro-split";
 import { CapabilityGrid } from "@/components/sections/service-landing/capability-grid";
 import { ProjectShowcase } from "@/components/sections/service-landing/project-showcase";
+import { ProcessStrip } from "@/components/sections/service-landing/process-strip";
 import { CityLinks } from "@/components/sections/service-landing/city-links";
 import { CtaBand } from "@/components/sections/service-landing/cta-band";
 import {
@@ -18,6 +19,7 @@ import {
   ProjectManagementIcon,
 } from "@/components/ui/line-icons";
 import { sanityService } from "@/lib/sanity-service";
+import { PROCESS_STEPS, processStepNumber } from "@/lib/process-steps";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -106,6 +108,7 @@ export default async function InteriorDesignPage({ params }: Props) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "interiorDesignPage" });
   const tLocations = await getTranslations({ locale, namespace: "locations" });
+  const tSteps = await getTranslations({ locale, namespace: "processSteps" });
 
   // Projects flagged `interior-design` or `both` in Sanity.
   const projects = await sanityService.getAllProjects({
@@ -199,6 +202,15 @@ export default async function InteriorDesignPage({ params }: Props) {
             imageAlt={t("intro.imageAlt")}
           />
 
+          <ProjectShowcase
+            eyebrow={t("projects.eyebrow")}
+            heading={t("projects.heading")}
+            projects={projects}
+            captionPlacement="overlay"
+            viewProjectLabel={t("projects.viewProject")}
+            cta={{ label: t("projects.cta"), href: "/projects" }}
+          />
+
           <CapabilityGrid
             eyebrow={t("capabilities.eyebrow")}
             heading={t("capabilities.heading")}
@@ -210,13 +222,14 @@ export default async function InteriorDesignPage({ params }: Props) {
             dividers
           />
 
-          <ProjectShowcase
-            eyebrow={t("projects.eyebrow")}
-            heading={t("projects.heading")}
-            projects={projects}
-            captionPlacement="overlay"
-            viewProjectLabel={t("projects.viewProject")}
-            cta={{ label: t("projects.cta"), href: "/projects" }}
+          <ProcessStrip
+            heading={t("process.title")}
+            steps={PROCESS_STEPS.map((step, index) => ({
+              number: processStepNumber(index),
+              title: tSteps(`${step.key}.title`),
+              description: tSteps(`${step.key}.short`),
+            }))}
+            cta={{ label: t("process.cta"), href: "/process" }}
           />
 
           <CityLinks

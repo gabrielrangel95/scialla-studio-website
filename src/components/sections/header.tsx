@@ -66,8 +66,10 @@ export function Header() {
   };
 
   // The two service pages sit directly in the nav rather than behind a
-  // dropdown, so both are one click away.
+  // dropdown, so both are one click away. Subpages also get an explicit Home
+  // link, since the logo alone wasn't read as a way back.
   const navigation = [
+    ...(isHomePage ? [] : [{ name: t('home'), id: "home", href: "/" }]),
     { name: t('architecture'), id: "architecture", href: "/architecture" },
     { name: t('interiorDesign'), id: "interior-design", href: "/interior-design" },
     { name: t('portfolio'), id: "projects", href: "#projects" },

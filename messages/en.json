@@ -8,7 +8,8 @@
     "getConsultation": "Get Free Consultation",
     "architecture": "Architecture",
     "interiorDesign": "Interior Design",
-    "allServices": "All Services"
+    "allServices": "All Services",
+    "home": "Home"
   },
   "hero": {
     "mainTitle": "Architecture, Interiors & Bespoke Design",
@@ -335,63 +336,49 @@
     "title": "Your Design Journey",
     "subtitle": "A collaborative approach from vision to reality",
     "cta": "Every great space starts with a conversation",
-    "viewFullProcess": "Explore Our Full Process",
-    "steps": {
-      "discovery": {
-        "title": "Discovery",
-        "description": "We begin with a conversation about your vision, lifestyle, and aspirations. Understanding your needs is the foundation of exceptional design."
-      },
-      "design": {
-        "title": "Design",
-        "description": "Custom concepts, 3D visualizations, and curated material selections bring your vision to life before construction begins."
-      },
-      "execution": {
-        "title": "Execution",
-        "description": "Full project management from permits to punch list. We coordinate every detail so you can focus on the excitement of transformation."
-      },
-      "reveal": {
-        "title": "Reveal",
-        "description": "Your transformed space, exactly as imagined. We ensure every element exceeds expectations, ready for you to enjoy."
-      }
+    "viewFullProcess": "Explore Our Full Process"
+  },
+  "processSteps": {
+    "discovery": {
+      "title": "Discovery",
+      "short": "We listen, learn and define your goals, lifestyle and project vision.",
+      "long": "We begin every project with deep listening. During our initial consultation, we explore your lifestyle, aesthetic preferences, functional needs, and aspirations for the space. We visit the site, study the architecture, understand the light, and absorb the character of the environment. This phase establishes the foundation upon which every design decision will rest.",
+      "imageAlt": "Design discovery consultation at Scialla Studio"
+    },
+    "concept": {
+      "title": "Concept",
+      "short": "Exploring ideas, massing studies and early design directions.",
+      "long": "With a thorough understanding of your vision, we explore ideas through space plans, massing studies, mood boards and early design directions. We present options and refine them together until a clear concept emerges — one that is authentically yours.",
+      "imageAlt": "Early design concepts and mood boards at Scialla Studio"
+    },
+    "designDevelopment": {
+      "title": "Design Development",
+      "short": "Refining the design with materials, details and technical solutions.",
+      "long": "The chosen concept is refined into a complete design: 3D renderings, curated materials and finishes, custom details and the technical solutions that make them work. Every decision is reviewed collaboratively, so the design is fully resolved before construction begins.",
+      "imageAlt": "Custom interior design development with curated materials"
+    },
+    "documentation": {
+      "title": "Documentation",
+      "short": "Creating comprehensive drawings for permits and construction.",
+      "long": "We produce comprehensive drawings and specifications for permitting, pricing and construction. Clear, precise documentation keeps contractors aligned and protects the design intent through every stage of the build.",
+      "imageAlt": "Architectural drawings and construction documentation"
+    },
+    "construction": {
+      "title": "Construction",
+      "short": "Supporting you and your builder throughout the construction process.",
+      "long": "We support you and your builder throughout construction — coordinating trades, reviewing progress and resolving challenges proactively — through to the final styling and finishing touches. The result is an environment that exceeds your expectations and feels unmistakably like home.",
+      "imageAlt": "Completed residence by Scialla Studio"
     }
   },
   "processPage": {
     "seo": {
       "title": "Our Design Process | Scialla Studio",
-      "description": "Discover how Scialla Studio transforms your vision into reality through our collaborative four-step design process: Discovery, Design, Execution, and Reveal."
+      "description": "Discover how Scialla Studio transforms your vision into reality through our collaborative five-step process: Discovery, Concept, Design Development, Documentation and Construction."
     },
     "hero": {
       "title": "The Process",
       "subtitle": "Every exceptional space begins with understanding. Through thoughtful collaboration and careful attention to detail, we uncover the vision that shapes your environment. The experience, for us, is always the first priority — and it's important for our clients to feel heard, understood, and respected as we shape something truly bespoke.",
       "imageAlt": "Scialla Studio collaborative interior design process"
-    },
-    "quickNav": {
-      "discovery": "Discovery",
-      "design": "Design",
-      "execution": "Execution",
-      "reveal": "Reveal"
-    },
-    "steps": {
-      "discovery": {
-        "title": "Discovery",
-        "description": "We begin every project with deep listening. During our initial consultation, we explore your lifestyle, aesthetic preferences, functional needs, and aspirations for the space. We visit the site, study the architecture, understand the light, and absorb the character of the environment. This phase establishes the foundation upon which every design decision will rest.",
-        "imageAlt": "Design discovery consultation at Scialla Studio"
-      },
-      "design": {
-        "title": "Design",
-        "description": "With a thorough understanding of your vision, our team develops custom design concepts including mood boards, space plans, 3D renderings, and curated material palettes. We present multiple directions and refine collaboratively until every detail aligns with your expectations. This iterative process ensures the final design is authentically yours before any construction begins.",
-        "imageAlt": "Custom interior design concepts and 3D visualization"
-      },
-      "execution": {
-        "title": "Execution",
-        "description": "Our team manages every aspect of the build-out — from permitting and contractor coordination to material procurement and quality control. We maintain transparent communication throughout construction, providing regular updates and resolving challenges proactively. Your only role is to anticipate the transformation taking shape.",
-        "imageAlt": "Project execution and construction management"
-      },
-      "reveal": {
-        "title": "Reveal",
-        "description": "The moment your reimagined space comes to life. We handle the final styling, accessory placement, and every finishing touch before presenting the completed project. Every element has been considered, every detail refined — resulting in an environment that exceeds your expectations and feels unmistakably like home.",
-        "imageAlt": "Completed interior design reveal by Scialla Studio"
-      }
     },
     "services": {
       "title": "Tailored to Your Project",
@@ -465,29 +452,7 @@
     },
     "process": {
       "title": "Our Architectural Process",
-      "cta": "Explore Our Process",
-      "steps": {
-        "discovery": {
-          "title": "Discovery",
-          "description": "We listen, learn and define your goals, lifestyle and project vision."
-        },
-        "concept": {
-          "title": "Concept",
-          "description": "Exploring ideas, massing studies and early design directions."
-        },
-        "development": {
-          "title": "Design Development",
-          "description": "Refining the design with materials, details and technical solutions."
-        },
-        "documentation": {
-          "title": "Documentation",
-          "description": "Creating comprehensive drawings for permits and construction."
-        },
-        "construction": {
-          "title": "Construction",
-          "description": "Supporting you and your builder throughout the construction process."
-        }
-      }
+      "cta": "Explore Our Process"
     },
     "cta": {
       "title": "Planning a custom home or major renovation?",
@@ -557,6 +522,10 @@
       "title": "Let's Create Something Extraordinary.",
       "description": "Ready to transform your home with a thoughtful, luxurious interior? We'd love to hear about your project.",
       "button": "Schedule a Consultation"
+    },
+    "process": {
+      "title": "Our Design Process",
+      "cta": "Explore Our Process"
     }
   },
   "cityPages": {
