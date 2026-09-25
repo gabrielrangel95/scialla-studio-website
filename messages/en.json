@@ -437,7 +437,8 @@
       "imageAlt": "Open-plan living space framed by full-height architectural glazing"
     },
     "services": {
-      "title": "Architecture Services",
+      "eyebrow": "Architecture Services",
+      "heading": "Homes Shaped by Proportion and Light",
       "customHomes": {
         "title": "Custom Homes",
         "description": "Ground-up residential architecture designed to reflect your lifestyle, site and vision. From concept to completion."
@@ -452,7 +453,8 @@
       }
     },
     "process": {
-      "title": "Our Architectural Process",
+      "eyebrow": "Our Architectural Process",
+      "heading": "From First Sketch to Final Detail",
       "cta": "Explore Our Process"
     },
     "cta": {
@@ -519,7 +521,8 @@
       "button": "Schedule a Consultation"
     },
     "process": {
-      "title": "Our Design Process",
+      "eyebrow": "Our Design Process",
+      "heading": "Five Steps. One Seamless Journey.",
       "cta": "Explore Our Process"
     }
   },

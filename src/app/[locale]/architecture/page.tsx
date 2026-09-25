@@ -117,7 +117,7 @@ export default async function ArchitecturePage({ params }: Props) {
     ),
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: t("services.title"),
+      name: t("services.eyebrow"),
       itemListElement: SERVICE_KEYS.map((key) => ({
         "@type": "Offer",
         itemOffered: {
@@ -176,6 +176,16 @@ export default async function ArchitecturePage({ params }: Props) {
             imageAlt={t("intro.imageAlt")}
           />
 
+          <CapabilityGrid
+            eyebrow={t("services.eyebrow")}
+            heading={t("services.heading")}
+            items={SERVICE_KEYS.map((key) => ({
+              icon: SERVICE_ICONS[key],
+              title: t(`services.${key}.title`),
+              description: t(`services.${key}.description`),
+            }))}
+          />
+
           <ProjectShowcase
             eyebrow={tFeatured("eyebrow")}
             heading={tFeatured("heading")}
@@ -183,18 +193,9 @@ export default async function ArchitecturePage({ params }: Props) {
             cta={{ label: tFeatured("cta"), href: "/projects" }}
           />
 
-          <CapabilityGrid
-            heading={t("services.title")}
-            items={SERVICE_KEYS.map((key) => ({
-              icon: SERVICE_ICONS[key],
-              title: t(`services.${key}.title`),
-              description: t(`services.${key}.description`),
-            }))}
-            headingStyle="eyebrow"
-          />
-
           <ProcessStrip
-            heading={t("process.title")}
+            eyebrow={t("process.eyebrow")}
+            heading={t("process.heading")}
             steps={PROCESS_STEPS.map((step, index) => ({
               number: processStepNumber(index),
               title: tSteps(`${step.key}.title`),
