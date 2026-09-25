@@ -1,4 +1,5 @@
 import { Link } from "@/i18n/routing";
+import { SectionHeading } from "./section-heading";
 
 export interface ProcessStep {
   number: string;
@@ -7,6 +8,7 @@ export interface ProcessStep {
 }
 
 interface ProcessStripProps {
+  eyebrow?: string;
   heading: string;
   steps: ProcessStep[];
   cta?: { label: string; href: string };
@@ -15,13 +17,15 @@ interface ProcessStripProps {
 /**
  * Horizontal numbered process row. Collapses to a stacked list below `md`.
  */
-export function ProcessStrip({ heading, steps, cta }: ProcessStripProps) {
+export function ProcessStrip({ eyebrow, heading, steps, cta }: ProcessStripProps) {
   return (
     <section className="py-16 md:py-24 px-4 md:px-6 lg:px-12 xl:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-center text-sm md:text-base font-medium text-gray-900 uppercase tracking-[0.18em] mb-12 md:mb-16">
-          {heading}
-        </h2>
+        <SectionHeading
+          eyebrow={eyebrow}
+          heading={heading}
+          className="mb-12 md:mb-16"
+        />
 
         <div className="flex flex-col md:flex-row md:items-start md:gap-8 lg:gap-12">
           {steps.map((step) => (

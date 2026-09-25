@@ -203,13 +203,6 @@ export default async function InteriorDesignPage({ params }: Props) {
             imageAlt={t("intro.imageAlt")}
           />
 
-          <ProjectShowcase
-            eyebrow={tFeatured("eyebrow")}
-            heading={tFeatured("heading")}
-            projects={projects}
-            cta={{ label: tFeatured("cta"), href: "/projects" }}
-          />
-
           <CapabilityGrid
             eyebrow={t("capabilities.eyebrow")}
             heading={t("capabilities.heading")}
@@ -221,8 +214,16 @@ export default async function InteriorDesignPage({ params }: Props) {
             dividers
           />
 
+          <ProjectShowcase
+            eyebrow={tFeatured("eyebrow")}
+            heading={tFeatured("heading")}
+            projects={projects}
+            cta={{ label: tFeatured("cta"), href: "/projects" }}
+          />
+
           <ProcessStrip
-            heading={t("process.title")}
+            eyebrow={t("process.eyebrow")}
+            heading={t("process.heading")}
             steps={PROCESS_STEPS.map((step, index) => ({
               number: processStepNumber(index),
               title: tSteps(`${step.key}.title`),
