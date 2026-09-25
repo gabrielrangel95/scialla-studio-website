@@ -432,8 +432,9 @@
       "imageAlt": "Open-plan living space framed by full-height architectural glazing"
     },
     "projects": {
-      "title": "Selected Architecture Projects",
-      "viewProject": "View Project"
+      "eyebrow": "Featured Projects",
+      "heading": "Selected Architecture Projects",
+      "cta": "View Architecture Portfolio"
     },
     "services": {
       "title": "Architecture Services",
@@ -509,7 +510,6 @@
     "projects": {
       "eyebrow": "Featured Projects",
       "heading": "Timeless Spaces. Tailored for Life.",
-      "viewProject": "View Project",
       "cta": "View Full Portfolio"
     },
     "locations": {

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
 import { Link } from "@/i18n/routing";
 import { urlForImage } from "@/lib/sanity-image";
 import type { Project } from "@/types/sanity";
@@ -9,12 +8,6 @@ interface ProjectShowcaseProps {
   eyebrow?: string;
   heading?: string;
   projects: Project[];
-  /**
-   * `below` puts the title and location under the image (architecture layout);
-   * `overlay` lays them over the bottom of the image (interior layout).
-   */
-  captionPlacement?: "below" | "overlay";
-  viewProjectLabel: string;
   cta?: { label: string; href: string };
   headingStyle?: SectionHeadingStyle;
 }
@@ -28,8 +21,6 @@ export function ProjectShowcase({
   eyebrow,
   heading,
   projects,
-  captionPlacement = "below",
-  viewProjectLabel,
   cta,
   headingStyle = "display",
 }: ProjectShowcaseProps) {
@@ -38,7 +29,6 @@ export function ProjectShowcase({
   if (projects.length === 0) return null;
 
   const columns = GRID_CLASSES[projects.length] ?? "sm:grid-cols-2 lg:grid-cols-3";
-  const isOverlay = captionPlacement === "overlay";
 
   return (
     <section className="py-16 md:py-24 px-4 md:px-6 lg:px-12 xl:px-16 bg-white">
@@ -54,11 +44,11 @@ export function ProjectShowcase({
           {projects.map((project) => {
             const imageUrl = urlForImage(project.featuredImage)
               ?.width(900)
-              .height(isOverlay ? 900 : 675)
+              .height(900)
               .url();
             const blurDataURL = urlForImage(project.featuredImage)
               ?.width(20)
-              .height(15)
+              .height(20)
               .blur(50)
               .url();
             const location =
@@ -70,11 +60,7 @@ export function ProjectShowcase({
                 href={`/projects/${project.slug.current}`}
                 className="group block"
               >
-                <div
-                  className={`relative w-full overflow-hidden bg-gray-100 ${
-                    isOverlay ? "aspect-square" : "aspect-[4/3]"
-                  }`}
-                >
+                <div className="relative w-full overflow-hidden bg-gray-100 aspect-square">
                   {imageUrl && (
                     <Image
                       src={imageUrl}
@@ -87,37 +73,19 @@ export function ProjectShowcase({
                     />
                   )}
 
-                  {isOverlay && (
-                    <>
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
-                      <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                        <h3 className="text-base md:text-lg font-light text-white leading-snug mb-1.5">
-                          {project.title.trim()}
-                        </h3>
-                        {location && (
-                          <p className="text-xs text-white/80 uppercase tracking-[0.14em]">
-                            {location}
-                          </p>
-                        )}
-                      </div>
-                    </>
-                  )}
-                </div>
-
-                {!isOverlay && (
-                  <div className="pt-5">
-                    <h3 className="text-sm md:text-base font-medium text-gray-900 uppercase tracking-[0.12em] mb-2">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+                    <h3 className="text-base md:text-lg font-light text-white leading-snug mb-1.5">
                       {project.title.trim()}
                     </h3>
                     {location && (
-                      <p className="text-sm text-gray-500 mb-4">{location}</p>
+                      <p className="text-xs text-white/80 uppercase tracking-[0.14em]">
+                        {location}
+                      </p>
                     )}
-                    <span className="inline-flex items-center gap-2 text-xs font-medium text-gray-900 uppercase tracking-[0.14em]">
-                      {viewProjectLabel}
-                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
                   </div>
-                )}
+                </div>
+
               </Link>
             );
           })}

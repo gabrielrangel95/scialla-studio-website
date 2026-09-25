@@ -93,7 +93,7 @@ export default async function ArchitecturePage({ params }: Props) {
   // Projects flagged `architecture` or `both` in Sanity.
   const showcaseProjects = await sanityService.getAllProjects({
     serviceType: "architecture",
-    limit: 3,
+    limit: 4,
   });
 
   const structuredData = {
@@ -176,11 +176,13 @@ export default async function ArchitecturePage({ params }: Props) {
           />
 
           <ProjectShowcase
-            heading={t("projects.title")}
+            eyebrow={t("projects.eyebrow")}
+            heading={t("projects.heading")}
             projects={showcaseProjects}
-            captionPlacement="below"
-            viewProjectLabel={t("projects.viewProject")}
-            headingStyle="eyebrow"
+            cta={{
+              label: t("projects.cta"),
+              href: "/projects?serviceType=architecture",
+            }}
           />
 
           <CapabilityGrid
