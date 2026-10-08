@@ -161,10 +161,17 @@ export default async function ArchitecturePage({ params }: Props) {
           <LandingHero
             image={HERO_IMAGE}
             imageAlt={t("hero.imageAlt")}
+            eyebrow={t("hero.eyebrow")}
             title={t("hero.title")}
             subtitle={t("hero.subtitle")}
-            ctas={[{ label: t("hero.cta"), href: "#contact" }]}
-            uppercaseTitle
+            ctas={[
+              { label: t("hero.ctaPrimary"), href: "#contact" },
+              {
+                label: t("hero.ctaSecondary"),
+                href: "#featured-projects",
+                variant: "outline",
+              },
+            ]}
             objectPosition="center 38%"
           />
 
@@ -187,6 +194,7 @@ export default async function ArchitecturePage({ params }: Props) {
           />
 
           <ProjectShowcase
+            id="featured-projects"
             eyebrow={tFeatured("eyebrow")}
             heading={tFeatured("heading")}
             projects={showcaseProjects}
