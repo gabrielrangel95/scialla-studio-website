@@ -424,9 +424,11 @@
       "description": "Custom residential architecture for new homes, renovations and additions. Licensed architect Francesco Scialla designs homes defined by proportion, materiality and light — Orlando, Tampa, New York, Los Angeles and nationwide."
     },
     "hero": {
+      "eyebrow": "Orlando · Tampa · New York · Los Angeles",
       "title": "Custom Residential Architecture",
-      "subtitle": "Thoughtful architecture, designed around the way you live.",
-      "cta": "Start Your Project",
+      "subtitle": "Thoughtful architecture for custom homes, renovations and additions across Florida, New York and Los Angeles. We design residences around the way you live, from first sketch to final detail.",
+      "ctaPrimary": "Start Your Project",
+      "ctaSecondary": "View Our Work",
       "imageAlt": "Contemporary custom residence designed by Scialla Studio"
     },
     "intro": {

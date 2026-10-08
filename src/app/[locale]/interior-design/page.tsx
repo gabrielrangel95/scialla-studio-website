@@ -188,7 +188,7 @@ export default async function InteriorDesignPage({ params }: Props) {
               { label: t("hero.ctaPrimary"), href: "#contact" },
               {
                 label: t("hero.ctaSecondary"),
-                href: "/projects",
+                href: "#featured-projects",
                 variant: "outline",
               },
             ]}
@@ -215,6 +215,7 @@ export default async function InteriorDesignPage({ params }: Props) {
           />
 
           <ProjectShowcase
+            id="featured-projects"
             eyebrow={tFeatured("eyebrow")}
             heading={tFeatured("heading")}
             projects={projects}

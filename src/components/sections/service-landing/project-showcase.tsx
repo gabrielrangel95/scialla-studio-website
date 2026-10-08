@@ -10,6 +10,8 @@ interface ProjectShowcaseProps {
   projects: Project[];
   cta?: { label: string; href: string };
   headingStyle?: SectionHeadingStyle;
+  /** Anchor target, e.g. for the hero's "View Our Work" button. */
+  id?: string;
 }
 
 const GRID_CLASSES: Record<number, string> = {
@@ -23,6 +25,7 @@ export function ProjectShowcase({
   projects,
   cta,
   headingStyle = "display",
+  id,
 }: ProjectShowcaseProps) {
   // Sanity is the source of truth here — if it returns nothing, skip the band
   // entirely rather than rendering an empty grid.
@@ -31,7 +34,10 @@ export function ProjectShowcase({
   const columns = GRID_CLASSES[projects.length] ?? "sm:grid-cols-2 lg:grid-cols-3";
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-6 lg:px-12 xl:px-16 bg-white">
+    <section
+      id={id}
+      className="scroll-mt-20 py-16 md:py-24 px-4 md:px-6 lg:px-12 xl:px-16 bg-white"
+    >
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           eyebrow={eyebrow}

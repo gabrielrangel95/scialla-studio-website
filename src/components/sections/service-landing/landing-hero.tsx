@@ -15,8 +15,6 @@ interface LandingHeroProps {
   title: string;
   subtitle: string;
   ctas: LandingCta[];
-  /** Architecture sets its headline in caps, matching /process; interiors doesn't. */
-  uppercaseTitle?: boolean;
   /** `object-position` override for heroes whose subject sits off-centre. */
   objectPosition?: string;
 }
@@ -32,7 +30,6 @@ export function LandingHero({
   title,
   subtitle,
   ctas,
-  uppercaseTitle = false,
   objectPosition = "center",
 }: LandingHeroProps) {
   return (
@@ -60,11 +57,7 @@ export function LandingHero({
             </p>
           )}
 
-          <h1
-            className={`text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] mb-6 ${
-              uppercaseTitle ? "uppercase tracking-wider" : "tracking-tight"
-            }`}
-          >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-white leading-[1.1] tracking-tight mb-6">
             {title}
           </h1>
 
