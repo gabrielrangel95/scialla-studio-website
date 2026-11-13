@@ -12,6 +12,12 @@ interface ProjectShowcaseProps {
   headingStyle?: SectionHeadingStyle;
   /** Anchor target, e.g. for the hero's "View Our Work" button. */
   id?: string;
+  /**
+   * Which Sanity image to show on each card. `architectureImage` lets the
+   * Architecture page show an exterior shot while other pages keep the
+   * project's interior featured image; it falls back to `featuredImage`.
+   */
+  imageField?: "featuredImage" | "architectureImage";
 }
 
 const GRID_CLASSES: Record<number, string> = {
@@ -26,6 +32,7 @@ export function ProjectShowcase({
   cta,
   headingStyle = "display",
   id,
+  imageField = "featuredImage",
 }: ProjectShowcaseProps) {
   // Sanity is the source of truth here — if it returns nothing, skip the band
   // entirely rather than rendering an empty grid.
@@ -48,11 +55,15 @@ export function ProjectShowcase({
 
         <div className={`grid grid-cols-1 gap-6 md:gap-8 ${columns}`}>
           {projects.map((project) => {
-            const imageUrl = urlForImage(project.featuredImage)
+            const image =
+              (imageField === "architectureImage" && project.architectureImage?.asset
+                ? project.architectureImage
+                : undefined) ?? project.featuredImage;
+            const imageUrl = urlForImage(image)
               ?.width(900)
               .height(900)
               .url();
-            const blurDataURL = urlForImage(project.featuredImage)
+            const blurDataURL = urlForImage(image)
               ?.width(20)
               .height(20)
               .blur(50)
@@ -70,7 +81,7 @@ export function ProjectShowcase({
                   {imageUrl && (
                     <Image
                       src={imageUrl}
-                      alt={project.featuredImage?.alt || project.title}
+                      alt={image?.alt || project.title}
                       fill
                       className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                       placeholder={blurDataURL ? "blur" : "empty"}

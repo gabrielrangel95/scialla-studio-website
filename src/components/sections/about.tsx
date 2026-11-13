@@ -77,41 +77,28 @@ export function About() {
         </div>
 
         {/* Right: Image Grid */}
-        <div className="space-y-8">
-          <div className="grid grid-cols-2 gap-6">
-            <div className="space-y-6">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
-                  src="/scialla-studio-about-us.avif"
-                  alt="Francesco Scialla - Co-Founder and Lead Architect at Scialla Studio"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="text-gray-900">{t("team.francesco.name")}</h3>
-                <p className="text-sm text-gray-600">{t("team.francesco.title")}</p>
-              </div>
-            </div>
-
-            <div className="space-y-6 mt-8">
-              <div className="relative aspect-[3/4] overflow-hidden">
-                <Image
-                  src="/scialla-studio-interior-designer-tampa-fl.avif"
-                  alt="Valentina Pollio - Co-Founder and Creative Director at Scialla Studio"
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                />
-              </div>
-              <div className="text-center">
-                <h3 className="text-gray-900">{t("team.valentina.name")}</h3>
-                <p className="text-sm text-gray-600">{t("team.valentina.title")}</p>
-              </div>
-            </div>
+        <figure className="space-y-6">
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <Image
+              src="/scialla-studio-francesco-scialla-valentina-pollio.jpg"
+              alt="Francesco Scialla and Valentina Pollio, co-founders of Scialla Studio"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 45vw"
+            />
           </div>
-        </div>
+          {/* Names follow the photo's left-to-right order. */}
+          <figcaption className="grid grid-cols-2 gap-6 text-center">
+            <div>
+              <h3 className="text-gray-900">{t("team.francesco.name")}</h3>
+              <p className="text-sm text-gray-600">{t("team.francesco.title")}</p>
+            </div>
+            <div>
+              <h3 className="text-gray-900">{t("team.valentina.name")}</h3>
+              <p className="text-sm text-gray-600">{t("team.valentina.title")}</p>
+            </div>
+          </figcaption>
+        </figure>
       </div>
 
       {/* Trust Bar */}

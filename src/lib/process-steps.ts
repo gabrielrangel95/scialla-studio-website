@@ -4,11 +4,11 @@
  * Copy lives in `messages/*.json` under `processSteps.<key>`.
  */
 export const PROCESS_STEPS = [
-  { key: "discovery", image: "/scialla-studio-interior-design-consultation.png" },
-  { key: "concept", image: "/scialla-studio-interior-design.png" },
-  { key: "designDevelopment", image: "/scialla-studio-commercial-interior-design.jpg" },
-  { key: "documentation", image: "/scialla-studio-architectural-services.png" },
-  { key: "construction", image: "/scialla-studio-interior-design-los-angeles.png" },
+  { key: "discovery", image: "/scialla-studio-process-discovery.jpg" },
+  { key: "concept", image: "/scialla-studio-process-concept.jpg" },
+  { key: "designDevelopment", image: "/scialla-studio-process-design-development.jpg" },
+  { key: "documentation", image: "/scialla-studio-process-documentation.jpg" },
+  { key: "construction", image: "/scialla-studio-process-construction.jpg" },
 ] as const;
 
 export type TProcessStepKey = (typeof PROCESS_STEPS)[number]["key"];

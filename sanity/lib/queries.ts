@@ -33,6 +33,7 @@ export const projectsQuery = groq`
     serviceType,
     category,
     featuredImage,
+    architectureImage,
     description,
     completionDate,
     seo
@@ -114,6 +115,7 @@ export const projectsByCityQuery = groq`
     serviceType,
     category,
     featuredImage,
+    architectureImage,
     description,
     completionDate
   }

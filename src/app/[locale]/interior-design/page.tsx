@@ -28,8 +28,8 @@ type Props = {
 const BASE_URL = "https://www.sciallastudioid.com";
 const PATH = "/interior-design";
 
-const HERO_IMAGE = "/scialla-studio-interior-design.png";
-const INTRO_IMAGE = "/scialla-studio-interior-design-consultation.png";
+const HERO_IMAGE = "/scialla-studio-luxury-interior-design-hero.jpg";
+const INTRO_IMAGE = "/scialla-studio-interior-design-living-room.jpg";
 
 const CAPABILITY_KEYS = [
   "spacePlanning",
