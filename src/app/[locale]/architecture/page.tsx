@@ -25,7 +25,7 @@ type Props = {
 const BASE_URL = "https://www.sciallastudioid.com";
 const PATH = "/architecture";
 
-const HERO_IMAGE = "/scialla-studio-architectural-services.png";
+const HERO_IMAGE = "/scialla-studio-custom-residential-architecture-hero.jpg";
 const INTRO_IMAGE = "/scialla-studio-interior-design.png";
 
 const SERVICE_KEYS = ["customHomes", "renovations", "integrated"] as const;
@@ -198,6 +198,7 @@ export default async function ArchitecturePage({ params }: Props) {
             eyebrow={tFeatured("eyebrow")}
             heading={tFeatured("heading")}
             projects={showcaseProjects}
+            imageField="architectureImage"
             cta={{ label: tFeatured("cta"), href: "/projects" }}
           />
 

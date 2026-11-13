@@ -129,6 +129,24 @@ export default defineType({
       validation: Rule => Rule.required(),
     }),
     defineField({
+      name: 'architectureImage',
+      title: 'Architecture Page Image',
+      type: 'image',
+      description:
+        'Optional exterior image used for this project on the Architecture page. Falls back to Featured Image.',
+      options: {
+        hotspot: true,
+      },
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+          title: 'Alternative text',
+          description: 'Important for SEO and accessibility',
+        }
+      ],
+    }),
+    defineField({
       name: 'gallery',
       title: 'Project Gallery',
       type: 'array',

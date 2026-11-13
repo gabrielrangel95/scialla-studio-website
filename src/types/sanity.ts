@@ -58,6 +58,8 @@ export interface Project {
   serviceType: 'interior-design' | 'architecture' | 'both'
   category: string[]
   featuredImage: SanityImage
+  /** Exterior shot used on the Architecture page; falls back to featuredImage. */
+  architectureImage?: SanityImage
   gallery?: SanityImage[]
   description: PortableTextBlock[]
   completionDate?: string
