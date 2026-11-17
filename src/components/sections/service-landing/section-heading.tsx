@@ -40,7 +40,14 @@ export function SectionHeading({
           </h2>
         ) : (
           <h2 className="text-3xl md:text-4xl font-light text-gray-900 leading-tight tracking-tight">
-            {heading}
+            {/* Each sentence gets its own line on phones, e.g.
+                "Timeless Spaces." / "Tailored for Life."; one line from md up. */}
+            {heading.split(/(?<=\.)\s+/).map((sentence, i) => (
+              <span key={i} className="block md:inline">
+                {i > 0 && <span className="hidden md:inline"> </span>}
+                {sentence}
+              </span>
+            ))}
           </h2>
         ))}
 

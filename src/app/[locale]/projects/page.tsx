@@ -15,17 +15,12 @@ interface ProjectsPageProps {
     customLocation?: string
     category?: string
     serviceType?: string
-    page?: string
   }>
 }
 
 async function getProjectsData(searchParams?: ProjectsPageProps['searchParams']) {
   const params = await searchParams
   const { city, customLocation, category, serviceType } = params || {}
-  const page = parseInt(params?.page || '1')
-  const projectsPerPage = 12
-  const offset = (page - 1) * projectsPerPage
-
   const [allProjects, stats, customLocations] = await Promise.all([
     sanityService.getAllProjects({
       city,
@@ -43,16 +38,12 @@ async function getProjectsData(searchParams?: ProjectsPageProps['searchParams'])
     projects = projects.filter(p => p.customLocation === customLocation)
   }
 
-  // Apply pagination
-  const paginatedProjects = projects.slice(offset, offset + projectsPerPage)
-
+  // Show every project on one page — no pagination.
   return {
-    projects: paginatedProjects,
+    projects,
     totalCount: projects.length,
     stats,
-    customLocations,
-    currentPage: page,
-    hasMore: projects.length > offset + projectsPerPage
+    customLocations
   }
 }
 
@@ -136,7 +127,7 @@ export async function generateMetadata({ searchParams }: ProjectsPageProps): Pro
 
 export default async function ProjectsPage({ searchParams }: ProjectsPageProps) {
   const projectsData = await getProjectsData(searchParams)
-  const { projects, totalCount, stats, customLocations, currentPage, hasMore } = projectsData
+  const { projects, totalCount, stats, customLocations } = projectsData
   const params = await searchParams
   const { city, customLocation, category, serviceType } = params || {}
 
@@ -377,18 +368,6 @@ export default async function ProjectsPage({ searchParams }: ProjectsPageProps) 
                     )
                   })}
                 </div>
-
-                {/* Pagination */}
-                {hasMore && (
-                  <div className="mt-12 text-center">
-                    <Link
-                      href={`/projects?${city ? `city=${city}&` : ''}${customLocation ? `customLocation=${encodeURIComponent(customLocation)}&` : ''}${serviceType ? `serviceType=${serviceType}&` : ''}${category ? `category=${category}&` : ''}page=${currentPage + 1}`}
-                      className="inline-flex items-center px-6 py-3 text-sm font-medium text-gray-900 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-                    >
-                      Load More Projects
-                    </Link>
-                  </div>
-                )}
               </>
             ) : (
               <div className="text-center py-20">

@@ -100,7 +100,7 @@ export function Footer() {
                     className="flex items-center justify-center w-11 h-11 transition-transform duration-200 hover:scale-105"
                   >
                     <Image
-                      src="/scialla-studio-architect-interior-designer-tampa-ADPD-award-2024-white.png"
+                      src="/scialla-studio-ADPRO-directory-2024-badge-white.png"
                       alt="Architectural Digest Professional Directory 2024"
                       width={44}
                       height={44}
@@ -114,7 +114,7 @@ export function Footer() {
                     className="flex items-center justify-center w-11 h-11 transition-transform duration-200 hover:scale-105"
                   >
                     <Image
-                      src="/scialla-ADPRO_Directory_MemberBadge2025_White.png"
+                      src="/scialla-studio-ADPRO-directory-2025-badge-white.png"
                       alt="Architectural Digest Professional Directory 2025"
                       width={44}
                       height={44}
@@ -128,7 +128,7 @@ export function Footer() {
                     className="flex items-center justify-center w-11 h-11 transition-transform duration-200 hover:scale-105"
                   >
                     <Image
-                      src="/scialla-studio-architect-interior-designer-tampa-ADPD-award-white-2026.png"
+                      src="/scialla-studio-ADPRO-directory-2026-badge-white.png"
                       alt="Architectural Digest Professional Directory 2026"
                       width={44}
                       height={44}
