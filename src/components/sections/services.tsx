@@ -41,7 +41,7 @@ export function Services() {
         t("architectural.services.sitePlanning"),
         t("architectural.services.structural"),
       ],
-      image: "/scialla-studio-architectural-services.png",
+      image: "/scialla-studio-architectural-services.jpg",
       href: "/architecture",
     },
     {
