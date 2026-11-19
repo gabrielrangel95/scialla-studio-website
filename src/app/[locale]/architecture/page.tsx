@@ -28,6 +28,12 @@ const PATH = "/architecture";
 const HERO_IMAGE = "/scialla-studio-custom-residential-architecture-hero.jpg";
 const INTRO_IMAGE = "/scialla-studio-interior-design.png";
 
+// Francesco wants Gallagher House (exterior shot) leading the showcase in
+// place of Oceanfront Residence, which has no exterior image.
+const SHOWCASE_LEAD_SLUG = "gallagher-house-modern-sculptural-interior-tampa-fl";
+const SHOWCASE_EXCLUDED_SLUGS = ["oceanfront-residence"];
+const SHOWCASE_LIMIT = 4;
+
 const SERVICE_KEYS = ["customHomes", "renovations", "integrated"] as const;
 const SERVICE_ICONS = {
   customHomes: CustomHomesIcon,
@@ -91,11 +97,15 @@ export default async function ArchitecturePage({ params }: Props) {
   const tSteps = await getTranslations({ locale, namespace: "processSteps" });
   const tFeatured = await getTranslations({ locale, namespace: "featuredProjects" });
 
-  // Projects flagged `architecture` or `both` in Sanity.
-  const showcaseProjects = await sanityService.getAllProjects({
-    serviceType: "architecture",
-    limit: 4,
-  });
+  // Projects flagged `architecture` or `both` in Sanity, with Gallagher House
+  // pinned first and Oceanfront left out (see SHOWCASE_LEAD_SLUG).
+  const architectureProjects = (
+    await sanityService.getAllProjects({ serviceType: "architecture" })
+  ).filter((p) => !SHOWCASE_EXCLUDED_SLUGS.includes(p.slug.current));
+  const showcaseProjects = [
+    ...architectureProjects.filter((p) => p.slug.current === SHOWCASE_LEAD_SLUG),
+    ...architectureProjects.filter((p) => p.slug.current !== SHOWCASE_LEAD_SLUG),
+  ].slice(0, SHOWCASE_LIMIT);
 
   const structuredData = {
     "@context": "https://schema.org",
